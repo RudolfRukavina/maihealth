@@ -29,11 +29,12 @@
       <ClientOnly>
         <div class="text-center mb-16" v-motion :initial="{ opacity: 0, y: 40 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Popular Boat Excursions</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Premium Boat Experiences</h2>
           <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-red-700 mx-auto"></div>
           <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
-            Discover the breathtaking Adriatic coastline with our premium boat excursions from Poreč.
-            All prices include comfortable transportation, refreshments, and expert guidance.
+            Discover the breathtaking Adriatic coastline with Poseidon's premium boat excursions from Poreč.
+            We offer convenient hotel pickups, taxi services, and unforgettable adventures along Croatia's stunning
+            shores.
           </p>
         </div>
       </ClientOnly>
@@ -94,7 +95,7 @@
                 <!-- Price indicator -->
                 <div
                   class="absolute bottom-3 right-3 z-10 flex items-center text-xs font-bold text-white bg-red-600/80 rounded-full px-3 py-1">
-                  From €{{ excursion.startPrice }}
+                  From €{{ excursion.price }}
                 </div>
               </div>
 
@@ -123,7 +124,7 @@
                 </div>
 
                 <!-- Highlights -->
-                <div class="mb-4">
+                <div class="mb-6">
                   <h4 class="text-white font-medium mb-2">Highlights:</h4>
                   <ul class="space-y-1">
                     <li v-for="(highlight, hIndex) in excursion.highlights" :key="hIndex"
@@ -139,27 +140,31 @@
                   </ul>
                 </div>
 
-                <!-- Boat options -->
-                <div class="space-y-3">
-                  <div v-for="boat in excursion.boats" :key="`${excursion.id}-${boat.type}`"
-                    @click="selectBoat(excursion, boat)"
-                    class="flex justify-between items-center py-2 border-b border-white/10 last:border-0 cursor-pointer transition-all duration-300 px-2 rounded-lg"
-                    :class="isBoatSelected(excursion.id, boat.type) ?
-                      'bg-red-600/20 border-red-600/30' :
-                      'hover:bg-white/5'">
+                <!-- Poseidon Boat info -->
+                <div class="border-t border-white/10 pt-4 pb-2">
+                  <div class="flex justify-between items-center">
                     <div class="flex items-center">
-                      <component :is="boatIcons[boat.type]" class="w-5 h-5 text-gray-400 mr-3"
-                        :class="isBoatSelected(excursion.id, boat.type) ? 'text-red-500' : ''" />
+                      <svg class="w-5 h-5 text-red-500 mr-3" fill="currentColor" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 511.998 511.998" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <g>
+                            <g>
+                              <path
+                                d="M510.652,230.062c-1.357-2.116-3.567-3.524-6.05-3.857l-128-17.067c-4.617-0.606-8.96,2.662-9.591,7.33 c-0.631,4.668,2.662,8.969,7.33,9.591l18.193,2.423v21.675l-42.667-4.574v-42.47l15.633-23.45c1.707-2.56,1.903-5.837,0.521-8.576 c-1.391-2.748-4.147-4.54-7.219-4.685l-179.2-8.533c-2.876-0.026-5.666,1.212-7.347,3.567l-42.667,59.733 c-0.171,0.239-0.205,0.529-0.35,0.777L9.438,209.113c-2.423-0.256-4.813,0.521-6.613,2.133C1.033,212.868,0,215.172,0,217.595 c0,75.281,88.047,136.533,196.267,136.533h273.067c3.746,0,7.057-2.441,8.158-6.025l34.133-110.933 C512.358,234.773,512,232.17,510.652,230.062z M409.6,251.728v-20.975l34.133,4.548v20.335l-34.185-3.661 C409.549,251.891,409.6,251.814,409.6,251.728z M264.047,178.982l78.899,3.755l-8.713,13.056c-0.93,1.399-1.434,3.055-1.434,4.736 v43.23l-76.834-8.235L264.047,178.982z M183.441,175.142l63.479,3.021l-7.902,55.287c-0.009,0.085,0.026,0.171,0.017,0.256 l-90.505-9.694L183.441,175.142z M463.027,337.062H196.267c-75.418,0-140.015-31.258-166.417-75.332l441.267,49.033 L463.027,337.062z M476.228,294.165L21.564,243.647c-1.809-5.385-3.26-10.863-3.925-16.486l463.915,49.698L476.228,294.165z M486.665,260.245l-25.865-2.773V237.58l31.548,4.207L486.665,260.245z">
+                              </path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
                       <div>
-                        <div class="text-white text-sm"
-                          :class="isBoatSelected(excursion.id, boat.type) ? 'font-medium' : ''">{{
-                            boatNames[boat.type] }}</div>
-                        <div class="text-gray-400 text-xs">{{ boat.capacity }}</div>
+                        <div class="text-white text-sm font-medium">Poseidon Boat</div>
+                        <div class="text-gray-400 text-xs">Premium experience with skipper</div>
                       </div>
                     </div>
-                    <div class="text-lg font-bold"
-                      :class="isBoatSelected(excursion.id, boat.type) ? 'text-red-500' : 'text-red-500/80'">
-                      €{{ boat.price }}</div>
+                    <div class="text-lg font-bold text-red-500">€{{ excursion.price }}</div>
                   </div>
                 </div>
               </div>
@@ -182,7 +187,7 @@
         </ClientOnly>
       </div>
 
-      <!-- Custom request section -->
+      <!-- Services section -->
       <ClientOnly>
         <div class="mt-16 text-center p-8 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm" v-motion
           :initial="{ opacity: 0 }" :enter="{ opacity: 1, transition: { delay: 400, duration: 800 } }">
@@ -210,187 +215,93 @@ import { ref, computed, defineComponent, h } from 'vue';
 
 // Updated categories for filtering excursions
 const categories = [
-  { id: 'all', name: 'All Excursions' },
+  { id: 'all', name: 'All Experiences' },
   { id: 'scenic', name: 'Scenic Cruises' },
-  { id: 'adventure', name: 'Dolphin Adventures' },
-  { id: 'destinations', name: 'Destinations' }
+  { id: 'adventure', name: 'Dolphin & Water Sports' },
+  { id: 'hidden', name: 'Hidden Gems' },
 ];
 
 // Active category for filtering
 const activeCategory = ref('all');
-
-// Selected boats map (excursionId -> boatType)
-const selectedBoats = ref({});
-
-// Boat icon components
-const StandardIcon = defineComponent({
-  render: () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', { d: 'M3,13.5L2,13L11,4L21.5,13.5L20.5,14L19,12.8V20H5V12.8L3,13.5M10,20H14V15H10V20M19,9.13V7H16V4H14V6.1L11,3.5L5,8.5V10.25L11,5L19,11.5V9.13H19Z' })
-  ])
-});
-
-const SpeedIcon = defineComponent({
-  render: () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', { d: 'M3 18C3.26 13.79 5.94 10.27 9.88 9.13C10.21 9 10.55 9.04 10.84 9.19C11.13 9.34 11.36 9.59 11.5 9.88C11.56 10.04 11.6 10.19 11.6 10.35C11.17 10.55 10.77 10.84 10.43 11.18C10.05 11.56 9.76 12.03 9.58 12.56C9.39 13.09 9.31 13.65 9.34 14.22C9.35 15.23 9.8 16.19 10.57 16.88C11.35 17.57 12.37 17.89 13.39 17.77C14.37 17.66 15.43 17.23 16.15 16.53C16.83 15.83 17.28 14.96 17.45 14L21.56 16.89C21.76 17.08 21.99 17.28 22.1 17.53C22.22 17.8 22.24 18.09 22.16 18.38C20.75 18.83 19.25 19.17 17.68 19.39C16.07 19.62 14.43 19.72 12.8 19.7C11.18 19.68 9.55 19.53 7.96 19.26C6.38 18.99 4.86 18.61 3.41 18.08C3.28 18.03 3.14 17.97 3 17.91V18Z' })
-  ])
-});
-
-const LuxuryIcon = defineComponent({
-  render: () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-    h('path', { d: 'M21,13.5V18H19.5V13.5C19.5,11.84 17.16,10.5 15.5,10.5V18H14V10.5C12.32,10.5 10,11.84 10,13.5V14.5H3V8.25C3,8.25 3,8 3.25,8H4.12L6.12,5.25C6.12,5.25 6.38,5 6.62,5H17.5C17.75,5 18,5.25 18,5.25L20,8H20.75C21,8 21,8.25 21,8.25V10.5C21,10.5 21,10.75 20.75,10.75H19.5C20.5,11.5 21,12.5 21,13.5M5,10.5H8V12H5V10.5Z' })
-  ])
-});
-
-// Boat icons mapping
-const boatIcons = {
-  Standard: StandardIcon,
-  Speedboat: SpeedIcon,
-  Luxury: LuxuryIcon
-};
-
-// Boat names mapping
-const boatNames = {
-  Standard: 'Traditional Wooden Boat',
-  Speedboat: 'Speed Boat',
-  Luxury: 'Luxury Yacht'
-};
 
 // Updated excursion data with boat excursions from Poreč
 const excursions = [
   {
     id: 'rovinj-lim',
     name: 'Rovinj & Lim Fjord Cruise',
-    categories: ['scenic', 'destinations'],
+    categories: ['scenic', 'hidden'],
     image: 'https://www.venezialines.com/wp-content/uploads/2021/01/01-ISTRA-Rt-Kamenjak-DJI_0184-Pano_ACR-aleksandar-gospic.jpg',
     duration: 'Full day (7-8 hours)',
     route: 'Poreč → Lim Fjord → Rovinj → Vrsar → Poreč',
-    startPrice: 46,
+    price: 55,
     suitability: 'All ages, great for families',
-    description: 'Discover the breathtaking Istrian coastline on this full-day wooden boat cruise to the romantic old town of Rovinj and the stunning Lim Fjord.',
+    description: 'Discover the breathtaking Istrian coastline on this full-day cruise to the romantic old town of Rovinj and the stunning Lim Fjord. Hotel pickup available.',
     highlights: [
       'Free time to explore the charming Rovinj old town',
-      'Cruise through the impressive Lim Fjord',
-      'Visit to the Pirate Cave',
+      'Cruise through the impressive Lim Fjord natural reserve',
+      'Visit to the hidden Pirate Cave only accessible by boat',
       'Swimming break in crystal clear waters',
-      'On-board lunch with drinks included'
-    ],
-    boats: [
-      { type: 'Standard', capacity: 'Up to 40 passengers', price: 46 },
-      { type: 'Speedboat', capacity: 'Up to 12 passengers', price: 85 },
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 130 }
+      'On-board lunch with drinks included',
+      'Hotel pickup service available'
     ]
   },
   {
     id: 'dolphin-sunset',
     name: 'Dolphin Watching & Sunset Cruise',
     categories: ['adventure', 'scenic'],
-    image: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/10/61/37/73.jpg',
+    image: 'https://wallpapers.com/images/hd/dolphin-sunset-1xvw43odgmraecu1.jpg',
     duration: '2-3 hours (Evening)',
     route: 'Poreč → Vrsar coast → Lim Channel area → Poreč',
-    startPrice: 35,
+    price: 45,
     suitability: 'All ages, wildlife enthusiasts',
-    description: 'Experience the magical Adriatic sunset while searching for dolphins in their natural habitat on this unforgettable evening cruise.',
+    description: 'Experience the magical Adriatic sunset while searching for dolphins in their natural habitat on this unforgettable evening cruise with expert guidance.',
     highlights: [
-      'Professional guidance to find wild dolphins',
+      'Professional guidance to find wild dolphins in their natural habitat',
       'Breathtaking sunset views over the Adriatic',
-      'Complimentary drinks on board',
-      'Small group experience',
-      'Educational commentary about marine life'
-    ],
-    boats: [
-      { type: 'Standard', capacity: 'Up to 40 passengers', price: 35 },
-      { type: 'Speedboat', capacity: 'Up to 12 passengers', price: 63 },
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 120 }
+      'Complimentary drinks and light snacks on board',
+      'Small group experience for personalized attention',
+      'Educational commentary about marine life and conservation',
+      'Convenient hotel pickup and return service'
     ]
   },
   {
-    id: 'panoramic-coastal',
-    name: 'Panoramic Coastal Cruise',
-    categories: ['scenic'],
-    image: 'https://www.otiumyachts.com/img/db/news-media/41dc0780b2983a21b18f4c341d4969d7.png',
-    duration: '2 hours',
-    route: 'Poreč → St. Nicholas Island → Coastal islets → Poreč',
-    startPrice: 24,
-    suitability: 'All ages, perfect for photography',
-    description: 'Enjoy a relaxing short cruise along the picturesque Poreč coastline with stunning views of the historic city, St. Nicholas Island, and numerous small islets.',
-    highlights: [
-      'Beautiful panoramic views of Poreč',
-      'Cruise around St. Nicholas Island',
-      'Journey through 20 picturesque islets',
-      'Complimentary welcome drink and refreshments',
-      'Perfect for stunning photos'
-    ],
-    boats: [
-      { type: 'Standard', capacity: 'Up to 40 passengers', price: 24 },
-      { type: 'Speedboat', capacity: 'Up to 12 passengers', price: 45 },
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 80 }
-    ]
+    id: 'hidden-gems',
+    name: 'Hidden Coves & Secret Beaches',
+    categories: ['hidden', 'adventure'],
+    image: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/a7/ff/90.jpg',
+    duration: '5-6 hours',
+    route: 'Poreč → Hidden coves → Secluded beaches → Poreč',
+    price: 65,
+    suitability: 'All ages, adventure seekers',
+    description: 'Explore Croatia best kept secrets with our exclusive excursion to hidden coves and pristine beaches that are only accessible by boat.',
+highlights: [
+  'Visit to secluded beaches away from tourist crowds',
+  'Swimming and snorkeling in crystal clear waters',
+  'Explore hidden caves and coves along the coast',
+  'Snorkeling equipment provided free of charge',
+  'Delicious picnic lunch with local specialties',
+  'Personalized experience with knowledgeable local skipper'
+]
   },
-  {
-    id: 'fish-picnic',
-    name: 'Traditional Fish Picnic Cruise',
-    categories: ['scenic', 'destinations'],
-    image: 'https://lp-cms-production.imgix.net/2019-06/fceaf2deb10be426656b6b5915dd2565-bled-island.jpg',
-    duration: 'Full day (6-7 hours)',
-    route: 'Poreč → Vrsar → Swimming spots → Poreč',
-    startPrice: 55,
-    suitability: 'All ages, food enthusiasts',
-    description: 'Combine sightseeing with culinary delights on this traditional fish picnic cruise along the beautiful Istrian coastline.',
-    highlights: [
-      'Visit to the charming town of Vrsar',
-      'Swimming and snorkeling in secluded bays',
-      'Freshly prepared fish lunch on board',
-      'Unlimited drinks (wine, juice, water)',
-      'Relaxed atmosphere with beautiful scenery'
-    ],
-    boats: [
-      { type: 'Standard', capacity: 'Up to 40 passengers', price: 55 },
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 120 }
-    ]
-  },
-  {
-    id: 'evening-romantic',
-    name: 'Evening Romantic Cruise',
-    categories: ['scenic'],
-    image: 'https://np-plitvicka-jezera.hr/wp-content/uploads/2023/09/S-view-2-1.jpg',
-    duration: '2-3 hours (Evening)',
-    route: 'Poreč → Coastal cruise → Sunset viewing → Poreč',
-    startPrice: 39,
-    suitability: 'Adults, couples, romantic experience',
-    description: 'Create unforgettable memories with your loved one on this romantic evening cruise along the stunning Istrian coastline as the sun sets over the Adriatic.',
-    highlights: [
-      'Breathtaking sunset views',
-      'Complimentary glass of champagne',
-      'Romantic music',
-      'Light refreshments included',
-      'Intimate atmosphere'
-    ],
-    boats: [
-      { type: 'Standard', capacity: 'Up to 40 passengers', price: 39 },
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 95 }
-    ]
-  },
-  {
-    id: 'private-yacht',
-    name: 'Private Yacht Experience',
-    categories: ['adventure', 'destinations'],
-    image: 'https://www.campinginparks.eu/attachment/thumbnail/5c582663081be/pp-ucka-stipesurac.jpg',
-    duration: 'Flexible (4-8 hours)',
-    route: 'Customizable itinerary',
-    startPrice: 450,
-    suitability: 'All ages, luxury experience seekers',
-    description: 'Indulge in the ultimate Adriatic experience with a private yacht charter, allowing you to design your perfect day on the water with a professional skipper.',
-    highlights: [
-      'Fully customizable itinerary',
-      'Professional skipper',
-      'Access to secluded beaches and coves',
-      'Premium refreshments included',
-      'Water sports equipment available'
-    ],
-    boats: [
-      { type: 'Luxury', capacity: 'Up to 10 passengers', price: 450 }
-    ]
-  }
+{
+  id: 'island-hopping',
+    name: 'Island Hopping Adventure',
+      categories: ['adventure', 'hidden'],
+  image: 'https://alwayscroatia.com/wp-content/uploads/2023/02/shutterstock_1006048579-1-scaled.jpg',
+          duration: 'Full day (7-8 hours)',
+            route: 'Poreč → Sv. Nikola → Coastal islets → Poreč',
+              price: 70,
+                suitability: 'All ages, nature lovers',
+                  description: 'Jump from island to island around the stunning Poreč archipelago, discovering hidden treasures and enjoying swimming stops at the most beautiful locations.',
+                    highlights: [
+                      'Visit to St. Nicholas Island with its beautiful pine forests',
+                      'Explore multiple small islands and islets in one day',
+                      'Several swimming and snorkeling stops in pristine waters',
+                      'Fresh seafood lunch served on board',
+                      'Water donut rides for the adventurous',
+                      'Visit to a hidden lighthouse with panoramic views'
+                    ]
+},
 ];
 
 // Filtered excursions based on active category
@@ -401,36 +312,20 @@ const filteredExcursions = computed(() => {
   return excursions.filter(excursion => excursion.categories.includes(activeCategory.value));
 });
 
-// Check if boat is selected
-const isBoatSelected = (excursionId, boatType) => {
-  return selectedBoats.value[excursionId] === boatType;
-};
-
-// Select boat for an excursion
-const selectBoat = (excursion, boat) => {
-  selectedBoats.value[excursion.id] = boat.type;
-};
-
 // Generate mailto link for booking
 const getMailtoLink = (excursion) => {
-  const selectedBoat = selectedBoats.value[excursion.id]
-    ? excursion.boats.find(b => b.type === selectedBoats.value[excursion.id])
-    : excursion.boats[0];
-
   const subject = encodeURIComponent(`Boat Excursion Booking: ${excursion.name}`);
-  const boatInfo = selectedBoat
-    ? `${boatNames[selectedBoat.type]} (${selectedBoat.capacity}, €${selectedBoat.price})`
-    : 'Not specified';
 
   const body = encodeURIComponent(
     `Hello,\n\n` +
-    `I'd like to book the ${excursion.name} boat excursion.\n\n` +
+    `I'd like to book the ${excursion.name} boat excursion with Poseidon.\n\n` +
     `Here are my details:\n` +
     `Name: \n` +
     `Phone Number: \n` +
     `Preferred Date: \n` +
-    `Number of passengers: \n\n` +
-    `I've selected the ${boatInfo} option.\n\n` +
+    `Number of passengers: \n` +
+    `Accommodation/Pickup Location: \n\n` +
+    `Total price: €${excursion.price} per person\n\n` +
     `Could you please confirm availability and let me know if you need any additional information?\n\n` +
     `Thank you!`
   );

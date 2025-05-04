@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="social-icons flex items-center space-x-2">
-            <a href="https://www.facebook.com/profile.php?id=61573394503894" target='_blank' aria-label="Facebook"
+            <a href="" target='_blank' aria-label="Facebook"
               class="text-white hover:text-red-500 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
                 <path

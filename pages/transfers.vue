@@ -27,11 +27,11 @@ useHead({
     },
     {
       property: 'og:image',
-      content: 'https://citytransfers.hr/images/transfers.png'
+      content: 'https://taxiboatposeidon.com/images/transfers.png'
     },
     {
       property: 'og:url',
-      content: 'https://citytransfers.hr/transfers'
+      content: 'https://taxiboatposeidon.com/transfers'
     },
     {
       property: 'og:type',
@@ -51,7 +51,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://citytransfers.hr/images/transfers.png'
+      content: 'https://taxiboatposeidon.com/images/transfers.png'
     },
     {
       name: 'robots',
@@ -74,7 +74,7 @@ useHead({
     },
     {
       rel: 'canonical',
-      href: 'https://citytransfers.hr/transfers'
+      href: 'https://taxiboatposeidon.com/transfers'
     }
   ],
   script: [
@@ -84,9 +84,9 @@ useHead({
         "@context": "https://schema.org",
         "@type": "TaxiService",
         "name": "Poreč City Taxi & Transfers",
-        "url": "https://citytransfers.hr/transfers",
-        "logo": "https://citytransfers.hr/images/transfers.png",
-        "image": "https://citytransfers.hr/images/transfers.png",
+        "url": "https://taxiboatposeidon.com/transfers",
+        "logo": "https://taxiboatposeidon.com/images/transfers.png",
+        "image": "https://taxiboatposeidon.com/images/transfers.png",
         "description": "Premium door-to-door transfer services between Poreč and all major airports including Pula, Zagreb, Venice, Trieste, and Ljubljana with fixed rates and professional drivers.",
         "address": {
           "@type": "PostalAddress",
@@ -107,7 +107,7 @@ useHead({
             "@type": "Place",
             "name": "Istria"
           },
-          "url": "https://citytransfers.hr/transfers"
+          "url": "https://taxiboatposeidon.com/transfers"
         },
         "openingHours": "Mo-Su 00:00-23:59"
       })

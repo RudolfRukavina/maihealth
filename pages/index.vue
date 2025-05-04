@@ -12,31 +12,31 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 // Set the page head metadata
 useHead({
-  title: 'Homepage | Poreč City Taxi & Transfers | Premium Transportation Services',
+  title: 'Taxi Boat Poseidon | Premium Sea Transfers & Excursions | Poreč, Croatia',
   meta: [
     {
       name: 'description',
-      content: 'Experience premium transportation in Poreč with our expert drivers and luxurious fleet. Airport transfers, local taxi, excursions, and bicycle transport services available 24/7.'
+      content: 'Experience premium sea transportation in Poreč with Taxi Boat Poseidon. Enjoy coastal excursions, island hopping, sunset cruises, and private boat transfers along the beautiful Istrian coast of Croatia.'
     },
     {
       name: 'keywords',
-      content: 'Poreč taxi, airport transfers, Istria transportation, luxury taxi, Poreč tours, bicycle transport, Mercedes fleet, Poreč excursions, premium transfer service'
+      content: 'taxi boat Poreč, boat excursions Croatia, Istria sea transfers, island hopping Poreč, boat taxi Croatia, Adriatic sea tours, Poreč coastal transportation, private boat hire, Poseidon boat service, Croatia boat tours'
     },
     {
       property: 'og:title',
-      content: 'Poreč City Taxi & Transfers | Premium Transportation Services'
+      content: 'Taxi Boat Poseidon | Premium Sea Transfers & Excursions | Poreč'
     },
     {
       property: 'og:description',
-      content: 'Premium taxi and transfer services in Poreč featuring Mercedes vehicles, multilingual drivers, and 24/7 availability for airport transfers, city tours, and excursions.'
+      content: 'Premium boat taxi and sea excursion services in Poreč featuring comfortable vessels, experienced skippers, and tailored Adriatic experiences including island tours and coastal transfers.'
     },
     {
       property: 'og:image',
-      content: 'https://www.porec.hr/thumbnail.aspx?filename=/cmsmedia/sadrzaj/homepage/96201.jpg&width=1920&height=900&trim=1&save=1&quality=80'
+      content: 'https://taxiboatposeidon.com/images/hero-boat.jpg' // You'll need a high-quality boat image here
     },
     {
       property: 'og:url',
-      content: 'https://citytransfers.hr'
+      content: 'https://taxiboatposeidon.com'
     },
     {
       property: 'og:type',
@@ -48,15 +48,15 @@ useHead({
     },
     {
       name: 'twitter:title',
-      content: 'Poreč City Taxi & Transfers | Premium Transportation Services'
+      content: 'Taxi Boat Poseidon | Premium Sea Transfers & Excursions | Poreč'
     },
     {
       name: 'twitter:description',
-      content: 'Experience premium transportation with our premium fleet, professional multilingual drivers, and tailored services including airport transfers and guided excursions.'
+      content: 'Explore the stunning Istrian coastline with our premium boat taxi services. Island hopping, coastal excursions, and private transfers with expert local skippers.'
     },
     {
       name: 'twitter:image',
-      content: 'https://www.porec.hr/thumbnail.aspx?filename=/cmsmedia/sadrzaj/homepage/96201.jpg&width=1920&height=900&trim=1&save=1&quality=80'
+      content: 'https://taxiboatposeidon.com/images/hero-boat.jpg' // Same image as og:image
     },
     {
       name: 'robots',
@@ -70,6 +70,26 @@ useHead({
       name: 'geo.placename',
       content: 'Poreč'
     },
+    {
+      name: 'geo.position',
+      content: '45.2271;13.5947' // Coordinates for Poreč
+    },
+    {
+      name: 'ICBM',
+      content: '45.2271, 13.5947' // Coordinates in another format
+    },
+    {
+      name: 'language',
+      content: 'en-US'
+    },
+    {
+      name: 'author',
+      content: 'Taxi Boat Poseidon'
+    },
+    {
+      name: 'format-detection',
+      content: 'telephone=no'
+    }
   ],
   link: [
     {
@@ -79,7 +99,27 @@ useHead({
     },
     {
       rel: 'canonical',
-      href: 'https://citytransfers.hr'
+      href: 'https://taxiboatposeidon.com'
+    },
+    {
+      rel: 'alternate',
+      hreflang: 'en',
+      href: 'https://taxiboatposeidon.com'
+    },
+    {
+      rel: 'alternate',
+      hreflang: 'hr',
+      href: 'https://taxiboatposeidon.com/hr'
+    },
+    {
+      rel: 'alternate',
+      hreflang: 'de',
+      href: 'https://taxiboatposeidon.com/de'
+    },
+    {
+      rel: 'alternate',
+      hreflang: 'it',
+      href: 'https://taxiboatposeidon.com/it'
     }
   ]
 });

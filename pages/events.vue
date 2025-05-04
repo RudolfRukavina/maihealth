@@ -27,11 +27,11 @@ useHead({
     },
     {
       property: 'og:image',
-      content: 'https://citytransfers.hr/images/events.png'
+      content: 'https://taxiboatposeidon.com/images/events.png'
     },
     {
       property: 'og:url',
-      content: 'https://citytransfers.hr/events'
+      content: 'https://taxiboatposeidon.com/events'
     },
     {
       property: 'og:type',
@@ -51,7 +51,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://citytransfers.hr/images/events.png'
+      content: 'https://taxiboatposeidon.com/images/events.png'
     },
     {
       name: 'robots',
@@ -74,7 +74,7 @@ useHead({
     },
     {
       rel: 'canonical',
-      href: 'https://citytransfers.hr/events'
+      href: 'https://taxiboatposeidon.com/events'
     }
   ],
   script: [
@@ -84,8 +84,8 @@ useHead({
         "@context": "https://schema.org",
         "@type": "Event",
         "name": "Istria Local Events and Festivals",
-        "url": "https://citytransfers.hr/events",
-        "image": "https://citytransfers.hr/images/events.png",
+        "url": "https://taxiboatposeidon.com/events",
+        "image": "https://taxiboatposeidon.com/images/events.png",
         "description": "Experience vibrant festivals and events across Istria with convenient transportation. From food festivals to concerts and cultural performances, we make attending easy.",
         "startDate": "2025-01-01",  // Adjust to an actual start date or remove if not relevant
         "endDate": "2025-12-31",    // Adjust to an actual end date or remove if not relevant
@@ -101,7 +101,7 @@ useHead({
         },
         "offers": {
           "@type": "Offer",
-          "url": "https://citytransfers.hr/events",
+          "url": "https://taxiboatposeidon.com/events",
           "priceCurrency": "EUR",
           "price": "Variable", // You can set specific prices or remove if uncertain
           "eligibleRegion": {

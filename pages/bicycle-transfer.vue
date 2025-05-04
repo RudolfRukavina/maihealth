@@ -27,11 +27,11 @@ useHead({
     },
     {
       property: 'og:image',
-      content: 'https://citytransfers.hr/images/cycling.png'
+      content: 'https://taxiboatposeidon.com/images/cycling.png'
     },
     {
       property: 'og:url',
-      content: 'https://citytransfers.hr/bicycle-transfer'
+      content: 'https://taxiboatposeidon.com/bicycle-transfer'
     },
     {
       property: 'og:type',
@@ -51,7 +51,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://citytransfers.hr/images/cycling.png'
+      content: 'https://taxiboatposeidon.com/images/cycling.png'
     },
     {
       name: 'robots',
@@ -74,7 +74,7 @@ useHead({
     },
     {
       rel: 'canonical',
-      href: 'https://citytransfers.hr/bicycle-transfer'
+      href: 'https://taxiboatposeidon.com/bicycle-transfer'
     }
   ],
   script: [
@@ -84,9 +84,9 @@ useHead({
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Bicycle Transport Services in Istria",
-        "url": "https://citytransfers.hr/bicycle-transfer",
-        "logo": "https://citytransfers.hr/images/cycling.png",
-        "image": "https://citytransfers.hr/images/cycling.png",
+        "url": "https://taxiboatposeidon.com/bicycle-transfer",
+        "logo": "https://taxiboatposeidon.com/images/cycling.png",
+        "image": "https://taxiboatposeidon.com/images/cycling.png",
         "description": "We provide reliable bicycle transport services for cyclists in Istria. From Poreč and across the peninsula, we offer flexible scheduling and safe handling of your bicycles.",
         "address": {
           "@type": "PostalAddress",
@@ -107,7 +107,7 @@ useHead({
             "@type": "Place",
             "name": "Istria"
           },
-          "url": "https://citytransfers.hr/bicycle-transfer"
+          "url": "https://taxiboatposeidon.com/bicycle-transfer"
         },
         "openingHours": "Mo-Su 00:00-23:59",
         "serviceType": "Bicycle Transfer" // This could be customized if there are specific types of transfers

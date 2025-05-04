@@ -161,7 +161,7 @@
           <h5 class="text-base font-medium mb-3">{{ $t('footer.follow_us') }}</h5>
           <div class="flex">
             <!-- Only Facebook Icon -->
-            <a href="https://www.facebook.com/profile.php?id=61573394503894" target='_blank' aria-label="Facebook"
+            <a href="" target='_blank' aria-label="Facebook"
               class="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all duration-300 transform hover:scale-110 group">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
                 <path
