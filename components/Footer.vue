@@ -16,7 +16,7 @@
         <div class="space-y-4">
           <div class="flex items-center mb-6">
             <span class="text-2xl font-bold">
-<img src="/poseidon.svg" alt="">
+              <img src="/poseidon.svg" alt="">
             </span>
           </div>
           <p class="text-gray-400 text-sm">
@@ -53,8 +53,7 @@
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <a href="mailto:poseidon@gmail.com"
-              class="hover:text-red-500 transition-colors">poseidon@gmail.com</a>
+            <a href="mailto:poseidon@gmail.com" class="hover:text-red-500 transition-colors">poseidon@gmail.com</a>
           </div>
         </div>
 
@@ -99,21 +98,6 @@
           </h4>
           <ul class="space-y-3">
             <li>
-              <NuxtLink to="/taxi" class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
-                <span
-                  class="w-0 h-0.5 bg-red-600 mr-0 group-hover:w-2 group-hover:mr-1 transition-all duration-300"></span>
-                {{ $t('taxi') }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/transfers"
-                class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
-                <span
-                  class="w-0 h-0.5 bg-red-600 mr-0 group-hover:w-2 group-hover:mr-1 transition-all duration-300"></span>
-                {{ $t('transfers') }}
-              </NuxtLink>
-            </li>
-            <li>
               <NuxtLink to="/excursions"
                 class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
                 <span
@@ -122,18 +106,26 @@
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/bicycle-transfer"
+              <NuxtLink to="/rent-a-boat"
                 class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
                 <span
                   class="w-0 h-0.5 bg-red-600 mr-0 group-hover:w-2 group-hover:mr-1 transition-all duration-300"></span>
-                {{ $t('bicycle_transport') }}
+                {{ $t('rent_a_boat') }}
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/events" class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
+              <NuxtLink to="/taxi-boat"
+                class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
                 <span
                   class="w-0 h-0.5 bg-red-600 mr-0 group-hover:w-2 group-hover:mr-1 transition-all duration-300"></span>
-                {{ $t('events') }}
+                {{ $t('taxi_boat') }}
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/skipper-training" class="text-gray-400 hover:text-red-500 transition-colors flex items-center group">
+                <span
+                  class="w-0 h-0.5 bg-red-600 mr-0 group-hover:w-2 group-hover:mr-1 transition-all duration-300"></span>
+                {{ $t('skipper_training') }}
               </NuxtLink>
             </li>
           </ul>

@@ -1,40 +1,35 @@
 <template>
   <section class="py-0 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden" id='excursionRoutes'>
     <!-- Background elements -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,0,0,0.05)_0%,transparent_60%)]">
-    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,0,0,0.05)_0%,transparent_60%)]"></div>
     <div class="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none"></div>
 
-    <!-- Subtle particles -->
+    <!-- Particles (simplified) -->
     <ClientOnly>
-      <div class="absolute inset-0 z-0">
-        <div v-for="i in 20" :key="`particle-route-${i}`" class="particle absolute rounded-full" :class="{
-          'particle-slow': i % 3 === 0,
-          'particle-medium': i % 3 === 1,
-          'particle-fast': i % 3 === 2,
-          'particle-tiny': i <= 10,
-          'particle-small': i > 10 && i <= 15,
-          'particle-normal': i > 15
+      <div class="absolute inset-0">
+        <div v-for="i in 12" :key="`p-${i}`" class="particle absolute rounded-full" :class="{
+          [`particle-${i % 3 === 0 ? 'slow' : i % 3 === 1 ? 'medium' : 'fast'}`]: true,
+          [`particle-${i <= 6 ? 'tiny' : i <= 9 ? 'small' : 'normal'}`]: true
         }" :style="{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          opacity: 0.05 + (Math.random() * 0.1),
-          animationDelay: `${Math.random() * 10}s`,
-          animationDuration: `${20 + Math.random() * 30}s`
-        }"></div>
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            opacity: 0.05 + (Math.random() * 0.1),
+            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${20 + Math.random() * 20}s`
+          }">
+        </div>
       </div>
     </ClientOnly>
 
     <div class="container mx-auto px-6 relative z-10">
       <!-- Section heading -->
       <ClientOnly>
-        <div class="text-center mb-16" v-motion :initial="{ opacity: 0, y: 40 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }">
+        <div class="text-center mb-12" v-motion :initial="{ opacity: 0, y: 40 }"
+          :enter="{ opacity: 1, y: 0, duration: 800 }">
           <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Taxi Boat by Poseidon</h2>
           <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-red-500 mx-auto"></div>
           <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
             Experience the Adriatic Sea in style with our premium Poseidon boat transfer service.
-            Choose your departure and destination points for a seamless coastal journey.
           </p>
         </div>
       </ClientOnly>
@@ -42,18 +37,13 @@
       <!-- Transfer selector card -->
       <ClientOnly>
         <div class="max-w-4xl mx-auto" v-motion :initial="{ opacity: 0, y: 30 }"
-          :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 600 } }">
-
-          <div class="rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-300
-                   border border-white/10 bg-white/5 group-hover:bg-white/10 group-hover:border-white/20
-                   group-hover:shadow-xl group-hover:shadow-red-500/5">
-
+          :enter="{ opacity: 1, y: 0, delay: 200, duration: 600 }">
+          <div
+            class="rounded-xl overflow-hidden backdrop-blur-sm border border-white/10 bg-white/5 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-xl group-hover:shadow-red-500/5">
             <!-- Header with boat image -->
             <div class="h-56 relative overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-              <img :src="boatImage" alt="Poseidon Boat"
-                class="w-full h-full object-cover transition-transform duration-700">
-
+              <img :src="boatImage" alt="Poseidon Boat" class="w-full h-full object-cover">
               <!-- Boat details badge -->
               <div
                 class="absolute bottom-4 left-4 z-10 bg-black/60 text-white px-4 py-2 rounded-lg flex items-center text-sm">
@@ -74,32 +64,16 @@
               <h3 class="text-xl font-bold text-white mb-6">Select Your Transfer Route</h3>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <!-- From location -->
-                <div>
-                  <label class="block text-gray-400 mb-2 text-sm">Departure Point</label>
+                <!-- From/To Locations -->
+                <div v-for="(label, idx) in ['Departure Point', 'Destination']" :key="label">
+                  <label class="block text-gray-400 mb-2 text-sm">{{ label }}</label>
                   <div class="relative">
-                    <select v-model="fromLocation"
-                      class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
-                      <option v-for="location in fromOptions" :key="location.id" :value="location.id">{{ location.name
-                        }}</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                      <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- To location -->
-                <div>
-                  <label class="block text-gray-400 mb-2 text-sm">Destination</label>
-                  <div class="relative">
-                    <select v-model="toLocation"
-                      class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
-                      <option v-for="location in toOptions" :key="location.id" :value="location.id">{{ location.name }}
+                    <select :value="idx === 0 ? fromLocation : toLocation"
+                      @input="idx === 0 ? fromLocation = $event.target.value : toLocation = $event.target.value"
+                      class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-red-500">
+                      <option v-for="location in idx === 0 ? fromOptions : toOptions" :key="location.id"
+                        :value="location.id">
+                        {{ location.name }}
                       </option>
                     </select>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -167,37 +141,15 @@
 
                 <!-- Features list -->
                 <div class="mt-4 grid grid-cols-2 gap-2">
-                  <div class="flex items-center text-sm text-gray-300">
+                  <div
+                    v-for="feature in ['Professional skipper', 'Premium speedboat', 'Bottled water', 'Up to 8 passengers']"
+                    :key="feature" class="flex items-center text-sm text-gray-300">
                     <svg class="w-4 h-4 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                         clip-rule="evenodd"></path>
                     </svg>
-                    Professional skipper
-                  </div>
-                  <div class="flex items-center text-sm text-gray-300">
-                    <svg class="w-4 h-4 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Premium speedboat
-                  </div>
-                  <div class="flex items-center text-sm text-gray-300">
-                    <svg class="w-4 h-4 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Bottled water
-                  </div>
-                  <div class="flex items-center text-sm text-gray-300">
-                    <svg class="w-4 h-4 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    Up to 8 passengers
+                    {{ feature }}
                   </div>
                 </div>
               </div>
@@ -220,14 +172,14 @@
 
       <!-- Custom request section -->
       <ClientOnly>
-        <div class="mt-16 text-center p-8 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm" v-motion
-          :initial="{ opacity: 0 }" :enter="{ opacity: 1, transition: { delay: 400, duration: 800 } }">
+        <div class="mt-12 text-center p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm" v-motion
+          :initial="{ opacity: 0 }" :enter="{ opacity: 1, delay: 400, duration: 800 }">
           <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Need a Custom Boat Route?</h3>
           <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
             Don't see your desired route? We offer boat transfers to all destinations along the Istrian coast and
             islands. Contact us for a personalized quote.
           </p>
-          <a href="mailto:poseidon@gmail.com?subject=Custom%20Boat%20Transfer%20Quote%20Request&body=Hello%2C%0A%0AI%27d%20like%20to%20request%20a%20quote%20for%20a%20custom%20boat%20transfer.%0A%0AHere%20are%20my%20details%3A%0AFrom%3A%20%0ATo%3A%20%0AName%3A%20%0ASurname%3A%20%0ADate%3A%20%0ATime%3A%20%0A%0ACould%20you%20please%20provide%20a%20quote%20for%20this%20journey%3F%0A%0AThank%20you!"
+          <a href="mailto:poseidon@gmail.com?subject=Custom%20Boat%20Transfer%20Quote%20Request"
             class="px-8 py-4 bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-white/15 hover:border-white/30 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center mx-auto no-underline">
             <span>Request Custom Quote</span>
             <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
@@ -247,7 +199,7 @@ import { ref, computed } from 'vue';
 // Boat image
 const boatImage = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/ca/cb/3a/photo1jpg.jpg?w=1400&h=-1&s=1";
 
-// Locations data
+// Locations data - simplified structure
 const locations = [
   { id: 'porec', name: 'Poreč', coordinates: [0, 0] },
   { id: 'rovinj', name: 'Rovinj', coordinates: [12, 0], distance: 12 },
@@ -264,49 +216,27 @@ const locations = [
 // Form state
 const fromLocation = ref('porec');
 const toLocation = ref('rovinj');
-const transferDate = ref('');
-const transferTime = ref('');
 
-// Computed properties for location options
-const fromOptions = computed(() => {
-  return locations.filter(loc => loc.id !== toLocation.value);
-});
-
-const toOptions = computed(() => {
-  return locations.filter(loc => loc.id !== fromLocation.value);
-});
-
-// Get location names based on selected IDs
-const selectedFromName = computed(() => {
-  const location = locations.find(loc => loc.id === fromLocation.value);
-  return location ? location.name : '';
-});
-
-const selectedToName = computed(() => {
-  const location = locations.find(loc => loc.id === toLocation.value);
-  return location ? location.name : '';
-});
+// Computed properties
+const fromOptions = computed(() => locations.filter(loc => loc.id !== toLocation.value));
+const toOptions = computed(() => locations.filter(loc => loc.id !== fromLocation.value));
+const selectedFromName = computed(() => locations.find(loc => loc.id === fromLocation.value)?.name || '');
+const selectedToName = computed(() => locations.find(loc => loc.id === toLocation.value)?.name || '');
 
 // Calculate distance between locations
 const calculateDistance = computed(() => {
   const from = locations.find(loc => loc.id === fromLocation.value);
   const to = locations.find(loc => loc.id === toLocation.value);
-
   if (!from || !to) return '0 nm';
 
   // Use predefined distances if available
-  if (from.id === 'porec') {
-    return `${to.distance} nm`;
-  } else if (to.id === 'porec') {
-    return `${from.distance} nm`;
-  }
+  if (from.id === 'porec') return `${to.distance} nm`;
+  if (to.id === 'porec') return `${from.distance} nm`;
 
-  // Calculate approximate distance for other combinations
+  // Calculate approximate distance
   const dx = to.coordinates[0] - from.coordinates[0];
   const dy = to.coordinates[1] - from.coordinates[1];
-  const distance = Math.round(Math.sqrt(dx * dx + dy * dy));
-
-  return `${distance} nm`;
+  return `${Math.round(Math.sqrt(dx * dx + dy * dy))} nm`;
 });
 
 // Calculate duration based on distance
@@ -326,57 +256,46 @@ const calculatePrice = computed(() => {
   const distance = parseInt(calculateDistance.value);
   if (isNaN(distance)) return 100;
 
-  if (distance <= 5) return 80;
-  if (distance <= 10) return 120;
-  if (distance <= 15) return 160;
-  if (distance <= 25) return 220;
-  if (distance <= 40) return 350;
+  const prices = [
+    [5, 80],
+    [10, 120],
+    [15, 160],
+    [25, 220],
+    [40, 350]
+  ];
+
+  for (const [maxDist, price] of prices) {
+    if (distance <= maxDist) return price;
+  }
   return 650;
 });
 
 // Generate mailto link
 const getMailtoLink = computed(() => {
   const subject = encodeURIComponent(`Poseidon Boat Transfer: ${selectedFromName.value} to ${selectedToName.value}`);
+  const body = encodeURIComponent(`Hello,
 
-  let body = `Hello,\n\n`;
-  body += `I'd like to book the Poseidon Boat for a transfer from ${selectedFromName.value} to ${selectedToName.value}.\n\n`;
-  body += `Here are my details:\n`;
-  body += `Name: \n`;
-  body += `Surname: \n`;
+I'd like to book the Poseidon Boat for a transfer from ${selectedFromName.value} to ${selectedToName.value}.
 
-  if (transferDate.value) {
-    body += `Date: ${transferDate.value}\n`;
-  } else {
-    body += `Date: \n`;
-  }
+Here are my details:
+Name:
+Surname:
+Date:
+Time:
+Number of passengers:
 
-  if (transferTime.value) {
-    body += `Time: ${transferTime.value}\n`;
-  } else {
-    body += `Time: \n`;
-  }
+Price: €${calculatePrice.value}
 
-  body += `\nNumber of passengers: \n\n`;
-  body += `Price: €${calculatePrice.value}\n\n`;
-  body += `Could you please confirm availability and let me know if you need any additional information?\n\n`;
-  body += `Thank you!`;
+Could you please confirm availability?
 
-  return `mailto:poseidon@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+Thank you!`);
+
+  return `mailto:poseidon@gmail.com?subject=${subject}&body=${body}`;
 });
 </script>
 
 <style scoped>
-/* Scrollbar hiding for mobile tabs */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Particles animation */
+/* Particles animation - consolidated animations */
 .particle {
   pointer-events: none;
   background-color: rgba(255, 255, 255, 0.6);
@@ -398,18 +317,18 @@ const getMailtoLink = computed(() => {
 }
 
 .particle-slow {
-  animation: float-slow 30s infinite ease-in-out;
+  animation: float 30s infinite ease-in-out;
 }
 
 .particle-medium {
-  animation: float-medium 25s infinite ease-in-out;
+  animation: float 25s infinite ease-in-out;
 }
 
 .particle-fast {
-  animation: float-fast 20s infinite ease-in-out;
+  animation: float 20s infinite ease-in-out;
 }
 
-@keyframes float-slow {
+@keyframes float {
 
   0%,
   100% {
@@ -429,55 +348,7 @@ const getMailtoLink = computed(() => {
   }
 }
 
-@keyframes float-medium {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-
-  20% {
-    transform: translateY(-25px) translateX(20px) rotate(10deg);
-  }
-
-  40% {
-    transform: translateY(-10px) translateX(-20px) rotate(-10deg);
-  }
-
-  60% {
-    transform: translateY(-30px) translateX(10px) rotate(5deg);
-  }
-
-  80% {
-    transform: translateY(-15px) translateX(-30px) rotate(-5deg);
-  }
-}
-
-@keyframes float-fast {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-
-  20% {
-    transform: translateY(-20px) translateX(25px) rotate(15deg);
-  }
-
-  40% {
-    transform: translateY(-35px) translateX(-15px) rotate(-10deg);
-  }
-
-  60% {
-    transform: translateY(-10px) translateX(30px) rotate(5deg);
-  }
-
-  80% {
-    transform: translateY(-25px) translateX(-25px) rotate(-15deg);
-  }
-}
-
-/* Custom form styles */
+/* Form styles */
 input[type="date"],
 input[type="time"] {
   color-scheme: dark;
@@ -487,10 +358,5 @@ input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
   opacity: 0.5;
-}
-
-input[type="date"]:hover::-webkit-calendar-picker-indicator,
-input[type="time"]:hover::-webkit-calendar-picker-indicator {
-  opacity: 0.8;
 }
 </style>
