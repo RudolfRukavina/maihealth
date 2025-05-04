@@ -55,7 +55,7 @@
           <!-- Enhanced Heading with Creative Typography -->
           <div class="relative">
             <h1 class="text-5xl md:text-7xl font-bold text-white leading-none tracking-tight">
-              <span class="block">Taxi Boat by</span>
+              <span class="block">Rent a Boat by</span>
               <div class="flex items-baseline gap-3 mt-2">
                 <div class="relative inline-block group">
                   <img src="/public/poseidon.svg" alt="">

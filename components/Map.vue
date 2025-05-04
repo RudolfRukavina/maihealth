@@ -3,10 +3,10 @@
     <div class="container mx-auto px-6">
       <!-- Section Header -->
       <div class="max-w-3xl mx-auto text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Coverage Area</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Rent a Boat with Skipper</h2>
         <p class="text-lg text-gray-300">
-          We provide taxi services throughout Poreč and surrounding areas. Below you can see our primary service zones
-          and pricing information.
+          Experience the beauty of the Adriatic with our premium boat rental. The Taxi Boat Poseidon is available for
+          daily cruises around Poreč and surrounding areas.
         </p>
       </div>
 
@@ -17,39 +17,50 @@
           <ClientOnly>
             <div ref="mapContainer" class="h-full w-full"></div>
           </ClientOnly>
-          <!-- Map Legend -->
-          <div class="absolute bottom-4 right-4 bg-white p-3 rounded-lg shadow-md z-10">
-            <div class="flex items-center mb-1">
-              <div class="w-4 h-4 rounded-full bg-green-500 mr-2"></div>
-            </div>
-
-
-          </div>
 
           <!-- Loading Indicator -->
           <div v-if="isMapLoading" class="absolute inset-0 bg-white/80 flex items-center justify-center">
             <div class="flex flex-col items-center">
-              <div class="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+              <div class="w-12 h-12 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
               <div class="mt-3 text-gray-600">Loading map...</div>
             </div>
           </div>
         </div>
 
-        <!-- Coverage Information -->
+        <!-- Boat Information -->
         <div class="lg:col-span-2 space-y-6">
-          <!-- Service Highlights -->
+          <!-- Boat Details -->
           <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold text-white mb-4">Our Service Areas</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Taxi Boat Poseidon</h3>
 
             <div class="space-y-3">
-              <div v-for="(area, index) in serviceAreas" :key="index" class="flex items-start">
-                <div
-                  :class="`w-6 h-6 rounded-full bg-${area.color}-500 flex items-center justify-center mr-3 shrink-0`">
-                  <span class="text-xs text-white font-bold">{{ index + 1 }}</span>
+              <div class="flex items-start">
+                <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mr-3 shrink-0">
+                  <span class="text-xs text-white font-bold">1</span>
                 </div>
                 <div>
-                  <div class="font-medium text-white">{{ area.name }}</div>
-                  <div class="text-sm text-gray-300">{{ area.description }}</div>
+                  <div class="font-medium text-white">Flyer with Honda Engine</div>
+                  <div class="text-sm text-gray-300">Powerful and reliable Honda outboard motor for smooth sailing</div>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mr-3 shrink-0">
+                  <span class="text-xs text-white font-bold">2</span>
+                </div>
+                <div>
+                  <div class="font-medium text-white">Capacity</div>
+                  <div class="text-sm text-gray-300">Comfortable seating for up to 8 passengers</div>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mr-3 shrink-0">
+                  <span class="text-xs text-white font-bold">3</span>
+                </div>
+                <div>
+                  <div class="font-medium text-white">Features</div>
+                  <div class="text-sm text-gray-300">Sun canopy, swimming ladder, cooler, and safety equipment</div>
                 </div>
               </div>
             </div>
@@ -57,37 +68,36 @@
 
           <!-- Pricing Information -->
           <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold text-white mb-4">Fare Information</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Rental Information</h3>
 
             <div class="space-y-4">
               <div class="border-b border-gray-600 pb-3">
-                <div class="font-medium text-white">Base Fare</div>
+                <div class="font-medium text-white">Daily Rates</div>
                 <div class="flex justify-between mt-1">
-                  <span class="text-sm text-gray-300">Starting price</span>
-                  <span class="text-sm font-medium text-white">5€</span>
+                  <span class="text-sm text-gray-300">Half Day (4 hours)</span>
+                  <span class="text-sm font-medium text-white">150€</span>
                 </div>
                 <div class="flex justify-between mt-1">
-                  <span class="text-sm text-gray-300">Price per km</span>
-                  <span class="text-sm font-medium text-white">2.00€</span>
+                  <span class="text-sm text-gray-300">Full Day (8 hours)</span>
+                  <span class="text-sm font-medium text-white">250€</span>
                 </div>
               </div>
 
               <div>
-                <div class="font-medium text-white mb-2">Special Rates</div>
                 <div class="flex justify-between text-sm mt-1">
-                  <span class="text-gray-300">Night Fare (22:00-06:00)</span>
-                  <span class="font-medium text-white">+20%</span>
+                  <span class="text-gray-300">Fuel</span>
+                  <span class="font-medium text-white">Included</span>
                 </div>
               </div>
             </div>
           </div>
-
           <!-- Call to Action -->
-          <div class="bg-yellow-400 p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold text-black mb-3">Need a Taxi Now?</h3>
-            <p class="text-sm text-gray-800 mb-4">Call us for immediate pickup anywhere in Poreč and surroundings</p>
+          <div class="bg-red-600 p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-white mb-3">Ready for an Adventure?</h3>
+            <p class="text-sm text-gray-100 mb-4">Call us to reserve the Taxi Boat Poseidon for your perfect day on the
+              water</p>
             <a href="tel:+385921696002"
-              class="block w-full py-3 bg-black text-white font-bold rounded-lg text-center hover:bg-gray-700 transition duration-300">
+              class="block w-full py-3 bg-black text-white font-bold rounded-lg text-center hover:bg-gray-800 transition duration-300">
               Call +385 92 169 6002
             </a>
           </div>
@@ -105,22 +115,22 @@ const isMapLoading = ref(true);
 const mapContainer = ref(null);
 let map = null;
 
-// Service areas definitions
-const serviceAreas = [
+// Boating areas definitions
+const boatingAreas = [
   {
-    name: "Poreč City Center",
-    description: "Immediate pickup available 24/7. Standard rates apply.",
-    color: "green"
+    name: "Coastal Waters",
+    description: "Explore the beautiful coastline of Poreč with stunning views.",
+    color: "red"
   },
   {
-    name: "Suburban Areas",
-    description: "Includes Červar-Porat, Varvari, Fuškulin, and nearby hotels.",
-    color: "green"
+    name: "Island Excursions",
+    description: "Visit nearby islands including Sveti Nikola Island.",
+    color: "red"
   },
   {
-    name: "Extended Coverage",
-    description: "Vrsar, Funtana, Nova Vas, and surrounding villages.",
-    color: "yellow"
+    name: "Blue Lagoon",
+    description: "Crystal clear waters perfect for swimming and snorkeling.",
+    color: "red"
   }
 ];
 
@@ -174,36 +184,25 @@ const initMap = () => {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  // Add the coverage zones as concentric circles
-  // Zone 1 - City Center (3km radius)
-  window.L.circle([45.2271, 13.5947], {
-    color: 'green',
-    fillColor: 'green',
-    fillOpacity: 0.2,
-    radius: 3000
-  }).addTo(map);
-
-  // Zone 2 - Suburban Areas (6km radius)
-  window.L.circle([45.2271, 13.5947], {
-    color: 'yellow',
-    fillColor: 'yellow',
-    fillOpacity: 0.2,
-    radius: 6000
-  }).addTo(map);
-
-  // Zone 3 - Extended Coverage (10km radius)
-  window.L.circle([45.2271, 13.5947], {
-    color: 'orange',
-    fillColor: 'orange',
-    fillOpacity: 0.2,
-    radius: 10000
-  }).addTo(map);
-
-  // Add a marker for the taxi headquarters
-  window.L.marker([45.2271, 13.5947])
+  // Add boating areas
+  // Main marina and starting point
+  window.L.marker([45.2271, 13.5919])
     .addTo(map)
-
+    .bindPopup("Taxi Boat Poseidon - Pickup Point")
     .openPopup();
+
+  // Popular boating routes
+  // Coastal route
+  const coastalRoute = [
+    [45.2271, 13.5947], // Marina/Starting point
+    [45.2200, 13.5900], // Along coast south
+    [45.2150, 13.5850], // Further south
+    [45.2100, 13.5830]  // End point south
+  ];
+
+
+  // Blue Lagoon area
+
 
   // Hide the loading indicator
   isMapLoading.value = false;
@@ -211,9 +210,7 @@ const initMap = () => {
 </script>
 
 <style>
-
 .leaflet-container {
   z-index: 1 !important;
 }
-
 </style>

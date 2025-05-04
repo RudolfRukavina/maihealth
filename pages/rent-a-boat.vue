@@ -1,5 +1,5 @@
 <template>
-    <TaxiHero></TaxiHero>
+    <RentABoatHero></RentABoatHero>
     <Map></Map>
     <Aboutus></Aboutus>
     <CTA></CTA>
