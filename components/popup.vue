@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Trigger button -->
-    <button @click="isModalOpen = true" class="z-50 fixed w-full bottom-0 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium
+    <!-- <button @click="isModalOpen = true" class="z-50 fixed w-full bottom-0 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium
         transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-red-500/25
         flex items-center justify-center">
       <span>Recommended: 1h Panorama Ride</span>
@@ -10,7 +10,7 @@
           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
           clip-rule="evenodd"></path>
       </svg>
-    </button>
+    </button> -->
 
     <!-- Modal Popup -->
     <transition name="modal">
@@ -34,6 +34,8 @@
             <img :src="panoramaRide.image" :alt="panoramaRide.name" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
+              <div class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-sm inline-block mb-1">RECOMMENDED
+              </div>
               <h3 class="text-2xl font-bold text-white">{{ panoramaRide.name }}</h3>
             </div>
           </div>
@@ -131,19 +133,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // Modal state
 const isModalOpen = ref(false);
 
+onMounted(() => {
+  setTimeout(() => {
+    isModalOpen.value = true
+  }, 20);
+})
 // Panorama ride details
 const panoramaRide = {
-  name: " Panorama Boat Ride",
+  name: "Panorama Boat Ride",
   image: "https://images.sembo.travel/ImageService/ImageHandler.ashx?service=sembo&nameOfImage=176996.jpg&resizeMode=FitOutside&width=2200&height=815&formatSettings=jpeg(quality-90)", // Update with actual image path
   duration: "1 hour",
   price: 30,
   departurePoint: "Poreč Main Harbor, near the lighthouse",
-  description: "Experience the beauty of Poreč's coastline with our  panorama boat ride. Enjoy stunning views of the old town, coastal landmarks, and crystal clear waters of the Adriatic.",
+  description: "Experience the beauty of Poreč's coastline with our panorama boat ride. Enjoy stunning views of the old town, coastal landmarks, and crystal clear waters of the Adriatic.",
   highlights: [
     "Scenic coastal cruise with photo opportunities",
     "View of Poreč's historic center from the sea",
@@ -160,11 +167,11 @@ const closeModal = () => {
 
 // Generate mailto link for booking
 const getMailtoLink = () => {
-  const subject = encodeURIComponent(`Booking:  Panorama Boat Ride`);
+  const subject = encodeURIComponent(`Booking: Recommended Panorama Boat Ride`);
 
   const body = encodeURIComponent(
     `Hello,\n\n` +
-    `I'd like to book the  Panorama Boat Ride with Taxi Boat Poseidon.\n\n` +
+    `I'd like to book the Recommended Panorama Boat Ride with Taxi Boat Poseidon.\n\n` +
     `Here are my details:\n` +
     `Name: \n` +
     `Phone Number: \n` +

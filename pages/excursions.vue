@@ -1,4 +1,5 @@
 <template>
+  <Popup></Popup>
   <ExcursionsHero></ExcursionsHero>
   <ExcursionsRoutes></ExcursionsRoutes>
   <Aboutus></Aboutus>
@@ -6,6 +7,8 @@
 </template>
 
 <script setup>
+import Popup from '~/components/popup.vue';
+
 useHead({
   title: 'Sea Excursions & Boat Tours | Poseidon Marine | Discover Istria\'s Coastline',
   meta: [

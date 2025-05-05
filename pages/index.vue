@@ -1,6 +1,5 @@
 <template>
   <Hero></Hero>
-  <Popup></Popup>
   <Services></Services>
   <Aboutus></Aboutus>
   <Testimonial></Testimonial>

@@ -27,7 +27,8 @@
           What Our Clients Say
         </h2>
         <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-          Discover why our customers choose our premium transportation services across Poreč and beyond.
+          Discover why our customers choose Taxi Boat Poseidon for premium sea transportation, excursions, and boat
+          services across Poreč and beyond.
         </p>
       </div>
 
@@ -124,35 +125,35 @@ const testimonials = ref([
     name: "Marko Šimić",
     location: "Poreč, Croatia",
     rating: 5,
-    text: "The best taxi service in Poreč! The driver was extremely punctual and professional. The car was spotlessly clean and comfortable. We reached our destination quickly, and the driver was friendly and gave us useful tips about local attractions. I will definitely use them again.",
+    text: "The best taxi boat service in Poreč! Captain Ivica was extremely professional and knowledgeable about the coastline. The boat was immaculately clean and comfortable. We visited several hidden beaches that would have been impossible to reach by land. Will definitely use Taxi Boat Poseidon again on our next visit!",
   },
   {
     id: 2,
     name: "Stefan Müller",
     location: "Munich, Germany",
     rating: 5,
-    text: "We used their transfer service from Pula Airport and were delighted. Despite our flight delay, the driver waited patiently. The vehicle was spacious and luxurious, and the ride to our apartment in Poreč was pleasant and stress-free. Excellent service for a reasonable price!",
+    text: "We used their boat transfer service from Poreč to Rovinj and were absolutely delighted. Despite rough seas, the captain navigated safely and comfortably. The boat was spacious and luxurious, and the views of the Istrian coastline were breathtaking. An unforgettable experience for a reasonable price!",
   },
   {
     id: 3,
     name: "Ana Jurić",
     location: "Rijeka, Croatia",
     rating: 5,
-    text: "We booked a full-day excursion around Istria and it was the highlight of our vacation. Our guide Mateo was extremely knowledgeable about the region's history and culture. We visited Motovun, Grožnjan, and other beautiful places, tasting local wines and olive oils. A perfectly planned tour with a personal touch.",
+    text: "We booked a full-day excursion around the islands and it was the highlight of our vacation. Captain Mateo was extremely knowledgeable about the local marine life and history. We visited the Brijuni Islands, stunning sea caves, and even spotted dolphins! Their Excursions service offers a perfect blend of adventure and relaxation.",
   },
   {
     id: 4,
     name: "Janez Novak",
     location: "Ljubljana, Slovenia",
     rating: 5,
-    text: "Their bicycle transport service saved our cycling holiday in Istria! They delivered top-quality bikes directly to our villa and picked them up when we finished. The bikes were excellent quality and well-maintained. Their recommendations for local cycling routes made our experience unforgettable.",
+    text: "The 'Rent a Boat' service from Poseidon saved our family holiday! The boat was in perfect condition with all safety equipment. The staff thoroughly explained everything before we set off. We spent a magical day exploring secluded coves and snorkeling in crystal clear waters. Worth every euro for the freedom to explore at our own pace.",
   },
   {
     id: 5,
     name: "Ivan Matić",
     location: "Rijeka, Croatia",
     rating: 5,
-    text: "We used their service for transportation to the Sea Star Festival and were completely satisfied! The minibus was comfortable, air-conditioned and right on time. The driver was friendly and accommodating with our schedule, even for late-night pickups after the concerts. They made getting to and from the festival hassle-free and enjoyable.",
+    text: "I completed their Skipper Training course and couldn't be more satisfied! The instructors were patient and thorough, making complex navigation concepts easy to understand. The practical training was extensive, covering everything from basic maneuvers to emergency procedures. Now I feel confident renting boats anywhere along the Adriatic coast. Highly recommended for anyone serious about boating!",
   }
 ]);
 
