@@ -166,7 +166,7 @@
             </div>
 
             <!-- Button -->
-            <NuxtLink to="/panorama-ride"
+            <NuxtLink to="/excursions"
               class="block w-full py-3 text-center bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors duration-300 relative overflow-hidden group">
               <span class="relative z-10">Reserve Now</span>
               <span
