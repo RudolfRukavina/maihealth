@@ -150,13 +150,11 @@ const panoramaRide = {
   duration: "1 hour",
   price: 30,
   departurePoint: "Poreč Main Harbor, near the lighthouse",
-  description: "Experience the beauty of Poreč's coastline with our panorama boat ride. Enjoy stunning views of the old town, coastal landmarks, and crystal clear waters of the Adriatic.",
+  description: "Experience the beauty of the Istrian coastline with our panorama boat ride.",
   highlights: [
     "Scenic coastal cruise with photo opportunities",
-    "View of Poreč's historic center from the sea",
     "Professional skipper with local knowledge",
-    "Complimentary welcome drink",
-    "Maximum 12 passengers for a comfortable experience"
+    "Maximum 8 passengers for a comfortable experience"
   ]
 };
 
