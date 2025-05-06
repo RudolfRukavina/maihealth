@@ -196,7 +196,7 @@
             Looking for a more exclusive experience? We offer private boat charters tailored to your preferences.
             Contact us to create your perfect day on the Adriatic.
           </p>
-          <a href="mailto:info@poseidon.hr?subject=Private%20Boat%20Charter%20Request&body=Hello%2C%0A%0AI%27d%20like%20to%20inquire%20about%20a%20private%20boat%20charter.%0A%0AHere%20are%20my%20details%3A%0APreferred%20date(s)%3A%20%0ANumber%20of%20people%3A%20%0ADestinations%20of%20interest%3A%20%0ASpecial%20requests%3A%20%0A%0ACould%20you%20please%20provide%20options%20and%20pricing%20for%20this%20private%20charter%3F%0A%0AThank%20you!"
+          <a href="mailto:poseidon@gmail.hr?subject=Private%20Boat%20Charter%20Request&body=Hello%2C%0A%0AI%27d%20like%20to%20inquire%20about%20a%20private%20boat%20charter.%0A%0AHere%20are%20my%20details%3A%0APreferred%20date(s)%3A%20%0ANumber%20of%20people%3A%20%0ADestinations%20of%20interest%3A%20%0ASpecial%20requests%3A%20%0A%0ACould%20you%20please%20provide%20options%20and%20pricing%20for%20this%20private%20charter%3F%0A%0AThank%20you!"
             class="px-8 py-4 bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-white/15 hover:border-white/30 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center mx-auto w-auto inline-flex no-underline">
             <span>Request Private Charter</span>
             <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
@@ -330,7 +330,7 @@ const getMailtoLink = (excursion) => {
     `Thank you!`
   );
 
-  return `mailto:info@poseidon.hr?subject=${subject}&body=${body}`;
+  return `mailto:poseidon@gmail.hr?subject=${subject}&body=${body}`;
 };
 </script>
 

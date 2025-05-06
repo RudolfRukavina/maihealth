@@ -68,11 +68,7 @@
           <h3 class="mt-5 text-2xl font-bold text-red-600">{{ $t('about_us.our_mission') }}</h3>
 
           <div class="mt-5 bg-red-600 text-white p-6 rounded-xl shadow-xl">
-            <div class="grid grid-cols-2 gap-6">
-              <div class="text-center">
-                <div class="text-4xl font-bold">24/7</div>
-                <div class="text-sm font-medium mt-1">{{ $t('about_us.availability') }}</div>
-              </div>
+            <div class="grid grid-cols-1 gap-6">
               <div class="text-center">
                 <div class="text-4xl font-bold">100%</div>
                 <div class="text-sm font-medium mt-1">{{ $t('about_us.satisfaction') }}</div>

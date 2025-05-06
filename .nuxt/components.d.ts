@@ -3,8 +3,6 @@ import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
       'Aboutus': typeof import("../components/Aboutus.vue")['default']
-    'BicycleHero': typeof import("../components/BicycleHero.vue")['default']
-    'BicycleRoutes': typeof import("../components/BicycleRoutes.vue")['default']
     'CTA': typeof import("../components/CTA.vue")['default']
     'EventsHero': typeof import("../components/EventsHero.vue")['default']
     'EventsRoutes': typeof import("../components/EventsRoutes.vue")['default']
@@ -54,8 +52,6 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyAboutus': typeof import("../components/Aboutus.vue")['default']
-    'LazyBicycleHero': typeof import("../components/BicycleHero.vue")['default']
-    'LazyBicycleRoutes': typeof import("../components/BicycleRoutes.vue")['default']
     'LazyCTA': typeof import("../components/CTA.vue")['default']
     'LazyEventsHero': typeof import("../components/EventsHero.vue")['default']
     'LazyEventsRoutes': typeof import("../components/EventsRoutes.vue")['default']
@@ -111,8 +107,6 @@ declare module 'vue' {
 }
 
 export const Aboutus: typeof import("../components/Aboutus.vue")['default']
-export const BicycleHero: typeof import("../components/BicycleHero.vue")['default']
-export const BicycleRoutes: typeof import("../components/BicycleRoutes.vue")['default']
 export const CTA: typeof import("../components/CTA.vue")['default']
 export const EventsHero: typeof import("../components/EventsHero.vue")['default']
 export const EventsRoutes: typeof import("../components/EventsRoutes.vue")['default']
@@ -162,8 +156,6 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyAboutus: typeof import("../components/Aboutus.vue")['default']
-export const LazyBicycleHero: typeof import("../components/BicycleHero.vue")['default']
-export const LazyBicycleRoutes: typeof import("../components/BicycleRoutes.vue")['default']
 export const LazyCTA: typeof import("../components/CTA.vue")['default']
 export const LazyEventsHero: typeof import("../components/EventsHero.vue")['default']
 export const LazyEventsRoutes: typeof import("../components/EventsRoutes.vue")['default']

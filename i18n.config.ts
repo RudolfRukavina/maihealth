@@ -8,15 +8,15 @@ export default defineI18nConfig(() => ({
       about_us: {
         title: "About Us",
         about_our_company: "About <span class=\"text-red-600\">Our Company</span>",
-        company_history: "Since 2025, we've been redefining premium taxi services in the region. What began as a small fleet of three luxury vehicles has rapidly evolved into the city's most trusted transportation provider. With a commitment to excellence, we deliver seamless, comfortable, and reliable rides tailored to our customers' needs.",
-        mission: "Our mission is simple: provide exceptional transportation experiences with professionalism, punctuality, and personalized service that exceeds expectations.",
+        company_history: "Since 2025, we've been redefining premium boat tours in the region with our vessel Poseidon. What began as a small enterprise with a single luxury vessel has rapidly evolved into the city's most trusted marine tour provider. With a commitment to excellence, we deliver seamless, comfortable, and reliable sea journeys tailored to our customers' needs.",
+        mission: "Our mission is simple: provide exceptional marine transportation experiences with professionalism, punctuality, and personalized service that exceeds expectations.",
         our_values: "Our Values",
         safety_reliability: "Safety & Reliability",
-        safety_description: "Your safety is our priority with regular vehicle maintenance and professionally trained drivers.",
+        safety_description: "Your safety is our priority with meticulous vessel maintenance and professionally certified skippers.",
         customer_excellence: "Customer Excellence",
-        customer_description: "We go beyond transportation to deliver memorable experiences tailored to your needs.",
-        innovation: "Innovation",
-        innovation_description: "Constantly evolving our fleet and services to provide the most modern transportation solutions.",
+        customer_description: "We go beyond transportation to create memorable marine experiences tailored to your preferences.",
+        innovation: "Maritime Experience",
+        innovation_description: "We combine traditional seafaring knowledge with modern comforts to provide an authentic Adriatic adventure.",
         our_mission: "Our Mission",
         availability: "Availability",
         satisfaction: "Satisfaction"
@@ -24,11 +24,11 @@ export default defineI18nConfig(() => ({
       faq: "FAQ",
       contact: "Contact",
       blog: "Blog",
-      taxi: "Taxi",
-      transfers: "Transfers",
-      excursions: "Excursions",
-      airport_transfers: "Airport Transfers",
-      bicycle_transport: "Bicycle Transport",
+      taxi: "Water Taxi",
+      transfers: "Sea Transfers",
+      excursions: "Boat Excursions",
+      airport_transfers: "Marina Transfers",
+      bicycle_transport: "Equipment Transport",
       taxi_boat: "Taxi Boat",
       rent_a_boat: "Rent a Boat",
       skipper_training: "Skipper Training",
@@ -38,12 +38,12 @@ export default defineI18nConfig(() => ({
       phone: "+385 92 169 6002",
       email: "poseidon@gmail.com",
       city_transfers: "Poseidon",
-      porec_transfers: "Poreč Transfers",
-      porec_taxi: "Poreč Taxi",
-      porec_excursions: "Poreč Excursions",
-      vehicle_fleet: "Vehicle Fleet",
+      porec_transfers: "Poreč Sea Transfers",
+      porec_taxi: "Poreč Boat Taxi",
+      porec_excursions: "Poreč Boat Excursions",
+      vehicle_fleet: "Boat Poseidon",
       footer: {
-        company_description: "Premium transportation services across Istria. Reliable, comfortable, and punctual transfers for all your travel needs.",
+        company_description: "Premium marine transportation services across Istria. Reliable, comfortable, and punctual sea transfers for all your travel needs.",
         quick_links: "Quick Links",
         our_services: "Our Services",
         custom_request: "Custom request",
@@ -60,66 +60,66 @@ export default defineI18nConfig(() => ({
         address: "Poreč, Istria, Croatia"
       },
       fleet: {
-        title: "Our <span class=\"text-red-600\">Vehicle Fleet</span>",
-        description: "Experience unparalleled comfort and sophistication with our meticulously maintained fleet of premium vehicles. Whether you're traveling for business, leisure, or a special occasion, our diverse selection of high-end cars ensures a smooth, stylish, and stress-free journey. Each vehicle is equipped with top-tier amenities, offering the perfect balance of elegance, safety, and convenience to elevate your travel experience.",
+        title: "Our <span class=\"text-red-600\">Boat Poseidon</span>",
+        description: "Experience unparalleled comfort and sophistication with our meticulously maintained premium vessel Poseidon. Whether you're traveling for business, leisure, or a special occasion, our luxurious boat ensures a smooth, stylish, and stress-free journey. Poseidon is equipped with top-tier amenities, offering the perfect balance of elegance, safety, and convenience to elevate your sea travel experience.",
         categories: {
           luxury: {
-            title: "Cars",
-            longDescription: "Our luxury sedans combine elegance, comfort, and superior performance for an unparalleled executive travel experience. Perfect for business meetings, airport transfers, and special occasions."
+            title: "Speed Boats",
+            longDescription: "Our luxury speed boats combine elegance, comfort, and superior performance for an unparalleled executive travel experience. Perfect for quick trips, coastal sightseeing, and special occasions."
           },
           van: {
-            title: "Passenger Vans",
-            longDescription: "Spacious and comfortable premium vans offering superior legroom, ample luggage space, and elevated seating position. Ideal for families, small groups, or clients who prefer a more commanding view of the road."
+            title: "Passenger Boats",
+            longDescription: "Spacious and comfortable premium passenger boats offering superior deck space, ample storage, and elevated seating position. Ideal for families, small groups, or clients who prefer a more relaxed journey along the coast."
           },
           minibus: {
-            title: "Minibus",
-            longDescription: "Our executive minibuss provide the ultimate in group transportation, with spacious interiors, comfortable seating, and premium amenities. Perfect for corporate teams, airport transfers, and special event groups."
+            title: "Charter Yachts",
+            longDescription: "Our executive charter yachts provide the ultimate in group sea transportation, with spacious decks, comfortable seating, and premium amenities. Perfect for corporate teams, coastal excursions, and special event groups."
           }
         },
         vehicles: {
           mercedes_e_class: {
-            name: "Mercedes E-Class",
-            alt: "Mercedes E-class Car",
-            description: "The Mercedes E-Class delivers exceptional comfort and spaciousness in an elegant package. This flagship sedan offers remarkable interior room, sophisticated technology, and European refinement at a competitive price point."
+            name: "Poseidon Speedster",
+            alt: "Poseidon Speedster boat",
+            description: "The Poseidon Speedster delivers exceptional comfort and speed in an elegant package. This flagship speed boat offers remarkable deck space, sophisticated navigation technology, and Mediterranean refinement at a competitive price point."
           },
           mercedes_v_class: {
-            name: "Mercedes V-Class",
-            alt: "Mercedes V-Class van",
-            description: "The Mercedes V-Class combines spacious versatility with premium luxury. This sophisticated MPV offers outstanding comfort, flexible seating arrangements, and Mercedes-Benz quality for executive transport."
+            name: "Poseidon Cruiser",
+            alt: "Poseidon Cruiser passenger boat",
+            description: "The Poseidon Cruiser combines spacious versatility with premium luxury. This sophisticated passenger boat offers outstanding comfort, flexible seating arrangements, and top-quality craftsmanship for executive marine transport."
           },
           renault_trafic: {
-            name: "Renault Trafic",
-            alt: "Renault Trafic passenger van",
-            description: "The Renault Trafic delivers practical versatility with modern comfort features. This efficient passenger van offers excellent fuel economy, clever storage solutions, and a comfortable ride for group transportation."
+            name: "Poseidon Voyager",
+            alt: "Poseidon Voyager passenger boat",
+            description: "The Poseidon Voyager delivers practical versatility with modern comfort features. This efficient passenger boat offers excellent fuel economy, clever storage solutions, and a comfortable ride for group sea transportation."
           },
           mercedes_sprinter: {
-            name: "Mercedes Benz Sprinter Minibus",
-            alt: "Mercedes Benz Sprinter Minibus",
-            description: "The Mercedes Benz Sprinter Minibus provides reliable group transportation with superior comfort and safety features. Perfect for corporate events, airport transfers, and tour groups requiring spacious accommodation."
+            name: "Poseidon Luxury Yacht",
+            alt: "Poseidon Luxury Yacht",
+            description: "The Poseidon Luxury Yacht provides reliable group transportation with superior comfort and safety features. Perfect for corporate events, coastal excursions, and tour groups requiring spacious accommodation on the water."
           }
         },
         specifications: "Specifications",
         passengers: "Passengers",
-        luggage: "Luggage",
-        pieces: "pieces",
+        luggage: "Storage",
+        pieces: "compartments",
         view: "view"
       }
     },
     hr: {
-            description: "Opis",
+      description: "Opis",
       home: "Početna",
       about_us: {
         title: "O nama",
         about_our_company: "O <span class=\"text-red-600\">našoj tvrtki</span>",
-        company_history: "Od 2025. godine redefiniramo premium taksi usluge u regiji. Ono što je započelo kao mala flota od tri luksuzna vozila, brzo se razvilo u najpouzdanijeg pružatelja prijevoza u gradu. S predanošću izvrsnosti, pružamo besprijekorne, udobne i pouzdane vožnje prilagođene potrebama naših kupaca.",
-        mission: "Naša misija je jednostavna: pružiti izvanredna transportna iskustva s profesionalizmom, točnošću i personaliziranom uslugom koja nadmašuje očekivanja.",
+        company_history: "Od 2025. godine redefiniramo premium ture brodom u regiji s našim plovilom Poseidon. Ono što je započelo kao malo poduzeće s jednim luksuznim plovilom, brzo se razvilo u najpouzdanijeg pružatelja morskih tura u gradu. S predanošću izvrsnosti, pružamo besprijekorne, udobne i pouzdane morske plovidbe prilagođene potrebama naših kupaca.",
+        mission: "Naša misija je jednostavna: pružiti izvanredna iskustva morskog prijevoza s profesionalizmom, točnošću i personaliziranom uslugom koja nadmašuje očekivanja.",
         our_values: "Naše vrijednosti",
         safety_reliability: "Sigurnost i pouzdanost",
-        safety_description: "Vaša sigurnost je naš prioritet s redovitim održavanjem vozila i profesionalno obučenim vozačima.",
+        safety_description: "Vaša sigurnost je naš prioritet s temeljitim održavanjem plovila i profesionalno certificiranim skiperima.",
         customer_excellence: "Izvrsnost prema klijentima",
-        customer_description: "Idemo dalje od samog prijevoza kako bismo pružili nezaboravna iskustva prilagođena vašim potrebama.",
-        innovation: "Inovacije",
-        innovation_description: "Konstantno razvijamo našu flotu i usluge kako bismo pružili najmodernije transportne solucije.",
+        customer_description: "Idemo dalje od samog prijevoza kako bismo stvorili nezaboravna morska iskustva prilagođena vašim željama.",
+        innovation: "Pomorsko iskustvo",
+        innovation_description: "Kombiniramo tradicionalno pomorsko znanje s modernim udobnostima kako bismo pružili autentičnu jadransku avanturu.",
         our_mission: "Naša misija",
         availability: "Dostupnost",
         satisfaction: "Zadovoljstvo"
@@ -127,26 +127,26 @@ export default defineI18nConfig(() => ({
       faq: "Česta pitanja",
       contact: "Kontakt",
       blog: "Blog",
-      taxi: "Taksi",
-      transfers: "Transferi",
-      excursions: "Izleti",
-      airport_transfers: "Transferi s aerodroma",
-      bicycle_transport: "Transport bicikala",
-      taxi_boat: "Taxi Brod",
-rent_a_boat: "Najam Broda",
-skipper_training: "Obuka Za Skippera",
+      taxi: "Vodeni Taksi",
+      transfers: "Morski Transferi",
+      excursions: "Izleti Brodom",
+      airport_transfers: "Transferi Marine",
+      bicycle_transport: "Transport Opreme",
+      taxi_boat: "Taksi Brod",
+      rent_a_boat: "Najam Broda",
+      skipper_training: "Obuka Za Skippera",
       book_now: "Rezerviraj sada",
       Language: "Jezik",
       events: "Događaji",
       phone: "+385 92 169 6002",
       email: "poseidon@gmail.com",
-      city_transfers: "Gradski Transferi",
-      porec_transfers: "Transferi Poreč",
-      porec_taxi: "Taksi Poreč",
-      porec_excursions: "Izleti Poreč",
-      vehicle_fleet: "Vozni park",
+      city_transfers: "Poseidon",
+      porec_transfers: "Morski Transferi Poreč",
+      porec_taxi: "Brodski Taksi Poreč",
+      porec_excursions: "Izleti Brodom Poreč",
+      vehicle_fleet: "Brod Poseidon",
       footer: {
-        company_description: "Premium usluge prijevoza diljem Istre. Pouzdani, udobni i točni transferi za sve vaše potrebe putovanja.",
+        company_description: "Premium usluge morskog prijevoza diljem Istre. Pouzdani, udobni i točni morski transferi za sve vaše potrebe putovanja.",
         quick_links: "Brze poveznice",
         our_services: "Naše usluge",
         custom_request: "Poseban zahtjev",
@@ -163,66 +163,66 @@ skipper_training: "Obuka Za Skippera",
         address: "Poreč, Istra, Hrvatska"
       },
       fleet: {
-        title: "Naša <span class=\"text-red-600\">Flota Vozila</span>",
-        description: "Doživite neusporedivu udobnost i sofisticiranost s našom pažljivo održavanom flotom premium vozila. Bez obzira putujete li poslovno, iz razonode ili zbog posebne prigode, naš raznolik izbor luksuznih automobila osigurava glatko, elegantno i bezbrižno putovanje. Svako vozilo opremljeno je vrhunskim sadržajima, nudeći savršenu ravnotežu elegancije, sigurnosti i udobnosti za poboljšanje vašeg putničkog iskustva.",
+        title: "Naš <span class=\"text-red-600\">Brod Poseidon</span>",
+        description: "Doživite neusporedivu udobnost i sofisticiranost s našim pažljivo održavanim premium plovilom Poseidon. Bez obzira putujete li poslovno, iz razonode ili zbog posebne prigode, naš luksuzni brod osigurava glatku, elegantnu i bezbrižnu plovidbu. Poseidon je opremljen vrhunskim sadržajima, nudeći savršenu ravnotežu elegancije, sigurnosti i udobnosti za poboljšanje vašeg iskustva putovanja morem.",
         categories: {
           luxury: {
-            title: "Automobili",
-            longDescription: "Naše luksuzne limuzine kombiniraju eleganciju, udobnost i vrhunske performanse za neusporedivo izvršno putničko iskustvo. Savršeni za poslovne sastanke, transfere s aerodroma i posebne prigode."
+            title: "Gliseri",
+            longDescription: "Naši luksuzni gliseri kombiniraju eleganciju, udobnost i vrhunske performanse za neusporedivo izvršno putničko iskustvo. Savršeni za brze izlete, razgledavanje obale i posebne prigode."
           },
           van: {
-            title: "Putnički kombiji",
-            longDescription: "Prostrani i udobni premium kombiji koji nude superioran prostor za noge, dovoljno prostora za prtljagu i povišen položaj sjedenja. Idealno za obitelji, manje grupe ili klijente koji preferiraju dominantniji pogled na cestu."
+            title: "Putnički brodovi",
+            longDescription: "Prostrani i udobni premium putnički brodovi koji nude superioran prostor na palubi, dovoljno prostora za pohranu i povišen položaj sjedenja. Idealno za obitelji, manje grupe ili klijente koji preferiraju opuštenije putovanje uz obalu."
           },
           minibus: {
-            title: "Minibus",
-            longDescription: "Naši izvršni minibusi pružaju vrhunski grupni prijevoz, s prostranim interijerima, udobnim sjedalima i premium sadržajima. Savršeni za korporativne timove, transfere s aerodroma i grupe za posebne događaje."
+            title: "Charter Jahte",
+            longDescription: "Naše izvršne charter jahte pružaju vrhunski grupni prijevoz morem, s prostranim palubama, udobnim sjedalima i premium sadržajima. Savršene za korporativne timove, obalne izlete i grupe za posebne događaje."
           }
         },
         vehicles: {
           mercedes_e_class: {
-            name: "Mercedes E-Klasa",
-            alt: "Mercedes E-klasa automobil",
-            description: "Mercedes E-Class pruža iznimnu udobnost i prostranost u elegantnom pakiranju. Ova flagship limuzina nudi izvanredan unutarnji prostor, sofisticiranu tehnologiju i europsku profinjenost po konkurentnoj cijeni."
+            name: "Poseidon Speedster",
+            alt: "Poseidon Speedster gliser",
+            description: "Poseidon Speedster pruža iznimnu udobnost i brzinu u elegantnom pakiranju. Ovaj flagship gliser nudi izvanredan prostor na palubi, sofisticiranu navigacijsku tehnologiju i mediteransku profinjenost po konkurentnoj cijeni."
           },
           mercedes_v_class: {
-            name: "Mercedes V-Klasa",
-            alt: "Mercedes V-Klasa kombi",
-            description: "Mercedes V-Klasa kombinira prostornu svestranost s premium luksuzom. Ovaj sofisticirani MPV nudi izvanrednu udobnost, fleksibilan raspored sjedenja i Mercedes-Benz kvalitetu za izvršni prijevoz."
+            name: "Poseidon Cruiser",
+            alt: "Poseidon Cruiser putnički brod",
+            description: "Poseidon Cruiser kombinira prostornu svestranost s premium luksuzom. Ovaj sofisticirani putnički brod nudi izvanrednu udobnost, fleksibilan raspored sjedenja i vrhunsku kvalitetu izrade za izvršni morski prijevoz."
           },
           renault_trafic: {
-            name: "Renault Trafic",
-            alt: "Renault Trafic putnički kombi",
-            description: "Renault Trafic pruža praktičnu svestranost s modernim značajkama udobnosti. Ovaj učinkoviti putnički kombi nudi odličnu potrošnju goriva, pametna rješenja za pohranu i udobnu vožnju za grupni prijevoz."
+            name: "Poseidon Voyager",
+            alt: "Poseidon Voyager putnički brod",
+            description: "Poseidon Voyager pruža praktičnu svestranost s modernim značajkama udobnosti. Ovaj učinkoviti putnički brod nudi odličnu potrošnju goriva, pametna rješenja za pohranu i udobnu vožnju za grupni prijevoz morem."
           },
           mercedes_sprinter: {
-            name: "Mercedes Benz Sprinter Minibus",
-            alt: "Mercedes Benz Sprinter Minibus",
-            description: "Mercedes Benz Sprinter Minibus pruža pouzdan grupni prijevoz s vrhunskim značajkama udobnosti i sigurnosti. Savršen za korporativne događaje, transfere s aerodroma i turističke grupe koje zahtijevaju prostrani smještaj."
+            name: "Poseidon Luksuzna Jahta",
+            alt: "Poseidon Luksuzna Jahta",
+            description: "Poseidon Luksuzna Jahta pruža pouzdan grupni prijevoz s vrhunskim značajkama udobnosti i sigurnosti. Savršena za korporativne događaje, obalne izlete i turističke grupe koje zahtijevaju prostrani smještaj na vodi."
           }
         },
         specifications: "Specifikacije",
         passengers: "Putnici",
-        luggage: "Prtljaga",
-        pieces: "komada",
+        luggage: "Spremište",
+        pieces: "odjeljaka",
         view: "pogled"
       }
     },
     it: {
-            description: "Descrizione",
+      description: "Descrizione",
       home: "Home",
       about_us: {
         title: "Chi siamo",
         about_our_company: "La <span class=\"text-red-600\">nostra azienda</span>",
-        company_history: "Dal 2025, stiamo ridefinendo i servizi di taxi premium nella regione. Ciò che è iniziato come una piccola flotta di tre veicoli di lusso si è rapidamente evoluto nel fornitore di trasporti più affidabile della città. Con un impegno per l'eccellenza, offriamo viaggi impeccabili, confortevoli e affidabili su misura per le esigenze dei nostri clienti.",
-        mission: "La nostra missione è semplice: fornire esperienze di trasporto eccezionali con professionalità, puntualità e servizio personalizzato che supera le aspettative.",
+        company_history: "Dal 2025, stiamo ridefinendo i tour in barca premium nella regione con la nostra imbarcazione Poseidon. Ciò che è iniziato come una piccola impresa con una singola imbarcazione di lusso si è rapidamente evoluto nel fornitore di tour marittimi più affidabile della città. Con un impegno per l'eccellenza, offriamo viaggi marittimi impeccabili, confortevoli e affidabili su misura per le esigenze dei nostri clienti.",
+        mission: "La nostra missione è semplice: fornire esperienze di trasporto marittimo eccezionali con professionalità, puntualità e servizio personalizzato che supera le aspettative.",
         our_values: "I nostri valori",
         safety_reliability: "Sicurezza e affidabilità",
-        safety_description: "La tua sicurezza è la nostra priorità con manutenzione regolare dei veicoli e autisti formati professionalmente.",
+        safety_description: "La tua sicurezza è la nostra priorità con manutenzione meticolosa dell'imbarcazione e skipper professionalmente certificati.",
         customer_excellence: "Eccellenza del cliente",
-        customer_description: "Andiamo oltre il trasporto per offrire esperienze memorabili su misura per le tue esigenze.",
-        innovation: "Innovazione",
-        innovation_description: "Evolviamo costantemente la nostra flotta e i nostri servizi per fornire le soluzioni di trasporto più moderne.",
+        customer_description: "Andiamo oltre il trasporto per creare esperienze marine memorabili su misura per le tue preferenze.",
+        innovation: "Esperienza Marittima",
+        innovation_description: "Combiniamo conoscenze marinare tradizionali con comfort moderni per offrire un'autentica avventura adriatica.",
         our_mission: "La nostra missione",
         availability: "Disponibilità",
         satisfaction: "Soddisfazione"
@@ -230,26 +230,26 @@ skipper_training: "Obuka Za Skippera",
       faq: "Domande frequenti",
       contact: "Contatti",
       blog: "Blog",
-      taxi: "Taxi",
-      transfers: "Trasferimenti",
-      excursions: "Escursioni",
-      airport_transfers: "Trasferimenti aeroportuali",
-      bicycle_transport: "Trasporto biciclette",
+      taxi: "Taxi Acquatico",
+      transfers: "Trasferimenti Marittimi",
+      excursions: "Escursioni in Barca",
+      airport_transfers: "Trasferimenti Marina",
+      bicycle_transport: "Trasporto Attrezzature",
       taxi_boat: "Taxi Boat",
-rent_a_boat: "Noleggio Barca",
-skipper_training: "Formazione Skipper",
+      rent_a_boat: "Noleggio Barca",
+      skipper_training: "Formazione Skipper",
       book_now: "Prenota ora",
       Language: "Lingua",
       events: "Eventi",
       phone: "+385 92 169 6002",
       email: "poseidon@gmail.com",
-      city_transfers: "Trasferimenti Urbani",
-      porec_transfers: "Trasferimenti Poreč",
-      porec_taxi: "Taxi Poreč",
-      porec_excursions: "Escursioni Poreč",
-      vehicle_fleet: "Flotta di veicoli",
+      city_transfers: "Poseidon",
+      porec_transfers: "Trasferimenti Marittimi Poreč",
+      porec_taxi: "Taxi Boat Poreč",
+      porec_excursions: "Escursioni in Barca Poreč",
+      vehicle_fleet: "Barca Poseidon",
       footer: {
-        company_description: "Servizi di trasporto premium in tutta l'Istria. Trasferimenti affidabili, confortevoli e puntuali per tutte le vostre esigenze di viaggio.",
+        company_description: "Servizi di trasporto marittimo premium in tutta l'Istria. Trasferimenti marittimi affidabili, confortevoli e puntuali per tutte le vostre esigenze di viaggio.",
         quick_links: "Collegamenti rapidi",
         our_services: "I nostri servizi",
         custom_request: "Richiesta personalizzata",
@@ -266,66 +266,66 @@ skipper_training: "Formazione Skipper",
         address: "Parenzo, Istria, Croazia"
       },
       fleet: {
-        title: "La Nostra <span class=\"text-red-600\">Flotta di Veicoli</span>",
-        description: "Sperimenta un comfort e una sofisticatezza senza pari con la nostra flotta di veicoli premium meticolosamente mantenuta. Che tu stia viaggiando per affari, per piacere o per un'occasione speciale, la nostra diversificata selezione di auto di alta gamma garantisce un viaggio fluido, elegante e senza stress. Ogni veicolo è dotato di comfort di alto livello, offrendo il perfetto equilibrio tra eleganza, sicurezza e convenienza per elevare la tua esperienza di viaggio.",
+        title: "La Nostra <span class=\"text-red-600\">Barca Poseidon</span>",
+        description: "Sperimenta un comfort e una sofisticatezza senza pari con la nostra imbarcazione premium Poseidon meticolosamente mantenuta. Che tu stia viaggiando per affari, per piacere o per un'occasione speciale, la nostra lussuosa barca garantisce un viaggio fluido, elegante e senza stress. Poseidon è dotata di comfort di alto livello, offrendo il perfetto equilibrio tra eleganza, sicurezza e convenienza per elevare la tua esperienza di viaggio in mare.",
         categories: {
           luxury: {
-            title: "Automobili",
-            longDescription: "Le nostre berline di lusso combinano eleganza, comfort e prestazioni superiori per un'esperienza di viaggio executive senza pari. Perfette per riunioni di lavoro, trasferimenti aeroportuali e occasioni speciali."
+            title: "Motoscafi",
+            longDescription: "I nostri motoscafi di lusso combinano eleganza, comfort e prestazioni superiori per un'esperienza di viaggio executive senza pari. Perfetti per viaggi veloci, tour costieri e occasioni speciali."
           },
           van: {
-            title: "Van Passeggeri",
-            longDescription: "Van premium spaziosi e confortevoli che offrono superiore spazio per le gambe, ampio spazio per i bagagli e posizione di seduta elevata. Ideali per famiglie, piccoli gruppi o clienti che preferiscono una vista più dominante sulla strada."
+            title: "Barche Passeggeri",
+            longDescription: "Barche passeggeri premium spaziose e confortevoli che offrono spazio superiore sul ponte, ampio spazio per lo stoccaggio e posizione di seduta elevata. Ideali per famiglie, piccoli gruppi o clienti che preferiscono un viaggio più rilassato lungo la costa."
           },
           minibus: {
-            title: "Minibus",
-            longDescription: "I nostri minibus executive offrono il massimo nel trasporto di gruppo, con interni spaziosi, sedili comodi e comfort premium. Perfetti per team aziendali, trasferimenti aeroportuali e gruppi per eventi speciali."
+            title: "Yacht Charter",
+            longDescription: "I nostri yacht executive offrono il massimo nel trasporto di gruppo via mare, con ponti spaziosi, sedili comodi e comfort premium. Perfetti per team aziendali, escursioni costiere e gruppi per eventi speciali."
           }
         },
         vehicles: {
           mercedes_e_class: {
-            name: "Mercedes Classe E",
-            alt: "Mercedes Classe E auto",
-            description: "La Mercedes E-Class offre comfort e spaziosità eccezionali in un pacchetto elegante. Questa berlina ammiraglia offre uno spazio interno notevole, tecnologia sofisticata e raffinatezza europea a un prezzo competitivo."
+            name: "Poseidon Speedster",
+            alt: "Poseidon Speedster motoscafo",
+            description: "Il Poseidon Speedster offre comfort e velocità eccezionali in un pacchetto elegante. Questo motoscafo ammiraglia offre uno spazio sul ponte notevole, tecnologia di navigazione sofisticata e raffinatezza mediterranea a un prezzo competitivo."
           },
           mercedes_v_class: {
-            name: "Mercedes Classe V",
-            alt: "Mercedes Classe V van",
-            description: "La Mercedes Classe V combina versatilità spaziosa con lusso premium. Questo MPV sofisticato offre comfort eccezionale, disposizioni flessibili dei sedili e qualità Mercedes-Benz per il trasporto executive."
+            name: "Poseidon Cruiser",
+            alt: "Poseidon Cruiser barca passeggeri",
+            description: "Il Poseidon Cruiser combina versatilità spaziosa con lusso premium. Questa sofisticata barca passeggeri offre comfort eccezionale, disposizioni flessibili dei sedili e qualità di costruzione superiore per il trasporto marittimo executive."
           },
           renault_trafic: {
-            name: "Renault Trafic",
-            alt: "Renault Trafic van passeggeri",
-            description: "Il Renault Trafic offre versatilità pratica con caratteristiche di comfort moderne. Questo efficiente van passeggeri offre un'eccellente economia di carburante, soluzioni intelligenti per lo stoccaggio e un viaggio confortevole per il trasporto di gruppo."
+            name: "Poseidon Voyager",
+            alt: "Poseidon Voyager barca passeggeri",
+            description: "Il Poseidon Voyager offre versatilità pratica con caratteristiche di comfort moderne. Questa efficiente barca passeggeri offre un'eccellente economia di carburante, soluzioni intelligenti per lo stoccaggio e un viaggio confortevole per il trasporto di gruppo via mare."
           },
           mercedes_sprinter: {
-            name: "Mercedes Benz Sprinter Minibus",
-            alt: "Mercedes Benz Sprinter Minibus",
-            description: "Il Mercedes Benz Sprinter Minibus fornisce un trasporto di gruppo affidabile con caratteristiche di comfort e sicurezza superiori. Perfetto per eventi aziendali, trasferimenti aeroportuali e gruppi turistici che richiedono una sistemazione spaziosa."
+            name: "Poseidon Yacht di Lusso",
+            alt: "Poseidon Yacht di Lusso",
+            description: "Il Poseidon Yacht di Lusso fornisce un trasporto di gruppo affidabile con caratteristiche di comfort e sicurezza superiori. Perfetto per eventi aziendali, escursioni costiere e gruppi turistici che richiedono una sistemazione spaziosa sull'acqua."
           }
         },
         specifications: "Specifiche",
         passengers: "Passeggeri",
-        luggage: "Bagagli",
-        pieces: "pezzi",
+        luggage: "Stoccaggio",
+        pieces: "scomparti",
         view: "vista"
       }
     },
     de: {
-                  description: "Beschreibung",
+      description: "Beschreibung",
       home: "Startseite",
       about_us: {
         title: "Über uns",
         about_our_company: "Über <span class=\"text-red-600\">unser Unternehmen</span>",
-        company_history: "Seit 2025 definieren wir Premium-Taxiservice in der Region neu. Was als kleine Flotte von drei Luxusfahrzeugen begann, hat sich schnell zum vertrauenswürdigsten Transportanbieter der Stadt entwickelt. Mit einem Engagement für Exzellenz bieten wir nahtlose, komfortable und zuverlässige Fahrten, die auf die Bedürfnisse unserer Kunden zugeschnitten sind.",
-        mission: "Unsere Mission ist einfach: außergewöhnliche Transporterlebnisse mit Professionalität, Pünktlichkeit und persönlichem Service bieten, der die Erwartungen übertrifft.",
+        company_history: "Seit 2025 definieren wir Premium-Bootstouren in der Region mit unserem Schiff Poseidon neu. Was als kleines Unternehmen mit einem einzigen Luxusboot begann, hat sich schnell zum vertrauenswürdigsten Anbieter von Meerestouren der Stadt entwickelt. Mit einem Engagement für Exzellenz bieten wir nahtlose, komfortable und zuverlässige Seereisen, die auf die Bedürfnisse unserer Kunden zugeschnitten sind.",
+        mission: "Unsere Mission ist einfach: außergewöhnliche Seetransporterlebnisse mit Professionalität, Pünktlichkeit und persönlichem Service bieten, der die Erwartungen übertrifft.",
         our_values: "Unsere Werte",
         safety_reliability: "Sicherheit & Zuverlässigkeit",
-        safety_description: "Ihre Sicherheit hat für uns mit regelmäßiger Fahrzeugwartung und professionell geschulten Fahrern Priorität.",
+        safety_description: "Ihre Sicherheit hat für uns mit sorgfältiger Bootswartung und professionell zertifizierten Skippern Priorität.",
         customer_excellence: "Kundenexzellenz",
-        customer_description: "Wir gehen über den Transport hinaus, um unvergessliche Erlebnisse zu bieten, die auf Ihre Bedürfnisse zugeschnitten sind.",
-        innovation: "Innovation",
-        innovation_description: "Wir entwickeln unsere Flotte und Dienstleistungen ständig weiter, um die modernsten Transportlösungen anzubieten.",
+        customer_description: "Wir gehen über den Transport hinaus, um unvergessliche Meereserlebnisse zu schaffen, die auf Ihre Vorlieben zugeschnitten sind.",
+        innovation: "Maritime Erfahrung",
+        innovation_description: "Wir verbinden traditionelles Seefahrtswissen mit modernem Komfort, um ein authentisches adriatisches Abenteuer zu bieten.",
         our_mission: "Unsere Mission",
         availability: "Verfügbarkeit",
         satisfaction: "Zufriedenheit"
@@ -333,26 +333,26 @@ skipper_training: "Formazione Skipper",
       faq: "Häufige Fragen",
       contact: "Kontakt",
       blog: "Blog",
-      taxi: "Taxi",
-      transfers: "Transfers",
-      excursions: "Ausflüge",
-      airport_transfers: "Flughafen-Transfers",
-      bicycle_transport: "Fahrradtransport",
+      taxi: "Wassertaxi",
+      transfers: "Seetransfers",
+      excursions: "Bootsausflüge",
+      airport_transfers: "Marina-Transfers",
+      bicycle_transport: "Ausrüstungstransport",
       taxi_boat: "Taxi Boot",
-rent_a_boat: "Boot Mieten",
-skipper_training: "Skipper Ausbildung",
+      rent_a_boat: "Boot Mieten",
+      skipper_training: "Skipper Ausbildung",
       book_now: "Jetzt buchen",
       Language: "Sprache",
       events: "Veranstaltungen",
       phone: "+385 92 169 6002",
       email: "poseidon@gmail.com",
-      city_transfers: "Stadttransfers",
-      porec_transfers: "Poreč Transfers",
-      porec_taxi: "Poreč Taxi",
-      porec_excursions: "Poreč Ausflüge",
-      vehicle_fleet: "Fahrzeugflotte",
+      city_transfers: "Poseidon",
+      porec_transfers: "Poreč Seetransfers",
+      porec_taxi: "Poreč Bootstaxis",
+      porec_excursions: "Poreč Bootsausflüge",
+      vehicle_fleet: "Boot Poseidon",
       footer: {
-        company_description: "Premium-Transportdienste in ganz Istrien. Zuverlässige, komfortable und pünktliche Transfers für alle Ihre Reisebedürfnisse.",
+        company_description: "Premium-Seetransportdienste in ganz Istrien. Zuverlässige, komfortable und pünktliche Seetransfers für alle Ihre Reisebedürfnisse.",
         quick_links: "Schnellzugriff",
         our_services: "Unsere Leistungen",
         custom_request: "Individuelle Anfrage",
@@ -369,48 +369,48 @@ skipper_training: "Skipper Ausbildung",
         address: "Poreč, Istrien, Kroatien"
       },
       fleet: {
-        title: "Unsere <span class=\"text-red-600\">Fahrzeugflotte</span>",
-        description: "Erleben Sie unvergleichlichen Komfort und Raffinesse mit unserer sorgfältig gewarteten Flotte von Premium-Fahrzeugen. Ob Sie geschäftlich, privat oder zu einem besonderen Anlass reisen, unsere vielfältige Auswahl an hochwertigen Fahrzeugen sorgt für eine reibungslose, stilvolle und stressfreie Reise. Jedes Fahrzeug ist mit erstklassigen Annehmlichkeiten ausgestattet und bietet die perfekte Balance aus Eleganz, Sicherheit und Komfort, um Ihr Reiseerlebnis zu verbessern.",
+        title: "Unser <span class=\"text-red-600\">Boot Poseidon</span>",
+        description: "Erleben Sie unvergleichlichen Komfort und Raffinesse mit unserem sorgfältig gewarteten Premium-Boot Poseidon. Ob Sie geschäftlich, privat oder zu einem besonderen Anlass reisen, unser luxuriöses Boot sorgt für eine reibungslose, stilvolle und stressfreie Reise. Poseidon ist mit erstklassigen Annehmlichkeiten ausgestattet und bietet die perfekte Balance aus Eleganz, Sicherheit und Komfort, um Ihr Seereiseerlebnis zu verbessern.",
         categories: {
           luxury: {
-            title: "Autos",
-            longDescription: "Unsere Luxuslimousinen kombinieren Eleganz, Komfort und überragende Leistung für ein unvergleichliches Reiseerlebnis für Führungskräfte. Perfekt für Geschäftstreffen, Flughafentransfers und besondere Anlässe."
+            title: "Schnellboote",
+            longDescription: "Unsere Luxus-Schnellboote kombinieren Eleganz, Komfort und überragende Leistung für ein unvergleichliches Reiseerlebnis für Führungskräfte. Perfekt für schnelle Fahrten, Küstenbesichtigungen und besondere Anlässe."
           },
           van: {
-            title: "Personentransporter",
-            longDescription: "Geräumige und komfortable Premium-Vans mit überlegenem Beinraum, ausreichend Stauraum für Gepäck und erhöhter Sitzposition. Ideal für Familien, kleine Gruppen oder Kunden, die einen besser Überblick über die Straße bevorzugen."
+            title: "Passagierboote",
+            longDescription: "Geräumige und komfortable Premium-Passagierboote mit überlegenem Deckraum, ausreichend Stauraum und erhöhter Sitzposition. Ideal für Familien, kleine Gruppen oder Kunden, die eine entspanntere Reise entlang der Küste bevorzugen."
           },
           minibus: {
-            title: "Minibus",
-            longDescription: "Unsere Executive-Minibusse bieten das Nonplusultra im Gruppentransport, mit geräumigen Innenräumen, komfortablen Sitzen und erstklassigen Annehmlichkeiten. Perfekt für Unternehmensteams, Flughafentransfers und Gruppen für besondere Veranstaltungen."
+            title: "Charter-Yachten",
+            longDescription: "Unsere Executive-Charter-Yachten bieten das Nonplusultra im Gruppenseetransport, mit geräumigen Decks, komfortablen Sitzen und erstklassigen Annehmlichkeiten. Perfekt für Unternehmensteams, Küstenausflüge und Gruppen für besondere Veranstaltungen."
           }
         },
         vehicles: {
           mercedes_e_class: {
-            name: "Mercedes E-Klasse",
-            alt: "Mercedes E-Klasse Auto",
-            description: "Der Mercedes E-Class bietet außergewöhnlichen Komfort und Geräumigkeit in einem eleganten Paket. Diese Flaggschiff-Limousine bietet bemerkenswerten Innenraum, fortschrittliche Technologie und europäische Raffinesse zu einem wettbewerbsfähigen Preis."
+            name: "Poseidon Speedster",
+            alt: "Poseidon Speedster Schnellboot",
+            description: "Der Poseidon Speedster bietet außergewöhnlichen Komfort und Geschwindigkeit in einem eleganten Paket. Dieses Flaggschiff-Schnellboot bietet bemerkenswerten Deckraum, fortschrittliche Navigationstechnologie und mediterrane Raffinesse zu einem wettbewerbsfähigen Preis."
           },
           mercedes_v_class: {
-            name: "Mercedes V-Klasse",
-            alt: "Mercedes V-Klasse Van",
-            description: "Die Mercedes V-Klasse kombiniert geräumige Vielseitigkeit mit Premium-Luxus. Dieser raffinierte MPV bietet außergewöhnlichen Komfort, flexible Sitzanordnungen und Mercedes-Benz-Qualität für den Executive-Transport."
+            name: "Poseidon Cruiser",
+            alt: "Poseidon Cruiser Passagierboot",
+            description: "Der Poseidon Cruiser kombiniert geräumige Vielseitigkeit mit Premium-Luxus. Dieses raffinierte Passagierboot bietet außergewöhnlichen Komfort, flexible Sitzanordnungen und überragende Bauqualität für den Executive-Seetransport."
           },
           renault_trafic: {
-            name: "Renault Trafic",
-            alt: "Renault Trafic Personentransporter",
-            description: "Der Renault Trafic bietet praktische Vielseitigkeit mit modernen Komfortfunktionen. Dieser effiziente Personentransporter bietet hervorragende Kraftstoffeffizienz, clevere Stauraumlösungen und eine komfortable Fahrt für den Gruppentransport."
+            name: "Poseidon Voyager",
+            alt: "Poseidon Voyager Passagierboot",
+            description: "Der Poseidon Voyager bietet praktische Vielseitigkeit mit modernen Komfortfunktionen. Dieses effiziente Passagierboot bietet hervorragende Kraftstoffeffizienz, clevere Stauraumlösungen und eine komfortable Fahrt für den Gruppenseetransport."
           },
           mercedes_sprinter: {
-            name: "Mercedes Benz Sprinter Minibus",
-            alt: "Mercedes Benz Sprinter Minibus",
-            description: "Der Mercedes Benz Sprinter Minibus bietet zuverlässigen Gruppentransport mit überlegenen Komfort- und Sicherheitsfunktionen. Perfekt für Firmenveranstaltungen, Flughafentransfers und Reisegruppen, die geräumige Unterbringung benötigen."
+            name: "Poseidon Luxusyacht",
+            alt: "Poseidon Luxusyacht",
+            description: "Die Poseidon Luxusyacht bietet zuverlässigen Gruppentransport mit überlegenen Komfort- und Sicherheitsfunktionen. Perfekt für Firmenveranstaltungen, Küstenausflüge und Reisegruppen, die geräumige Unterbringung auf dem Wasser benötigen."
           }
         },
         specifications: "Spezifikationen",
         passengers: "Passagiere",
-        luggage: "Gepäck",
-        pieces: "Stücke",
+        luggage: "Stauraum",
+        pieces: "Fächer",
         view: "Ansicht"
       }
     }
