@@ -1,6 +1,6 @@
 <template>
-  <TransfersHero></TransfersHero>
-  <TransferRoutes></TransferRoutes>
+  <TaxiBoatHero></TaxiBoatHero>
+  <TaxiBoatRoutes></TaxiBoatRoutes>
   <Aboutus></Aboutus>
   <CTA></CTA>
 </template>

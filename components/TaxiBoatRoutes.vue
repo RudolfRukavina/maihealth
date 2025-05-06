@@ -44,18 +44,10 @@
             <div class="h-56 relative overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
               <img :src="boatImage" alt="Poseidon Boat" class="w-full h-full object-cover">
-              <!-- Boat details badge -->
+              <!-- Boat details badge - REMOVED duration from here -->
               <div
                 class="absolute bottom-4 left-4 z-10 bg-black/60 text-white px-4 py-2 rounded-lg flex items-center text-sm">
-                <span class="mr-3">Up to 8 passengers</span>
-                <span class="flex items-center">
-                  <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                  {{ calculateDuration }} average duration
-                </span>
+                <span>Up to 8 passengers</span>
               </div>
             </div>
 
@@ -76,19 +68,12 @@
                         {{ location.name }}
                       </option>
                     </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                      <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Route visualization -->
-              <div class="flex items-center justify-between mb-8 px-4">
+              <!-- Route visualization - MODIFIED with duration where the nm are -->
+              <div class="flex items-center justify-between mb-12 px-4">
                 <div class="text-center">
                   <div
                     class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
@@ -104,14 +89,11 @@
                 <div class="flex-1 flex items-center justify-center px-4">
                   <div class="h-0.5 bg-gradient-to-r from-red-600 to-red-500 flex-1 relative">
                     <div class="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                      <svg class="w-4 h-4 text-red-500 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                          clip-rule="evenodd"></path>
-                      </svg>
                     </div>
-                    <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                      <span class="text-xs text-gray-400">{{ calculateDistance }}</span>
+                    <!-- IMPORTANT CHANGE: Added duration to route visualization -->
+                    <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
+                      <span class="text-xs text-gray-400 block">{{ calculateDistance }}</span>
+                      <span class="text-sm text-red-500 font-medium block mt-1">{{ calculateDuration }}</span>
                     </div>
                   </div>
                 </div>
