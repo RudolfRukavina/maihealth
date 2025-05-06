@@ -1,6 +1,6 @@
 <template>
   <Hero></Hero>
-  <Test></Test>
+  <Recommedations></Recommedations>
   <Services></Services>
   <Aboutus></Aboutus>
   <Testimonial></Testimonial>
@@ -10,6 +10,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import Recommedations from '~/components/Recommedations.vue';
 
 // Set the page head metadata
 useHead({

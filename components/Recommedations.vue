@@ -1,6 +1,6 @@
 <template>
   <!-- Recommended Options Section with Premium Design -->
-  <section class="py-16 bg-gradient-to-b from-black to-gray-950 relative overflow-hidden" id="recommended">
+  <section class="py-16 bg-gradient-to-b from-black to-black relative overflow-hidden" id="recommended">
     <!-- Background decorative elements -->
     <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-red-600 opacity-10 rounded-full">
     </div>
