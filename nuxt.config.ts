@@ -25,52 +25,58 @@ export default defineNuxtConfig({
         },
         { rel: "manifest", href: "/site.webmanifest" },
       ],
-      script: [
-      ],
+      script: [],
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper", "dayjs-nuxt", '@nuxtjs/i18n', "nuxt-marquee", "@vueuse/nuxt"],
-
-i18n: {
-  strategy: 'no_prefix',
-  locales: [
-    {
-      code: 'en',
-      name: 'English',
-      iso: 'en-US',
-    },
-    {
-      code: 'hr',
-      name: 'Hrvatski',
-      iso: 'hr-HR',
-    },
-    {
-      code: 'it',
-      name: 'Italiano',
-      iso: 'it-IT',
-    },
-    {
-      code: 'de',
-      name: 'Deutsch',
-      iso: 'de-DE',
-    },
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "nuxt-swiper",
+    "dayjs-nuxt",
+    "@nuxtjs/i18n",
+    "nuxt-marquee",
+    "@vueuse/nuxt",
   ],
 
-  vueI18n: './i18n.config.ts', // if you are using custom path
-  detectBrowserLanguage: {
-    useCookie: false, // Enable to persist the user's choice
-    cookieKey: 'i18n_redirected',
-    alwaysRedirect: true, // Redirect the user to the preferred language
-    fallbackLocale: 'en',
-  },
+  i18n: {
+    strategy: "no_prefix",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        iso: "en-US",
+      },
+      {
+        code: "hr",
+        name: "Hrvatski",
+        iso: "hr-HR",
+      },
+      {
+        code: "it",
+        name: "Italiano",
+        iso: "it-IT",
+      },
+      {
+        code: "de",
+        name: "Deutsch",
+        iso: "de-DE",
+      },
+    ],
+
+    vueI18n: "./i18n.config.ts", // if you are using custom path
+    detectBrowserLanguage: {
+      useCookie: false, // Enable to persist the user's choice
+      cookieKey: "i18n_redirected",
+      alwaysRedirect: true, // Redirect the user to the preferred language
+      fallbackLocale: "en",
+    },
   },
 
   dayjs: {
-    locales: ['hr'], // Croatian locale
-    defaultLocale: 'hr', // Set Croatian as the default locale
-    defaultTimezone: 'Europe/Zagreb', // Set the default timezone for Croatia
-    plugins: ['relativeTime', 'utc', 'timezone'] // Use desired plugins
+    locales: ["hr"], // Croatian locale
+    defaultLocale: "hr", // Set Croatian as the default locale
+    defaultTimezone: "Europe/Zagreb", // Set the default timezone for Croatia
+    plugins: ["relativeTime", "utc", "timezone"], // Use desired plugins
   },
 
   tailwindcss: {
@@ -78,11 +84,10 @@ i18n: {
   },
 
   build: {
-      transpile: ['@vuepic/vue-datepicker']
+    transpile: ["@vuepic/vue-datepicker"],
   },
 
-  plugins: [
-],
+  plugins: [],
 
   compatibilityDate: "2025-02-14",
 });

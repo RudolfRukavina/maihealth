@@ -1,5 +1,6 @@
 <template>
   <Hero></Hero>
+  <Test></Test>
   <Services></Services>
   <Aboutus></Aboutus>
   <Testimonial></Testimonial>
