@@ -84,22 +84,7 @@
                           class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
 
-                        <!-- Price tag -->
-                        <div
-                          class="absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                          €{{ preset.price }}
-                        </div>
 
-                        <!-- Selected indicator -->
-                        <div v-if="selectedPresetId === preset.id"
-                          class="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center">
-                          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                          Selected
-                        </div>
 
                         <div class="absolute bottom-0 left-0 right-0 p-4">
                           <h4 class="text-white font-bold text-lg">{{ preset.name }}</h4>
@@ -242,23 +227,23 @@
                 </div>
 
                 <!-- Pricing breakdown -->
-                <div class="bg-white/5 rounded-lg p-4 mb-6">
-                  <h4 class="text-white font-medium mb-3">Pricing</h4>
-                  <div class="space-y-2 text-sm">
-                    <div class="flex justify-between text-gray-300">
-                      <span>Base cruise</span>
-                      <span>€{{ basePrice }}</span>
-                    </div>
-                    <div v-if="extraDestinationsCost > 0" class="flex justify-between text-gray-300">
-                      <span>Additional destinations ({{ currentJourneyDestinations.length - 2 }})</span>
-                      <span>€{{ extraDestinationsCost }}</span>
-                    </div>
-                    <div class="border-t border-white/10 pt-2 flex justify-between font-medium text-white">
-                      <span>Total per person</span>
-                      <span class="text-red-500">€{{ totalPrice }}</span>
-                    </div>
-                  </div>
-                </div>
+<div class="bg-white/5 rounded-lg p-4 mb-6">
+  <h4 class="text-white font-medium mb-3">Pricing</h4>
+  <div class="space-y-2 text-sm">
+    <div class="flex justify-between text-gray-300">
+      <span>Base cruise</span>
+      <span>From €{{ basePrice }}</span>
+    </div>
+    <div v-if="extraDestinationsCost > 0" class="flex justify-between text-gray-300">
+      <span>Additional destinations ({{ currentJourneyDestinations.length - 2 }})</span>
+      <span>From €{{ extraDestinationsCost }}</span>
+    </div>
+    <div class="border-t border-white/10 pt-2 flex justify-between font-medium text-white">
+      <span>Total approximate</span>
+      <span class="text-red-500">From €{{ totalPrice }} per person</span>
+    </div>
+  </div>
+</div>
 
                 <!-- Poseidon Boat info -->
                 <div class="border-t border-white/10 pt-4 mb-6">
@@ -275,16 +260,23 @@
                 </div>
 
                 <!-- Book now button -->
-                <button v-if="canBook" @click="bookJourney"
-                  class="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-red-500/25 flex items-center justify-center group">
-                  <span>Book Your Journey</span>
-                  <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-                    fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </button>
+<!-- Book now button -->
+<button v-if="canBook" @click="bookJourney"
+  class="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-red-500/25 flex items-center justify-center group">
+  <span>Send Journey Inquiry</span>
+  <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="currentColor"
+    viewBox="0 0 20 20">
+    <path fill-rule="evenodd"
+      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+      clip-rule="evenodd"></path>
+  </svg>
+</button>
+
+<div v-else class="text-center p-4 bg-white/5 rounded-lg">
+  <p class="text-gray-400 text-sm">
+    Select at least 2 destinations to create your journey
+  </p>
+</div>
 
                 <div v-else class="text-center p-4 bg-white/5 rounded-lg">
                   <p class="text-gray-400 text-sm">
@@ -891,22 +883,21 @@
     const journeyName = 'Custom Journey';
     const destinationNames = currentJourneyDestinations.value.map(dest => dest.name);
 
-    const subject = encodeURIComponent(`Boat Journey Booking: ${journeyName}`);
+    const subject = encodeURIComponent(`Boat Journey Inquiry: ${journeyName}`);
     const body = encodeURIComponent(
       `Hello,\n\n` +
-      `I'd like to book a boat journey with Poseidon.\n\n` +
+      `I'd like to inquire about a boat journey with Poseidon.\n\n` +
       `Journey Details:\n` +
       `- Route: ${journeyName}\n` +
       `- Destinations: ${destinationNames.join(' → ')}\n` +
-      `- Duration: ${estimatedDuration.value}\n` +
-      `- Price: €${totalPrice.value} per person\n\n` +
+      `- Duration: ${estimatedDuration.value}\n\n` +
       `My details:\n` +
       `Name: \n` +
       `Phone Number: \n` +
       `Preferred Date: \n` +
       `Number of passengers: \n` +
       `Accommodation/Pickup Location: \n\n` +
-      `Could you please confirm availability and let me know if you need any additional information?\n\n` +
+      `Could you please provide pricing information and confirm availability for this journey?\n\n` +
       `Thank you!`
     );
 
