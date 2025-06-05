@@ -158,7 +158,7 @@ const { t, locale } = useI18n({
         city: 'City',
         adventures: 'Adventures',
         subtitle: 'Discover the hidden gems of Istria with our exclusive guided tours and unforgettable experiences.',
-        exploreTours: 'Explore Tours',
+        exploreTours: 'Design your journey',
         aboutUs: 'About us',
         typedStrings: ['Adventures', 'Excursions', 'Experiences', 'Discoveries'],
         features: {

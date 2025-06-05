@@ -26,18 +26,7 @@
     </ClientOnly>
 
     <div class="container mx-auto px-6 relative z-10">
-      <!-- Section heading -->
-      <ClientOnly>
-        <div class="text-center mb-16" v-motion :initial="{ opacity: 0, y: 40 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Design Your Perfect Journey</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-red-700 mx-auto"></div>
-          <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
-            Create your own custom boat excursion or choose from our popular routes.
-            Simply select destinations on the map or click a popular route to build your perfect Adriatic adventure.
-          </p>
-        </div>
-      </ClientOnly>
+
 
       <!-- Journey Builder Card -->
       <ClientOnly>
@@ -50,27 +39,14 @@
             <div class="p-6 border-b border-white/10">
               <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                  <h3 class="text-xl font-semibold text-white mb-2">Your Custom Journey</h3>
+                  <h3 class="text-xl font-semibold text-white mb-2">Design Your Perfect Journey</h3>
                   <p class="text-gray-300 text-sm">Click destinations on the map or select a popular route below</p>
-                </div>
-
-                <!-- Journey Info -->
-                <div class="flex items-center gap-4 text-sm">
-                  <div class="flex items-center text-gray-300">
-                    <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    {{ estimatedDuration }}
-                  </div>
-                  <div class="text-lg font-bold text-red-500">€{{ totalPrice }}</div>
                 </div>
               </div>
 
               <!-- Popular Routes Selection as Swiper -->
-              <div class="mt-6">
-                <h4 class="text-white font-medium mb-4 flex items-center">
+              <div class="mt-10">
+                <h4 class="text-white font-medium flex items-center">
                   <svg class="w-5 h-5 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
