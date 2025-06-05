@@ -34,7 +34,7 @@
           <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-red-700 mx-auto"></div>
           <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
             Create your own custom boat excursion or choose from our popular routes.
-            Simply select destinations on the map to build your perfect Adriatic adventure.
+            Simply select destinations on the map or click a popular route to build your perfect Adriatic adventure.
           </p>
         </div>
       </ClientOnly>
@@ -46,20 +46,12 @@
 
           <div class="rounded-xl overflow-hidden backdrop-blur-sm border border-white/10 bg-white/5">
 
-            <!-- Mode Selection Tabs -->
+            <!-- Header with Journey Info -->
             <div class="p-6 border-b border-white/10">
               <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div class="flex bg-white/5 backdrop-blur-sm rounded-lg p-1">
-                  <button @click="mode = 'custom'"
-                    class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-300"
-                    :class="mode === 'custom' ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg' : 'text-gray-300 hover:text-white'">
-                    Custom Journey
-                  </button>
-                  <button @click="mode = 'preset'"
-                    class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-300"
-                    :class="mode === 'preset' ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg' : 'text-gray-300 hover:text-white'">
-                    Popular Routes
-                  </button>
+                <div>
+                  <h3 class="text-xl font-semibold text-white mb-2">Your Custom Journey</h3>
+                  <p class="text-gray-300 text-sm">Click destinations on the map or select a popular route below</p>
                 </div>
 
                 <!-- Journey Info -->
@@ -76,35 +68,131 @@
                 </div>
               </div>
 
-              <!-- Preset Routes Selection -->
-              <div v-if="mode === 'preset'" class="mt-4">
-                <div class="flex overflow-x-auto pb-2 scrollbar-hide gap-2">
-                  <button v-for="preset in presetRoutes" :key="preset.id" @click="selectPresetRoute(preset)"
-                    class="px-4 py-2 text-sm whitespace-nowrap rounded-lg transition-all duration-300 flex-shrink-0"
-                    :class="selectedPreset?.id === preset.id ?
-                      'bg-gradient-to-r from-red-600 to-red-700 text-white font-medium' :
-                      'bg-white/5 text-gray-300 hover:bg-white/10'">
-                    {{ preset.name }}
-                  </button>
-                </div>
+              <!-- Popular Routes Selection as Swiper -->
+              <div class="mt-6">
+                <h4 class="text-white font-medium mb-4 flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
+                  </svg>
+                  Popular Routes
+                </h4>
+<swiper :modules="[EffectCoverflow, Pagination, Navigation, Autoplay]" :grabCursor="true" :centeredSlides="true" :loop='false'
+  :slidesPerView="'auto'" :initialSlide='2' :effect="'coverflow'" :coverflowEffect="{
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: false
+  }" :pagination="{
+    clickable: true,
+    dynamicBullets: true,
+    bulletClass: 'custom-bullet',
+    bulletActiveClass: 'custom-bullet-active'
+  }" :navigation="true" :autoplay="{
+    delay: 10000,
+    disableOnInteraction: false,
+  }" class="w-full route-swiper" @swiper="onRouteSwiperInit">
+  <swiper-slide v-for="preset in presetRoutes" :key="preset.id" class="swiper-slide-center cursor-pointer"
+    @click="selectPresetRoute(preset)">
+<div
+  class="route-card bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transform transition-all duration-300"
+  :class="[
+    selectedPresetId === preset.id
+      ? 'ring-2 ring-red-500 shadow-red-600/30 scale-[1.02] bg-gray-700/90'
+      : 'hover:ring-1 hover:ring-red-500/50 hover:shadow-lg'
+  ]" style="width: 100%; height: 100%;">
+                      <div class="relative h-48 overflow-hidden">
+                        <img :src="getRouteImage(preset.id)" :alt="preset.name"
+                          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+
+                        <!-- Price tag -->
+                        <div
+                          class="absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                          €{{ preset.price }}
+                        </div>
+
+                        <!-- Selected indicator -->
+                        <div v-if="selectedPresetId === preset.id"
+                          class="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center">
+                          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"></path>
+                          </svg>
+                          Selected
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                          <h4 class="text-white font-bold text-lg">{{ preset.name }}</h4>
+                          <div class="flex items-center mt-1">
+                            <div class="flex mr-4">
+                              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                  clip-rule="evenodd"></path>
+                              </svg>
+                              <span class="text-xs text-gray-300">{{ preset.duration }}</span>
+                            </div>
+                            <div class="flex">
+                              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"></path>
+                              </svg>
+                              <span class="text-xs text-gray-300">{{ preset.destinations.length }} stops</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Content below image -->
+                      <div class="p-4">
+                        <!-- Highlights preview -->
+                        <div class="text-sm text-gray-300">
+                          <p class="line-clamp-2">{{ getPresetDescription(preset) }}</p>
+                        </div>
+
+                        <!-- Small destination tags -->
+                        <div class="flex flex-wrap gap-1 mt-3">
+                          <span v-for="(dest, index) in getPresetDestinationNames(preset).slice(0, 3)" :key="index"
+                            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+                            {{ dest }}
+                          </span>
+                          <span v-if="preset.destinations.length > 3"
+                            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+                            +{{ preset.destinations.length - 3 }} more
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Bottom selected indicator -->
+                      <div v-if="selectedPresetId === preset.id"
+                        class="bg-gradient-to-r from-red-600 to-red-700 py-1.5 px-4 text-center text-xs text-white font-medium">
+                        ✓ Currently Selected Route
+                      </div>
+                    </div>
+                  </swiper-slide>
+                </swiper>
               </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-0">
-
+            <div class="grid lg:grid-cols-2 md:grid-cols-1 gap-0">
               <!-- Interactive Map Section -->
-              <div class="relative bg-white/5 p-6">
+              <div class="relative bg-white/5 p-4 md:p-6">
                 <h3 class="text-white font-semibold mb-4 flex items-center">
                   <svg class="w-5 h-5 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z">
                     </path>
                   </svg>
-                  {{ mode === 'custom' ? 'Select Your Destinations' : 'Your Route' }}
+                  Select Your Destinations
                 </h3>
 
-                <!-- Leaflet Map Container -->
-                <div class="relative rounded-lg overflow-hidden shadow-lg" style="aspect-ratio: 4/3; height: 400px;">
+                <!-- Leaflet Map Container - Improved responsiveness -->
+                <div class="relative rounded-lg overflow-hidden shadow-lg w-full" style="height: min(60vh, 450px);">
                   <ClientOnly>
                     <div ref="mapContainer" class="h-full w-full"></div>
                   </ClientOnly>
@@ -120,21 +208,11 @@
 
                   <!-- Map Controls Overlay -->
                   <div class="absolute top-3 right-3 flex flex-col gap-2">
-                    <button v-if="mode === 'custom' && selectedDestinations.length > 1" @click="clearCustomRoute"
+                    <button v-if="selectedDestinations.length > 1" @click="clearCustomRoute"
                       class="px-3 py-1 bg-black/70 hover:bg-black/90 text-white text-xs rounded-lg transition-all duration-300 backdrop-blur-sm">
                       Clear Route
                     </button>
                   </div>
-                </div>
-
-                <!-- Instructions -->
-                <div class="mt-4 text-sm">
-                  <p v-if="mode === 'custom'" class="text-gray-400">
-                    Click on destinations on the map to add them to your journey. Minimum 2 destinations required.
-                  </p>
-                  <p v-else class="text-gray-400">
-                    Select a popular route above to see it highlighted on the map.
-                  </p>
                 </div>
               </div>
 
@@ -158,7 +236,7 @@
                         {{ index + 1 }}
                       </span>
                       <span>{{ dest.name }}</span>
-                      <button v-if="mode === 'custom' && dest.id !== 'porec'" @click="removeDestination(dest.id)"
+                      <button v-if="dest.id !== 'porec'" @click="removeDestination(dest.id)"
                         class="ml-auto text-gray-400 hover:text-red-400 transition-colors">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd"
@@ -234,7 +312,7 @@
 
                 <div v-else class="text-center p-4 bg-white/5 rounded-lg">
                   <p class="text-gray-400 text-sm">
-                    {{ mode === 'custom' ? 'Select at least 2 destinations to book your journey' : 'Choose a route to get started' }}
+                    Select at least 2 destinations to book your journey
                   </p>
                 </div>
               </div>
@@ -266,12 +344,23 @@
   </section>
 </template>
 
-
 <script setup>
   import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
 
-  // Mode selection: 'custom' or 'preset'
-  const mode = ref('custom');
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/effect-coverflow';
+  import 'swiper/css/pagination';
+  import 'swiper/css/navigation';
+
+  // Set up refs and variables
+  const routeSwiper = ref(null);
+
+  // Function to initialize the swiper
+  const onRouteSwiperInit = (swiper) => {
+    routeSwiper.value = swiper;
+  };
 
   // Base pricing
   const basePrice = 45;
@@ -292,15 +381,15 @@
       lat: 45.2271,
       lng: 13.5947,
       type: 'start',
-      description: 'Starting point - Historic coastal town'
+      description: 'Our starting port with a UNESCO-listed Euphrasian Basilica and charming old town waterfront'
     },
     {
       id: 'vrsar',
       name: 'Vrsar',
-      lat: 45.2097,
-      lng: 13.6078,
+      lat: 45.1498,
+      lng: 13.6026,
       type: 'coastal',
-      description: 'Charming fishing village'
+      description: 'Picturesque fishing harbor with a beautiful marina and panoramic views from the hilltop church'
     },
     {
       id: 'rovinj',
@@ -308,15 +397,15 @@
       lat: 45.0811,
       lng: 13.6400,
       type: 'coastal',
-      description: 'Romantic old town on peninsula'
+      description: 'Romantic Mediterranean town with colorful houses rising directly from the sea and St. Euphemia\'s bell tower'
     },
     {
       id: 'lim-fjord',
       name: 'Lim Fjord',
-      lat: 45.1333,
-      lng: 13.7167,
+      lat: 45.1280,
+      lng: 13.7144,
       type: 'natural',
-      description: 'Spectacular natural reserve'
+      description: 'Spectacular 10km-long natural canal with emerald waters, famous for oyster and mussel farms'
     },
     {
       id: 'sv-nikola',
@@ -324,36 +413,119 @@
       lat: 45.2175,
       lng: 13.5736,
       type: 'island',
-      description: 'Green island near Poreč'
+      description: 'Poreč\'s offshore island with lush pine forests, beautiful beaches and a historic lighthouse'
     },
     {
       id: 'brijuni',
       name: 'Brijuni Islands',
-      lat: 44.9167,
-      lng: 13.7667,
+      lat: 44.9197,
+      lng: 13.7500,
       type: 'island',
-      description: 'National park islands'
+      description: 'Former presidential retreat turned national park with Roman ruins, exotic animals and Mediterranean flora'
     },
     {
       id: 'novigrad',
       name: 'Novigrad',
       lat: 45.3167,
-      lng: 13.5667,
+      lng: 13.5633,
       type: 'coastal',
-      description: 'Venetian town with rich history'
+      description: 'Charming walled coastal town with Venetian architecture, fishing traditions and seafront promenade'
     },
     {
-      id: 'motovun',
-      name: 'Motovun Coast',
-      lat: 45.3367,
-      lng: 13.8289,
+      id: 'umag',
+      name: 'Umag',
+      lat: 45.4372,
+      lng: 13.5256,
       type: 'coastal',
-      description: 'Coastal views of hilltop town'
+      description: 'Coastal resort town with Venetian influence, beautiful marina and crystalline waters'
+    },
+    {
+      id: 'pula',
+      name: 'Pula',
+      lat: 44.8683,
+      lng: 13.8458,
+      type: 'coastal',
+      description: 'Istria\'s largest city featuring a magnificent Roman amphitheater and ancient harbor'
+    },
+    {
+      id: 'cape-kamenjak',
+      name: 'Cape Kamenjak',
+      lat: 44.7728,
+      lng: 13.9103,
+      type: 'natural',
+      description: 'Istria\'s southernmost point with dramatic cliffs, hidden coves and dinosaur footprints'
+    },
+    {
+      id: 'red-island',
+      name: 'Red Island',
+      lat: 45.0645,
+      lng: 13.6125,
+      type: 'island',
+      description: 'Twin islands connected by a causeway, offering beaches, pine forests and a historic monastery'
+    },
+    {
+      id: 'fazana',
+      name: 'Fažana',
+      lat: 44.9283,
+      lng: 13.8042,
+      type: 'coastal',
+      description: 'Traditional fishing village with colorful waterfront and gateway to Brijuni National Park'
+    },
+    {
+      id: 'sv-andrija',
+      name: 'Sv. Andrija Island',
+      lat: 45.0520,
+      lng: 13.6221,
+      type: 'island',
+      description: 'Remote lighthouse island with spectacular panoramic views and secluded swimming spots'
+    },
+    {
+      id: 'blue-lagoon',
+      name: 'Blue Lagoon',
+      lat: 45.1942,
+      lng: 13.5583,
+      type: 'natural',
+      description: 'Sheltered bay with incredibly clear turquoise waters, perfect for swimming and snorkeling'
+    },
+    {
+      id: 'vrsar-archipelago',
+      name: 'Vrsar Archipelago',
+      lat: 45.1483,
+      lng: 13.5917,
+      type: 'island',
+      description: 'Cluster of 18 uninhabited islets with hidden beaches, caves and rich marine life'
+    },
+    {
+      id: 'dolphin-area',
+      name: 'Dolphin Watching Area',
+      lat: 45.0533,
+      lng: 13.5800,
+      type: 'natural',
+      description: 'Prime location for spotting Adriatic bottlenose dolphins in their natural habitat'
+    },
+    {
+      id: 'veli-brijun',
+      name: 'Veli Brijun',
+      lat: 44.9156,
+      lng: 13.7703,
+      type: 'island',
+      description: 'Largest Brijuni island with archaeological sites, safari park and historic residences'
+    },
+    {
+      id: 'rt-savudrija',
+      name: 'Rt Savudrija',
+      lat: 45.4924,
+      lng: 13.4988,
+      type: 'coastal',
+      description: 'Croatia\'s westernmost point with the oldest active lighthouse on the Adriatic coast'
     }
   ];
 
-  // Selected destinations for custom journey
-  const selectedDestinations = ref(['porec']); // Start with Poreč
+  // Selected destinations for custom journey (always starts with Poreč)
+  const selectedDestinations = ref(['porec']);
+
+  // Track which preset route is currently selected (if any)
+  const selectedPresetId = ref(null);
 
   // Preset routes
   const presetRoutes = [
@@ -374,27 +546,27 @@
     {
       id: 'island-hopping',
       name: 'Island Hopping Adventure',
-      destinations: ['porec', 'sv-nikola', 'brijuni', 'rovinj'],
+      destinations: ['porec', 'sv-nikola', 'red-island', 'sv-andrija', 'vrsar-archipelago'],
       price: 70,
       duration: '7-8 hours',
       highlights: [
-        'Visit St. Nicholas Island pine forests',
-        'Explore Brijuni National Park',
+        'Visit 3 different island groups',
+        'Explore untouched island landscapes',
         'Snorkeling in pristine waters',
         'Fresh seafood lunch on board',
-        'Wildlife spotting opportunities'
+        'Photo opportunities at lighthouse island'
       ]
     },
     {
       id: 'hidden-gems',
       name: 'Hidden Gems & Secret Beaches',
-      destinations: ['porec', 'sv-nikola', 'lim-fjord'],
+      destinations: ['porec', 'blue-lagoon', 'vrsar-archipelago', 'cape-kamenjak'],
       price: 65,
       duration: '5-6 hours',
       highlights: [
         'Secluded beaches away from crowds',
         'Explore hidden caves and coves',
-        'Snorkeling equipment provided',
+        'Crystal clear Blue Lagoon swimming',
         'Local specialties picnic lunch',
         'Personalized local skipper experience'
       ]
@@ -402,7 +574,7 @@
     {
       id: 'sunset-dolphins',
       name: 'Sunset & Dolphin Watching',
-      destinations: ['porec', 'vrsar', 'lim-fjord'],
+      destinations: ['porec', 'dolphin-area', 'vrsar'],
       price: 45,
       duration: '2-3 hours',
       highlights: [
@@ -416,31 +588,92 @@
     {
       id: 'northern-coast',
       name: 'Northern Istrian Coast',
-      destinations: ['porec', 'novigrad', 'motovun'],
+      destinations: ['porec', 'novigrad', 'rt-savudrija'],
       price: 50,
       duration: '5-6 hours',
       highlights: [
         'Historic Venetian architecture',
-        'Coastal views of Motovun hilltop',
-        'Traditional Istrian cuisine tasting',
+        'Visit Croatia\'s northernmost point',
+        'Explore historic lighthouse area',
         'Photo opportunities at scenic viewpoints',
         'Cultural insights from local guide'
+      ]
+    },
+    {
+      id: 'southern-adventure',
+      name: 'Southern Istria Explorer',
+      destinations: ['porec', 'rovinj', 'fazana', 'pula'],
+      price: 75,
+      duration: '8-9 hours',
+      highlights: [
+        'Roman amphitheater in Pula',
+        'Historic cities of southern Istria',
+        'Cultural and historical tour',
+        'Traditional Istrian lunch stop',
+        'Spectacular coastal views'
+      ]
+    },
+    {
+      id: 'national-park',
+      name: 'Brijuni National Park',
+      destinations: ['porec', 'fazana', 'veli-brijun', 'brijuni'],
+      price: 85,
+      duration: '9-10 hours',
+      highlights: [
+        'Explore protected national park islands',
+        'Ancient Roman villa ruins',
+        'Safari park with exotic animals',
+        'Mediterranean botanical gardens',
+        'Guided tour of historic sites'
       ]
     }
   ];
 
-  // Selected preset route
-  const selectedPreset = ref(null);
+  // Get readable destination names for a preset
+  const getPresetDestinationNames = (preset) => {
+    return preset.destinations.map(id => {
+      const dest = destinations.find(d => d.id === id);
+      return dest ? dest.name : id;
+    });
+  };
 
-  // Load Leaflet resources dynamically (matching your existing approach)
+  // Get image for route based on ID
+  const getRouteImage = (routeId) => {
+    const routeImages = {
+      'rovinj-lim': 'https://images.unsplash.com/photo-1555990793-da11153b2473?auto=format&fit=crop&w=600&h=300',
+      'island-hopping': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+      'hidden-gems': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+      'sunset-dolphins': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+      'northern-coast': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+      'southern-adventure': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+      'national-park': 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&h=300',
+    };
+
+    return routeImages[routeId] || 'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?auto=format&fit=crop&w=600&h=300';
+  };
+
+  // Get descriptive text for each preset route
+  const getPresetDescription = (preset) => {
+    const descriptions = {
+      'rovinj-lim': "Experience the jewel of Istria with Rovinj's charming old town and the breathtaking natural beauty of Lim Fjord in one incredible journey.",
+      'island-hopping': "Discover the pristine islands of the Adriatic with stops at multiple island paradises, perfect for swimming and exploring untouched nature.",
+      'hidden-gems': "Escape the crowds and discover secluded beaches, hidden caves and crystal clear waters known only to locals.",
+      'sunset-dolphins': "Witness the magic of an Adriatic sunset while searching for playful dolphins in their natural habitat.",
+      'northern-coast': "Explore the historic northern Istrian coast with its Venetian architecture and Croatia's oldest lighthouse.",
+      'southern-adventure': "Journey to southern Istria's most impressive sites including Pula's Roman amphitheater and historic coastal towns.",
+      'national-park': "Visit the spectacular Brijuni National Park, former presidential retreat with ancient ruins and exotic wildlife.",
+    };
+
+    return descriptions[preset.id] || 'Explore the beautiful Istrian coast with this curated journey.';
+  };
+
+  // Load Leaflet resources dynamically
   const loadLeafletResources = async () => {
-    // Load Leaflet CSS
     const leafletCss = document.createElement('link');
     leafletCss.rel = 'stylesheet';
     leafletCss.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
     document.head.appendChild(leafletCss);
 
-    // Load Leaflet JS
     return new Promise((resolve, reject) => {
       const leafletScript = document.createElement('script');
       leafletScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js';
@@ -452,65 +685,56 @@
 
   // Initialize Leaflet map
   const initMap = () => {
-    // Check if Leaflet is loaded and mapContainer exists
     if (!window.L || !mapContainer.value) {
       console.error('Leaflet or map container not available');
       isMapLoading.value = false;
       return;
     }
 
-    // Initialize map centered on Poreč
     map = window.L.map(mapContainer.value).setView([45.2271, 13.5947], 10);
 
-    // Add OpenStreetMap tiles
     window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Add custom markers for each destination
     addDestinationMarkers();
-
-    // Update route when destinations change
     updateRoute();
-
-    // Hide the loading indicator
     isMapLoading.value = false;
   };
 
   // Add markers for all destinations
   const addDestinationMarkers = () => {
     destinations.forEach(destination => {
-      const isSelected = isDestinationSelected(destination.id);
+      const isSelected = selectedDestinations.value.includes(destination.id);
       const isStart = destination.id === 'porec';
 
-      // Create custom icon based on selection state
       const iconOptions = {
         iconSize: [30, 30],
         iconAnchor: [15, 15],
-        popupAnchor: [0, -15]
+        popupAnchor: [20, 0]
       };
 
       let iconUrl;
       if (isStart) {
         iconUrl = 'data:image/svg+xml,' + encodeURIComponent(`
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="14" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
-          <circle cx="15" cy="15" r="5" fill="#ffffff"/>
-        </svg>
-      `);
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="14" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="15" cy="15" r="5" fill="#ffffff"/>
+          </svg>
+        `);
       } else if (isSelected) {
         iconUrl = 'data:image/svg+xml,' + encodeURIComponent(`
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="14" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
-          <path d="M10 15.5l4 4 8-8" stroke="#ffffff" stroke-width="2" fill="none"/>
-        </svg>
-      `);
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="14" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
+            <path d="M10 15.5l4 4 8-8" stroke="#ffffff" stroke-width="2" fill="none"/>
+          </svg>
+        `);
       } else {
         iconUrl = 'data:image/svg+xml,' + encodeURIComponent(`
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15" cy="15" r="14" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-        </svg>
-      `);
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="14" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
+          </svg>
+        `);
       }
 
       const customIcon = window.L.icon({
@@ -523,24 +747,26 @@
         destination: destination.id
       })
         .bindPopup(`
-      <div class="text-center p-2">
-        <h3 class="font-bold text-gray-800 mb-1">${destination.name}</h3>
-        <p class="text-sm text-gray-600 mb-2">${destination.description}</p>
-        ${destination.id !== 'porec' && mode.value === 'custom' ?
+          <div class="google-maps-style-popup">
+            <h3 class="popup-title">${destination.name}</h3>
+            <p class="popup-description">${destination.description}</p>
+            ${destination.id !== 'porec' ?
             `<button onclick="window.toggleDestinationFromMap('${destination.id}')"
-           class="px-3 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
-           ${isSelected ? 'Remove from route' : 'Add to route'}
-          </button>` : ''
+                 class="popup-button">
+                 ${isSelected ? 'Remove from route' : 'Add to route'}
+                </button>` : ''
           }
-      </div>
-    `, {
-          maxWidth: 200,
-          className: 'custom-popup'
+          </div>
+        `, {
+          maxWidth: 250,
+          className: 'google-maps-popup',
+          closeButton: false,
+          autoPan: false,
+          offset: [15, 0]
         })
         .addTo(map);
 
-      // Add click handler for custom mode
-      if (mode.value === 'custom' && destination.id !== 'porec') {
+      if (destination.id !== 'porec') {
         marker.on('click', () => {
           toggleDestination(destination.id);
         });
@@ -552,17 +778,14 @@
 
   // Update route polyline on map
   const updateRoute = () => {
-    // Remove existing route
     if (routePolyline) {
       map.removeLayer(routePolyline);
     }
 
     if (currentJourneyDestinations.value.length < 2) return;
 
-    // Create route coordinates
     const routeCoords = currentJourneyDestinations.value.map(dest => [dest.lat, dest.lng]);
 
-    // Add polyline for the route
     routePolyline = window.L.polyline(routeCoords, {
       color: '#dc2626',
       weight: 4,
@@ -570,7 +793,6 @@
       dashArray: '10, 5'
     }).addTo(map);
 
-    // Fit map to show entire route with padding
     if (routeCoords.length > 1) {
       const bounds = window.L.latLngBounds(routeCoords);
       map.fitBounds(bounds, { padding: [30, 30] });
@@ -579,11 +801,8 @@
 
   // Refresh markers when selections change
   const refreshMarkers = () => {
-    // Clear existing markers
     markers.forEach(marker => map.removeLayer(marker));
     markers = [];
-
-    // Add new markers with updated states
     addDestinationMarkers();
     updateRoute();
   };
@@ -597,36 +816,22 @@
 
   // Computed properties
   const currentJourneyDestinations = computed(() => {
-    if (mode.value === 'preset' && selectedPreset.value) {
-      return selectedPreset.value.destinations.map(id =>
-        destinations.find(dest => dest.id === id)
-      ).filter(Boolean);
-    }
     return selectedDestinations.value.map(id =>
       destinations.find(dest => dest.id === id)
     ).filter(Boolean);
   });
 
   const totalPrice = computed(() => {
-    if (mode.value === 'preset' && selectedPreset.value) {
-      return selectedPreset.value.price;
-    }
-
     const extraDestinations = Math.max(0, currentJourneyDestinations.value.length - 2);
     return basePrice + (extraDestinations * extraDestinationPrice);
   });
 
   const extraDestinationsCost = computed(() => {
-    if (mode.value === 'preset') return 0;
     const extraDestinations = Math.max(0, currentJourneyDestinations.value.length - 2);
     return extraDestinations * extraDestinationPrice;
   });
 
   const estimatedDuration = computed(() => {
-    if (mode.value === 'preset' && selectedPreset.value) {
-      return selectedPreset.value.duration;
-    }
-
     const destCount = currentJourneyDestinations.value.length;
     if (destCount <= 2) return '3-4 hours';
     if (destCount <= 4) return '5-6 hours';
@@ -634,11 +839,6 @@
   });
 
   const currentHighlights = computed(() => {
-    if (mode.value === 'preset' && selectedPreset.value) {
-      return selectedPreset.value.highlights;
-    }
-
-    // Generate highlights based on selected destinations
     const highlights = ['Professional skipper and premium boat experience'];
     const destTypes = currentJourneyDestinations.value.map(d => d.type);
 
@@ -660,16 +860,11 @@
   });
 
   const canBook = computed(() => {
-    if (mode.value === 'preset') {
-      return selectedPreset.value !== null;
-    }
     return currentJourneyDestinations.value.length >= 2;
   });
 
   // Methods
   const toggleDestination = (destinationId) => {
-    if (mode.value !== 'custom') return;
-
     if (destinationId === 'porec') return; // Can't remove starting point
 
     const index = selectedDestinations.value.indexOf(destinationId);
@@ -679,14 +874,13 @@
       selectedDestinations.value.push(destinationId);
     }
 
-    // Refresh map markers
     nextTick(() => {
       if (map) refreshMarkers();
     });
   };
 
   const removeDestination = (destinationId) => {
-    if (destinationId === 'porec') return; // Can't remove starting point
+    if (destinationId === 'porec') return;
     const index = selectedDestinations.value.indexOf(destinationId);
     if (index > -1) {
       selectedDestinations.value.splice(index, 1);
@@ -696,35 +890,30 @@
     }
   };
 
-  const selectPresetRoute = (preset) => {
-    selectedPreset.value = preset;
+  const clearCustomRoute = () => {
+    selectedDestinations.value = ['porec'];
     nextTick(() => {
       if (map) refreshMarkers();
     });
   };
 
-  const isDestinationSelected = (destinationId) => {
-    if (mode.value === 'preset' && selectedPreset.value) {
-      return selectedPreset.value.destinations.includes(destinationId);
-    }
-    return selectedDestinations.value.includes(destinationId);
+  // Select preset route and populate custom journey
+  const selectPresetRoute = (preset) => {
+    // Set the selected destinations to match the preset route
+      selectedPresetId.value = preset.id;
+    selectedDestinations.value = [...preset.destinations];
+
+    // Update map route
+    nextTick(() => {
+      if (map) refreshMarkers();
+    });
   };
 
   const bookJourney = () => {
     if (!canBook.value) return;
 
-    let journeyName = '';
-    let destinationNames = [];
-
-    if (mode.value === 'preset' && selectedPreset.value) {
-      journeyName = selectedPreset.value.name;
-      destinationNames = selectedPreset.value.destinations.map(id =>
-        destinations.find(dest => dest.id === id)?.name || id
-      );
-    } else {
-      journeyName = 'Custom Journey';
-      destinationNames = currentJourneyDestinations.value.map(dest => dest.name);
-    }
+    const journeyName = 'Custom Journey';
+    const destinationNames = currentJourneyDestinations.value.map(dest => dest.name);
 
     const subject = encodeURIComponent(`Boat Journey Booking: ${journeyName}`);
     const body = encodeURIComponent(
@@ -748,26 +937,23 @@
     window.location.href = `mailto:poseidon@gmail.hr?subject=${subject}&body=${body}`;
   };
 
-  // Watch for mode changes to reset selections and refresh map
-  watch(mode, (newMode) => {
-    if (newMode === 'custom') {
-      selectedPreset.value = null;
-      selectedDestinations.value = ['porec'];
-    } else {
-      selectedDestinations.value = ['porec'];
+  // Add window resize listener to adjust map
+  const handleResize = () => {
+    if (map) {
+      map.invalidateSize();
+      if (routePolyline) {
+        const bounds = routePolyline.getBounds();
+        map.fitBounds(bounds, { padding: [30, 30] });
+      }
     }
+  };
 
-    nextTick(() => {
-      if (map) refreshMarkers();
-    });
-  });
-
-  // Mount and unmount handlers (matching your existing approach)
+  // Set up resize listener
   onMounted(() => {
-    // Load Leaflet resources dynamically
     loadLeafletResources().then(() => {
       nextTick(() => {
         initMap();
+        window.addEventListener('resize', handleResize);
       });
     }).catch(error => {
       console.error('Failed to load Leaflet:', error);
@@ -775,12 +961,6 @@
     });
   });
 
-  onUnmounted(() => {
-    // Cleanup map instance if needed
-    if (map && map.remove) {
-      map.remove();
-    }
-  });
 </script>
 
 <style scoped>
@@ -794,7 +974,7 @@
     scrollbar-width: none;
   }
 
-  /* Particles animation (matching your hero component) */
+  /* Particles animation */
   .particle {
     pointer-events: none;
     background-color: rgba(255, 255, 255, 0.6);
@@ -930,4 +1110,187 @@
   :deep(.custom-popup .leaflet-popup-content) {
     margin: 8px 12px !important;
   }
+
+  /* Google Maps style popup */
+  :deep(.google-maps-popup) {
+    margin-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    min-width: 250px;
+  }
+
+  :deep(.google-maps-popup .leaflet-popup-content-wrapper) {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #333 !important;
+    border-radius: 8px !important;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+
+  :deep(.google-maps-popup .leaflet-popup-content) {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  :deep(.google-maps-popup .leaflet-popup-tip) {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  :deep(.google-maps-style-popup) {
+    padding: 0;
+    width: 100%;
+  }
+
+  :deep(.google-maps-style-popup .popup-title) {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  :deep(.google-maps-style-popup .popup-description) {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 12px 16px;
+    line-height: 1.4;
+  }
+
+  :deep(.google-maps-style-popup .popup-button) {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0 16px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: calc(100% - 32px);
+    transition: background-color 0.3s;
+  }
+
+  :deep(.google-maps-style-popup .popup-button:hover) {
+    background-color: #b91c1c;
+  }
+
+  /* Swiper styling */
+  :deep(.route-swiper) {
+    width: 100%;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  :deep(.swiper-slide) {
+    display: flex;
+    justify-content: center;
+    width: 320px !important;
+    padding: 20px;
+    transition: opacity 0.3s;
+  }
+
+  :deep(.swiper-slide-active) {
+    opacity: 1;
+  }
+
+  :deep(.swiper-slide-prev),
+  :deep(.swiper-slide-next) {
+    opacity: 0.7;
+  }
+
+  :deep(.swiper-pagination) {
+    position: relative;
+    margin-top: 1rem;
+  }
+
+  :deep(.custom-bullet) {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  :deep(.custom-bullet-active) {
+    background: #dc2626;
+    width: 12px;
+    height: 12px;
+  }
+
+  :deep(.swiper-button-next),
+  :deep(.swiper-button-prev) {
+    color: #dc2626;
+    background: rgba(0, 0, 0, 0.5);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :deep(.swiper-button-next:after),
+  :deep(.swiper-button-prev:after) {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Ensure route cards have consistent width */
+  .route-card {
+    width: 320px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Line clamp for descriptions */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Add these to the <style> section */
+:deep(.swiper-slide) {
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+:deep(.swiper-slide-active) {
+  opacity: 1;
+  z-index: 2;
+}
+
+:deep(.swiper-slide-prev),
+:deep(.swiper-slide-next) {
+  opacity: 0.8;
+  transform: scale(0.94);
+}
+
+:deep(.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next)) {
+  opacity: 0.6;
+  transform: scale(0.88);
+}
+
+/* Responsive card widths */
+@media (max-width: 640px) {
+  .route-card {
+    width: 280px;
+  }
+}
+
+@media (min-width: 641px) {
+  .route-card {
+    width: 320px;
+  }
+}
 </style>

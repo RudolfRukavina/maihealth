@@ -1,5 +1,4 @@
 <template>
-  <Popup></Popup>
   <ExcursionsHero></ExcursionsHero>
   <ExcursionsRoutes></ExcursionsRoutes>
   <Aboutus></Aboutus>
