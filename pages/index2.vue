@@ -1,6 +1,7 @@
 <template>
-  <PoseidonHero></PoseidonHero>
-  <DesignYourJourney></DesignYourJourney>
+  <Hero></Hero>
+  <Recommedations></Recommedations>
+  <Services></Services>
   <Aboutus></Aboutus>
   <Testimonial></Testimonial>
   <CTA></CTA>
@@ -9,7 +10,6 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import DesignYourJourney from '~/components/DesignYourJourney.vue';
 import Recommedations from '~/components/Recommedations.vue';
 
 // Set the page head metadata

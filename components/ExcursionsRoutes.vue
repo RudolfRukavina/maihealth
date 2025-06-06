@@ -46,16 +46,23 @@
 
               <!-- Popular Routes Selection as Swiper -->
               <div class="mt-10">
-                <h4 class="text-white font-medium flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                    </path>
-                  </svg>
-                  Popular Routes
-                </h4>
-<swiper :modules="[EffectCoverflow, Pagination, Navigation, Autoplay]" :grabCursor="true" :centeredSlides="true" :loop='false'
-  :slidesPerView="'auto'" :initialSlide='2' :effect="'coverflow'" :coverflowEffect="{
+                <!-- Route Type Toggle -->
+                <div class="flex justify-center mb-6">
+                  <div class="inline-flex rounded-md overflow-hidden border border-white/20">
+                    <button @click="routeType = 'popular'" class="px-4 py-2 text-sm font-medium transition-colors duration-200"
+                      :class="routeType === 'popular' ? 'bg-red-600 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10'">
+                      Popular Excursions
+                    </button>
+                    <button @click="routeType = 'taxi'" class="px-4 py-2 text-sm font-medium transition-colors duration-200"
+                      :class="routeType === 'taxi' ? 'bg-red-600 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10'">
+                      Taxi Boat
+                    </button>
+                  </div>
+                </div>
+<!-- Popular Routes Swiper -->
+<!-- Popular Routes Swiper -->
+<swiper v-if="routeType === 'popular'" :modules="[EffectCoverflow, Pagination, Navigation, Autoplay]" :grabCursor="true"
+  :centeredSlides="true" :loop='false' :slidesPerView="'auto'" :initialSlide='2' :effect="'coverflow'" :coverflowEffect="{
     rotate: 0,
     stretch: 0,
     depth: 100,
@@ -72,71 +79,144 @@
   }" class="w-full route-swiper" @swiper="onRouteSwiperInit">
   <swiper-slide v-for="preset in presetRoutes" :key="preset.id" class="swiper-slide-center cursor-pointer"
     @click="selectPresetRoute(preset)">
-<div
-  class="route-card bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transform transition-all duration-300"
-  :class="[
-    selectedPresetId === preset.id
-      ? 'ring-2 ring-red-500 shadow-red-600/30 scale-[1.02] bg-gray-700/90'
-      : 'hover:ring-1 hover:ring-red-500/50 hover:shadow-lg'
-  ]" style="width: 100%; height: 100%;">
-                      <div class="relative h-48 overflow-hidden">
-                        <img :src="getRouteImage(preset.id)" :alt="preset.name"
-                          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+    <div
+      class="route-card bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transform transition-all duration-300"
+      :class="[
+        selectedPresetId === preset.id
+          ? 'ring-2 ring-red-500 shadow-red-600/30 scale-[1.02] bg-gray-700/90'
+          : 'hover:ring-1 hover:ring-red-500/50 hover:shadow-lg'
+      ]" style="width: 100%; height: 100%;">
+      <div class="relative h-48 overflow-hidden">
+        <img :src="getRouteImage(preset.id)" :alt="preset.name"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
 
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <h4 class="text-white font-bold text-lg">{{ preset.name }}</h4>
+          <div class="flex items-center mt-1">
+            <div class="flex mr-4">
+              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-xs text-gray-300">{{ preset.duration }}</span>
+            </div>
+            <div class="flex">
+              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-xs text-gray-300">{{ preset.destinations.length }} stops</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Content below image -->
+      <div class="p-4">
+        <!-- Highlights preview -->
+        <div class="text-sm text-gray-300">
+          <p class="line-clamp-2">{{ getPresetDescription(preset) }}</p>
+        </div>
 
-                        <div class="absolute bottom-0 left-0 right-0 p-4">
-                          <h4 class="text-white font-bold text-lg">{{ preset.name }}</h4>
-                          <div class="flex items-center mt-1">
-                            <div class="flex mr-4">
-                              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clip-rule="evenodd"></path>
-                              </svg>
-                              <span class="text-xs text-gray-300">{{ preset.duration }}</span>
-                            </div>
-                            <div class="flex">
-                              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                  clip-rule="evenodd"></path>
-                              </svg>
-                              <span class="text-xs text-gray-300">{{ preset.destinations.length }} stops</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+        <!-- Small destination tags -->
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span v-for="(dest, index) in getPresetDestinationNames(preset).slice(0, 3)" :key="index"
+            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+            {{ dest }}
+          </span>
+          <span v-if="preset.destinations.length > 3"
+            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+            +{{ preset.destinations.length - 3 }} more
+          </span>
+        </div>
+      </div>
 
-                      <!-- Content below image -->
-                      <div class="p-4">
-                        <!-- Highlights preview -->
-                        <div class="text-sm text-gray-300">
-                          <p class="line-clamp-2">{{ getPresetDescription(preset) }}</p>
-                        </div>
+      <!-- Bottom selected indicator -->
+      <div v-if="selectedPresetId === preset.id"
+        class="bg-gradient-to-r from-red-600 to-red-700 py-1.5 px-4 text-center text-xs text-white font-medium">
+        ✓ Currently Selected Route
+      </div>
+    </div>
+  </swiper-slide>
+</swiper>
 
-                        <!-- Small destination tags -->
-                        <div class="flex flex-wrap gap-1 mt-3">
-                          <span v-for="(dest, index) in getPresetDestinationNames(preset).slice(0, 3)" :key="index"
-                            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
-                            {{ dest }}
-                          </span>
-                          <span v-if="preset.destinations.length > 3"
-                            class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
-                            +{{ preset.destinations.length - 3 }} more
-                          </span>
-                        </div>
-                      </div>
+<!-- Taxi Routes Swiper -->
+<swiper v-else :modules="[EffectCoverflow, Pagination, Navigation, Autoplay]" :grabCursor="true"
+  :centeredSlides="true" :loop='false' :slidesPerView="'auto'" :initialSlide='2' :effect="'coverflow'" :coverflowEffect="{
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: false
+  }" :pagination="{
+    clickable: true,
+    dynamicBullets: true,
+    bulletClass: 'custom-bullet',
+    bulletActiveClass: 'custom-bullet-active'
+  }" :navigation="true" :autoplay="{
+    delay: 10000,
+    disableOnInteraction: false,
+  }" class="w-full route-swiper" @swiper="onTaxiSwiperInit">
+  <swiper-slide v-for="taxi in taxiRoutes" :key="taxi.id" class="swiper-slide-center cursor-pointer"
+    @click="selectTaxiRoute(taxi)">
+    <div
+      class="route-card bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transform transition-all duration-300"
+      :class="[
+        selectedPresetId === taxi.id
+          ? 'ring-2 ring-red-500 shadow-red-600/30 scale-[1.02] bg-gray-700/90'
+          : 'hover:ring-1 hover:ring-red-500/50 hover:shadow-lg'
+      ]" style="width: 100%; height: 100%;">
+      <div class="relative h-48 overflow-hidden">
+        <img :src="getTaxiImage(taxi.id)" :alt="taxi.name"
+          class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <h4 class="text-white font-bold text-lg">{{ taxi.name }}</h4>
+          <div class="flex items-center mt-1">
+            <div class="flex mr-4">
+              <svg class="w-4 h-4 text-red-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-xs text-gray-300">{{ taxi.duration }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                      <!-- Bottom selected indicator -->
-                      <div v-if="selectedPresetId === preset.id"
-                        class="bg-gradient-to-r from-red-600 to-red-700 py-1.5 px-4 text-center text-xs text-white font-medium">
-                        ✓ Currently Selected Route
-                      </div>
-                    </div>
-                  </swiper-slide>
-                </swiper>
+      <div class="p-4">
+        <div class="text-sm text-gray-300">
+          <p class="line-clamp-2">{{ getTaxiDescription(taxi) }}</p>
+        </div>
+
+        <div class="flex flex-wrap gap-1 mt-3">
+          <div class="w-full flex items-center justify-between">
+            <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+              {{ getTaxiOrigin(taxi) }}
+            </span>
+            <svg class="w-4 h-4 text-red-500 mx-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded-full">
+              {{ getTaxiDestination(taxi) }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="selectedPresetId === taxi.id"
+        class="bg-gradient-to-r from-red-600 to-red-700 py-1.5 px-4 text-center text-xs text-white font-medium">
+        ✓ Currently Selected Route
+      </div>
+    </div>
+  </swiper-slide>
+</swiper>
               </div>
             </div>
 
@@ -340,6 +420,122 @@
   let map = null;
   let markers = [];
   let routePolyline = null;
+
+
+  // Add this with your other variables
+    const routeType = ref('popular');
+    const taxiSwiper = ref(null);
+
+    // Function to initialize the taxi swiper
+    const onTaxiSwiperInit = (swiper) => {
+      taxiSwiper.value = swiper;
+    };
+
+    // Taxi routes data
+    const taxiRoutes = [
+      {
+        id: 'porec-rovinj',
+        name: 'Poreč to Rovinj',
+        origin: 'porec',
+        destination: 'rovinj',
+        price: 90,
+        duration: '45 min',
+        description: 'Direct speedboat taxi service between Poreč and Rovinj, offering stunning coastal views along the way.'
+      },
+      {
+        id: 'porec-vrsar',
+        name: 'Poreč to Vrsar',
+        origin: 'porec',
+        destination: 'vrsar',
+        price: 60,
+        duration: '25 min',
+        description: 'Quick and convenient water taxi between Poreč and the picturesque fishing town of Vrsar.'
+      },
+      {
+        id: 'porec-novigrad',
+        name: 'Poreč to Novigrad',
+        origin: 'porec',
+        destination: 'novigrad',
+        price: 65,
+        duration: '30 min',
+        description: 'Comfortable sea transfer between Poreč and the historic walled town of Novigrad.'
+      },
+      {
+        id: 'porec-umag',
+        name: 'Poreč to Umag',
+        origin: 'porec',
+        destination: 'umag',
+        price: 110,
+        duration: '60 min',
+        description: 'Speedboat taxi service connecting Poreč with Umag, perfect for day trips or hotel transfers.'
+      },
+      {
+        id: 'rovinj-pula',
+        name: 'Rovinj to Pula',
+        origin: 'rovinj',
+        destination: 'pula',
+        price: 120,
+        duration: '50 min',
+        description: 'Fast sea connection between Rovinj and Pula, bypassing road traffic for a scenic coastal journey.'
+      },
+      {
+        id: 'porec-fazana',
+        name: 'Poreč to Fažana',
+        origin: 'porec',
+        destination: 'fazana',
+        price: 150,
+        duration: '75 min',
+        description: 'Direct sea transfer to Fažana, the gateway to Brijuni National Park.'
+      },
+      {
+        id: 'porec-pula',
+        name: 'Poreč to Pula',
+        origin: 'porec',
+        destination: 'pula',
+        price: 180,
+        duration: '90 min',
+        description: 'The ultimate coastal journey from Poreč to Pula, featuring views of the entire western Istrian coast.'
+      }
+    ];
+
+    // Helper functions for taxi routes
+    const getTaxiImage = (taxiId) => {
+      const taxiImages = {
+        'porec-rovinj': 'https://images.unsplash.com/photo-1555990793-da11153b2473?auto=format&fit=crop&w=600&h=300',
+        'porec-vrsar': 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=600&h=300',
+        'porec-novigrad': 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=600&h=300',
+        'porec-umag': 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&h=300',
+        'rovinj-pula': 'https://images.unsplash.com/photo-1564889963738-e1d478355a5e?auto=format&fit=crop&w=600&h=300',
+        'porec-fazana': 'https://images.unsplash.com/photo-1564889963738-e1d478355a5e?auto=format&fit=crop&w=600&h=300',
+        'porec-pula': 'https://images.unsplash.com/photo-1625836014431-79e855c02d01?auto=format&fit=crop&w=600&h=300',
+      };
+
+      return taxiImages[taxiId] || 'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?auto=format&fit=crop&w=600&h=300';
+    };
+
+    const getTaxiDescription = (taxi) => {
+      return taxi.description || 'Direct speedboat taxi service between coastal destinations.';
+    };
+
+    const getTaxiOrigin = (taxi) => {
+      const originDest = destinations.find(d => d.id === taxi.origin);
+      return originDest ? originDest.name : taxi.origin;
+    };
+
+    const getTaxiDestination = (taxi) => {
+      const destDest = destinations.find(d => d.id === taxi.destination);
+      return destDest ? destDest.name : taxi.destination;
+    };
+
+    // Function to select a taxi route
+    const selectTaxiRoute = (taxi) => {
+      selectedPresetId.value = taxi.id;
+      selectedDestinations.value = [taxi.origin, taxi.destination];
+
+      nextTick(() => {
+        if (map) refreshMarkers();
+      });
+    };
 
   // Leaflet coordinates for Istrian destinations
   const destinations = [
@@ -790,8 +986,13 @@
   });
 
   const totalPrice = computed(() => {
-    const extraDestinations = Math.max(0, currentJourneyDestinations.value.length - 2);
-    return basePrice + (extraDestinations * extraDestinationPrice);
+    if (routeType.value === 'taxi' && selectedPresetId.value) {
+      const selectedTaxi = taxiRoutes.find(t => t.id === selectedPresetId.value);
+      return selectedTaxi ? selectedTaxi.price : basePrice;
+    } else {
+      const extraDestinations = Math.max(0, currentJourneyDestinations.value.length - 2);
+      return basePrice + (extraDestinations * extraDestinationPrice);
+    }
   });
 
   const extraDestinationsCost = computed(() => {
