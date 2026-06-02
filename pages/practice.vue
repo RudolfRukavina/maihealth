@@ -37,9 +37,7 @@
                 <p class="text-body/75 leading-relaxed mb-6">{{ service.description }}</p>
                 <ul class="space-y-2">
                   <li v-for="detail in service.details" :key="detail" class="flex items-start gap-3 text-sm text-body/70">
-                    <svg class="w-4 h-4 text-sage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <i class="fa-solid fa-check text-sage text-xs mt-1 flex-shrink-0"></i>
                     {{ detail }}
                   </li>
                 </ul>
@@ -63,7 +61,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div v-for="(phase, index) in phases" :key="phase.title" class="text-center relative">
             <div class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mx-auto mb-5 border border-stone/30">
-              <span class="text-lg font-serif font-bold text-gold">{{ index + 1 }}</span>
+              <i :class="phase.icon" class="text-lg text-gold"></i>
             </div>
             <h3 class="text-base font-serif font-semibold text-charcoal mb-2">{{ phase.title }}</h3>
             <p class="text-xs text-body/60 leading-relaxed">{{ phase.description }}</p>
@@ -88,9 +86,7 @@
             <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">Diagnostic Methods</h3>
             <div class="space-y-3">
               <div v-for="item in diagnostics" :key="item" class="flex items-start gap-3 p-3 rounded-lg hover:bg-cream transition-colors">
-                <svg class="w-4 h-4 text-sage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3" />
-                </svg>
+                <i class="fa-solid fa-flask text-sage text-sm flex-shrink-0 mt-0.5"></i>
                 <span class="text-sm text-body">{{ item }}</span>
               </div>
             </div>
@@ -100,9 +96,7 @@
             <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">Treatment Components</h3>
             <div class="space-y-3">
               <div v-for="item in treatments" :key="item" class="flex items-start gap-3 p-3 rounded-lg hover:bg-cream transition-colors">
-                <svg class="w-4 h-4 text-sage flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
+                <i class="fa-solid fa-heart text-mauve text-sm flex-shrink-0 mt-0.5"></i>
                 <span class="text-sm text-body">{{ item }}</span>
               </div>
             </div>
@@ -119,7 +113,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl border border-stone/30 p-8 md:p-10">
             <div class="w-10 h-10 rounded-xl bg-sage/10 flex items-center justify-center mb-5">
-              <svg class="w-5 h-5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              <i class="fa-solid fa-magnifying-glass text-sage"></i>
             </div>
             <h3 class="text-xl font-serif font-semibold text-charcoal mb-3">Functional Medicine</h3>
             <p class="text-sm text-body/70 leading-relaxed">The diagnostic and treatment methodology addressing root causes. It examines how interconnected body systems contribute to disease and uses that understanding to create targeted interventions.</p>
@@ -127,7 +121,7 @@
 
           <div class="bg-white rounded-2xl border border-stone/30 p-8 md:p-10">
             <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
-              <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              <i class="fa-solid fa-sun text-gold"></i>
             </div>
             <h3 class="text-xl font-serif font-semibold text-charcoal mb-3">Longevity Medicine</h3>
             <p class="text-sm text-body/70 leading-relaxed">The overarching objective of maximizing healthy lifespan through preventive strategies. It combines functional medicine diagnostics with proactive interventions to delay aging and maintain vitality.</p>
@@ -202,10 +196,10 @@ const services = computed(() => [
 ])
 
 const phases = [
-  { title: 'Initial Consultation', description: 'Comprehensive patient history — in-person or telemedical.' },
-  { title: 'Individualized Diagnostics', description: 'Testing tailored to your specific health situation.' },
-  { title: 'Therapy & Prevention Plan', description: 'Structured, evidence-based plan development.' },
-  { title: 'Ongoing Monitoring', description: 'Progress tracking with plan adjustments.' },
+  { title: 'Initial Consultation', description: 'Comprehensive patient history — in-person or telemedical.', icon: 'fa-solid fa-comments' },
+  { title: 'Individualized Diagnostics', description: 'Testing tailored to your specific health situation.', icon: 'fa-solid fa-microscope' },
+  { title: 'Therapy & Prevention Plan', description: 'Structured, evidence-based plan development.', icon: 'fa-solid fa-clipboard-list' },
+  { title: 'Ongoing Monitoring', description: 'Progress tracking with plan adjustments.', icon: 'fa-solid fa-chart-line' },
 ]
 
 const diagnostics = [

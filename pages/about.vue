@@ -21,15 +21,12 @@
           </div>
 
           <div class="lg:sticky lg:top-32">
-            <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-cream-dark">
-              <div class="w-full h-full flex items-center justify-center">
-                <div class="text-center">
-                  <svg class="w-20 h-20 text-stone mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                  <p class="text-sm text-muted">Professional photo</p>
-                </div>
+            <div class="relative">
+              <div class="aspect-[3/4] rounded-3xl overflow-hidden">
+                <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" />
               </div>
+              <div class="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-sage/8 -z-10" />
+              <div class="absolute -top-3 -left-3 w-14 h-14 rounded-full bg-mauve/10 -z-10" />
             </div>
           </div>
         </div>
