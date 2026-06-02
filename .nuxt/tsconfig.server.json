@@ -113,9 +113,6 @@
       "#internal/nuxt/paths": [
         "../node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
-      "#dayjs": [
-        "../node_modules/dayjs-nuxt/dist/runtime/composables/dayjs"
-      ],
       "vue-i18n": [
         "../node_modules/vue-i18n/dist/vue-i18n"
       ],
@@ -156,10 +153,7 @@
   "include": [
     "./types/nitro-nuxt.d.ts",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
-    "../node_modules/nuxt-swiper/runtime/server",
-    "../node_modules/dayjs-nuxt/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",
-    "../node_modules/nuxt-marquee/runtime/server",
     "../node_modules/@vueuse/nuxt/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
@@ -171,10 +165,7 @@
     "../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
-    "../node_modules/nuxt-swiper/node_modules",
-    "../node_modules/dayjs-nuxt/node_modules",
     "../node_modules/@nuxtjs/i18n/node_modules",
-    "../node_modules/nuxt-marquee/node_modules",
     "../node_modules/@vueuse/nuxt/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",

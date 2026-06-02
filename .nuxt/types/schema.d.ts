@@ -6,21 +6,9 @@ declare module '@nuxt/schema' {
      */
     ["tailwindcss"]: typeof import("@nuxtjs/tailwindcss").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
-     * Configuration for `nuxt-swiper`
-     */
-    ["swiper"]: typeof import("nuxt-swiper").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
-     * Configuration for `dayjs-nuxt`
-     */
-    ["dayjs"]: typeof import("dayjs-nuxt").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
      * Configuration for `@nuxtjs/i18n`
      */
     ["i18n"]: typeof import("@nuxtjs/i18n").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
-     * Configuration for `nuxt-marquee`
-     */
-    ["nuxt-marquee"]: typeof import("nuxt-marquee").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
      * Configuration for `@vueuse/nuxt`
      */
@@ -40,21 +28,9 @@ declare module '@nuxt/schema' {
      */
     ["tailwindcss"]?: typeof import("@nuxtjs/tailwindcss").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
-     * Configuration for `nuxt-swiper`
-     */
-    ["swiper"]?: typeof import("nuxt-swiper").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
-     * Configuration for `dayjs-nuxt`
-     */
-    ["dayjs"]?: typeof import("dayjs-nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
      * Configuration for `@nuxtjs/i18n`
      */
     ["i18n"]?: typeof import("@nuxtjs/i18n").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
-     * Configuration for `nuxt-marquee`
-     */
-    ["nuxt-marquee"]?: typeof import("nuxt-marquee").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
      * Configuration for `@vueuse/nuxt`
      */
@@ -67,7 +43,7 @@ declare module '@nuxt/schema' {
      * Configuration for `@nuxt/telemetry`
      */
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["nuxt-swiper", Exclude<NuxtConfig["swiper"], boolean>] | ["dayjs-nuxt", Exclude<NuxtConfig["dayjs"], boolean>] | ["@nuxtjs/i18n", Exclude<NuxtConfig["i18n"], boolean>] | ["nuxt-marquee", Exclude<NuxtConfig["nuxt-marquee"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["@nuxtjs/i18n", Exclude<NuxtConfig["i18n"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
   }
 }
 declare module 'nuxt/schema' {
@@ -78,25 +54,10 @@ declare module 'nuxt/schema' {
      */
     ["tailwindcss"]: typeof import("@nuxtjs/tailwindcss").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
-     * Configuration for `nuxt-swiper`
-     * @see https://www.npmjs.com/package/nuxt-swiper
-     */
-    ["swiper"]: typeof import("nuxt-swiper").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
-     * Configuration for `dayjs-nuxt`
-     * @see https://www.npmjs.com/package/dayjs-nuxt
-     */
-    ["dayjs"]: typeof import("dayjs-nuxt").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
      * Configuration for `@nuxtjs/i18n`
      * @see https://www.npmjs.com/package/@nuxtjs/i18n
      */
     ["i18n"]: typeof import("@nuxtjs/i18n").default extends NuxtModule<infer O> ? O : Record<string, any>
-    /**
-     * Configuration for `nuxt-marquee`
-     * @see https://www.npmjs.com/package/nuxt-marquee
-     */
-    ["nuxt-marquee"]: typeof import("nuxt-marquee").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
      * Configuration for `@vueuse/nuxt`
      * @see https://www.npmjs.com/package/@vueuse/nuxt
@@ -120,25 +81,10 @@ declare module 'nuxt/schema' {
      */
     ["tailwindcss"]?: typeof import("@nuxtjs/tailwindcss").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
-     * Configuration for `nuxt-swiper`
-     * @see https://www.npmjs.com/package/nuxt-swiper
-     */
-    ["swiper"]?: typeof import("nuxt-swiper").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
-     * Configuration for `dayjs-nuxt`
-     * @see https://www.npmjs.com/package/dayjs-nuxt
-     */
-    ["dayjs"]?: typeof import("dayjs-nuxt").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
      * Configuration for `@nuxtjs/i18n`
      * @see https://www.npmjs.com/package/@nuxtjs/i18n
      */
     ["i18n"]?: typeof import("@nuxtjs/i18n").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    /**
-     * Configuration for `nuxt-marquee`
-     * @see https://www.npmjs.com/package/nuxt-marquee
-     */
-    ["nuxt-marquee"]?: typeof import("nuxt-marquee").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
      * Configuration for `@vueuse/nuxt`
      * @see https://www.npmjs.com/package/@vueuse/nuxt
@@ -154,7 +100,7 @@ declare module 'nuxt/schema' {
      * @see https://www.npmjs.com/package/@nuxt/telemetry
      */
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["nuxt-swiper", Exclude<NuxtConfig["swiper"], boolean>] | ["dayjs-nuxt", Exclude<NuxtConfig["dayjs"], boolean>] | ["@nuxtjs/i18n", Exclude<NuxtConfig["i18n"], boolean>] | ["nuxt-marquee", Exclude<NuxtConfig["nuxt-marquee"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxtjs/tailwindcss", Exclude<NuxtConfig["tailwindcss"], boolean>] | ["@nuxtjs/i18n", Exclude<NuxtConfig["i18n"], boolean>] | ["@vueuse/nuxt", Exclude<NuxtConfig["vueuse"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
   }
   interface RuntimeConfig {
    app: {
@@ -204,15 +150,15 @@ declare module 'nuxt/schema' {
             domain: any,
          },
 
+         de: {
+            domain: any,
+         },
+
          hr: {
             domain: any,
          },
 
          it: {
-            domain: any,
-         },
-
-         de: {
             domain: any,
          },
       },

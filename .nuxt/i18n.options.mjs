@@ -4,16 +4,16 @@
 
 export const localeCodes =  [
   "en",
+  "de",
   "hr",
-  "it",
-  "de"
+  "it"
 ]
 
 export const localeLoaders = {
   "en": [],
+  "de": [],
   "hr": [],
-  "it": [],
-  "de": []
+  "it": []
 }
 
 export const vueI18nConfigs = [
@@ -49,6 +49,11 @@ export const nuxtI18nOptions = {
       "language": "en-US"
     },
     {
+      "code": "de",
+      "name": "Deutsch",
+      "language": "de-DE"
+    },
+    {
       "code": "hr",
       "name": "Hrvatski",
       "language": "hr-HR"
@@ -57,14 +62,9 @@ export const nuxtI18nOptions = {
       "code": "it",
       "name": "Italiano",
       "language": "it-IT"
-    },
-    {
-      "code": "de",
-      "name": "Deutsch",
-      "language": "de-DE"
     }
   ],
-  "defaultLocale": "",
+  "defaultLocale": "en",
   "defaultDirection": "ltr",
   "routesNameSeparator": "___",
   "trailingSlash": false,
@@ -73,14 +73,14 @@ export const nuxtI18nOptions = {
   "lazy": false,
   "langDir": null,
   "detectBrowserLanguage": {
-    "alwaysRedirect": true,
+    "alwaysRedirect": false,
     "cookieCrossOrigin": false,
     "cookieDomain": null,
-    "cookieKey": "i18n_redirected",
+    "cookieKey": "i18n_lang",
     "cookieSecure": false,
     "fallbackLocale": "en",
     "redirectOn": "root",
-    "useCookie": false
+    "useCookie": true
   },
   "differentDomains": false,
   "baseUrl": "",
@@ -103,6 +103,12 @@ export const normalizedLocales = [
     "files": []
   },
   {
+    "code": "de",
+    "name": "Deutsch",
+    "language": "de-DE",
+    "files": []
+  },
+  {
     "code": "hr",
     "name": "Hrvatski",
     "language": "hr-HR",
@@ -112,12 +118,6 @@ export const normalizedLocales = [
     "code": "it",
     "name": "Italiano",
     "language": "it-IT",
-    "files": []
-  },
-  {
-    "code": "de",
-    "name": "Deutsch",
-    "language": "de-DE",
     "files": []
   }
 ]

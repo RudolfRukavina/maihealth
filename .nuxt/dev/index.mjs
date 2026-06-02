@@ -1,31 +1,31 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getResponseStatusText } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getResponseStatusText } from 'file:///Users/Rudolf/Work/mai/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/devalue/index.js';
-import destr from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/destr/dist/index.mjs';
-import { renderToString } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/vue/server-renderer/index.mjs';
-import { propsToString, renderSSRHead } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/@unhead/ssr/dist/index.mjs';
-import { createHooks } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/hookable/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/unenv/runtime/fetch/index.mjs';
-import { klona } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/scule/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/radix3/dist/index.mjs';
-import { getContext } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/unctx/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/Rudolf/Work/mai/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file:///Users/Rudolf/Work/mai/node_modules/devalue/index.js';
+import destr from 'file:///Users/Rudolf/Work/mai/node_modules/destr/dist/index.mjs';
+import { renderToString } from 'file:///Users/Rudolf/Work/mai/node_modules/vue/server-renderer/index.mjs';
+import { propsToString, renderSSRHead } from 'file:///Users/Rudolf/Work/mai/node_modules/@unhead/ssr/dist/index.mjs';
+import { createHooks } from 'file:///Users/Rudolf/Work/mai/node_modules/hookable/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/Rudolf/Work/mai/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file:///Users/Rudolf/Work/mai/node_modules/unenv/runtime/fetch/index.mjs';
+import { klona } from 'file:///Users/Rudolf/Work/mai/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/Rudolf/Work/mai/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/Rudolf/Work/mai/node_modules/scule/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/Rudolf/Work/mai/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/Rudolf/Work/mai/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/Rudolf/Work/mai/node_modules/radix3/dist/index.mjs';
+import { getContext } from 'file:///Users/Rudolf/Work/mai/node_modules/unctx/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/consola/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/errx/dist/index.js';
-import { isVNode, unref, version } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/vue/index.mjs';
-import { hash } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/ohash/dist/index.mjs';
-import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file:///Users/Rudolf/Work/poseidonnew/node_modules/@unhead/shared/dist/index.mjs';
+import { consola } from 'file:///Users/Rudolf/Work/mai/node_modules/consola/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/Rudolf/Work/mai/node_modules/errx/dist/index.js';
+import { isVNode, unref, version } from 'file:///Users/Rudolf/Work/mai/node_modules/vue/index.mjs';
+import { hash } from 'file:///Users/Rudolf/Work/mai/node_modules/ohash/dist/index.mjs';
+import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Users/Rudolf/Work/mai/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file:///Users/Rudolf/Work/mai/node_modules/@unhead/shared/dist/index.mjs';
 
 const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
@@ -409,15 +409,15 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _ACkmKWAXGC = (function(nitro) {
+const _gtZIT93UES = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/Rudolf/Work/poseidonnew";
+const rootDir = "/Users/Rudolf/Work/mai";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Dr. Mai Jimenez — Physician for Functional Medicine & Longevity. Evidence-based holistic medicine for long-term health."},{"name":"theme-color","content":"#F5F1EC"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"Dr. Mai Jimenez — Functional Medicine & Longevity"};
 
 const appRootTag = "div";
 
@@ -434,7 +434,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _S5oBiTYPrb = (nitroApp) => {
+const _76nvq2ezMH = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -504,18 +504,18 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _ACkmKWAXGC,
-_S5oBiTYPrb
+  _gtZIT93UES,
+_76nvq2ezMH
 ];
 
-const _lazy_gEPq8r = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_cjtSQX = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_gEPq8r, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_gEPq8r, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined }
 ];
 
-const serverAssets = [{"baseName":"server","dir":"/Users/Rudolf/Work/poseidonnew/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/Rudolf/Work/mai/server/assets"}];
 
 const assets = createStorage();
 
@@ -527,11 +527,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/Rudolf/Work/poseidonnew","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/Rudolf/Work/poseidonnew/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/Rudolf/Work/poseidonnew/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/Rudolf/Work/poseidonnew/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/Rudolf/Work/poseidonnew/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/Rudolf/Work/mai","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/Rudolf/Work/mai/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/Rudolf/Work/mai/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/Rudolf/Work/mai/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/Rudolf/Work/mai/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -945,7 +945,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "i18n": {
       "baseUrl": "",
-      "defaultLocale": "",
+      "defaultLocale": "en",
       "defaultDirection": "ltr",
       "strategy": "no_prefix",
       "lazy": false,
@@ -962,6 +962,11 @@ const _inlineRuntimeConfig = {
           "language": "en-US"
         },
         {
+          "code": "de",
+          "name": "Deutsch",
+          "language": "de-DE"
+        },
+        {
           "code": "hr",
           "name": "Hrvatski",
           "language": "hr-HR"
@@ -970,15 +975,13 @@ const _inlineRuntimeConfig = {
           "code": "it",
           "name": "Italiano",
           "language": "it-IT"
-        },
-        {
-          "code": "de",
-          "name": "Deutsch",
-          "language": "de-DE"
         }
       ],
       "locales": {
         "en": {
+          "domain": ""
+        },
+        "de": {
           "domain": ""
         },
         "hr": {
@@ -986,20 +989,17 @@ const _inlineRuntimeConfig = {
         },
         "it": {
           "domain": ""
-        },
-        "de": {
-          "domain": ""
         }
       },
       "detectBrowserLanguage": {
-        "alwaysRedirect": true,
+        "alwaysRedirect": false,
         "cookieCrossOrigin": false,
         "cookieDomain": "",
-        "cookieKey": "i18n_redirected",
+        "cookieKey": "i18n_lang",
         "cookieSecure": false,
         "fallbackLocale": "en",
         "redirectOn": "root",
-        "useCookie": false
+        "useCookie": true
       },
       "experimental": {
         "localeDetector": "",
@@ -1469,8 +1469,8 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Users/Rudolf/Work/poseidonnew/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Users/Rudolf/Work/poseidonnew/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Users/Rudolf/Work/mai/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Users/Rudolf/Work/mai/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();

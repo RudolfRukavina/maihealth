@@ -95,9 +95,6 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
-      "#dayjs": [
-        "../node_modules/dayjs-nuxt/dist/runtime/composables/dayjs"
-      ],
       "vue-i18n": [
         "../node_modules/vue-i18n/dist/vue-i18n"
       ],
@@ -166,9 +163,7 @@
     ],
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "types": [
-      "swiper/vue"
-    ],
+    "types": [],
     "moduleResolution": "Bundler",
     "useDefineForClassFields": true,
     "noImplicitThis": true,
@@ -180,14 +175,8 @@
     "../**/*",
     "../node_modules/@nuxtjs/tailwindcss/runtime",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime",
-    "../node_modules/nuxt-swiper/runtime",
-    "../node_modules/nuxt-swiper/dist/runtime",
-    "../node_modules/dayjs-nuxt/runtime",
-    "../node_modules/dayjs-nuxt/dist/runtime",
     "../node_modules/@nuxtjs/i18n/runtime",
     "../node_modules/@nuxtjs/i18n/dist/runtime",
-    "../node_modules/nuxt-marquee/runtime",
-    "../node_modules/nuxt-marquee/dist/runtime",
     "../node_modules/@vueuse/nuxt/runtime",
     "../node_modules/@vueuse/nuxt/dist/runtime",
     "../node_modules/@nuxt/devtools/runtime",
@@ -201,23 +190,14 @@
     "../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
-    "../node_modules/nuxt-swiper/node_modules",
-    "../node_modules/dayjs-nuxt/node_modules",
     "../node_modules/@nuxtjs/i18n/node_modules",
-    "../node_modules/nuxt-marquee/node_modules",
     "../node_modules/@vueuse/nuxt/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime/server",
-    "../node_modules/nuxt-swiper/runtime/server",
-    "../node_modules/nuxt-swiper/dist/runtime/server",
-    "../node_modules/dayjs-nuxt/runtime/server",
-    "../node_modules/dayjs-nuxt/dist/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",
     "../node_modules/@nuxtjs/i18n/dist/runtime/server",
-    "../node_modules/nuxt-marquee/runtime/server",
-    "../node_modules/nuxt-marquee/dist/runtime/server",
     "../node_modules/@vueuse/nuxt/runtime/server",
     "../node_modules/@vueuse/nuxt/dist/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
+  <title>Ponuda — Mai Jimenez · Funkcionalna medicina</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .page {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 30px 25px;
+    }
+
+    @page { margin: 15mm 10mm; }
+
+    @media print {
+      .page { font-size: 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0; max-width: 100%; }
+      .page-break { page-break-before: always; break-before: page; }
+      h2 { page-break-after: avoid; break-after: avoid; }
+      h3 { page-break-after: avoid; break-after: avoid; }
+      table { page-break-inside: avoid; break-inside: avoid; }
+      ul { page-break-inside: avoid; break-inside: avoid; }
+      .highlight-box { page-break-inside: avoid; break-inside: avoid; }
+      .doc-footer { page-break-inside: avoid; break-inside: avoid; }
+      .price-section { page-break-inside: avoid; break-inside: avoid; }
+      p { orphans: 3; widows: 3; }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 15px;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .meta-block p { margin-bottom: 3px; }
+    .meta-block strong { color: #1a1a1a; }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #1a1a1a;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p { margin-bottom: 10px; color: #333; }
+
+    ul { margin-left: 20px; margin-bottom: 14px; }
+    ul li { margin-bottom: 5px; color: #444; }
+    ul li::marker { color: #767676; }
+
+    ol { margin-left: 20px; margin-bottom: 14px; }
+    ol li { margin-bottom: 5px; color: #444; }
+    ol li::marker { color: #767676; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+    }
+
+    table th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #767676;
+      padding: 10px 14px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #333;
+    }
+
+    table tr:last-child td { border-bottom: 2px solid #e0e0e0; }
+
+    table .total td {
+      font-weight: 700;
+      font-size: 15px;
+      color: #1a1a1a;
+      border-bottom: 2px solid #1a1a1a;
+      padding-top: 14px;
+    }
+
+    .price {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .highlight-box {
+      background: #f8f8f8;
+      border-left: 3px solid #1a1a1a;
+      padding: 16px 20px;
+      margin: 16px 0 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .highlight-box p { margin-bottom: 4px; font-size: 13px; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    .section-num {
+      color: #767676;
+      font-weight: 400;
+      margin-right: 6px;
+    }
+
+    .doc-footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 11px;
+      color: #767676;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #767676;
+    }
+
+    .sitemap {
+      margin: 20px 0 24px;
+      font-size: 13px;
+    }
+
+    .sitemap-group {
+      margin-bottom: 16px;
+    }
+
+    .sitemap-parent {
+      font-weight: 600;
+      color: #1a1a1a;
+      padding: 8px 12px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sitemap-parent .url {
+      font-weight: 400;
+      color: #767676;
+      font-size: 12px;
+    }
+
+    .sitemap-children {
+      border-left: 2px solid #e8e8e8;
+      margin-left: 16px;
+      padding-left: 0;
+    }
+
+    .sitemap-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 12px;
+      border-bottom: 1px solid #f5f5f5;
+      color: #444;
+    }
+
+    .sitemap-child:last-child {
+      border-bottom: none;
+    }
+
+    .sitemap-child .url {
+      color: #767676;
+      font-size: 12px;
+      font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+    }
+
+    .sitemap-leaf {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 8px 12px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .sitemap-leaf .url {
+      font-weight: 400;
+      color: #767676;
+      font-size: 12px;
+      font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+    }
+
+    .text-right { text-align: right; }
+    .text-muted { color: #555; }
+    .ponuda-info { font-size: 13px; color: #555; margin-bottom: 40px; }
+    .label-heading { font-weight: 600; margin-top: 20px; margin-bottom: 6px; }
+    .highlight-box--dark { border-left-color: #555; }
+    .highlight-box--dark-mt { border-left-color: #555; margin-top: 24px; }
+    .highlight-box__title { font-weight: 600; margin-bottom: 8px; }
+
+    .placeholder {
+      background: #fff3cd;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>PONUDA</h1>
+      <div class="subtitle">Izrada web stranice za Mai Jimenez — funkcionalna medicina i longevity</div>
+    </header>
+
+    <!-- META -->
+    <div class="meta">
+      <div class="meta-block">
+        <p><strong>Ponuđač:</strong></p>
+        <p><strong>Hyperlink</strong> obrt za računalno programiranje</p>
+        <p>vl. Rudolf Rukavina</p>
+        <p>Stupari 24, 51216 Viškovo</p>
+        <p>OIB: 46621560980</p>
+        <p>IBAN: HR3525000091101575662</p>
+        <p>rukavina.rudi@gmail.com</p>
+        <p>+385 99 205 3344</p>
+      </div>
+      <div class="meta-block text-right">
+        <p><strong>Naručitelj:</strong></p>
+        <p><strong>Mai Jimenez</strong></p>
+        <p><span class="placeholder">DJELATNOST / OBRT / TVRTKA</span></p>
+        <p><span class="placeholder">ADRESA</span></p>
+        <p><span class="placeholder">OIB / STEUERNUMMER</span></p>
+      </div>
+    </div>
+
+    <div class="ponuda-info">
+      <p><strong>Ponuda br.:</strong> <span class="placeholder">XX/1/1</span></p>
+      <p><strong>Datum:</strong> 2. lipnja 2026.</p>
+      <p><strong>Ponuda vrijedi:</strong> 30 dana</p>
+    </div>
+
+    <!-- 1. UVOD -->
+    <h2><span class="section-num">1.</span> Uvod</h2>
+    <p>Predmet ove ponude je izrada web stranice za <strong>Mai Jimenez</strong> — višejezične stranice za ordinaciju funkcionalne medicine i longevity, optimizirane za tražilice, s profesionalnim dizajnom i kontaktnim obrascem za narudžbu termina.</p>
+    <p class="text-muted">Cilj projekta je predstaviti naručiteljicu kao specijalisticu funkcionalne medicine i longevity-ja, privući pacijente iz Hrvatske i inozemstva (Njemačka, Italija, Austrija) te omogućiti jednostavan kontakt i zakazivanje konzultacija putem weba. Orijentir za vizualni koncept i strukturu je drvalescaproske.com — čist, profesionalan dizajn koji odražava medicinsku stručnost i wellness pristup.</p>
+
+    <!-- 2. OPSEG -->
+    <h2><span class="section-num">2.</span> Opseg projekta</h2>
+    <p class="text-muted">Opseg projekta definiran je ovom ponudom. Tijekom izrade moguće su manje tehničke prilagodbe i poboljšanja unutar navedenog opsega, bez dodatne naplate.</p>
+
+    <h3>2.1 Dizajn i razvoj web stranice</h3>
+    <p>Responsivna web stranica u <strong>4 jezične verzije</strong> (HR, EN, DE, IT) — primarno za domaće i strana tržišta (Hrvatska, Njemačka, Austrija, Italija). Svaka stranica prilagođena za medicinsku djelatnost s naglaskom na povjerenje, stručnost i pristupačnost.</p>
+
+    <p class="label-heading">Struktura stranice:</p>
+    <div class="sitemap">
+
+      <div class="sitemap-leaf">
+        <span>Početna — hero, uvod, pregled usluga, poziv na akciju</span>
+        <span class="url">/</span>
+      </div>
+
+      <div class="sitemap-leaf">
+        <span>O meni — biografija, edukacija, specijalizacije, filozofija</span>
+        <span class="url">/about</span>
+      </div>
+
+      <div class="sitemap-group">
+        <div class="sitemap-parent">
+          <span>Ordinacija — Funkcionalna medicina i Longevity</span>
+          <span class="url">/practice</span>
+        </div>
+        <div class="sitemap-children">
+          <div class="sitemap-child"><span>Laboratorijska dijagnostika i longevity testovi</span><span class="url">/practice/diagnostics</span></div>
+          <div class="sitemap-child"><span>Analiza postojećih nalaza</span><span class="url">/practice/analysis</span></div>
+          <div class="sitemap-child"><span>Dugoročno zdravstveno praćenje</span><span class="url">/practice/coaching</span></div>
+        </div>
+      </div>
+
+      <div class="sitemap-group">
+        <div class="sitemap-parent">
+          <span>Područja rada</span>
+          <span class="url">/focus-areas</span>
+        </div>
+        <div class="sitemap-children">
+          <div class="sitemap-child"><span>Prevencija kardiovaskularnih bolesti</span><span class="url">/focus-areas/cardiovascular</span></div>
+          <div class="sitemap-child"><span>Žensko zdravlje i fertilitet</span><span class="url">/focus-areas/womens-health</span></div>
+          <div class="sitemap-child"><span>Zdravlje probavnog sustava</span><span class="url">/focus-areas/gut-health</span></div>
+          <div class="sitemap-child"><span>Autoimune bolesti i upale</span><span class="url">/focus-areas/autoimmune</span></div>
+          <div class="sitemap-child"><span>Optimizacija performansi</span><span class="url">/focus-areas/performance</span></div>
+          <div class="sitemap-child"><span>Hormonalna ravnoteža i metabolizam</span><span class="url">/focus-areas/hormones</span></div>
+        </div>
+      </div>
+
+      <div class="sitemap-leaf">
+        <span>Korporativno zdravlje — programi za tvrtke</span>
+        <span class="url">/corporate-health</span>
+      </div>
+
+      <div class="sitemap-leaf">
+        <span>Kontakt — obrazac, adresa, radno vrijeme</span>
+        <span class="url">/contact</span>
+      </div>
+
+      <div class="sitemap-leaf">
+        <span>Pravne stranice — Impressum, politika privatnosti</span>
+        <span class="url">/legal</span>
+      </div>
+
+    </div>
+
+    <p>Uključuje UI/UX dizajn inspiriran referentnom stranicom (drvalescaproske.com), responsivni razvoj za sve uređaje, kontaktni obrazac za narudžbu konzultacija, prikaz usluga i područja rada, integraciju društvenih mreža (Instagram, LinkedIn) i GDPR usklađenost.</p>
+
+    <div class="highlight-box">
+      <p><strong>Vizualni koncept:</strong> Čist, profesionalan dizajn s mekanom paletom boja (krem pozadina, tamni tekst, minimalni akcenti). Naglasak na fotografijama, velikim razmacima između sekcija, tipografiji bez serifa i medicinsko-wellness estetici koja gradi povjerenje.</p>
+    </div>
+
+    <h3>2.2 SEO optimizacija</h3>
+    <p>On-page optimizacija za relevantne pretrage na svim jezicima (npr. „funkcionalna medicina Hrvatska", „Funktionelle Medizin Kroatien", „functional medicine Croatia", „longevity doctor"). Uključuje optimizirane meta oznake na 4 jezika, Schema markup (Physician, MedicalBusiness), hreflang oznake, tehničko postavljanje (sitemap.xml, robots.txt, Search Console) i optimizaciju brzine učitavanja.</p>
+
+    <h3>2.3 Web analitika i društvene mreže</h3>
+    <p>Postavljanje Google Analytics 4 za praćenje posjeta i izvora prometa. Povezivanje profila na društvenim mrežama (Instagram, LinkedIn) sa stranicom. Postavljanje Google poslovnog profila ako naručiteljica ima registriranu ordinaciju u Hrvatskoj.</p>
+
+    <h3>2.4 Obuka</h3>
+    <p>Demonstracija rada isporučenih alata (analitika, zaprimanje upita, ažuriranje sadržaja) i kratke pisane upute za samostalno korištenje.</p>
+
+    <!-- 3. ISKLJUČENO -->
+    <h2><span class="section-num">3.</span> Što nije uključeno</h2>
+    <ul>
+      <li>Profesionalno fotografiranje (portreti, ordinacija)</li>
+      <li>Kreiranje i vođenje Google Ads kampanja (može se dodati naknadno)</li>
+      <li>Sustav za online naručivanje (npr. Calendly / Cal.com) — može se integrirati naknadno</li>
+      <li>Izrada zasebnog brenda / web shopa za proizvode (poput NUTRILAB MUNICH)</li>
+      <li>Prijevodi tekstova rade se na temelju materijala dobivenih od klijentice</li>
+    </ul>
+
+    <!-- 4. MATERIJALI -->
+    <h2><span class="section-num">4.</span> Potrebni materijali od klijentice</h2>
+    <ul>
+      <li>Profesionalne fotografije (portret, po mogućnosti u ordinaciji / medicinskom okruženju)</li>
+      <li>Biografija — edukacija, specijalizacije, certifikati, kliničko iskustvo</li>
+      <li>Opis usluga koje nudi (dijagnostika, konzultacije, praćenje, korporativno zdravlje)</li>
+      <li>Područja rada / specijalizacije s kratkim opisima</li>
+      <li>Filozofija / osobna poruka za pacijente</li>
+      <li>Kontaktni podaci, adresa ordinacije i radno vrijeme</li>
+      <li>Pristupni podaci za domenu i profile na društvenim mrežama</li>
+      <li>Logotip (ako postoji) ili smjernice za izradu</li>
+    </ul>
+
+    <!-- 5. CIJENA -->
+    <h2><span class="section-num">5.</span> Cijena</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>R.br.</th>
+          <th>Opis usluge</th>
+          <th class="price">Iznos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.</td>
+          <td>Dizajn i razvoj web stranice — UI/UX dizajn, responsivni razvoj, sve stranice (početna, o meni, ordinacija, područja rada, korporativno zdravlje, kontakt, pravne), 4 jezične verzije (HR, EN, DE, IT), kontaktni obrazac</td>
+          <td class="price"><span class="placeholder">€XXX,00</span></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>SEO optimizacija — analiza ključnih riječi, on-page SEO, schema markup (Physician, MedicalBusiness), hreflang, tehnička optimizacija</td>
+          <td class="price"><span class="placeholder">€XXX,00</span></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>Web analitika, društvene mreže i obuka — Google Analytics 4, Google poslovni profil, povezivanje društvenih mreža, pisane upute</td>
+          <td class="price"><span class="placeholder">€XXX,00</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="total">
+          <td></td>
+          <td>Ukupno</td>
+          <td class="price"><span class="placeholder">€X.XXX,00</span></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p class="note">Obveznik nije u sustavu PDV-a, PDV nije obračunat temeljem čl. 90. st. 1. i st. 2. Zakona o PDV-u (Narodne Novine br. 73/13).</p>
+    <p class="note">Cijene su konačne i uključuju sve navedeno u opsegu projekta.</p>
+
+    <!-- 6. PLAĆANJE -->
+    <h2><span class="section-num">6.</span> Uvjeti plaćanja</h2>
+    <div class="highlight-box highlight-box--dark">
+      <p><strong>30% avansa</strong> (<span class="placeholder">€XXX,00</span>) — po prihvaćanju ponude</p>
+      <p><strong>70% ostatka</strong> (<span class="placeholder">€XXX,00</span>) — po predaji gotove stranice</p>
+    </div>
+
+    <!-- 7. ROK -->
+    <h2><span class="section-num">7.</span> Rok isporuke</h2>
+    <p><strong>3 tjedna</strong> od dana zaprimanja svih potrebnih materijala od klijentice.</p>
+
+    <!-- 8. TEKUĆI TROŠKOVI -->
+    <h2><span class="section-num">8.</span> Tekući troškovi nakon isporuke</h2>
+    <ul>
+      <li><strong>Domena</strong>: Registracija/godišnja obnova domene (cca €10–15/god), na ime naručiteljice.</li>
+      <li><strong>Hosting</strong>: Uključen bez naplate — SSL certifikat, sigurnosne kopije i tehničko održavanje servera.</li>
+    </ul>
+
+    <!-- 9. GARANCIJA I ODRŽAVANJE -->
+    <h2><span class="section-num">9.</span> Garancija i održavanje</h2>
+    <p><strong>3 godine besplatnog održavanja</strong> uključeno — sitne izmjene sadržaja, ispravci grešaka i tehničke prilagodbe bez dodatne naplate. Za veće nadogradnje i nove funkcionalnosti (npr. sustav za online naručivanje, web shop, Google Ads), cijena po dogovoru.</p>
+
+    <!-- 10. PRAVNE ODREDBE -->
+    <h2><span class="section-num">10.</span> Pravne odredbe</h2>
+    <h3>Vlasnička prava</h3>
+    <p>Po podmirenju cjelokupnog iznosa, sva prava na izrađenu web stranicu, dizajn i programski kod prelaze u trajno vlasništvo naručiteljice. Izvođač zadržava pravo korištenja projekta u vlastitom portfelju.</p>
+    <h3>Raskid suradnje</h3>
+    <p>Svaka strana može raskinuti suradnju pisanom obavijesti. U slučaju raskida od strane naručiteljice, avans se ne vraća, a naručiteljica prima sve do tada izrađene materijale. U slučaju raskida od strane izvođača, izvođač vraća avans umanjen za vrijednost do tada izvršenog rada.</p>
+
+    <!-- 11. PRIHVAĆANJE -->
+    <h2><span class="section-num">11.</span> Prihvaćanje ponude</h2>
+    <p>Ponuda vrijedi <strong>30 dana</strong> od datuma izdavanja. Za prihvaćanje ponude dovoljna je uplata avansa ili pisana potvrda putem emaila.</p>
+
+    <div class="highlight-box highlight-box--dark-mt">
+      <p class="highlight-box__title">Podaci za uplatu:</p>
+      <p><strong>Primatelj:</strong> Hyperlink obrt za računalno programiranje, vl. Rudolf Rukavina</p>
+      <p><strong>IBAN:</strong> HR3525000091101575662</p>
+      <p><strong>Iznos avansa:</strong> <span class="placeholder">€XXX,00</span></p>
+      <p><strong>Opis plaćanja:</strong> Avans — izrada web stranice Mai Jimenez</p>
+    </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+      <p>Hyperlink · obrt za računalno programiranje · Stupari 24, 51216 Viškovo · rukavina.rudi@gmail.com · +385 99 205 3344</p>
+    </footer>
+
+  </div>
+</body>
+</html>

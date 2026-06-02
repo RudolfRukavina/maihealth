@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "/Users/Rudolf/Work/poseidonnew/node_modules/nuxt/dist/app/entry.js": {
+  "/Users/Rudolf/Work/mai/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "/Users/Rudolf/Work/poseidonnew/node_modules/nuxt/dist/app/entry.js"
+    "file": "/Users/Rudolf/Work/mai/node_modules/nuxt/dist/app/entry.js"
   }
 }
