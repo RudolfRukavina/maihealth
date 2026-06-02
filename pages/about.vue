@@ -36,6 +36,8 @@
       </div>
     </section>
 
+    <WaveDivider fromColor="#F5F1EC" toColor="#FFFFFF" :variant="3" :height="70" />
+
     <!-- Education & Experience -->
     <section class="section-padding bg-white">
       <div class="container-narrow">
@@ -74,6 +76,8 @@
       </div>
     </section>
 
+    <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="4" :height="60" />
+
     <!-- Memberships -->
     <section class="section-padding">
       <div class="container-narrow">
@@ -87,6 +91,8 @@
         </div>
       </div>
     </section>
+
+    <WaveDivider fromColor="#F5F1EC" toColor="#EEF1EA" :variant="1" :height="70" />
 
     <FinalCTA />
   </div>

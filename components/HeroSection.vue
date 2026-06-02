@@ -8,11 +8,6 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
 
         <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0 order-2 lg:order-1">
-          <div ref="labelEl" class="flex items-center gap-3 mb-5 justify-center lg:justify-start opacity-0">
-            <div class="w-8 h-[1.5px] bg-gold" />
-            <span class="text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-gold">{{ $t('hero.label') }}</span>
-          </div>
-
           <h1 ref="titleEl" class="text-[1.75rem] leading-[1.15] sm:text-4xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal text-balance mb-5 opacity-0">
             {{ $t('hero.title') }}
           </h1>
@@ -75,7 +70,6 @@
 </template>
 
 <script setup>
-const labelEl = ref(null)
 const titleEl = ref(null)
 const subtitleEl = ref(null)
 const buttonsEl = ref(null)
@@ -87,7 +81,6 @@ onMounted(async () => {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
   tl.fromTo(blobEl.value, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1 }, 0.1)
-    .fromTo(labelEl.value, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.7 }, 0.3)
     .fromTo(titleEl.value, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, 0.4)
     .fromTo(subtitleEl.value, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.7)
     .fromTo(buttonsEl.value, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.9)

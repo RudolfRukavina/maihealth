@@ -50,6 +50,8 @@
       </div>
     </section>
 
+    <WaveDivider fromColor="#F5F1EC" toColor="#FFFFFF" :variant="1" :height="70" />
+
     <!-- Patient Journey -->
     <section class="section-padding bg-white">
       <div class="container-narrow">
@@ -71,8 +73,12 @@
       </div>
     </section>
 
+    <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="3" :height="60" />
+
     <!-- Focus Areas -->
     <FocusGrid />
+
+    <WaveDivider fromColor="#F5F1EC" toColor="#FFFFFF" :variant="2" :height="70" />
 
     <!-- Diagnostics & Treatment -->
     <section class="section-padding bg-white">
@@ -104,6 +110,8 @@
         </div>
       </div>
     </section>
+
+    <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="4" :height="60" />
 
     <!-- FM vs Longevity -->
     <section class="section-padding">
@@ -137,6 +145,8 @@
         </div>
       </div>
     </section>
+
+    <WaveDivider fromColor="#F5F1EC" toColor="#EEF1EA" :variant="1" :height="70" />
 
     <FinalCTA />
   </div>

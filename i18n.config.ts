@@ -18,6 +18,24 @@ export default defineI18nConfig(() => ({
         cta_book: "Book Appointment",
         cta_learn: "Learn More",
       },
+      trust: {
+        individual: {
+          title: "Individual Treatment",
+          description: "Tailored to your symptoms and needs.",
+        },
+        holistic: {
+          title: "Holistic Approach",
+          description: "Body, nutrition, stress & gut in harmony.",
+        },
+        knowledge: {
+          title: "Knowledge That Helps",
+          description: "Clearly explained. Truly applicable.",
+        },
+        heart: {
+          title: "Care With Heart",
+          description: "Time, listening, and real partnership at eye level.",
+        },
+      },
       services: {
         label: "Services",
         title: "Personalized care for your health journey",
@@ -236,6 +254,24 @@ export default defineI18nConfig(() => ({
         subtitle: "Dr. Mai Jimenez verbindet Schulmedizin, funktionelle Medizin und Naturheilkunde, um zu untersuchen, wie Stoffwechsel, Hormone, Darm und Nervensystem für langfristige Gesundheitsstabilität zusammenwirken.",
         cta_book: "Termin vereinbaren",
         cta_learn: "Mehr erfahren",
+      },
+      trust: {
+        individual: {
+          title: "Individuelle Behandlung",
+          description: "Maßgeschneidert auf deine Beschwerden und Bedürfnisse.",
+        },
+        holistic: {
+          title: "Ganzheitlicher Ansatz",
+          description: "Körper, Ernährung, Stress & Darm im Einklang.",
+        },
+        knowledge: {
+          title: "Wissen, das hilft",
+          description: "Verständlich erklärt. Wirklich anwendbar.",
+        },
+        heart: {
+          title: "Begleitung mit Herz",
+          description: "Zeit, Zuhören und echte Partnerschaft auf Augenhöhe.",
+        },
       },
       services: {
         label: "Leistungen",
@@ -456,6 +492,24 @@ export default defineI18nConfig(() => ({
         cta_book: "Naruči termin",
         cta_learn: "Saznaj više",
       },
+      trust: {
+        individual: {
+          title: "Individualni tretman",
+          description: "Prilagođen tvojim tegobama i potrebama.",
+        },
+        holistic: {
+          title: "Holistički pristup",
+          description: "Tijelo, prehrana, stres i probava u skladu.",
+        },
+        knowledge: {
+          title: "Znanje koje pomaže",
+          description: "Razumljivo objašnjeno. Stvarno primjenjivo.",
+        },
+        heart: {
+          title: "Pratnja sa srcem",
+          description: "Vrijeme, slušanje i pravo partnerstvo na jednakoj razini.",
+        },
+      },
       services: {
         label: "Usluge",
         title: "Personalizirana skrb za vaš put do zdravlja",
@@ -674,6 +728,24 @@ export default defineI18nConfig(() => ({
         subtitle: "La Dr.ssa Mai Jimenez combina medicina convenzionale, medicina funzionale e naturopatia per esaminare come metabolismo, ormoni, intestino e sistema nervoso collaborano per la stabilità della salute a lungo termine.",
         cta_book: "Prenota appuntamento",
         cta_learn: "Scopri di più",
+      },
+      trust: {
+        individual: {
+          title: "Trattamento individuale",
+          description: "Su misura per i tuoi disturbi e le tue esigenze.",
+        },
+        holistic: {
+          title: "Approccio olistico",
+          description: "Corpo, nutrizione, stress e intestino in armonia.",
+        },
+        knowledge: {
+          title: "Conoscenza che aiuta",
+          description: "Spiegata chiaramente. Davvero applicabile.",
+        },
+        heart: {
+          title: "Cura con il cuore",
+          description: "Tempo, ascolto e vera partnership alla pari.",
+        },
       },
       services: {
         label: "Servizi",

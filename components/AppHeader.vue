@@ -9,17 +9,8 @@
       <div class="flex items-center justify-between h-16 sm:h-20 md:h-[88px]">
 
         <NuxtLink to="/" class="flex items-center gap-2.5 group relative z-50" @click="mobileOpen = false">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sage flex items-center justify-center text-cream text-xs sm:text-sm font-serif font-bold tracking-tight transition-transform duration-300 group-hover:scale-105">
-            MJ
-          </div>
-          <div>
-            <span class="text-base sm:text-lg md:text-xl font-serif font-semibold text-charcoal leading-none block">
-              Dr. Mai Jimenez
-            </span>
-            <span class="text-[9px] sm:text-[10px] font-sans font-medium tracking-[0.12em] uppercase text-gold leading-none mt-0.5 block">
-              Functional Medicine
-            </span>
-          </div>
+          <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:scale-105" />
+          <img src="/maihealthfull.svg" alt="Dr. Mai Jimenez" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto" />
         </NuxtLink>
 
         <!-- Desktop Nav -->
