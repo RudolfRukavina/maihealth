@@ -6,7 +6,12 @@
         <div class="order-2 lg:order-1">
           <div class="relative max-w-sm mx-auto lg:max-w-none">
             <div class="aspect-[4/5] rounded-3xl overflow-hidden">
-              <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" />
+              <picture>
+                <source media="(max-width: 639px)" srcset="/mai2-sm.webp" type="image/webp" />
+                <source media="(max-width: 1023px)" srcset="/mai2-md.webp" type="image/webp" />
+                <source srcset="/mai2.webp" type="image/webp" />
+                <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" loading="lazy" />
+              </picture>
             </div>
             <div class="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-sage/8 -z-10" />
             <div class="absolute -top-3 -left-3 w-14 h-14 rounded-full bg-mauve/10 -z-10" />

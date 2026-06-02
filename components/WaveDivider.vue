@@ -4,7 +4,6 @@
       viewBox="0 0 1440 100"
       preserveAspectRatio="none"
       class="block w-full"
-      :style="{ height: height + 'px' }"
       :class="{ 'rotate-180': flip }"
     >
       <!-- Gentle wave -->
@@ -27,7 +26,6 @@ defineProps({
   fromColor: { type: String, default: '#FFFFFF' },
   toColor: { type: String, default: '#F5F1EC' },
   variant: { type: Number, default: 1 },
-  height: { type: Number, default: 80 },
   flip: { type: Boolean, default: false },
 })
 </script>
@@ -36,5 +34,21 @@ defineProps({
 .wave-divider {
   line-height: 0;
   overflow: hidden;
+}
+
+.wave-divider svg {
+  height: 40px;
+}
+
+@media (min-width: 640px) {
+  .wave-divider svg {
+    height: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wave-divider svg {
+    height: 80px;
+  }
 }
 </style>

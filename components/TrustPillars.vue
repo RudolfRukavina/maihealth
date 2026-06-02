@@ -1,26 +1,26 @@
 <template>
-  <section class="py-16 md:py-20 bg-charcoal relative overflow-hidden">
-    <div class="absolute inset-0">
+  <section class="py-12 md:py-20 bg-charcoal relative overflow-hidden">
+    <div class="absolute inset-0 hidden md:block">
       <div class="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-sage/[0.06] blur-[120px]" />
       <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-mauve/[0.04] blur-[100px]" />
     </div>
 
     <div class="container-narrow relative z-10">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         <div
           v-for="pillar in pillars"
           :key="pillar.key"
           class="text-center group"
         >
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-transform duration-500 group-hover:scale-110" :class="pillar.bgClass">
-            <i :class="pillar.icon" class="text-xl md:text-2xl" :style="{ color: pillar.iconColor }"></i>
+          <div class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-5" :class="pillar.bgClass">
+            <i :class="pillar.icon" class="text-base sm:text-xl md:text-2xl" :style="{ color: pillar.iconColor }"></i>
           </div>
 
-          <h3 class="text-xs font-sans font-bold tracking-[0.15em] uppercase text-cream/90 mb-2.5">
+          <h3 class="text-[10px] sm:text-xs font-sans font-bold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-cream/90 mb-1.5 sm:mb-2.5">
             {{ pillar.title }}
           </h3>
 
-          <p class="text-sm text-cream/50 leading-relaxed max-w-[220px] mx-auto">
+          <p class="text-xs sm:text-sm text-cream/50 leading-relaxed max-w-[220px] mx-auto">
             {{ pillar.description }}
           </p>
         </div>

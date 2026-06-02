@@ -1,6 +1,6 @@
 <template>
   <section class="section-padding relative overflow-hidden bg-sage-mist">
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 hidden md:block">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-sage/[0.04] blur-[100px]" />
     </div>
 

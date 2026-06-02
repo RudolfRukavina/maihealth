@@ -1,8 +1,8 @@
 <template>
-  <section class="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden">
+  <section class="relative min-h-0 lg:min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-cream via-cream to-cream-dark/30" />
-    <div class="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-sage/[0.04] blur-[100px]" />
-    <div class="absolute bottom-20 right-1/4 w-[400px] h-[400px] rounded-full bg-mauve/[0.06] blur-[80px]" />
+    <div class="absolute top-20 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full bg-sage/[0.04] blur-[60px] md:blur-[100px]" />
+    <div class="absolute bottom-20 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full bg-mauve/[0.06] blur-[50px] md:blur-[80px]" />
 
     <div class="container-narrow relative z-10 pt-24 pb-12 sm:pt-28 sm:pb-16 md:py-0">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -49,7 +49,12 @@
             <div class="absolute -inset-4 hero-blob bg-gradient-to-br from-sage/8 via-mauve/5 to-sage/8 hidden lg:block" />
 
             <div class="relative hero-blob w-[240px] h-[280px] sm:w-[280px] sm:h-[330px] lg:w-[420px] lg:h-[500px] xl:w-[460px] xl:h-[540px] overflow-hidden shadow-xl lg:shadow-2xl shadow-charcoal/8">
-              <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" />
+              <picture>
+                <source media="(max-width: 639px)" srcset="/mai2-sm.webp" type="image/webp" />
+                <source media="(max-width: 1023px)" srcset="/mai2-md.webp" type="image/webp" />
+                <source srcset="/mai2.webp" type="image/webp" />
+                <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" loading="eager" fetchpriority="high" />
+              </picture>
             </div>
 
             <!-- Floating badge — desktop only -->
