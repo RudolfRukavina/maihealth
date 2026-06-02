@@ -13,10 +13,10 @@
             {{ $t('footer.description') }}
           </p>
           <div class="flex gap-3">
-            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-300" aria-label="Instagram">
+            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="Instagram">
               <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
             </a>
-            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-300" aria-label="LinkedIn">
+            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in text-xs sm:text-sm"></i>
             </a>
           </div>
@@ -27,7 +27,7 @@
           <h4 class="text-[10px] sm:text-xs font-semibold text-cream/90 tracking-[0.15em] uppercase mb-4 sm:mb-5">{{ $t('footer.navigation') }}</h4>
           <ul class="space-y-2.5 sm:space-y-3">
             <li v-for="item in navItems" :key="item.to">
-              <NuxtLink :to="item.to" class="text-xs sm:text-sm hover:text-cream transition-colors duration-200">
+              <NuxtLink :to="item.to" class="text-xs sm:text-sm hover:text-cream transition-colors duration-150">
                 {{ item.label }}
               </NuxtLink>
             </li>
@@ -52,8 +52,8 @@
 
           <h4 class="text-[10px] sm:text-xs font-semibold text-cream/90 tracking-[0.15em] uppercase mb-4 sm:mb-5">{{ $t('footer.legal') }}</h4>
           <ul class="space-y-2.5 sm:space-y-3">
-            <li><NuxtLink to="/impressum" class="text-xs sm:text-sm hover:text-cream transition-colors duration-200">{{ $t('footer.impressum') }}</NuxtLink></li>
-            <li><NuxtLink to="/privacy" class="text-xs sm:text-sm hover:text-cream transition-colors duration-200">{{ $t('footer.privacy') }}</NuxtLink></li>
+            <li><NuxtLink to="/impressum" class="text-xs sm:text-sm hover:text-cream transition-colors duration-150">{{ $t('footer.impressum') }}</NuxtLink></li>
+            <li><NuxtLink to="/privacy" class="text-xs sm:text-sm hover:text-cream transition-colors duration-150">{{ $t('footer.privacy') }}</NuxtLink></li>
           </ul>
         </div>
       </div>
@@ -64,9 +64,9 @@
         </p>
         <button
           @click="scrollToTop"
-          class="text-[10px] sm:text-xs text-cream/30 hover:text-cream/60 transition-colors duration-200 flex items-center gap-1.5 group"
+          class="text-[10px] sm:text-xs text-cream/30 hover:text-cream/60 transition-colors duration-150 flex items-center gap-1.5 group"
         >
-          <i class="fa-solid fa-arrow-up text-[10px] transition-transform duration-300 group-hover:-translate-y-0.5"></i>
+          <i class="fa-solid fa-arrow-up text-[10px] transition-transform duration-150 group-hover:-translate-y-0.5"></i>
           Back to top
         </button>
       </div>

@@ -11,7 +11,7 @@
         <div
           v-for="(card, index) in cards"
           :key="card.key"
-          class="group relative bg-cream rounded-2xl p-6 sm:p-8 md:p-9 transition-all duration-500 border border-stone/20 hover:border-sage/25 hover:shadow-xl hover:shadow-sage/[0.06] hover:-translate-y-1"
+          class="group relative bg-cream rounded-2xl p-6 sm:p-8 md:p-9 transition-all duration-200 border border-stone/20 hover:border-sage/25 hover:shadow-xl hover:shadow-sage/[0.06] hover:-translate-y-1"
         >
           <span class="text-[11px] font-sans font-semibold tracking-widest text-stone block mb-4">
             0{{ index + 1 }}
@@ -21,7 +21,7 @@
             <i :class="card.icon" :style="{ color: card.iconColor }"></i>
           </div>
 
-          <h3 class="text-lg sm:text-xl font-serif font-semibold text-charcoal mb-2.5 group-hover:text-sage transition-colors duration-300">
+          <h3 class="text-lg sm:text-xl font-serif font-semibold text-charcoal mb-2.5 group-hover:text-sage transition-colors duration-150">
             {{ card.title }}
           </h3>
 
@@ -31,13 +31,13 @@
 
           <NuxtLink
             to="/practice"
-            class="inline-flex items-center gap-2 text-sm font-medium text-charcoal/80 group-hover:text-sage transition-colors duration-300"
+            class="inline-flex items-center gap-2 text-sm font-medium text-charcoal/80 group-hover:text-sage transition-colors duration-150"
           >
             {{ card.cta }}
-            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1"></i>
+            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-150 group-hover:translate-x-1"></i>
           </NuxtLink>
 
-          <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-sage/0 via-sage/40 to-sage/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-sage/0 via-sage/40 to-sage/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
         </div>
       </div>
     </div>

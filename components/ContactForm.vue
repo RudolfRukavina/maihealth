@@ -60,7 +60,7 @@
                   v-model="form.firstName"
                   type="text"
                   required
-                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-200"
+                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-150"
                 />
               </div>
               <div>
@@ -69,7 +69,7 @@
                   v-model="form.lastName"
                   type="text"
                   required
-                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-200"
+                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-150"
                 />
               </div>
             </div>
@@ -81,7 +81,7 @@
                   v-model="form.email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-200"
+                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-150"
                 />
               </div>
               <div>
@@ -89,7 +89,7 @@
                 <input
                   v-model="form.phone"
                   type="tel"
-                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-200"
+                  class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-150"
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@
                 v-model="form.message"
                 required
                 rows="4"
-                class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-200 resize-none"
+                class="w-full px-4 py-3 sm:py-3.5 bg-white rounded-xl border border-stone/40 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all duration-150 resize-none"
               />
             </div>
 
@@ -110,7 +110,7 @@
             </button>
 
             <Transition
-              enter-active-class="transition duration-300 ease-out"
+              enter-active-class="transition duration-150 ease-out"
               enter-from-class="opacity-0 translate-y-2"
               enter-to-class="opacity-100 translate-y-0"
             >

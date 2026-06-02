@@ -24,9 +24,9 @@
             type="email"
             :placeholder="$t('newsletter.placeholder')"
             required
-            class="flex-1 px-5 py-3.5 bg-white/8 border border-cream/12 rounded-full text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:ring-2 focus:ring-cream/15 focus:border-cream/25 transition-all duration-200"
+            class="flex-1 px-5 py-3.5 bg-white/8 border border-cream/12 rounded-full text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:ring-2 focus:ring-cream/15 focus:border-cream/25 transition-all duration-150"
           />
-          <button type="submit" class="px-7 py-3.5 bg-cream text-charcoal font-sans text-sm font-medium rounded-full hover:bg-white transition-colors duration-300 active:scale-[0.98] whitespace-nowrap flex items-center justify-center gap-2">
+          <button type="submit" class="px-7 py-3.5 bg-cream text-charcoal font-sans text-sm font-medium rounded-full hover:bg-white transition-colors duration-150 active:scale-[0.98] whitespace-nowrap flex items-center justify-center gap-2">
             <i class="fa-solid fa-paper-plane text-xs"></i>
             {{ $t('newsletter.cta') }}
           </button>

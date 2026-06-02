@@ -1,7 +1,7 @@
 <template>
   <header
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-150',
       mobileOpen ? 'bg-cream' : scrolled ? 'bg-cream/95 backdrop-blur-md shadow-sm' : 'bg-transparent',
     ]"
   >
@@ -9,7 +9,7 @@
       <div class="flex items-center justify-between h-16 sm:h-20 md:h-[88px]">
 
         <NuxtLink to="/" class="flex items-center gap-2.5 group relative z-50" @click="mobileOpen = false">
-          <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:scale-105" />
+          <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-150 group-hover:scale-105" />
           <img src="/maihealthfull.svg" alt="MaiHealth" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto" />
         </NuxtLink>
 
@@ -19,7 +19,7 @@
             v-for="item in navItems"
             :key="item.to"
             :to="item.to"
-            class="text-[13px] font-medium text-body hover:text-charcoal transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-sage after:transition-all after:duration-300 hover:after:w-full"
+            class="text-[13px] font-medium text-body hover:text-charcoal transition-colors duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-sage after:transition-all after:duration-150 hover:after:w-full"
           >
             {{ item.label }}
           </NuxtLink>
@@ -27,14 +27,14 @@
           <div class="relative" ref="langDropdown">
             <button
               @click="langOpen = !langOpen"
-              class="flex items-center gap-1.5 text-[13px] font-medium text-body hover:text-charcoal transition-colors duration-200"
+              class="flex items-center gap-1.5 text-[13px] font-medium text-body hover:text-charcoal transition-colors duration-150"
             >
               <i class="fa-solid fa-globe text-xs text-muted"></i>
               {{ locale.toUpperCase() }}
-              <i class="fa-solid fa-chevron-down text-[9px] text-muted transition-transform duration-200" :class="{ 'rotate-180': langOpen }"></i>
+              <i class="fa-solid fa-chevron-down text-[9px] text-muted transition-transform duration-150" :class="{ 'rotate-180': langOpen }"></i>
             </button>
             <Transition
-              enter-active-class="transition duration-200 ease-out"
+              enter-active-class="transition duration-150 ease-out"
               enter-from-class="opacity-0 -translate-y-2"
               enter-to-class="opacity-100 translate-y-0"
               leave-active-class="transition duration-150 ease-in"
@@ -71,9 +71,9 @@
           aria-label="Toggle menu"
         >
           <div class="flex flex-col gap-[5px]">
-            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-300 origin-center', mobileOpen ? 'rotate-45 translate-y-[6.5px]' : '']" />
-            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-300', mobileOpen ? 'opacity-0 scale-0' : '']" />
-            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-300 origin-center', mobileOpen ? '-rotate-45 -translate-y-[6.5px]' : '']" />
+            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-150 origin-center', mobileOpen ? 'rotate-45 translate-y-[6.5px]' : '']" />
+            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-150', mobileOpen ? 'opacity-0 scale-0' : '']" />
+            <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-150 origin-center', mobileOpen ? '-rotate-45 -translate-y-[6.5px]' : '']" />
           </div>
         </button>
       </div>
@@ -81,7 +81,7 @@
 
     <!-- Mobile Menu — full screen overlay -->
     <Transition
-      enter-active-class="transition duration-300 ease-out"
+      enter-active-class="transition duration-150 ease-out"
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
       leave-active-class="transition duration-250 ease-in"
@@ -110,7 +110,7 @@
                 :key="lang.code"
                 @click="switchLang(lang.code); closeMobile()"
                 :class="[
-                  'px-5 py-2.5 text-xs font-semibold rounded-full border transition-all duration-200',
+                  'px-5 py-2.5 text-xs font-semibold rounded-full border transition-all duration-150',
                   locale === lang.code
                     ? 'bg-sage text-cream border-sage'
                     : 'border-stone text-body hover:border-sage hover:text-sage',

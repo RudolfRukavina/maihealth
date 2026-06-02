@@ -11,7 +11,7 @@
           <div
             v-for="(item, index) in items"
             :key="item.key"
-            class="rounded-xl overflow-hidden transition-all duration-300"
+            class="rounded-xl overflow-hidden transition-all duration-150"
             :class="openIndex === index
               ? 'bg-cream ring-1 ring-sage/15 shadow-sm'
               : 'bg-cream/40 ring-1 ring-stone/25 hover:ring-stone/40'"
@@ -22,7 +22,7 @@
             >
               <h3 class="text-sm sm:text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
                 <span
-                  class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 text-[10px] font-semibold transition-colors duration-300"
+                  class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 text-[10px] font-semibold transition-colors duration-150"
                   :class="openIndex === index ? 'bg-sage/15 text-sage' : 'bg-stone/10 text-muted'"
                 >
                   {{ String(index + 1).padStart(2, '0') }}
@@ -30,13 +30,13 @@
                 {{ item.question }}
               </h3>
               <i
-                class="fa-solid fa-chevron-down text-[10px] sm:text-xs flex-shrink-0 transition-all duration-300"
+                class="fa-solid fa-chevron-down text-[10px] sm:text-xs flex-shrink-0 transition-all duration-150"
                 :class="openIndex === index ? 'rotate-180 text-sage' : 'text-muted'"
               ></i>
             </button>
 
             <div
-              class="overflow-hidden transition-all duration-500 ease-in-out"
+              class="overflow-hidden transition-all duration-200 ease-in-out"
               :style="{ maxHeight: openIndex === index ? contentHeights[index] + 'px' : '0px' }"
             >
               <div :ref="el => innerRefs[index] = el" class="px-4 sm:px-5 md:px-6 pb-4 sm:pb-5 md:pb-6 pl-[46px] sm:pl-[52px] md:pl-[56px]">

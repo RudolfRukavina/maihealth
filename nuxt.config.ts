@@ -61,9 +61,7 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/input.css",
   },
 
-  build: {
-    transpile: ['gsap'],
-  },
+  build: {},
 
   plugins: [],
 

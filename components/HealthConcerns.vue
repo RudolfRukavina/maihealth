@@ -11,7 +11,7 @@
           <div
             v-for="(item, index) in items"
             :key="item.key"
-            class="rounded-2xl overflow-hidden transition-all duration-500"
+            class="rounded-2xl overflow-hidden transition-all duration-200"
             :class="openIndex === index
               ? 'bg-cream shadow-md shadow-charcoal/[0.03] ring-1 ring-sage/15'
               : 'bg-cream/50 ring-1 ring-stone/30 hover:ring-stone/50'"
@@ -22,25 +22,25 @@
             >
               <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                  class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300"
+                  class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-150"
                   :class="openIndex === index ? 'bg-sage/15' : 'bg-stone/10'"
                 >
-                  <i :class="[item.icon, 'text-xs sm:text-sm transition-colors duration-300', openIndex === index ? 'text-sage' : 'text-muted']"></i>
+                  <i :class="[item.icon, 'text-xs sm:text-sm transition-colors duration-150', openIndex === index ? 'text-sage' : 'text-muted']"></i>
                 </div>
                 <h3 class="text-sm sm:text-base md:text-lg font-serif font-semibold text-charcoal pr-2 sm:pr-4">
                   {{ item.title }}
                 </h3>
               </div>
               <div
-                class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-150"
                 :class="openIndex === index ? 'bg-sage rotate-45' : 'bg-stone/10'"
               >
-                <i class="fa-solid fa-plus text-xs transition-colors duration-300" :class="openIndex === index ? 'text-cream' : 'text-charcoal/60'"></i>
+                <i class="fa-solid fa-plus text-xs transition-colors duration-150" :class="openIndex === index ? 'text-cream' : 'text-charcoal/60'"></i>
               </div>
             </button>
 
             <div
-              class="overflow-hidden transition-all duration-500 ease-in-out"
+              class="overflow-hidden transition-all duration-200 ease-in-out"
               :style="{ maxHeight: openIndex === index ? contentHeights[index] + 'px' : '0px' }"
             >
               <div :ref="el => innerRefs[index] = el" class="px-5 sm:px-6 md:px-8 pb-5 sm:pb-6 md:pb-8 pl-[52px] sm:pl-[60px] md:pl-[84px]">
