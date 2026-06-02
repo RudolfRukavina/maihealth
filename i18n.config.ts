@@ -14,7 +14,7 @@ export default defineI18nConfig(() => ({
       hero: {
         label: "Functional Medicine & Longevity",
         title: "Understand the root causes — with evidence-based medicine.",
-        subtitle: "Dr. Mai Jimenez combines conventional medicine, functional medicine, and naturopathy to examine how metabolism, hormones, the gut, and the nervous system work together for long-term health stability.",
+        subtitle: "Dr. med. Mai Wald combines conventional medicine, functional medicine, and naturopathy to examine how metabolism, hormones, the gut, and the nervous system work together for long-term health stability.",
         cta_book: "Book Appointment",
         cta_learn: "Learn More",
       },
@@ -123,7 +123,7 @@ export default defineI18nConfig(() => ({
       },
       about: {
         label: "About",
-        title: "Dr. Mai Jimenez",
+        title: "Dr. med. Mai Wald",
         subtitle: "Physician for Functional Medicine & Longevity",
         bio: "With a foundation in conventional medicine and advanced training in functional and longevity medicine, I take a comprehensive approach to understanding each patient's unique health picture. My practice bridges evidence-based diagnostics with personalized treatment strategies.",
         philosophy: "Preventing diseases before they develop, and strengthening health sustainably — long-term, measurable, and individualized.",
@@ -224,7 +224,7 @@ export default defineI18nConfig(() => ({
         cta: "Book Your Consultation",
       },
       footer: {
-        description: "Physician for Functional Medicine & Longevity. Evidence-based, personalized health care for long-term wellbeing.",
+        description: "Dr. med. Mai Wald — Physician for Functional Medicine & Longevity. Evidence-based, personalized health care for long-term wellbeing.",
         navigation: "Navigation",
         services: "Services",
         legal: "Legal",
@@ -251,7 +251,7 @@ export default defineI18nConfig(() => ({
       hero: {
         label: "Funktionelle Medizin & Longevity",
         title: "Ursachen verstehen — mit evidenzbasierter Medizin.",
-        subtitle: "Dr. Mai Jimenez verbindet Schulmedizin, funktionelle Medizin und Naturheilkunde, um zu untersuchen, wie Stoffwechsel, Hormone, Darm und Nervensystem für langfristige Gesundheitsstabilität zusammenwirken.",
+        subtitle: "Dr. med. Mai Wald verbindet Schulmedizin, funktionelle Medizin und Naturheilkunde, um zu untersuchen, wie Stoffwechsel, Hormone, Darm und Nervensystem für langfristige Gesundheitsstabilität zusammenwirken.",
         cta_book: "Termin vereinbaren",
         cta_learn: "Mehr erfahren",
       },
@@ -360,7 +360,7 @@ export default defineI18nConfig(() => ({
       },
       about: {
         label: "Über mich",
-        title: "Dr. Mai Jimenez",
+        title: "Dr. med. Mai Wald",
         subtitle: "Ärztin für Funktionelle Medizin & Longevity",
         bio: "Mit einer Grundlage in der Schulmedizin und Weiterbildung in funktioneller Medizin und Longevity verfolge ich einen ganzheitlichen Ansatz, um das individuelle Gesundheitsbild jedes Patienten zu verstehen. Meine Praxis verbindet evidenzbasierte Diagnostik mit personalisierten Behandlungsstrategien.",
         philosophy: "Krankheiten verhindern, bevor sie entstehen, und Gesundheit nachhaltig stärken — langfristig, messbar und individuell.",
@@ -461,7 +461,7 @@ export default defineI18nConfig(() => ({
         cta: "Konsultation buchen",
       },
       footer: {
-        description: "Ärztin für Funktionelle Medizin & Longevity. Evidenzbasierte, personalisierte Gesundheitsversorgung für langfristiges Wohlbefinden.",
+        description: "Dr. med. Mai Wald — Ärztin für Funktionelle Medizin & Longevity. Evidenzbasierte, personalisierte Gesundheitsversorgung für langfristiges Wohlbefinden.",
         navigation: "Navigation",
         services: "Leistungen",
         legal: "Rechtliches",
@@ -488,7 +488,7 @@ export default defineI18nConfig(() => ({
       hero: {
         label: "Funkcionalna medicina i dugovječnost",
         title: "Razumjeti uzroke — uz medicinu temeljenu na dokazima.",
-        subtitle: "Dr. Mai Jimenez spaja konvencionalnu medicinu, funkcionalnu medicinu i prirodnu medicinu kako bi istražila kako metabolizam, hormoni, probava i živčani sustav zajedno djeluju na dugoročnu stabilnost zdravlja.",
+        subtitle: "Dr. med. Mai Wald spaja konvencionalnu medicinu, funkcionalnu medicinu i prirodnu medicinu kako bi istražila kako metabolizam, hormoni, probava i živčani sustav zajedno djeluju na dugoročnu stabilnost zdravlja.",
         cta_book: "Naruči termin",
         cta_learn: "Saznaj više",
       },
@@ -597,7 +597,7 @@ export default defineI18nConfig(() => ({
       },
       about: {
         label: "O meni",
-        title: "Dr. Mai Jimenez",
+        title: "Dr. med. Mai Wald",
         subtitle: "Liječnica za funkcionalnu medicinu i dugovječnost",
         bio: "S temeljima u konvencionalnoj medicini i naprednom edukacijom u funkcionalnoj medicini i dugovječnosti, primjenjujem sveobuhvatan pristup razumijevanju jedinstvene zdravstvene slike svakog pacijenta. Moja praksa spaja dijagnostiku temeljenu na dokazima s personaliziranim strategijama liječenja.",
         philosophy: "Spriječiti bolesti prije nego se razviju i trajno ojačati zdravlje — dugoročno, mjerljivo i individualno.",
@@ -698,7 +698,7 @@ export default defineI18nConfig(() => ({
         cta: "Zakažite konzultaciju",
       },
       footer: {
-        description: "Liječnica za funkcionalnu medicinu i dugovječnost. Zdravstvena skrb temeljena na dokazima za dugoročno blagostanje.",
+        description: "Dr. med. Mai Wald — Liječnica za funkcionalnu medicinu i dugovječnost. Zdravstvena skrb temeljena na dokazima za dugoročno blagostanje.",
         navigation: "Navigacija",
         services: "Usluge",
         legal: "Pravno",
@@ -725,7 +725,7 @@ export default defineI18nConfig(() => ({
       hero: {
         label: "Medicina Funzionale & Longevity",
         title: "Comprendere le cause — con la medicina basata sulle evidenze.",
-        subtitle: "La Dr.ssa Mai Jimenez combina medicina convenzionale, medicina funzionale e naturopatia per esaminare come metabolismo, ormoni, intestino e sistema nervoso collaborano per la stabilità della salute a lungo termine.",
+        subtitle: "La Dr.ssa Mai Wald combina medicina convenzionale, medicina funzionale e naturopatia per esaminare come metabolismo, ormoni, intestino e sistema nervoso collaborano per la stabilità della salute a lungo termine.",
         cta_book: "Prenota appuntamento",
         cta_learn: "Scopri di più",
       },
@@ -834,7 +834,7 @@ export default defineI18nConfig(() => ({
       },
       about: {
         label: "Chi sono",
-        title: "Dr.ssa Mai Jimenez",
+        title: "Dr.ssa Mai Wald",
         subtitle: "Medico di Medicina Funzionale & Longevity",
         bio: "Con una formazione in medicina convenzionale e specializzazione in medicina funzionale e longevity, adotto un approccio completo per comprendere il quadro sanitario unico di ogni paziente. Il mio studio unisce diagnostica basata sulle evidenze con strategie di trattamento personalizzate.",
         philosophy: "Prevenire le malattie prima che si sviluppino e rafforzare la salute in modo sostenibile — a lungo termine, misurabile e individualizzato.",
@@ -935,7 +935,7 @@ export default defineI18nConfig(() => ({
         cta: "Prenota la tua consulenza",
       },
       footer: {
-        description: "Medico di Medicina Funzionale & Longevity. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere a lungo termine.",
+        description: "Dr.ssa Mai Wald — Medico di Medicina Funzionale & Longevity. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere a lungo termine.",
         navigation: "Navigazione",
         services: "Servizi",
         legal: "Legale",

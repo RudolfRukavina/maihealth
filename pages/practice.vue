@@ -155,7 +155,14 @@
 <script setup>
 const { t } = useI18n()
 
-useHead({ title: 'Practice — Dr. Mai Jimenez' })
+useHead({
+  title: 'Praxis & Leistungen — MaiHealth | Dr. med. Mai Wald',
+  meta: [
+    { name: 'description', content: 'Funktionelle Diagnostik, Laborwert-Analyse & laufende Gesundheitsbetreuung. Individuelle Therapiepläne für Reizdarm, Darmgesundheit und ganzheitliche Medizin.' },
+    { property: 'og:title', content: 'Praxis & Leistungen — MaiHealth' },
+    { property: 'og:description', content: 'Funktionelle Diagnostik, Laborwert-Analyse & laufende Gesundheitsbetreuung bei Dr. med. Mai Wald.' },
+  ],
+})
 
 const services = computed(() => [
   {

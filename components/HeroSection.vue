@@ -49,7 +49,7 @@
             <div class="absolute -inset-4 hero-blob bg-gradient-to-br from-sage/8 via-mauve/5 to-sage/8 hidden lg:block" />
 
             <div class="relative hero-blob w-[240px] h-[280px] sm:w-[280px] sm:h-[330px] lg:w-[420px] lg:h-[500px] xl:w-[460px] xl:h-[540px] overflow-hidden shadow-xl lg:shadow-2xl shadow-charcoal/8">
-              <img src="/mai2.png" alt="Dr. Mai Jimenez" class="w-full h-full object-cover" />
+              <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" />
             </div>
 
             <!-- Floating badge — desktop only -->

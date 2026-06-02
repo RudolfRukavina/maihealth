@@ -26,6 +26,11 @@
 
 <script setup>
 useHead({
-  title: 'Dr. Mai Jimenez — Functional Medicine & Longevity',
+  title: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.',
+  meta: [
+    { name: 'description', content: 'Dr. med. Mai Wald — Funktionelle Medizin & Reizdarm-Spezialistin. Individuelle Behandlung, ganzheitlicher Ansatz, evidenzbasierte Diagnostik für nachhaltige Darmgesundheit.' },
+    { property: 'og:title', content: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.' },
+    { property: 'og:description', content: 'Funktionelle Medizin & Reizdarm-Spezialistin. Individuelle Behandlung, ganzheitlicher Ansatz, evidenzbasierte Diagnostik.' },
+  ],
 })
 </script>

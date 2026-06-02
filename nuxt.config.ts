@@ -3,10 +3,16 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "Dr. Mai Jimenez — Functional Medicine & Longevity",
+      title: "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
       meta: [
-        { name: "description", content: "Dr. Mai Jimenez — Physician for Functional Medicine & Longevity. Evidence-based holistic medicine for long-term health." },
+        { name: "description", content: "MaiHealth — Dr. med. Mai Wald. Funktionelle Medizin & Reizdarm-Spezialistin. Ursachen verstehen, ganzheitlich behandeln, nachhaltig gesund leben." },
         { name: "theme-color", content: "#F5F1EC" },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "MaiHealth" },
+        { property: "og:locale", content: "de_DE" },
+        { property: "og:locale:alternate", content: "en_US" },
+        { property: "og:locale:alternate", content: "hr_HR" },
+        { property: "og:locale:alternate", content: "it_IT" },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },

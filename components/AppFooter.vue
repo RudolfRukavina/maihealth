@@ -7,7 +7,7 @@
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-2.5 mb-4 sm:mb-5">
             <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 brightness-0 invert opacity-80" />
-            <img src="/maihealthfull.svg" alt="Dr. Mai Jimenez" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto brightness-0 invert opacity-80" />
+            <img src="/maihealthfull.svg" alt="MaiHealth" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto brightness-0 invert opacity-80" />
           </div>
           <p class="text-xs sm:text-sm leading-relaxed text-cream/40 mb-5 sm:mb-6">
             {{ $t('footer.description') }}
@@ -60,7 +60,7 @@
 
       <div class="border-t border-cream/8 mt-10 sm:mt-14 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
         <p class="text-[10px] sm:text-xs text-cream/30">
-          &copy; {{ new Date().getFullYear() }} Dr. Mai Jimenez. {{ $t('footer.rights') }}
+          &copy; {{ new Date().getFullYear() }} Dr. med. Mai Wald — MaiHealth. {{ $t('footer.rights') }}
         </p>
         <button
           @click="scrollToTop"

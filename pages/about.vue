@@ -99,7 +99,14 @@
 </template>
 
 <script setup>
-useHead({ title: 'About — Dr. Mai Jimenez' })
+useHead({
+  title: 'Über mich — Dr. med. Mai Wald | MaiHealth',
+  meta: [
+    { name: 'description', content: 'Dr. med. Mai Wald — Ärztin für Funktionelle Medizin & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.' },
+    { property: 'og:title', content: 'Über Dr. med. Mai Wald — MaiHealth' },
+    { property: 'og:description', content: 'Ärztin für Funktionelle Medizin & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen.' },
+  ],
+})
 
 const education = [
   { title: 'Medical Degree (Dr. med.)', detail: 'University education in medicine' },

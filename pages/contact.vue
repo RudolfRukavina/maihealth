@@ -11,5 +11,12 @@
 </template>
 
 <script setup>
-useHead({ title: 'Contact — Dr. Mai Jimenez' })
+useHead({
+  title: 'Kontakt & Termin — MaiHealth | Dr. med. Mai Wald',
+  meta: [
+    { name: 'description', content: 'Termin vereinbaren bei Dr. med. Mai Wald — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für funktionelle Medizin & Reizdarm.' },
+    { property: 'og:title', content: 'Kontakt & Termin — MaiHealth' },
+    { property: 'og:description', content: 'Termin vereinbaren bei Dr. med. Mai Wald. Erstgespräch, Telemedizin und persönliche Beratung.' },
+  ],
+})
 </script>
