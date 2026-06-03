@@ -48,11 +48,11 @@
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-charcoal leading-tight;
+    @apply text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-serif font-semibold text-charcoal leading-tight;
   }
 
   .section-subtitle {
-    @apply text-sm sm:text-base md:text-lg text-body/90 max-w-2xl leading-relaxed mt-4;
+    @apply text-base sm:text-base md:text-lg text-body/90 max-w-2xl leading-relaxed mt-4;
   }
 
   .icon-box {

@@ -21,11 +21,11 @@
             <i :class="card.icon" :style="{ color: card.iconColor }"></i>
           </div>
 
-          <h3 class="text-lg sm:text-xl font-serif font-semibold text-charcoal mb-2.5 group-hover:text-sage transition-colors duration-150">
+          <h3 class="text-xl sm:text-xl font-serif font-semibold text-charcoal mb-2.5 group-hover:text-sage transition-colors duration-150">
             {{ card.title }}
           </h3>
 
-          <p class="text-sm text-body/70 leading-relaxed mb-6">
+          <p class="text-base sm:text-sm text-body/70 leading-relaxed mb-6">
             {{ card.description }}
           </p>
 

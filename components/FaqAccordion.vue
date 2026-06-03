@@ -20,7 +20,7 @@
               @click="toggle(index)"
               class="w-full flex items-center justify-between p-4 sm:p-5 md:p-6 text-left gap-3 sm:gap-4"
             >
-              <h3 class="text-sm sm:text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
+              <h3 class="text-base sm:text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
                 <span
                   class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 text-[10px] font-semibold transition-colors duration-150"
                   :class="openIndex === index ? 'bg-sage/15 text-sage' : 'bg-stone/10 text-muted'"

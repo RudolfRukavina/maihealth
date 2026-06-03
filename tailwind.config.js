@@ -34,6 +34,7 @@ module.exports = {
       fontSize: {
         'display': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         'display-sm': ['3.25rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-hero': ['3.5rem', { lineHeight: '1.0', letterSpacing: '-0.03em' }],
       },
       borderRadius: {
         '3xl': '1.5rem',

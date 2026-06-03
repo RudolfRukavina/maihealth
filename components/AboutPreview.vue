@@ -21,7 +21,7 @@
         <!-- Text -->
         <div class="order-1 lg:order-2">
           <span class="section-label">{{ $t('about.label') }}</span>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold text-charcoal mb-2">
+          <h2 class="text-3xl sm:text-3xl md:text-4xl font-serif font-semibold text-charcoal mb-2">
             {{ $t('about.title') }}
           </h2>
           <p class="text-sm sm:text-base text-gold font-medium mb-5 sm:mb-7 flex items-center gap-2">
@@ -29,7 +29,7 @@
             {{ $t('about.subtitle') }}
           </p>
 
-          <p class="text-sm sm:text-base text-body/80 leading-relaxed mb-6 sm:mb-8">
+          <p class="text-base sm:text-base text-body/80 leading-relaxed mb-6 sm:mb-8">
             {{ $t('about.bio') }}
           </p>
 

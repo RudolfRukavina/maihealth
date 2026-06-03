@@ -27,7 +27,7 @@
                 >
                   <i :class="[item.icon, 'text-xs sm:text-sm transition-colors duration-150', openIndex === index ? 'text-sage' : 'text-muted']"></i>
                 </div>
-                <h3 class="text-sm sm:text-base md:text-lg font-serif font-semibold text-charcoal pr-2 sm:pr-4">
+                <h3 class="text-base sm:text-base md:text-lg font-serif font-semibold text-charcoal pr-2 sm:pr-4">
                   {{ item.title }}
                 </h3>
               </div>

@@ -16,11 +16,11 @@
             <i :class="area.icon" class="text-sm sm:text-base" :style="{ color: area.iconColor }"></i>
           </div>
 
-          <h3 class="text-sm sm:text-lg font-serif font-semibold text-charcoal mb-1.5 sm:mb-2.5 group-hover:text-sage transition-colors duration-150 leading-snug">
+          <h3 class="text-base sm:text-lg font-serif font-semibold text-charcoal mb-1.5 sm:mb-2.5 group-hover:text-sage transition-colors duration-150 leading-snug">
             {{ area.title }}
           </h3>
 
-          <p class="text-xs sm:text-sm text-body/65 leading-relaxed hidden sm:block">
+          <p class="text-sm sm:text-sm text-body/65 leading-relaxed hidden sm:block">
             {{ area.description }}
           </p>
 

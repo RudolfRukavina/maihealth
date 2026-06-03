@@ -21,7 +21,7 @@
             <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-sage/15 transition-colors duration-150">
               <i class="fa-solid fa-check text-[10px] sm:text-xs text-sage"></i>
             </div>
-            <p class="text-sm text-body leading-relaxed pt-0.5 sm:pt-1">{{ item }}</p>
+            <p class="text-base sm:text-sm text-body leading-relaxed pt-0.5 sm:pt-1">{{ item }}</p>
           </div>
         </div>
 
