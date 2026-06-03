@@ -35,6 +35,6 @@
 </template>
 
 <script setup>
-const { tm } = useI18n()
-const items = computed(() => tm('benefits.items'))
+const { tm, rt } = useI18n()
+const items = computed(() => tm('benefits.items').map(i => rt(i)))
 </script>

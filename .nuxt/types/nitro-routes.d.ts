@@ -3,6 +3,36 @@ import type { Serialize, Simplify } from "nitropack/types";
 declare module "nitropack/types" {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/admin/appointments': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/appointments.post').default>>>>
+    }
+    '/api/admin/appointments/:id': {
+      'patch': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/appointments/[id].patch').default>>>>
+    }
+    '/api/admin/availability': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/availability.post').default>>>>
+    }
+    '/api/admin/requests/:id': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/requests/[id].post').default>>>>
+    }
+    '/api/appointments/book': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/appointments/book.post').default>>>>
+    }
+    '/api/appointments/request': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/appointments/request.post').default>>>>
+    }
+    '/api/availability/config': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/availability/config.get').default>>>>
+    }
+    '/api/availability/slots': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/availability/slots.get').default>>>>
+    }
+    '/api/contact': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/contact.post').default>>>>
+    }
+    '/api/newsletter': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/newsletter.post').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
     }

@@ -13,10 +13,11 @@
             {{ $t('footer.description') }}
           </p>
           <div class="flex gap-3">
-            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="Instagram">
+            <!-- TODO: Replace with real social URLs -->
+            <a href="https://instagram.com/maihealth" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="Instagram">
               <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
             </a>
-            <a href="#" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/maihealth" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in text-xs sm:text-sm"></i>
             </a>
           </div>
@@ -67,7 +68,7 @@
           class="text-[10px] sm:text-xs text-cream/30 hover:text-cream/60 transition-colors duration-150 flex items-center gap-1.5 group"
         >
           <i class="fa-solid fa-arrow-up text-[10px] transition-transform duration-150 group-hover:-translate-y-0.5"></i>
-          Back to top
+          {{ $t('footer.back_to_top') }}
         </button>
       </div>
     </div>

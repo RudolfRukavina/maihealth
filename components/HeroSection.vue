@@ -17,7 +17,7 @@
           </p>
 
           <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-center lg:justify-start">
-            <NuxtLink to="/contact" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
+            <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
               <i class="fa-regular fa-calendar-check text-sm"></i>
               {{ $t('hero.cta_book') }}
             </NuxtLink>
@@ -30,15 +30,15 @@
           <div class="hero-fade hero-fade-4 flex items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 lg:mt-10 pt-5 lg:pt-8 border-t border-stone/30">
             <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
               <i class="fa-solid fa-shield-halved text-sage text-xs"></i>
-              <span>Evidence-based</span>
+              <span>{{ $t('hero.badges.evidence') }}</span>
             </div>
             <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
               <i class="fa-solid fa-video text-sage text-xs"></i>
-              <span>Telemedicine</span>
+              <span>{{ $t('hero.badges.telemedicine') }}</span>
             </div>
             <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
               <i class="fa-solid fa-earth-europe text-sage text-xs"></i>
-              <span>4 Languages</span>
+              <span>{{ $t('hero.badges.languages') }}</span>
             </div>
           </div>
         </div>
@@ -59,8 +59,8 @@
                 <i class="fa-solid fa-heart-pulse text-sage"></i>
               </div>
               <div>
-                <p class="text-xs font-semibold text-charcoal">Darmgesundheit</p>
-                <p class="text-[10px] text-muted">& Reizdarm-Spezialistin</p>
+                <p class="text-xs font-semibold text-charcoal">{{ $t('hero.badge_card.title') }}</p>
+                <p class="text-[10px] text-muted">{{ $t('hero.badge_card.subtitle') }}</p>
               </div>
             </div>
           </div>
@@ -69,3 +69,6 @@
     </div>
   </section>
 </template>
+
+<script setup>
+</script>

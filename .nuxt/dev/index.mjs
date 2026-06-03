@@ -1,9 +1,13 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getResponseStatusText } from 'file:///Users/Rudolf/Work/mai/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getHeader, getResponseStatusText } from 'file:///Users/Rudolf/Work/mai/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
+import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
+import { getFirestore, Timestamp } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { getApps, initializeApp, cert } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/app/index.js';
+import { getAuth } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/auth/index.js';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/Rudolf/Work/mai/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/Rudolf/Work/mai/node_modules/devalue/index.js';
 import destr from 'file:///Users/Rudolf/Work/mai/node_modules/destr/dist/index.mjs';
@@ -417,7 +421,7 @@ const _gtZIT93UES = (function(nitro) {
 
 const rootDir = "/Users/Rudolf/Work/mai";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Dr. med. Mai Wald. Funktionelle Medizin & Reizdarm-Spezialistin. Ursachen verstehen, ganzheitlich behandeln, nachhaltig gesund leben."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"},{"property":"og:locale:alternate","content":"hr_HR"},{"property":"og:locale:alternate","content":"it_IT"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern."};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Dr. med. Mai Wald. Gut health & IBS specialist."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"},{"property":"og:locale:alternate","content":"hr_HR"},{"property":"og:locale:alternate","content":"it_IT"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Dr. med. Mai Wald"};
 
 const appRootTag = "div";
 
@@ -508,9 +512,29 @@ const plugins = [
 _76nvq2ezMH
 ];
 
+const _lazy_M1nVnh = () => Promise.resolve().then(function () { return appointments_post$1; });
+const _lazy_S6svPp = () => Promise.resolve().then(function () { return _id__patch$1; });
+const _lazy_4llXf1 = () => Promise.resolve().then(function () { return availability_post$1; });
+const _lazy_iTayOl = () => Promise.resolve().then(function () { return _id__post$1; });
+const _lazy_Yu7KvH = () => Promise.resolve().then(function () { return book_post$1; });
+const _lazy_XnNalK = () => Promise.resolve().then(function () { return request_post$1; });
+const _lazy_Dm8u8d = () => Promise.resolve().then(function () { return config_get$1; });
+const _lazy_OQeO2T = () => Promise.resolve().then(function () { return slots_get$1; });
+const _lazy_amYChR = () => Promise.resolve().then(function () { return contact_post$1; });
+const _lazy_HH9gBA = () => Promise.resolve().then(function () { return newsletter_post$1; });
 const _lazy_cjtSQX = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/admin/appointments', handler: _lazy_M1nVnh, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/appointments/:id', handler: _lazy_S6svPp, lazy: true, middleware: false, method: "patch" },
+  { route: '/api/admin/availability', handler: _lazy_4llXf1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/requests/:id', handler: _lazy_iTayOl, lazy: true, middleware: false, method: "post" },
+  { route: '/api/appointments/book', handler: _lazy_Yu7KvH, lazy: true, middleware: false, method: "post" },
+  { route: '/api/appointments/request', handler: _lazy_XnNalK, lazy: true, middleware: false, method: "post" },
+  { route: '/api/availability/config', handler: _lazy_Dm8u8d, lazy: true, middleware: false, method: "get" },
+  { route: '/api/availability/slots', handler: _lazy_OQeO2T, lazy: true, middleware: false, method: "get" },
+  { route: '/api/contact', handler: _lazy_amYChR, lazy: true, middleware: false, method: "post" },
+  { route: '/api/newsletter', handler: _lazy_HH9gBA, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined }
 ];
@@ -943,12 +967,18 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
+    "firebaseApiKey": "",
+    "firebaseAuthDomain": "",
+    "firebaseProjectId": "",
+    "firebaseStorageBucket": "",
+    "firebaseMessagingSenderId": "",
+    "firebaseAppId": "",
     "i18n": {
       "baseUrl": "",
       "defaultLocale": "en",
       "defaultDirection": "ltr",
       "strategy": "no_prefix",
-      "lazy": false,
+      "lazy": true,
       "rootRedirect": "",
       "routesNameSeparator": "___",
       "defaultLocaleRouteNameSuffix": "default",
@@ -959,22 +989,34 @@ const _inlineRuntimeConfig = {
         {
           "code": "en",
           "name": "English",
-          "language": "en-US"
+          "language": "en-US",
+          "files": [
+            "/Users/Rudolf/Work/mai/locales/en.json"
+          ]
         },
         {
           "code": "de",
           "name": "Deutsch",
-          "language": "de-DE"
+          "language": "de-DE",
+          "files": [
+            "/Users/Rudolf/Work/mai/locales/de.json"
+          ]
         },
         {
           "code": "hr",
           "name": "Hrvatski",
-          "language": "hr-HR"
+          "language": "hr-HR",
+          "files": [
+            "/Users/Rudolf/Work/mai/locales/hr.json"
+          ]
         },
         {
           "code": "it",
           "name": "Italiano",
-          "language": "it-IT"
+          "language": "it-IT",
+          "files": [
+            "/Users/Rudolf/Work/mai/locales/it.json"
+          ]
         }
       ],
       "locales": {
@@ -1008,7 +1050,15 @@ const _inlineRuntimeConfig = {
       },
       "multiDomainLocales": false
     }
-  }
+  },
+  "firebaseAdminProjectId": "",
+  "firebaseAdminClientEmail": "",
+  "firebaseAdminPrivateKey": "",
+  "resendApiKey": "",
+  "zoomAccountId": "",
+  "zoomClientId": "",
+  "zoomClientSecret": "",
+  "contactEmail": "hello@maihealth.com"
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -1390,6 +1440,680 @@ const template$1 = (messages) => {
 const errorDev = /*#__PURE__*/Object.freeze({
   __proto__: null,
   template: template$1
+});
+
+let _auth;
+let _db;
+function normalizePrivateKey(raw) {
+  if (typeof raw !== "string") return void 0;
+  let key = raw.trim();
+  if (key.startsWith('"') && key.endsWith('"') || key.startsWith("'") && key.endsWith("'")) {
+    key = key.slice(1, -1);
+  }
+  return key.replace(/\\n/g, "\n");
+}
+function ensureInitialized() {
+  if (getApps().length === 0) {
+    const config = useRuntimeConfig();
+    const projectId = config.firebaseAdminProjectId;
+    const clientEmail = config.firebaseAdminClientEmail;
+    const privateKey = normalizePrivateKey(config.firebaseAdminPrivateKey);
+    if (!projectId || !clientEmail || !privateKey) {
+      const missing = [
+        !projectId && "NUXT_FIREBASE_ADMIN_PROJECT_ID",
+        !clientEmail && "NUXT_FIREBASE_ADMIN_CLIENT_EMAIL",
+        !privateKey && "NUXT_FIREBASE_ADMIN_PRIVATE_KEY"
+      ].filter(Boolean).join(", ");
+      throw createError({
+        statusCode: 500,
+        statusMessage: `Firebase Admin is not configured. Missing env var(s): ${missing}. Add them to your .env file.`
+      });
+    }
+    initializeApp({
+      credential: cert({ projectId, clientEmail, privateKey })
+    });
+  }
+  _auth = getAuth();
+  _db = getFirestore();
+}
+function getAdminAuth() {
+  ensureInitialized();
+  return _auth;
+}
+function getAdminDb() {
+  ensureInitialized();
+  return _db;
+}
+
+async function verifyAuth(event) {
+  const authorization = getHeader(event, "authorization");
+  if (!(authorization == null ? void 0 : authorization.startsWith("Bearer "))) {
+    throw createError({ statusCode: 401, statusMessage: "Missing or invalid authorization header" });
+  }
+  const token = authorization.slice(7);
+  try {
+    return await getAdminAuth().verifyIdToken(token);
+  } catch {
+    throw createError({ statusCode: 401, statusMessage: "Invalid or expired token" });
+  }
+}
+
+let cachedToken = null;
+async function getZoomAccessToken() {
+  if (cachedToken && Date.now() < cachedToken.expiresAt - 6e4) {
+    return cachedToken.token;
+  }
+  const config = useRuntimeConfig();
+  const credentials = Buffer.from(`${config.zoomClientId}:${config.zoomClientSecret}`).toString("base64");
+  const response = await fetch("https://zoom.us/oauth/token", {
+    method: "POST",
+    headers: {
+      "Authorization": `Basic ${credentials}`,
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      grant_type: "account_credentials",
+      account_id: config.zoomAccountId
+    })
+  });
+  if (!response.ok) {
+    throw new Error(`Zoom token request failed: ${response.statusText}`);
+  }
+  const data = await response.json();
+  cachedToken = {
+    token: data.access_token,
+    expiresAt: Date.now() + data.expires_in * 1e3
+  };
+  return cachedToken.token;
+}
+async function createZoomMeeting(topic, startTime, duration = 60) {
+  const token = await getZoomAccessToken();
+  const response = await fetch("https://api.zoom.us/v2/users/me/meetings", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      topic,
+      type: 2,
+      start_time: startTime,
+      duration,
+      timezone: "Europe/Berlin",
+      settings: {
+        join_before_host: false,
+        waiting_room: true,
+        meeting_authentication: false
+      }
+    })
+  });
+  if (!response.ok) {
+    throw new Error(`Zoom meeting creation failed: ${response.statusText}`);
+  }
+  const meeting = await response.json();
+  return {
+    meetingId: String(meeting.id),
+    joinUrl: meeting.join_url
+  };
+}
+
+const appointments_post = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const config = useRuntimeConfig();
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const body = await readBody(event);
+  const { patientId, patientName, patientEmail, date, duration, type, notes } = body;
+  if (!patientId || !date) {
+    throw createError({ statusCode: 400, statusMessage: "Patient and date are required" });
+  }
+  let zoomMeetingId = "";
+  let zoomJoinUrl = "";
+  if (config.zoomClientId && config.zoomClientSecret) {
+    const meeting = await createZoomMeeting(
+      `MaiHealth \u2014 ${patientName || "Patient Consultation"}`,
+      new Date(date).toISOString(),
+      duration || 60
+    );
+    zoomMeetingId = meeting.meetingId;
+    zoomJoinUrl = meeting.joinUrl;
+  }
+  const appointment = await db.collection("appointments").add({
+    patientId,
+    patientName: patientName || "",
+    date: Timestamp.fromDate(new Date(date)),
+    duration: duration || 60,
+    type: type || "initial",
+    status: "scheduled",
+    zoomMeetingId,
+    zoomJoinUrl,
+    notes: notes || "",
+    createdAt: Timestamp.now()
+  });
+  if (config.resendApiKey && patientEmail) {
+    const resend = new Resend(config.resendApiKey);
+    await resend.emails.send({
+      from: "MaiHealth <noreply@maihealth.com>",
+      to: patientEmail,
+      subject: "Your MaiHealth appointment is confirmed",
+      html: `
+        <h2>Appointment Confirmed</h2>
+        <p>Dear ${patientName},</p>
+        <p>Your appointment with Dr. med. Mai Wald has been scheduled:</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
+        <p><strong>Time:</strong> ${new Date(date).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
+        <p><strong>Duration:</strong> ${duration || 60} minutes</p>
+        ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
+        <p>You can also view this appointment in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
+        <br>
+        <p>Best regards,<br>MaiHealth Team</p>
+      `
+    });
+  }
+  return { success: true, appointmentId: appointment.id, zoomJoinUrl };
+});
+
+const appointments_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: appointments_post
+});
+
+const _id__patch = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const id = getRouterParam(event, "id");
+  if (!id) throw createError({ statusCode: 400, statusMessage: "Appointment ID required" });
+  const body = await readBody(event);
+  const updates = {};
+  if (body.date) updates.date = Timestamp.fromDate(new Date(body.date));
+  if (body.duration) updates.duration = body.duration;
+  if (body.status) updates.status = body.status;
+  if (body.notes !== void 0) updates.notes = body.notes;
+  await db.collection("appointments").doc(id).update(updates);
+  return { success: true };
+});
+
+const _id__patch$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__patch
+});
+
+const availability_post = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const body = await readBody(event);
+  const { weeklySchedule, blockedDates, slotDuration } = body;
+  if (!Array.isArray(weeklySchedule)) {
+    throw createError({ statusCode: 400, statusMessage: "weeklySchedule must be an array" });
+  }
+  for (const entry of weeklySchedule) {
+    if (typeof entry.day !== "number" || entry.day < 0 || entry.day > 6 || typeof entry.startHour !== "number" || entry.startHour < 0 || entry.startHour > 23 || typeof entry.endHour !== "number" || entry.endHour < 1 || entry.endHour > 24 || entry.startHour >= entry.endHour) {
+      throw createError({ statusCode: 400, statusMessage: "Invalid schedule entry" });
+    }
+  }
+  await db.collection("availability").doc("config").set({
+    weeklySchedule,
+    blockedDates: Array.isArray(blockedDates) ? blockedDates : [],
+    slotDuration: Number(slotDuration) || 60,
+    updatedAt: /* @__PURE__ */ new Date()
+  }, { merge: true });
+  return { success: true };
+});
+
+const availability_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: availability_post
+});
+
+const _id__post = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const config = useRuntimeConfig();
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const id = getRouterParam(event, "id");
+  if (!id) throw createError({ statusCode: 400, statusMessage: "Request ID required" });
+  const body = await readBody(event);
+  const { action, date, duration } = body;
+  const requestDoc = await db.collection("appointmentRequests").doc(id).get();
+  if (!requestDoc.exists) {
+    throw createError({ statusCode: 404, statusMessage: "Request not found" });
+  }
+  const request = requestDoc.data();
+  if (action === "decline") {
+    await db.collection("appointmentRequests").doc(id).update({ status: "declined" });
+    return { success: true };
+  }
+  if (!date) {
+    throw createError({ statusCode: 400, statusMessage: "Date is required to accept" });
+  }
+  let zoomMeetingId = "";
+  let zoomJoinUrl = "";
+  if (config.zoomClientId && config.zoomClientSecret) {
+    const meeting = await createZoomMeeting(
+      `MaiHealth \u2014 ${request.patientName || "Patient Consultation"}`,
+      new Date(date).toISOString(),
+      duration || 60
+    );
+    zoomMeetingId = meeting.meetingId;
+    zoomJoinUrl = meeting.joinUrl;
+  }
+  await db.collection("appointments").add({
+    patientId: request.patientId,
+    patientName: request.patientName || "",
+    date: Timestamp.fromDate(new Date(date)),
+    duration: duration || 60,
+    type: request.type || "initial",
+    status: "scheduled",
+    zoomMeetingId,
+    zoomJoinUrl,
+    notes: request.reason || "",
+    createdAt: Timestamp.now()
+  });
+  await db.collection("appointmentRequests").doc(id).update({ status: "accepted" });
+  if (config.resendApiKey && request.patientEmail) {
+    const resend = new Resend(config.resendApiKey);
+    await resend.emails.send({
+      from: "MaiHealth <noreply@maihealth.com>",
+      to: request.patientEmail,
+      subject: "Your MaiHealth appointment is confirmed",
+      html: `
+        <h2>Appointment Confirmed</h2>
+        <p>Dear ${request.patientName},</p>
+        <p>Your appointment request has been accepted:</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
+        <p><strong>Time:</strong> ${new Date(date).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
+        ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
+        <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
+      `
+    });
+  }
+  return { success: true, zoomJoinUrl };
+});
+
+const _id__post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__post
+});
+
+const book_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const { slotDateTime, type, reason, guestName, guestEmail, guestPhone } = body;
+  if (!slotDateTime) {
+    throw createError({ statusCode: 400, statusMessage: "slotDateTime is required" });
+  }
+  const slotDate = new Date(slotDateTime);
+  if (isNaN(slotDate.getTime())) {
+    throw createError({ statusCode: 400, statusMessage: "Invalid slotDateTime" });
+  }
+  if (slotDate <= /* @__PURE__ */ new Date()) {
+    throw createError({ statusCode: 400, statusMessage: "Cannot book a slot in the past" });
+  }
+  let decoded = null;
+  const authHeader = getHeader(event, "authorization");
+  if (authHeader == null ? void 0 : authHeader.startsWith("Bearer ")) {
+    const token = authHeader.slice(7);
+    try {
+      decoded = await getAdminAuth().verifyIdToken(token);
+    } catch {
+      throw createError({ statusCode: 401, statusMessage: "Invalid or expired token" });
+    }
+  }
+  let patientName = "";
+  let patientEmail = "";
+  let patientPhone = "";
+  if (decoded) {
+    decoded.uid;
+    patientName = decoded.name || decoded.email || "Patient";
+    patientEmail = decoded.email || "";
+  } else {
+    if (!guestName || !guestEmail || !guestPhone) {
+      throw createError({ statusCode: 400, statusMessage: "Name, email and phone number are required" });
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(guestEmail))) {
+      throw createError({ statusCode: 400, statusMessage: "Please enter a valid email address" });
+    }
+    patientName = String(guestName).trim();
+    patientEmail = String(guestEmail).trim();
+    patientPhone = String(guestPhone).trim();
+  }
+  const config = useRuntimeConfig();
+  const db = getAdminDb();
+  const slotTimestamp = Timestamp.fromDate(slotDate);
+  const existingAppt = await db.collection("appointments").where("date", "==", slotTimestamp).where("status", "==", "scheduled").limit(1).get();
+  if (!existingAppt.empty) {
+    throw createError({ statusCode: 409, statusMessage: "This slot is no longer available" });
+  }
+  const existingReq = await db.collection("appointmentRequests").where("slotDate", "==", slotTimestamp).where("status", "==", "pending").limit(1).get();
+  if (!existingReq.empty) {
+    throw createError({ statusCode: 409, statusMessage: "This slot is no longer available" });
+  }
+  const availDoc = await db.collection("availability").doc("config").get();
+  const slotDuration = availDoc.exists ? availDoc.data().slotDuration || 60 : 60;
+  let isReturning = false;
+  if (decoded) {
+    const completedSnapshot = await db.collection("appointments").where("patientId", "==", decoded.uid).where("status", "==", "completed").limit(1).get();
+    isReturning = !completedSnapshot.empty;
+  }
+  if (isReturning) {
+    let zoomMeetingId = "";
+    let zoomJoinUrl = "";
+    if (config.zoomClientId && config.zoomClientSecret) {
+      const meeting = await createZoomMeeting(
+        `MaiHealth \u2014 ${patientName}`,
+        slotDate.toISOString(),
+        slotDuration
+      );
+      zoomMeetingId = meeting.meetingId;
+      zoomJoinUrl = meeting.joinUrl;
+    }
+    const apptRef = await db.collection("appointments").add({
+      patientId: decoded.uid,
+      patientName,
+      patientEmail,
+      patientPhone,
+      date: slotTimestamp,
+      duration: slotDuration,
+      type: type || "followup",
+      status: "scheduled",
+      zoomMeetingId,
+      zoomJoinUrl,
+      notes: reason || "",
+      createdAt: Timestamp.now()
+    });
+    if (config.resendApiKey && patientEmail) {
+      const resend = new Resend(config.resendApiKey);
+      const dateStr = slotDate.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+      const timeStr = slotDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+      await resend.emails.send({
+        from: "MaiHealth <noreply@maihealth.com>",
+        to: patientEmail,
+        subject: "Your MaiHealth appointment is confirmed",
+        html: `
+          <h2>Appointment Confirmed</h2>
+          <p>Dear ${patientName},</p>
+          <p>Your appointment has been booked:</p>
+          <p><strong>Date:</strong> ${dateStr}</p>
+          <p><strong>Time:</strong> ${timeStr}</p>
+          <p><strong>Duration:</strong> ${slotDuration} minutes</p>
+          ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
+          <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
+        `
+      });
+    }
+    return {
+      type: "booked",
+      appointmentId: apptRef.id,
+      zoomJoinUrl,
+      date: slotDate.toISOString(),
+      duration: slotDuration
+    };
+  } else {
+    await db.collection("appointmentRequests").add({
+      patientId: (decoded == null ? void 0 : decoded.uid) || null,
+      patientName,
+      patientEmail,
+      patientPhone,
+      slotDate: slotTimestamp,
+      preferredDateRange: {
+        start: slotTimestamp,
+        end: slotTimestamp
+      },
+      preferredTimeOfDay: "morning",
+      type: type || "initial",
+      reason: reason || "",
+      status: "pending",
+      createdAt: Timestamp.now()
+    });
+    if (config.resendApiKey) {
+      const resend = new Resend(config.resendApiKey);
+      const dateStr = slotDate.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+      const timeStr = slotDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+      await resend.emails.send({
+        from: "MaiHealth <noreply@maihealth.com>",
+        to: config.contactEmail,
+        subject: `New appointment request from ${patientName}`,
+        html: `
+          <h2>New Appointment Request</h2>
+          <p><strong>Patient:</strong> ${patientName} (${patientEmail})</p>
+          ${patientPhone ? `<p><strong>Phone:</strong> ${patientPhone}</p>` : ""}
+          <p><strong>Requested slot:</strong> ${dateStr} at ${timeStr}</p>
+          <p><strong>Type:</strong> ${type || "initial"}</p>
+          <p><strong>Reason:</strong> ${reason || "Not provided"}</p>
+        `
+      });
+    }
+    return {
+      type: "requested",
+      date: slotDate.toISOString(),
+      duration: slotDuration
+    };
+  }
+});
+
+const book_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: book_post
+});
+
+const request_post = defineEventHandler(async (event) => {
+  const decoded = await verifyAuth(event);
+  const body = await readBody(event);
+  const { preferredDateStart, preferredDateEnd, preferredTime, type, reason } = body;
+  if (!preferredDateStart) {
+    throw createError({ statusCode: 400, statusMessage: "Preferred date is required" });
+  }
+  const config = useRuntimeConfig();
+  const db = getAdminDb();
+  await db.collection("appointmentRequests").add({
+    patientId: decoded.uid,
+    patientName: decoded.name || decoded.email,
+    patientEmail: decoded.email,
+    preferredDateRange: {
+      start: Timestamp.fromDate(new Date(preferredDateStart)),
+      end: preferredDateEnd ? Timestamp.fromDate(new Date(preferredDateEnd)) : Timestamp.fromDate(new Date(preferredDateStart))
+    },
+    preferredTimeOfDay: preferredTime || "morning",
+    type: type || "initial",
+    reason: reason || "",
+    status: "pending",
+    createdAt: Timestamp.now()
+  });
+  if (config.resendApiKey) {
+    const resend = new Resend(config.resendApiKey);
+    await resend.emails.send({
+      from: "MaiHealth <noreply@maihealth.com>",
+      to: config.contactEmail,
+      subject: `New appointment request from ${decoded.name || decoded.email}`,
+      html: `
+        <h2>New Appointment Request</h2>
+        <p><strong>Patient:</strong> ${decoded.name || "N/A"} (${decoded.email})</p>
+        <p><strong>Preferred dates:</strong> ${preferredDateStart}${preferredDateEnd ? " \u2013 " + preferredDateEnd : ""}</p>
+        <p><strong>Preferred time:</strong> ${preferredTime}</p>
+        <p><strong>Type:</strong> ${type}</p>
+        <p><strong>Reason:</strong> ${reason || "Not provided"}</p>
+      `
+    });
+  }
+  return { success: true };
+});
+
+const request_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: request_post
+});
+
+const config_get = defineEventHandler(async (event) => {
+  var _a, _b, _c, _d;
+  const decoded = await verifyAuth(event);
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const configDoc = await db.collection("availability").doc("config").get();
+  if (!configDoc.exists) {
+    return { weeklySchedule: [], blockedDates: [], slotDuration: 60 };
+  }
+  const data = configDoc.data();
+  return {
+    weeklySchedule: (_b = data.weeklySchedule) != null ? _b : [],
+    blockedDates: (_c = data.blockedDates) != null ? _c : [],
+    slotDuration: (_d = data.slotDuration) != null ? _d : 60
+  };
+});
+
+const config_get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: config_get
+});
+
+const slots_get = defineEventHandler(async (event) => {
+  const query = getQuery$1(event);
+  const { from, to } = query;
+  if (!from || !to) {
+    throw createError({ statusCode: 400, statusMessage: "from and to query params are required" });
+  }
+  const fromDate = new Date(from);
+  const toDate = new Date(to);
+  toDate.setHours(23, 59, 59, 999);
+  if (isNaN(fromDate.getTime()) || isNaN(toDate.getTime())) {
+    throw createError({ statusCode: 400, statusMessage: "Invalid date format" });
+  }
+  const db = getAdminDb();
+  const DEFAULT_SCHEDULE = [1, 2, 3, 4, 5].map((day) => ({ day, startHour: 8, endHour: 17 }));
+  const availDoc = await db.collection("availability").doc("config").get();
+  const config = availDoc.exists ? availDoc.data() : {};
+  const blockedDates = Array.isArray(config.blockedDates) ? config.blockedDates : [];
+  const slotDuration = config.slotDuration || 60;
+  const weeklySchedule = Array.isArray(config.weeklySchedule) && config.weeklySchedule.length ? config.weeklySchedule : DEFAULT_SCHEDULE;
+  const bookedSlots = /* @__PURE__ */ new Set();
+  const apptSnapshot = await db.collection("appointments").where("date", ">=", Timestamp.fromDate(fromDate)).where("date", "<=", Timestamp.fromDate(toDate)).get();
+  for (const doc of apptSnapshot.docs) {
+    const d = doc.data();
+    if (d.status === "scheduled" && d.date) {
+      bookedSlots.add(d.date.toDate().toISOString());
+    }
+  }
+  const reqSnapshot = await db.collection("appointmentRequests").where("slotDate", ">=", Timestamp.fromDate(fromDate)).where("slotDate", "<=", Timestamp.fromDate(toDate)).get();
+  for (const doc of reqSnapshot.docs) {
+    const d = doc.data();
+    if (d.status === "pending" && d.slotDate) {
+      bookedSlots.add(d.slotDate.toDate().toISOString());
+    }
+  }
+  const slots = [];
+  const cursor = new Date(fromDate);
+  cursor.setHours(0, 0, 0, 0);
+  const minBookable = new Date(Date.now() + 2 * 60 * 60 * 1e3);
+  while (cursor <= toDate) {
+    const dayOfWeek = cursor.getDay();
+    const dateStr = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`;
+    if (!blockedDates.includes(dateStr)) {
+      const daySchedule = weeklySchedule.filter((s) => s.day === dayOfWeek);
+      for (const schedule of daySchedule) {
+        const slotTime = new Date(cursor);
+        slotTime.setHours(schedule.startHour, 0, 0, 0);
+        const endTime = new Date(cursor);
+        endTime.setHours(schedule.endHour, 0, 0, 0);
+        while (slotTime < endTime) {
+          if (slotTime > minBookable && !bookedSlots.has(slotTime.toISOString())) {
+            slots.push(slotTime.toISOString());
+          }
+          slotTime.setMinutes(slotTime.getMinutes() + slotDuration);
+        }
+      }
+    }
+    cursor.setDate(cursor.getDate() + 1);
+  }
+  return { slots, slotDuration };
+});
+
+const slots_get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: slots_get
+});
+
+const contact_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const { firstName, lastName, email, phone, message } = body;
+  if (!firstName || !lastName || !email || !message) {
+    throw createError({ statusCode: 400, statusMessage: "Missing required fields" });
+  }
+  const config = useRuntimeConfig();
+  const db = getAdminDb();
+  await db.collection("contactSubmissions").add({
+    firstName,
+    lastName,
+    email,
+    phone: phone || "",
+    message,
+    read: false,
+    createdAt: Timestamp.now()
+  });
+  if (config.resendApiKey) {
+    const resend = new Resend(config.resendApiKey);
+    await resend.emails.send({
+      from: "MaiHealth <noreply@maihealth.com>",
+      to: config.contactEmail,
+      subject: `New contact from ${firstName} ${lastName}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
+    });
+  }
+  return { success: true };
+});
+
+const contact_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: contact_post
+});
+
+const newsletter_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const { email, locale } = body;
+  if (!email) {
+    throw createError({ statusCode: 400, statusMessage: "Email is required" });
+  }
+  const db = getAdminDb();
+  const existing = await db.collection("newsletterSubscribers").where("email", "==", email).limit(1).get();
+  if (!existing.empty) {
+    return { success: true };
+  }
+  await db.collection("newsletterSubscribers").add({
+    email,
+    locale: locale || "en",
+    subscribedAt: Timestamp.now()
+  });
+  return { success: true };
+});
+
+const newsletter_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: newsletter_post
 });
 
 const Vue3 = version[0] === "3";

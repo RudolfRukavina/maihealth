@@ -17,7 +17,7 @@
                 </div>
                 <div>
                   <h4 class="text-sm font-semibold text-charcoal mb-1">{{ $t('contact.info.address_label') }}</h4>
-                  <p class="text-sm text-body/70">Address coming soon</p>
+                  <p class="text-sm text-body/70">{{ $t('contact.info.address_value') }}</p>
                 </div>
               </div>
 
@@ -104,9 +104,12 @@
               />
             </div>
 
-            <button type="submit" class="btn-primary w-full sm:w-auto">
-              {{ $t('contact.form.submit') }}
-              <i class="fa-solid fa-paper-plane text-xs"></i>
+            <button type="submit" :disabled="submitting" class="btn-primary w-full sm:w-auto">
+              <i v-if="submitting" class="fa-solid fa-spinner fa-spin text-xs"></i>
+              <template v-else>
+                {{ $t('contact.form.submit') }}
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+              </template>
             </button>
 
             <Transition
@@ -117,6 +120,10 @@
               <p v-if="submitted" class="text-sm text-sage font-medium flex items-center gap-2">
                 <i class="fa-solid fa-circle-check"></i>
                 {{ $t('contact.form.success') }}
+              </p>
+              <p v-else-if="error" class="text-sm text-red-600 font-medium flex items-center gap-2">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ $t('contact.form.error') }}
               </p>
             </Transition>
           </form>
@@ -135,10 +142,22 @@ const props = defineProps({
 
 const form = reactive({ firstName: '', lastName: '', email: '', phone: '', message: '' })
 const submitted = ref(false)
+const submitting = ref(false)
+const error = ref(false)
 
-const handleSubmit = () => {
-  submitted.value = true
-  setTimeout(() => { submitted.value = false }, 5000)
-  Object.assign(form, { firstName: '', lastName: '', email: '', phone: '', message: '' })
+const handleSubmit = async () => {
+  submitting.value = true
+  error.value = false
+  try {
+    await $fetch('/api/contact', { method: 'POST', body: { ...form } })
+    submitted.value = true
+    Object.assign(form, { firstName: '', lastName: '', email: '', phone: '', message: '' })
+    setTimeout(() => { submitted.value = false }, 5000)
+  } catch {
+    error.value = true
+    setTimeout(() => { error.value = false }, 5000)
+  } finally {
+    submitting.value = false
+  }
 }
 </script>

@@ -1,79 +1,33 @@
 <template>
   <section class="section-padding bg-white">
     <div class="container-narrow">
-      <div class="text-center mb-10 md:mb-16">
+      <div class="max-w-2xl mx-auto text-center lg:text-left">
         <span class="section-label">{{ $t('services.label') }}</span>
-        <h2 class="section-title">{{ $t('services.title') }}</h2>
-        <p class="section-subtitle mx-auto">{{ $t('services.subtitle') }}</p>
-      </div>
+        <h2 class="section-title mb-4 sm:mb-5">{{ $t('services.title') }}</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-        <div
-          v-for="(card, index) in cards"
-          :key="card.key"
-          class="group relative bg-cream rounded-2xl p-6 sm:p-8 md:p-9 transition-all duration-200 border border-stone/20 hover:border-sage/25 hover:shadow-xl hover:shadow-sage/[0.06] hover:-translate-y-1"
-        >
-          <span class="text-[11px] font-sans font-semibold tracking-widest text-stone block mb-4">
-            0{{ index + 1 }}
-          </span>
+        <p class="text-base sm:text-base md:text-lg text-body/80 leading-relaxed mb-4 sm:mb-5">
+          {{ $t('services.description') }}
+        </p>
 
-          <div class="icon-box mb-4" :class="card.bgClass">
-            <i :class="card.icon" :style="{ color: card.iconColor }"></i>
-          </div>
+        <ul class="text-base sm:text-sm text-body/70 leading-relaxed space-y-2 mb-8 sm:mb-10 text-left">
+          <li v-for="(point, i) in points" :key="i" class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-md bg-sage/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-check text-[10px] text-sage"></i>
+            </div>
+            <span>{{ point }}</span>
+          </li>
+        </ul>
 
-          <h3 class="text-xl sm:text-xl font-serif font-semibold text-charcoal mb-2.5 group-hover:text-sage transition-colors duration-150">
-            {{ card.title }}
-          </h3>
-
-          <p class="text-base sm:text-sm text-body/70 leading-relaxed mb-6">
-            {{ card.description }}
-          </p>
-
-          <NuxtLink
-            to="/practice"
-            class="inline-flex items-center gap-2 text-sm font-medium text-charcoal/80 group-hover:text-sage transition-colors duration-150"
-          >
-            {{ card.cta }}
-            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-150 group-hover:translate-x-1"></i>
-          </NuxtLink>
-
-          <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-sage/0 via-sage/40 to-sage/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-        </div>
+        <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm">
+          <i class="fa-regular fa-calendar-check text-sm"></i>
+          {{ $t('nav.book') }}
+        </NuxtLink>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const { t } = useI18n()
-
-const cards = computed(() => [
-  {
-    key: 'diagnostics',
-    icon: 'fa-solid fa-microscope',
-    bgClass: 'bg-sage/10',
-    iconColor: '#5C6E4A',
-    title: t('services.cards.diagnostics.title'),
-    description: t('services.cards.diagnostics.description'),
-    cta: t('services.cards.diagnostics.cta'),
-  },
-  {
-    key: 'analysis',
-    icon: 'fa-solid fa-file-medical',
-    bgClass: 'bg-mauve/15',
-    iconColor: '#C0A7B8',
-    title: t('services.cards.analysis.title'),
-    description: t('services.cards.analysis.description'),
-    cta: t('services.cards.analysis.cta'),
-  },
-  {
-    key: 'coaching',
-    icon: 'fa-solid fa-hand-holding-heart',
-    bgClass: 'bg-sage/10',
-    iconColor: '#5C6E4A',
-    title: t('services.cards.coaching.title'),
-    description: t('services.cards.coaching.description'),
-    cta: t('services.cards.coaching.cta'),
-  },
-])
+const { tm, rt } = useI18n()
+const points = computed(() => tm('services.points').map(p => rt(p)))
 </script>

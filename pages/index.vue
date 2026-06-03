@@ -1,6 +1,12 @@
 <template>
   <div>
-    <HeroSection />
+    <ClientOnly>
+      <HeroPortal v-if="isLoggedIn" />
+      <HeroSection v-else />
+      <template #fallback>
+        <HeroSection />
+      </template>
+    </ClientOnly>
     <WaveDivider fromColor="#F5F1EC" toColor="#2D3A24" :variant="3" />
     <TrustPillars />
     <WaveDivider fromColor="#2D3A24" toColor="#FFFFFF" :variant="4" />
@@ -25,12 +31,15 @@
 </template>
 
 <script setup>
+const { t } = useI18n()
+const { isLoggedIn } = useAuth()
+
 useHead({
-  title: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.',
+  title: computed(() => t('meta.index.title')),
   meta: [
-    { name: 'description', content: 'Dr. med. Mai Wald — Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie für nachhaltige Verdauungsgesundheit.' },
-    { property: 'og:title', content: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.' },
-    { property: 'og:description', content: 'Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie.' },
+    { name: 'description', content: computed(() => t('meta.index.description')) },
+    { property: 'og:title', content: computed(() => t('meta.index.og_title')) },
+    { property: 'og:description', content: computed(() => t('meta.index.og_description')) },
   ],
 })
 </script>

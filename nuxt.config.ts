@@ -3,9 +3,9 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
+      title: "MaiHealth — Dr. med. Mai Wald",
       meta: [
-        { name: "description", content: "MaiHealth — Dr. med. Mai Wald. Funktionelle Medizin & Reizdarm-Spezialistin. Ursachen verstehen, ganzheitlich behandeln, nachhaltig gesund leben." },
+        { name: "description", content: "MaiHealth — Dr. med. Mai Wald. Gut health & IBS specialist." },
         { name: "theme-color", content: "#F5F1EC" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "MaiHealth" },
@@ -20,9 +20,6 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
         { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
         { rel: "manifest", href: "/site.webmanifest" },
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" },
       ],
       script: [],
     },
@@ -37,17 +34,28 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
+    "@nuxtjs/google-fonts",
   ],
+
+  googleFonts: {
+    families: {
+      'Cormorant Garamond': [500, 600, 700],
+      'Inter': [400, 500, 600],
+    },
+    display: 'swap',
+  },
 
   i18n: {
     strategy: "no_prefix",
     locales: [
-      { code: "en", name: "English", iso: "en-US" },
-      { code: "de", name: "Deutsch", iso: "de-DE" },
-      { code: "hr", name: "Hrvatski", iso: "hr-HR" },
-      { code: "it", name: "Italiano", iso: "it-IT" },
+      { code: "en", name: "English", iso: "en-US", file: "en.json" },
+      { code: "de", name: "Deutsch", iso: "de-DE", file: "de.json" },
+      { code: "hr", name: "Hrvatski", iso: "hr-HR", file: "hr.json" },
+      { code: "it", name: "Italiano", iso: "it-IT", file: "it.json" },
     ],
     defaultLocale: "en",
+    langDir: "locales",
+    lazy: true,
     vueI18n: "./i18n.config.ts",
     detectBrowserLanguage: {
       useCookie: true,
@@ -59,6 +67,25 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     cssPath: "~/assets/css/input.css",
+  },
+
+  runtimeConfig: {
+    firebaseAdminProjectId: '',
+    firebaseAdminClientEmail: '',
+    firebaseAdminPrivateKey: '',
+    resendApiKey: '',
+    zoomAccountId: '',
+    zoomClientId: '',
+    zoomClientSecret: '',
+    contactEmail: 'hello@maihealth.com',
+    public: {
+      firebaseApiKey: '',
+      firebaseAuthDomain: '',
+      firebaseProjectId: '',
+      firebaseStorageBucket: '',
+      firebaseMessagingSenderId: '',
+      firebaseAppId: '',
+    },
   },
 
   build: {},

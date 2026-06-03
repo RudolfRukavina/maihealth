@@ -1,0 +1,460 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "practice": "Praxis",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "book": "Termin vereinbaren",
+    "portal": "Mein Portal",
+    "login": "Anmelden",
+    "admin": "Admin",
+    "account": "Konto"
+  },
+  "hero": {
+    "label": "Darmgesundheit & Reizdarm",
+    "title": "Reizdarm verstehen. Leben verändern.",
+    "subtitle": "Dr. med. Mai Wald ist spezialisiert auf Reizdarmsyndrom und Darmgesundheit. Mit funktioneller Medizin, gezielter Diagnostik und individuellen Therapieplänen hilft sie Ihnen, die Ursachen Ihrer Verdauungsbeschwerden zu finden.",
+    "cta_book": "Termin vereinbaren",
+    "cta_learn": "Mehr erfahren",
+    "badges": {
+      "evidence": "Evidenzbasiert",
+      "telemedicine": "Telemedizin",
+      "languages": "4 Sprachen"
+    },
+    "badge_card": {
+      "title": "Darmgesundheit",
+      "subtitle": "& Reizdarm-Spezialistin"
+    }
+  },
+  "trust": {
+    "individual": {
+      "title": "Individuelle Behandlung",
+      "description": "Maßgeschneidert auf Ihre Beschwerden und Darmsituation."
+    },
+    "holistic": {
+      "title": "Ganzheitlicher Ansatz",
+      "description": "Ernährung, Mikrobiom, Stress & Darm im Einklang."
+    },
+    "knowledge": {
+      "title": "Wissen, das hilft",
+      "description": "Verständlich erklärt. Wirklich anwendbar."
+    },
+    "heart": {
+      "title": "Begleitung mit Herz",
+      "description": "Zeit, Zuhören und echte Partnerschaft auf Augenhöhe."
+    }
+  },
+  "services": {
+    "label": "So helfe ich",
+    "title": "So helfe ich dir als ganzheitliche Ärztin",
+    "subtitle": "Umfassende, individualisierte Darmgesundheitsbetreuung — vom Erstgespräch bis zu nachhaltigen Ergebnissen.",
+    "description": "Du bekommst eine individuelle medizinische Begleitung, die genau auf deine gesundheitliche Ausgangssituation abgestimmt ist. Ich betreue nur eine kleine Anzahl ausgewählter Patient:innen, um wirklich tiefgehende Behandlungen zu garantieren.",
+    "points": [
+      "Online-Sprechstunden & 1-on-1 Betreuung",
+      "Umfassende Darm-Diagnostik & Mikrobiom-Analyse",
+      "Individuelle Therapiepläne & laufende Begleitung"
+    ],
+    "cta": "Online-Termin vereinbaren",
+    "cards": {
+      "diagnostics": {
+        "title": "Darm-Diagnostik",
+        "description": "Gründliche Untersuchung Ihrer Darmgesundheit mit den neuesten evidenzbasierten Testmethoden.",
+        "details": [
+          "Umfassende Stuhldiagnostik & Mikrobiom-Analyse",
+          "Atemtests auf SIBO (Dünndarm-Fehlbesiedlung)",
+          "Nahrungsmittelunverträglichkeits-Tests",
+          "Darmpermeabilitäts-Beurteilung",
+          "Personalisierter Therapieplan"
+        ]
+      },
+      "analysis": {
+        "title": "Persönliche Konsultation",
+        "description": "Ausführliche Einzelkonsultation, um Ihre individuelle Darmsituation zu verstehen und einen maßgeschneiderten Plan zu entwickeln.",
+        "details": [
+          "Auswertung aktueller und früherer Befunde",
+          "Persönliche Einzelkonsultation",
+          "Individueller Darmgesundheitsplan",
+          "Vor Ort oder per Telemedizin verfügbar"
+        ]
+      },
+      "coaching": {
+        "title": "Laufende Begleitung",
+        "description": "Kontinuierliche Beratung und Monitoring für nachhaltige Verbesserung Ihrer Verdauungsgesundheit.",
+        "details": [
+          "Monatliche Fortschritts-Konsultationen",
+          "Laufende Protokollanpassungen",
+          "Ernährungs- und Lebensstilberatung",
+          "Symptom-Monitoring und Tracking",
+          "Bundesweit per Telemedizin verfügbar"
+        ]
+      }
+    }
+  },
+  "benefits": {
+    "label": "Warum funktionelle Darmmedizin",
+    "title": "Den Ursachen von Darmproblemen auf den Grund gehen",
+    "subtitle": "Statt nur Symptome zu managen, untersuchen wir die zugrundeliegenden Ursachen Ihrer Darmprobleme — von Mikrobiom-Dysbiosen bis zu Nahrungsmittelreaktionen und stressbedingten Störungen.",
+    "items": [
+      "Umfassende Stuhl- und Mikrobiom-Analyse",
+      "Identifikation von Nahrungsmittelunverträglichkeiten",
+      "SIBO-Diagnostik und gezielte Behandlungsprotokolle",
+      "Beurteilung der Darmbarriere-Funktion (Leaky Gut)",
+      "Darm-Hirn-Achsen-Evaluation und Stressmanagement",
+      "Personalisierte Ernährungs- und Eliminationsdiät-Pläne",
+      "Gezielte Probiotika- und Supplement-Protokolle",
+      "Langfristige Optimierung der Verdauungsgesundheit"
+    ]
+  },
+  "concerns": {
+    "label": "Häufige Darmbeschwerden",
+    "title": "Kommt Ihnen das bekannt vor?",
+    "items": {
+      "energy": {
+        "title": "Blähungen, Völlegefühl und Bauchschmerzen nach dem Essen",
+        "description": "Diese Symptome deuten oft auf Ungleichgewichte in der Darmflora, Nahrungsmittelunverträglichkeiten oder Zustände wie SIBO hin. Gezielte Diagnostik identifiziert die genauen Auslöser, und ein individueller Plan bringt nachhaltige Linderung."
+      },
+      "digestive": {
+        "title": "Unregelmäßiger Stuhlgang, Durchfall oder Verstopfung",
+        "description": "Ob wechselnd zwischen Durchfall und Verstopfung oder dauerhaft eines davon — diese Muster liefern wichtige Hinweise auf Ihre Darmgesundheit. Funktionelle Diagnostik hilft uns zu verstehen, was die Störung antreibt."
+      },
+      "hormonal": {
+        "title": "Müdigkeit, Brain Fog und Hautprobleme durch den Darm",
+        "description": "Ihr Darm beeinflusst weit mehr als die Verdauung — von Energielevel und mentaler Klarheit bis zur Hautgesundheit. Wenn die Darmfunktion gestört ist, wirkt sich das auf den gesamten Körper aus."
+      }
+    }
+  },
+  "focus": {
+    "label": "Schwerpunkte",
+    "title": "Spezialisierte Expertise in Darmgesundheit",
+    "areas": {
+      "ibs": {
+        "title": "Reizdarmsyndrom",
+        "description": "Evidenzbasierte Reizdarm-Diagnostik und individuelle Behandlung mit Ernährungs-, Lebensstil- und therapeutischen Ansätzen."
+      },
+      "sibo": {
+        "title": "SIBO",
+        "description": "Dünndarm-Fehlbesiedlung: Atemtests, strukturierte Eradikations- und Präventionsprotokolle."
+      },
+      "microbiome": {
+        "title": "Mikrobiom-Analyse",
+        "description": "Umfassende Stuhldiagnostik zur Beurteilung Ihrer Darmflora und Entwicklung gezielter Wiederherstellungsstrategien."
+      },
+      "food": {
+        "title": "Nahrungsmittelunverträglichkeiten",
+        "description": "Systematische Identifikation von Nahrungsmittel-Triggern durch Tests und begleitete Eliminationsdiäten."
+      },
+      "gutbrain": {
+        "title": "Darm-Hirn-Achse",
+        "description": "Verständnis der Verbindung zwischen Darmgesundheit, Stress, Stimmung und kognitiver Funktion."
+      },
+      "leakygut": {
+        "title": "Darmbarriere",
+        "description": "Beurteilung und Behandlung erhöhter Darmpermeabilität und deren systemische Auswirkungen."
+      }
+    }
+  },
+  "about": {
+    "label": "Über mich",
+    "title": "Dr. med. Mai Wald",
+    "subtitle": "Ärztin für Darmgesundheit & Reizdarm",
+    "bio": "Mit einer Grundlage in der Schulmedizin und Weiterbildung in funktioneller Medizin konzentriere ich mich darauf, Verdauungsstörungen an der Wurzel zu verstehen und zu behandeln. Meine Praxis verbindet evidenzbasierte Diagnostik mit personalisierten Darmgesundheitsstrategien.",
+    "philosophy": "Den Darm verstehen heißt Gesundheit verstehen. Mein Ziel ist es, Ihnen zu helfen, die Kontrolle über Ihre Verdauung zurückzugewinnen — nachhaltig, individuell und evidenzbasiert.",
+    "cta": "Mehr über mich",
+    "education_label": "Ausbildung & Zertifizierungen",
+    "experience_label": "Klinische Erfahrung",
+    "specializations_label": "Spezialisierungen",
+    "memberships_label": "Mitgliedschaften & Verbände",
+    "education_items": [
+      { "title": "Medizinstudium (Dr. med.)", "detail": "Universitäre Ausbildung in Medizin" },
+      { "title": "Zertifizierung Funktionelle Medizin", "detail": "Institute for Functional Medicine (IFM), USA" },
+      { "title": "Zusätzliche Facharztausbildung", "detail": "Präventiv- und Sportmedizin" }
+    ],
+    "experience_items": [
+      "Präventiv- und Sportmedizin",
+      "Interventionelle Kardiologie",
+      "Naturheilkunde",
+      "Klinische Ernährung"
+    ],
+    "specialization_items": [
+      "Reizdarmsyndrom (IBS)",
+      "Mikrobiom- & Stuhldiagnostik",
+      "SIBO-Diagnostik & -Behandlung",
+      "Ernährungsmedizin",
+      "Funktionelle Darmmedizin"
+    ],
+    "membership_items": [
+      "Healthy Longevity Medicine Society (HLMS)",
+      "Ärztekammer"
+    ]
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Starten Sie Ihren Weg zu besserer Darmgesundheit",
+    "subtitle": "Ob Sie Fragen zum Reizdarm, zur Darm-Diagnostik haben oder bereit für Ihre erste Konsultation sind — ich freue mich auf Ihre Nachricht.",
+    "form": {
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "message": "Ihre Nachricht",
+      "submit": "Nachricht senden",
+      "success": "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "info": {
+      "address_label": "Adresse",
+      "address_value": "Adresse folgt in Kürze",
+      "phone_label": "Telefon",
+      "email_label": "E-Mail",
+      "hours_label": "Sprechzeiten",
+      "hours_practice": "Montag – Freitag, 08:00 – 17:00 Uhr",
+      "hours_online": "Online-Konsultationen nach Vereinbarung",
+      "hours_note": "Nur nach Terminvereinbarung"
+    }
+  },
+  "newsletter": {
+    "title": "Fundiertes Wissen für bessere Darmgesundheit",
+    "subtitle": "Monatliche wissenschaftsbasierte Einblicke zu Reizdarm, Mikrobiom und praktische Strategien für nachhaltige Verdauungsgesundheit.",
+    "cta": "Newsletter abonnieren",
+    "placeholder": "Ihre E-Mail-Adresse",
+    "success": "Vielen Dank für Ihre Anmeldung!",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Häufig gestellte Fragen",
+    "items": {
+      "q1": {
+        "question": "Was ist das Reizdarmsyndrom (RDS)?",
+        "answer": "Das Reizdarmsyndrom ist eine funktionelle Magen-Darm-Erkrankung mit wiederkehrenden Bauchschmerzen, Blähungen und veränderten Stuhlgewohnheiten. Bis zu 15% der Bevölkerung sind betroffen. Während die Schulmedizin oft nur Symptome behandelt, untersucht die funktionelle Medizin die zugrundeliegenden Ursachen — von Mikrobiom-Ungleichgewichten bis zu Nahrungsmittelreaktionen und Stress."
+      },
+      "q2": {
+        "question": "Wie werden Darmprobleme diagnostiziert und behandelt?",
+        "answer": "Wir nutzen umfassende Diagnostik: Stuhlanalyse, Mikrobiom-Tests, Atemtests auf SIBO, Nahrungsmittel-Reaktivitätspanels und Darmpermeabilitäts-Beurteilung. Die Behandlung ist immer individuell und kann Ernährungsumstellungen, gezielte Supplementierung, Stressmanagement und bei Bedarf medikamentöse Therapie umfassen."
+      },
+      "q3": {
+        "question": "Wie schnell kann man Verbesserungen erwarten?",
+        "answer": "Viele Patienten bemerken erste Verbesserungen innerhalb von 4-6 Wochen nach Beginn ihres personalisierten Protokolls. Nachhaltige Darmgesundheit erfordert jedoch typischerweise 3-6 Monate konsequenter Arbeit. Komplexe Fälle wie langjähriger Reizdarm oder SIBO können länger dauern. Wir verfolgen den Fortschritt mit regelmäßigen Check-ins."
+      },
+      "q4": {
+        "question": "Sind Konsultationen auch online verfügbar?",
+        "answer": "Ja. Erstgespräche, Nachsorge und laufendes Darmgesundheits-Coaching sind per Telemedizin verfügbar. Laboruntersuchungen können über Partnerlabore in Ihrer Nähe organisiert werden, und die Ergebnisse werden in virtuellen Terminen besprochen."
+      },
+      "q5": {
+        "question": "Wird das von der Versicherung übernommen?",
+        "answer": "Die Leistungen werden in der Regel nicht von der gesetzlichen Krankenversicherung übernommen. Einige private Krankenversicherungen bieten je nach Vertragsbedingungen eine teilweise Kostenübernahme an. Die meisten Patienten sind Selbstzahler. Detaillierte Rechnungen werden für mögliche Erstattungsanträge bereitgestellt."
+      }
+    }
+  },
+  "final_cta": {
+    "title": "Ihre Darmgesundheit, an der Wurzel verstanden",
+    "subtitle": "Der erste Schritt ist ein Gespräch. Gemeinsam entwickeln wir ein klares Bild Ihrer Verdauungsgesundheit und einen personalisierten Plan.",
+    "cta": "Konsultation buchen"
+  },
+  "footer": {
+    "description": "Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Evidenzbasierte, personalisierte Betreuung für nachhaltige Verdauungsgesundheit.",
+    "navigation": "Navigation",
+    "services": "Schwerpunkte",
+    "legal": "Rechtliches",
+    "follow": "Folgen",
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "cookie": "Cookie-Richtlinie",
+    "hours_label": "Sprechzeiten",
+    "hours": "Mo – Fr: 8:00 – 17:00",
+    "hours_note": "Nach Vereinbarung",
+    "rights": "Alle Rechte vorbehalten.",
+    "back_to_top": "Nach oben"
+  },
+  "practice": {
+    "phases_title": "Vier Schritte zu besserer Darmgesundheit",
+    "phases": [
+      { "title": "Erstgespräch", "description": "Ausführliche Anamnese Ihrer Darmbeschwerden — persönlich oder per Telemedizin.", "icon": "fa-solid fa-comments" },
+      { "title": "Gezielte Diagnostik", "description": "Stuhlanalyse, Mikrobiom-Tests und weitere auf Ihre Situation abgestimmte Untersuchungen.", "icon": "fa-solid fa-microscope" },
+      { "title": "Therapieplan", "description": "Individueller, evidenzbasierter Behandlungsplan für Ihre Darmgesundheit.", "icon": "fa-solid fa-clipboard-list" },
+      { "title": "Begleitung", "description": "Fortlaufendes Monitoring mit Anpassungen für nachhaltige Besserung.", "icon": "fa-solid fa-chart-line" }
+    ],
+    "diagnostics_label": "Diagnostische Methoden",
+    "diagnostics": [
+      "Umfassende Stuhldiagnostik",
+      "Mikrobiom-Sequenzierung",
+      "SIBO-Atemtests (H2/CH4)",
+      "Nahrungsmittelunverträglichkeits-Panels",
+      "Zonulin & Darmpermeabilitäts-Marker",
+      "Entzündungsmarker (Calprotectin)",
+      "Ausführliche Anamnese"
+    ],
+    "treatments_label": "Behandlungskomponenten",
+    "treatments": [
+      "Personalisierte Ernährungsberatung",
+      "Eliminationsdiät-Begleitung",
+      "Gezielte Probiotika-Protokolle",
+      "Darmbarriere-Wiederherstellung",
+      "Stressmanagement & Darm-Hirn-Achse",
+      "Gezielte Supplementierung"
+    ],
+    "insurance_title": "Versicherung & Bezahlung",
+    "insurance_text": "Die Leistungen werden in der Regel nicht von der gesetzlichen Krankenversicherung übernommen. Einige private Krankenversicherungen bieten je nach Vertragsbedingungen eine teilweise Kostenübernahme an. Die meisten Patienten sind Selbstzahler. Detaillierte Rechnungen werden für mögliche Erstattungsanträge bereitgestellt."
+  },
+  "meta": {
+    "index": {
+      "title": "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
+      "description": "MaiHealth — Dr. med. Mai Wald. Funktionelle Medizin & Reizdarm-Spezialistin. Ursachen verstehen, ganzheitlich behandeln, nachhaltig gesund leben.",
+      "og_title": "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
+      "og_description": "Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie."
+    },
+    "practice": {
+      "title": "Praxis & Leistungen — MaiHealth | Dr. med. Mai Wald",
+      "description": "Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung. Individuelle Therapiepläne für Reizdarm, SIBO und Darmgesundheit.",
+      "og_title": "Praxis & Leistungen — MaiHealth",
+      "og_description": "Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung bei Dr. med. Mai Wald."
+    },
+    "about": {
+      "title": "Über mich — Dr. med. Mai Wald | MaiHealth",
+      "description": "Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.",
+      "og_title": "Über Dr. med. Mai Wald — MaiHealth",
+      "og_description": "Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen."
+    },
+    "contact": {
+      "title": "Kontakt & Termin — MaiHealth | Dr. med. Mai Wald",
+      "description": "Termin vereinbaren bei Dr. med. Mai Wald — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für Darmgesundheit & Reizdarm.",
+      "og_title": "Kontakt & Termin — MaiHealth",
+      "og_description": "Termin vereinbaren bei Dr. med. Mai Wald. Darmgesundheit, Reizdarm-Diagnostik und persönliche Beratung."
+    }
+  },
+  "impressum": {
+    "title": "Impressum",
+    "content": "Rechtliche Informationen werden hier vor dem Launch bereitgestellt."
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "content": "Die Datenschutzerklärung wird hier vor dem Launch bereitgestellt."
+  },
+  "cta": {
+    "request_appointment": "Termin anfragen",
+    "already_patient": "Schon Patient:in? Anmelden",
+    "new_patient": "Neu hier? Kontaktieren Sie uns",
+    "portal_hint": "Als registrierte:r Patient:in können Sie Termine direkt über Ihr Portal anfragen."
+  },
+  "auth": {
+    "login_title": "Patientenportal",
+    "login_subtitle": "Melden Sie sich an, um Ihre Termine einzusehen und mit Dr. Wald in Kontakt zu treten.",
+    "google_login": "Mit Google anmelden",
+    "login_note": "Ihr Portalkonto ist mit Ihrem Google-Konto verbunden.",
+    "logout": "Abmelden"
+  },
+  "portal": {
+    "welcome": "Willkommen",
+    "dashboard": "Dashboard",
+    "my_appointments": "Meine Termine",
+    "request_appointment": "Termin anfragen",
+    "next_appointment": "Ihr nächster Termin",
+    "no_upcoming": "Keine anstehenden Termine",
+    "pending_requests": "Ausstehende Anfragen",
+    "pending_hint": "Ihr gewünschter Termin wartet auf Bestätigung. Sie erhalten eine E-Mail, sobald er bestätigt ist.",
+    "past_appointments": "Vergangene Termine",
+    "no_past": "Noch keine vergangenen Termine",
+    "join_zoom": "Videoanruf beitreten",
+    "enter_zoom": "Zoom-Anruf betreten",
+    "zoom_locked_hint": "Öffnet 15 Minuten vor Ihrem Termin",
+    "request": {
+      "title": "Termin anfragen",
+      "subtitle": "Teilen Sie uns Ihre Wunschtermine mit und wir melden uns zur Bestätigung.",
+      "preferred_dates": "Bevorzugter Zeitraum",
+      "preferred_time": "Bevorzugte Tageszeit",
+      "morning": "Vormittag",
+      "afternoon": "Nachmittag",
+      "evening": "Abend",
+      "type": "Art der Konsultation",
+      "initial": "Erstgespräch",
+      "followup": "Folgetermin",
+      "reason": "Grund / Anmerkungen",
+      "submit": "Anfrage senden",
+      "success": "Ihre Terminanfrage wurde gesendet. Wir melden uns in Kürze.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "status": {
+      "scheduled": "Geplant",
+      "completed": "Abgeschlossen",
+      "cancelled": "Storniert",
+      "pending": "Ausstehend"
+    }
+  },
+  "book": {
+    "label": "Termin buchen",
+    "title": "Termin buchen",
+    "subtitle": "Wählen Sie eine passende Zeit. Online, von überall.",
+    "step_nav_auth": "Anmelden",
+    "step_nav_slots": "Zeit wählen",
+    "step_nav_confirm": "Bestätigen",
+    "step_auth": "Anmelden, um fortzufahren",
+    "step_auth_subtitle": "Melden Sie sich mit Google an, um Ihren Termin mit Dr. Wald zu buchen.",
+    "step_slots": "Datum & Uhrzeit wählen",
+    "step_slots_empty": "Derzeit keine freien Termine. Bitte schauen Sie bald wieder vorbei.",
+    "step_slots_empty_hint": "Regelmäßig werden neue Termine frei. Sie können uns auch direkt kontaktieren und wir finden einen Termin für Sie.",
+    "step_slots_empty_cta": "Kontakt aufnehmen",
+    "step_confirm": "Buchung bestätigen",
+    "type_label": "Art der Konsultation",
+    "initial": "Erstgespräch",
+    "followup": "Folgetermin",
+    "reason_label": "Hauptanliegen (optional)",
+    "reason_placeholder": "Beschreiben Sie kurz Ihr Hauptanliegen",
+    "confirm_btn": "Termin bestätigen",
+    "confirmed_title": "Termin bestätigt!",
+    "confirmed_subtitle": "Wir freuen uns auf das Gespräch mit Ihnen.",
+    "add_to_calendar": "Zu Google Kalender hinzufügen",
+    "go_to_portal": "Zum Patientenportal",
+    "back_home": "Zurück zur Startseite",
+    "step_nav_done": "Fertig",
+    "back": "Zurück",
+    "logged_in_as": "Buchung als {name}",
+    "continue_google": "Mit Google fortfahren",
+    "or_divider": "oder Daten eingeben",
+    "name_placeholder": "Vollständiger Name",
+    "email_placeholder": "E-Mail-Adresse",
+    "phone_placeholder": "Telefonnummer",
+    "guest_required": "Bitte geben Sie Ihren Namen, Ihre E-Mail und Ihre Telefonnummer ein.",
+    "loading_slots": "Verfügbare Termine werden geladen…",
+    "slots_error": "Verfügbare Zeiten konnten gerade nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut versuchen",
+    "request_sent_title": "Anfrage gesendet!",
+    "request_sent_subtitle": "Dr. Wald wird Ihren Termin in Kürze per E-Mail bestätigen.",
+    "requesting": "Bei Erstgesprächen prüft Dr. Wald die Anfrage und bestätigt innerhalb von 24 Stunden. Ihr Slot wird vorläufig reserviert.",
+    "zoom_link": "Videoanruf beitreten",
+    "what_to_expect_text": "Sie erhalten eine Bestätigungs-E-Mail mit Ihrem Zoom-Link und einer Kalendereinladung. Der Beitreten-Button wird 15 Minuten vor Ihrem Termin aktiv.",
+    "meta_title": "Termin buchen — MaiHealth",
+    "meta_description": "Buchen Sie eine Online-Konsultation zur Darmgesundheit mit Dr. med. Mai Wald."
+  },
+  "admin": {
+    "availability": {
+      "title": "Verfügbarkeit",
+      "subtitle": "Legen Sie Ihren Wochenplan und gesperrte Termine fest.",
+      "weekly_title": "Wochenplan",
+      "add_slot": "Zeitblock hinzufügen",
+      "no_schedule": "Kein Plan festgelegt. Fügen Sie einen Zeitblock hinzu.",
+      "day_label": "Tag",
+      "from_label": "Von",
+      "to_label": "Bis",
+      "duration_label": "Terminslot-Dauer",
+      "duration_60": "60 Min. (Standard)",
+      "duration_30": "30 Min. (Folgetermin)",
+      "blocked_dates_title": "Gesperrte Tage",
+      "block_date_label": "Tag sperren",
+      "no_blocked": "Keine gesperrten Tage.",
+      "add_block_btn": "Sperren",
+      "remove": "Entfernen",
+      "save_btn": "Verfügbarkeit speichern",
+      "saved": "Verfügbarkeit gespeichert.",
+      "save_error": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+      "days": {
+        "1": "Montag",
+        "2": "Dienstag",
+        "3": "Mittwoch",
+        "4": "Donnerstag",
+        "5": "Freitag",
+        "6": "Samstag",
+        "0": "Sonntag"
+      }
+    }
+  }
+}

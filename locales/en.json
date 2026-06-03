@@ -1,0 +1,460 @@
+{
+  "nav": {
+    "home": "Home",
+    "practice": "Practice",
+    "about": "About",
+    "contact": "Contact",
+    "book": "Book Appointment",
+    "portal": "My Portal",
+    "login": "Login",
+    "admin": "Admin",
+    "account": "Account"
+  },
+  "hero": {
+    "label": "Gut Health & IBS",
+    "title": "Understand IBS. Change your life.",
+    "subtitle": "Dr. med. Mai Wald specializes in irritable bowel syndrome and gut health. With functional medicine, targeted diagnostics, and personalized treatment plans, she helps you get to the root of your digestive issues.",
+    "cta_book": "Book Appointment",
+    "cta_learn": "Learn More",
+    "badges": {
+      "evidence": "Evidence-based",
+      "telemedicine": "Telemedicine",
+      "languages": "4 Languages"
+    },
+    "badge_card": {
+      "title": "Gut Health",
+      "subtitle": "& IBS Specialist"
+    }
+  },
+  "trust": {
+    "individual": {
+      "title": "Individual Treatment",
+      "description": "Tailored to your symptoms and gut health needs."
+    },
+    "holistic": {
+      "title": "Holistic Approach",
+      "description": "Nutrition, microbiome, stress & gut in harmony."
+    },
+    "knowledge": {
+      "title": "Knowledge That Helps",
+      "description": "Clearly explained. Truly applicable."
+    },
+    "heart": {
+      "title": "Care With Heart",
+      "description": "Time, listening, and real partnership at eye level."
+    }
+  },
+  "services": {
+    "label": "How I Help",
+    "title": "How I help you as a holistic physician",
+    "subtitle": "Comprehensive, individualized gut health care — from first consultation to lasting results.",
+    "description": "You receive individualized medical care tailored exactly to your health situation. I work with only a small number of selected patients to ensure truly in-depth treatment.",
+    "points": [
+      "Online consultations & 1-on-1 care",
+      "Comprehensive gut diagnostics & microbiome analysis",
+      "Personalized treatment plans & ongoing support"
+    ],
+    "cta": "Book Online Appointment",
+    "cards": {
+      "diagnostics": {
+        "title": "Gut Diagnostics",
+        "description": "Thorough investigation of your digestive health using the latest evidence-based testing methods.",
+        "details": [
+          "Comprehensive stool diagnostics & microbiome analysis",
+          "SIBO breath testing",
+          "Food intolerance and reactivity panels",
+          "Intestinal permeability assessment",
+          "Personalized therapy plan"
+        ]
+      },
+      "analysis": {
+        "title": "Personal Consultation",
+        "description": "In-depth one-on-one consultation to understand your unique gut health situation and develop a tailored plan.",
+        "details": [
+          "Review of current and previous results",
+          "One-on-one consultation",
+          "Individualized gut health plan",
+          "Available in-person or via telemedicine"
+        ]
+      },
+      "coaching": {
+        "title": "Ongoing Support",
+        "description": "Continuous guidance and monitoring to ensure lasting improvement in your digestive health.",
+        "details": [
+          "Monthly progress consultations",
+          "Ongoing protocol adjustments",
+          "Nutrition and lifestyle coaching",
+          "Symptom monitoring and tracking",
+          "Nationwide telemedicine available"
+        ]
+      }
+    }
+  },
+  "benefits": {
+    "label": "Why Functional Gut Medicine",
+    "title": "Getting to the root of digestive issues",
+    "subtitle": "Instead of just managing symptoms, we investigate the underlying causes of your gut problems — from microbiome imbalances to food reactions and stress-related dysfunction.",
+    "items": [
+      "Comprehensive stool and microbiome analysis",
+      "Identification of food intolerances and sensitivities",
+      "SIBO testing and targeted treatment protocols",
+      "Gut barrier function assessment (leaky gut)",
+      "Gut-brain axis evaluation and stress management",
+      "Personalized nutrition and elimination diet plans",
+      "Targeted probiotic and supplement protocols",
+      "Long-term digestive health optimization"
+    ]
+  },
+  "concerns": {
+    "label": "Common Gut Health Concerns",
+    "title": "Do these feel familiar?",
+    "items": {
+      "energy": {
+        "title": "Bloating, gas, and abdominal pain after meals",
+        "description": "These symptoms often point to imbalances in your gut flora, food intolerances, or conditions like SIBO. Targeted diagnostics can identify the exact triggers and a personalized plan brings lasting relief."
+      },
+      "digestive": {
+        "title": "Irregular bowel movements, diarrhea, or constipation",
+        "description": "Whether alternating between diarrhea and constipation or dealing with one consistently — these patterns reveal important clues about your gut health. Functional testing helps us understand what's driving the dysfunction."
+      },
+      "hormonal": {
+        "title": "Fatigue, brain fog, and skin problems linked to digestion",
+        "description": "Your gut influences far more than digestion — from energy levels and mental clarity to skin health. When gut function is impaired, the effects ripple throughout your entire body."
+      }
+    }
+  },
+  "focus": {
+    "label": "Focus Areas",
+    "title": "Specialized expertise in gut health",
+    "areas": {
+      "ibs": {
+        "title": "Irritable Bowel Syndrome",
+        "description": "Evidence-based IBS diagnosis and individualized treatment combining dietary, lifestyle, and targeted therapeutic approaches."
+      },
+      "sibo": {
+        "title": "SIBO",
+        "description": "Small intestinal bacterial overgrowth testing, breath tests, and structured eradication and prevention protocols."
+      },
+      "microbiome": {
+        "title": "Microbiome Analysis",
+        "description": "Comprehensive stool diagnostics to assess your gut flora composition and develop targeted restoration strategies."
+      },
+      "food": {
+        "title": "Food Intolerances",
+        "description": "Systematic identification of food triggers through testing and guided elimination diets for lasting symptom control."
+      },
+      "gutbrain": {
+        "title": "Gut-Brain Axis",
+        "description": "Understanding the connection between digestive health, stress, mood, and cognitive function for holistic treatment."
+      },
+      "leakygut": {
+        "title": "Intestinal Barrier",
+        "description": "Assessment and treatment of increased intestinal permeability and its systemic effects on health."
+      }
+    }
+  },
+  "about": {
+    "label": "About",
+    "title": "Dr. med. Mai Wald",
+    "subtitle": "Physician specializing in Gut Health & IBS",
+    "bio": "With a foundation in conventional medicine and advanced training in functional medicine, I focus on understanding and treating digestive disorders at their root. My practice combines evidence-based diagnostics with personalized gut health strategies.",
+    "philosophy": "Understanding the gut means understanding health. My goal is to help you regain control of your digestion — sustainably, individually, and based on evidence.",
+    "cta": "More About Me",
+    "education_label": "Education & Certifications",
+    "experience_label": "Clinical Experience",
+    "specializations_label": "Specializations",
+    "memberships_label": "Memberships & Affiliations",
+    "education_items": [
+      { "title": "Medical Degree (Dr. med.)", "detail": "University education in medicine" },
+      { "title": "Functional Medicine Certification", "detail": "Institute for Functional Medicine (IFM), USA" },
+      { "title": "Additional specialization training", "detail": "Preventive and sports medicine" }
+    ],
+    "experience_items": [
+      "Prevention and sports medicine",
+      "Interventional cardiology",
+      "Naturopathic medicine",
+      "Clinical nutrition"
+    ],
+    "specialization_items": [
+      "Irritable bowel syndrome (IBS)",
+      "Microbiome & stool diagnostics",
+      "SIBO diagnosis & treatment",
+      "Nutritional medicine",
+      "Functional gut medicine"
+    ],
+    "membership_items": [
+      "Healthy Longevity Medicine Society (HLMS)",
+      "Medical Chamber"
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Start your gut health journey",
+    "subtitle": "Whether you have questions about IBS, gut diagnostics, or are ready to book your first consultation — I look forward to hearing from you.",
+    "form": {
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "address_label": "Address",
+      "address_value": "Address coming soon",
+      "phone_label": "Phone",
+      "email_label": "Email",
+      "hours_label": "Office Hours",
+      "hours_practice": "Monday – Friday, 8:00 AM – 5:00 PM",
+      "hours_online": "Online consultations by appointment",
+      "hours_note": "By appointment only"
+    }
+  },
+  "newsletter": {
+    "title": "Evidence-based insights for better gut health",
+    "subtitle": "Monthly science-based insights on IBS, microbiome health, and practical strategies for lasting digestive wellness.",
+    "cta": "Subscribe to Newsletter",
+    "placeholder": "Your email address",
+    "success": "Thank you for subscribing!",
+    "error": "Something went wrong. Please try again."
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": {
+      "q1": {
+        "question": "What is irritable bowel syndrome (IBS)?",
+        "answer": "IBS is a functional gastrointestinal disorder characterized by recurring abdominal pain, bloating, and changes in bowel habits. It affects up to 15% of the population. While conventional medicine often treats symptoms alone, functional medicine investigates the underlying causes — from microbiome imbalances to food sensitivities and stress."
+      },
+      "q2": {
+        "question": "How do you diagnose and treat gut issues?",
+        "answer": "We use comprehensive diagnostics including stool analysis, microbiome testing, breath tests for SIBO, food reactivity panels, and intestinal permeability assessment. Treatment is always individualized and may include dietary modifications, targeted supplementation, stress management, and when necessary, pharmaceutical interventions."
+      },
+      "q3": {
+        "question": "How long does it take to see improvement?",
+        "answer": "Many patients notice initial improvements within 4-6 weeks of starting their personalized protocol. However, sustainable gut health restoration typically requires 3-6 months of consistent work. Complex cases like longstanding IBS or SIBO may take longer. We track progress with regular check-ins and adjust as needed."
+      },
+      "q4": {
+        "question": "Are consultations available online?",
+        "answer": "Yes. Initial consultations, follow-ups, and ongoing gut health coaching are all available via telemedicine. Laboratory testing can be arranged through partner labs in your area, and results are discussed in virtual appointments."
+      },
+      "q5": {
+        "question": "Is this covered by insurance?",
+        "answer": "Services are typically not covered by statutory health insurance. Some private insurance plans may offer partial coverage depending on your policy terms. Most patients are self-paying. Detailed invoices are provided for potential reimbursement claims."
+      }
+    }
+  },
+  "final_cta": {
+    "title": "Your gut health, understood at its root",
+    "subtitle": "The first step is a conversation. Together, we'll develop a clear picture of your digestive health and a personalized plan forward.",
+    "cta": "Book Your Consultation"
+  },
+  "footer": {
+    "description": "Dr. med. Mai Wald — Physician specializing in gut health & IBS. Evidence-based, personalized digestive health care.",
+    "navigation": "Navigation",
+    "services": "Focus Areas",
+    "legal": "Legal",
+    "follow": "Follow",
+    "impressum": "Impressum",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "hours_label": "Practice Hours",
+    "hours": "Mon – Fri: 8:00 – 17:00",
+    "hours_note": "By appointment",
+    "rights": "All rights reserved.",
+    "back_to_top": "Back to top"
+  },
+  "practice": {
+    "phases_title": "Four steps to better gut health",
+    "phases": [
+      { "title": "Initial Consultation", "description": "Comprehensive history of your gut symptoms — in-person or via telemedicine.", "icon": "fa-solid fa-comments" },
+      { "title": "Targeted Diagnostics", "description": "Stool analysis, microbiome tests, and further assessments tailored to your situation.", "icon": "fa-solid fa-microscope" },
+      { "title": "Therapy Plan", "description": "Individualized, evidence-based treatment plan for your gut health.", "icon": "fa-solid fa-clipboard-list" },
+      { "title": "Ongoing Support", "description": "Continuous monitoring with adjustments for sustainable improvement.", "icon": "fa-solid fa-chart-line" }
+    ],
+    "diagnostics_label": "Diagnostic Methods",
+    "diagnostics": [
+      "Comprehensive stool diagnostics",
+      "Microbiome sequencing",
+      "SIBO breath tests (H2/CH4)",
+      "Food intolerance panels",
+      "Zonulin & intestinal permeability markers",
+      "Inflammatory markers (calprotectin)",
+      "Detailed patient history"
+    ],
+    "treatments_label": "Treatment Components",
+    "treatments": [
+      "Personalized nutrition counseling",
+      "Elimination diet guidance",
+      "Targeted probiotic protocols",
+      "Gut barrier restoration",
+      "Stress management & gut-brain axis",
+      "Targeted supplementation"
+    ],
+    "insurance_title": "Insurance & Payment",
+    "insurance_text": "Services are typically not covered by statutory health insurance. Some private insurance plans may offer partial coverage depending on your policy terms. Most patients are self-paying. Detailed invoices are provided for potential reimbursement claims."
+  },
+  "meta": {
+    "index": {
+      "title": "MaiHealth — Dr. med. Mai Wald | Understand IBS. Change your life.",
+      "description": "Dr. med. Mai Wald — Gut health & IBS specialist. Individualized gut diagnostics, microbiome analysis, and evidence-based therapy for lasting digestive health.",
+      "og_title": "MaiHealth — Dr. med. Mai Wald | Understand IBS. Change your life.",
+      "og_description": "Gut health & IBS specialist. Individualized gut diagnostics, microbiome analysis, and evidence-based therapy."
+    },
+    "practice": {
+      "title": "Practice & Services — MaiHealth | Dr. med. Mai Wald",
+      "description": "Gut diagnostics, microbiome analysis & ongoing support. Individualized treatment plans for IBS, SIBO, and gut health.",
+      "og_title": "Practice & Services — MaiHealth",
+      "og_description": "Gut diagnostics, microbiome analysis & ongoing support at Dr. med. Mai Wald."
+    },
+    "about": {
+      "title": "About — Dr. med. Mai Wald | MaiHealth",
+      "description": "Dr. med. Mai Wald — Physician specializing in gut health & IBS. Education, experience, and specializations. Evidence-based, individualized, holistic.",
+      "og_title": "About Dr. med. Mai Wald — MaiHealth",
+      "og_description": "Physician specializing in gut health & IBS. Education, experience, and specializations."
+    },
+    "contact": {
+      "title": "Contact & Appointment — MaiHealth | Dr. med. Mai Wald",
+      "description": "Book an appointment with Dr. med. Mai Wald — MaiHealth. Initial consultation, telemedicine, and personal advice for gut health & IBS.",
+      "og_title": "Contact & Appointment — MaiHealth",
+      "og_description": "Book an appointment with Dr. med. Mai Wald. Gut health, IBS diagnostics, and personal advice."
+    }
+  },
+  "impressum": {
+    "title": "Impressum",
+    "content": "Legal information will be provided here before launch."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "content": "Privacy policy will be provided here before launch."
+  },
+  "cta": {
+    "request_appointment": "Request Appointment",
+    "already_patient": "Already a patient? Sign in",
+    "new_patient": "New here? Get in touch",
+    "portal_hint": "As a registered patient, you can request appointments directly through your portal."
+  },
+  "auth": {
+    "login_title": "Patient Portal",
+    "login_subtitle": "Sign in to view your appointments and connect with Dr. Wald.",
+    "google_login": "Sign in with Google",
+    "login_note": "Your portal account is connected to your Google account.",
+    "logout": "Sign out"
+  },
+  "portal": {
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "my_appointments": "My Appointments",
+    "request_appointment": "Request Appointment",
+    "next_appointment": "Your Next Appointment",
+    "no_upcoming": "No upcoming appointments",
+    "pending_requests": "Pending requests",
+    "pending_hint": "Your requested time is awaiting confirmation. You'll receive an email once it's approved.",
+    "past_appointments": "Past Appointments",
+    "no_past": "No past appointments yet",
+    "join_zoom": "Join Video Call",
+    "enter_zoom": "Enter Zoom call",
+    "zoom_locked_hint": "Opens 15 minutes before your appointment",
+    "request": {
+      "title": "Request an Appointment",
+      "subtitle": "Tell us your preferred dates and we'll get back to you to confirm.",
+      "preferred_dates": "Preferred Date Range",
+      "preferred_time": "Preferred Time of Day",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "type": "Consultation Type",
+      "initial": "Initial Consultation",
+      "followup": "Follow-up",
+      "reason": "Reason / Notes",
+      "submit": "Submit Request",
+      "success": "Your appointment request has been submitted. We'll be in touch soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "status": {
+      "scheduled": "Scheduled",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "pending": "Pending"
+    }
+  },
+  "book": {
+    "label": "Book a Consultation",
+    "title": "Book a Consultation",
+    "subtitle": "Pick a time that works for you. Online, from anywhere.",
+    "step_nav_auth": "Sign In",
+    "step_nav_slots": "Choose Time",
+    "step_nav_confirm": "Confirm",
+    "step_auth": "Sign in to continue",
+    "step_auth_subtitle": "Sign in with Google to book your appointment with Dr. Wald.",
+    "step_slots": "Choose a date & time",
+    "step_slots_empty": "No available slots at the moment. Please check back soon.",
+    "step_slots_empty_hint": "New times open up regularly. You can also reach out directly and we'll find a slot for you.",
+    "step_slots_empty_cta": "Contact us",
+    "step_confirm": "Confirm your booking",
+    "type_label": "Consultation type",
+    "initial": "Initial Consultation",
+    "followup": "Follow-up",
+    "reason_label": "Main concern (optional)",
+    "reason_placeholder": "Briefly describe your main health concern",
+    "confirm_btn": "Confirm Booking",
+    "confirmed_title": "Appointment Confirmed!",
+    "confirmed_subtitle": "We look forward to meeting you.",
+    "add_to_calendar": "Add to Google Calendar",
+    "go_to_portal": "Go to My Portal",
+    "back_home": "Back to Home",
+    "step_nav_done": "Done",
+    "back": "Back",
+    "logged_in_as": "Booking as {name}",
+    "continue_google": "Continue with Google",
+    "or_divider": "or enter your details",
+    "name_placeholder": "Full name",
+    "email_placeholder": "Email address",
+    "phone_placeholder": "Phone number",
+    "guest_required": "Please enter your name, email and phone number.",
+    "loading_slots": "Loading available slots…",
+    "slots_error": "We couldn't load available times right now. Please try again.",
+    "retry": "Try again",
+    "request_sent_title": "Request Submitted!",
+    "request_sent_subtitle": "Dr. Wald will confirm your appointment shortly via email.",
+    "requesting": "For first-time consultations, Dr. Wald reviews the request and confirms within 24 hours. Your slot is tentatively held.",
+    "zoom_link": "Join Video Call",
+    "what_to_expect_text": "You'll receive a confirmation email with your Zoom link and a calendar invite. The join button becomes active 15 minutes before your appointment.",
+    "meta_title": "Book a Consultation — MaiHealth",
+    "meta_description": "Book an online gut health consultation with Dr. med. Mai Wald. Real-time availability, instant confirmation."
+  },
+  "admin": {
+    "availability": {
+      "title": "Availability",
+      "subtitle": "Set your weekly schedule and blocked dates.",
+      "weekly_title": "Weekly Schedule",
+      "add_slot": "Add time block",
+      "no_schedule": "No schedule set. Add a time block to get started.",
+      "day_label": "Day",
+      "from_label": "From",
+      "to_label": "To",
+      "duration_label": "Slot duration",
+      "duration_60": "60 min (standard)",
+      "duration_30": "30 min (follow-up)",
+      "blocked_dates_title": "Blocked Dates",
+      "block_date_label": "Block a date",
+      "no_blocked": "No blocked dates.",
+      "add_block_btn": "Block",
+      "remove": "Remove",
+      "save_btn": "Save Availability",
+      "saved": "Availability saved.",
+      "save_error": "Failed to save. Please try again.",
+      "days": {
+        "1": "Monday",
+        "2": "Tuesday",
+        "3": "Wednesday",
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday",
+        "0": "Sunday"
+      }
+    }
+  }
+}

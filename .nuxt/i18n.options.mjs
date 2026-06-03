@@ -10,10 +10,10 @@ export const localeCodes =  [
 ]
 
 export const localeLoaders = {
-  "en": [],
-  "de": [],
-  "hr": [],
-  "it": []
+  "en": [{ key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_en_json" */), cache: true }],
+  "de": [{ key: "../locales/de.json", load: () => import("../locales/de.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_de_json" */), cache: true }],
+  "hr": [{ key: "../locales/hr.json", load: () => import("../locales/hr.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_hr_json" */), cache: true }],
+  "it": [{ key: "../locales/it.json", load: () => import("../locales/it.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_it_json" */), cache: true }]
 }
 
 export const vueI18nConfigs = [
@@ -46,22 +46,34 @@ export const nuxtI18nOptions = {
     {
       "code": "en",
       "name": "English",
-      "language": "en-US"
+      "language": "en-US",
+      "files": [
+        "/Users/Rudolf/Work/mai/locales/en.json"
+      ]
     },
     {
       "code": "de",
       "name": "Deutsch",
-      "language": "de-DE"
+      "language": "de-DE",
+      "files": [
+        "/Users/Rudolf/Work/mai/locales/de.json"
+      ]
     },
     {
       "code": "hr",
       "name": "Hrvatski",
-      "language": "hr-HR"
+      "language": "hr-HR",
+      "files": [
+        "/Users/Rudolf/Work/mai/locales/hr.json"
+      ]
     },
     {
       "code": "it",
       "name": "Italiano",
-      "language": "it-IT"
+      "language": "it-IT",
+      "files": [
+        "/Users/Rudolf/Work/mai/locales/it.json"
+      ]
     }
   ],
   "defaultLocale": "en",
@@ -70,8 +82,8 @@ export const nuxtI18nOptions = {
   "trailingSlash": false,
   "defaultLocaleRouteNameSuffix": "default",
   "strategy": "no_prefix",
-  "lazy": false,
-  "langDir": null,
+  "lazy": true,
+  "langDir": "locales",
   "detectBrowserLanguage": {
     "alwaysRedirect": false,
     "cookieCrossOrigin": false,
@@ -100,25 +112,41 @@ export const normalizedLocales = [
     "code": "en",
     "name": "English",
     "language": "en-US",
-    "files": []
+    "files": [
+      {
+        "path": "/Users/Rudolf/Work/mai/locales/en.json"
+      }
+    ]
   },
   {
     "code": "de",
     "name": "Deutsch",
     "language": "de-DE",
-    "files": []
+    "files": [
+      {
+        "path": "/Users/Rudolf/Work/mai/locales/de.json"
+      }
+    ]
   },
   {
     "code": "hr",
     "name": "Hrvatski",
     "language": "hr-HR",
-    "files": []
+    "files": [
+      {
+        "path": "/Users/Rudolf/Work/mai/locales/hr.json"
+      }
+    ]
   },
   {
     "code": "it",
     "name": "Italiano",
     "language": "it-IT",
-    "files": []
+    "files": [
+      {
+        "path": "/Users/Rudolf/Work/mai/locales/it.json"
+      }
+    ]
   }
 ]
 

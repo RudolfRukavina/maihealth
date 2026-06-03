@@ -58,10 +58,95 @@
             </Transition>
           </div>
 
-          <NuxtLink to="/contact" class="btn-primary text-xs px-6 py-2.5">
+          <NuxtLink to="/book" class="btn-primary text-xs px-6 py-2.5">
             <i class="fa-regular fa-calendar-check"></i>
             {{ $t('nav.book') }}
           </NuxtLink>
+
+          <!-- Guest: login link -->
+          <NuxtLink
+            v-if="!isLoggedIn"
+            to="/login"
+            class="flex items-center gap-1.5 text-[13px] font-medium text-body hover:text-charcoal transition-colors duration-150"
+          >
+            <i class="fa-solid fa-right-to-bracket text-xs"></i>
+            {{ $t('nav.login') }}
+          </NuxtLink>
+
+          <!-- Logged in: user avatar menu -->
+          <ClientOnly>
+          <div v-if="isLoggedIn" class="relative" ref="userDropdown">
+            <button
+              @click="userOpen = !userOpen"
+              class="flex items-center gap-2 group"
+              :aria-expanded="userOpen"
+              aria-label="Account menu"
+            >
+              <span class="relative">
+                <img
+                  v-if="user?.photoURL"
+                  :src="user.photoURL"
+                  alt=""
+                  referrerpolicy="no-referrer"
+                  class="w-9 h-9 rounded-full object-cover ring-2 ring-stone/20 group-hover:ring-sage/40 transition-all duration-150"
+                />
+                <span
+                  v-else
+                  class="w-9 h-9 rounded-full bg-sage/15 text-sage flex items-center justify-center text-sm font-semibold ring-2 ring-stone/20 group-hover:ring-sage/40 transition-all duration-150"
+                >
+                  {{ userInitials }}
+                </span>
+                <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-sage border-2 border-cream"></span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-[9px] text-muted transition-transform duration-150" :class="{ 'rotate-180': userOpen }"></i>
+            </button>
+
+            <Transition
+              enter-active-class="transition duration-150 ease-out"
+              enter-from-class="opacity-0 -translate-y-2"
+              enter-to-class="opacity-100 translate-y-0"
+              leave-active-class="transition duration-150 ease-in"
+              leave-from-class="opacity-100 translate-y-0"
+              leave-to-class="opacity-0 -translate-y-2"
+            >
+              <div v-if="userOpen" class="absolute right-0 top-full mt-3 bg-white rounded-xl shadow-xl shadow-charcoal/6 border border-stone/30 py-1.5 min-w-[230px]">
+                <div class="px-4 py-3 border-b border-stone/15">
+                  <p class="text-sm font-semibold text-charcoal truncate">{{ user?.displayName || $t('nav.account') }}</p>
+                  <p class="text-xs text-muted truncate">{{ user?.email }}</p>
+                  <span v-if="isAdmin" class="inline-block mt-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wide bg-sage/10 text-sage">
+                    {{ $t('nav.admin') }}
+                  </span>
+                </div>
+                <NuxtLink
+                  v-if="isAdmin"
+                  to="/portal/admin"
+                  @click="userOpen = false"
+                  class="flex items-center gap-3 px-4 py-2.5 text-sm text-body hover:bg-cream transition-colors duration-150"
+                >
+                  <i class="fa-solid fa-grid-2 text-xs text-muted w-4 text-center"></i>
+                  {{ $t('nav.admin') }}
+                </NuxtLink>
+                <NuxtLink
+                  to="/book"
+                  @click="userOpen = false"
+                  class="flex items-center gap-3 px-4 py-2.5 text-sm text-body hover:bg-cream transition-colors duration-150"
+                >
+                  <i class="fa-regular fa-calendar-check text-xs text-muted w-4 text-center"></i>
+                  {{ $t('nav.book') }}
+                </NuxtLink>
+                <div class="border-t border-stone/15 mt-1.5 pt-1.5">
+                  <button
+                    @click="handleLogout"
+                    class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-body hover:bg-cream hover:text-red-500 transition-colors duration-150"
+                  >
+                    <i class="fa-solid fa-right-from-bracket text-xs w-4 text-center"></i>
+                    {{ $t('auth.logout') }}
+                  </button>
+                </div>
+              </div>
+            </Transition>
+          </div>
+          </ClientOnly>
         </nav>
 
         <!-- Mobile hamburger -->
@@ -69,6 +154,7 @@
           @click="toggleMobile"
           class="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center"
           aria-label="Toggle menu"
+          :aria-expanded="mobileOpen"
         >
           <div class="flex flex-col gap-[5px]">
             <span :class="['w-5 h-[1.5px] bg-charcoal transition-all duration-150 origin-center', mobileOpen ? 'rotate-45 translate-y-[6.5px]' : '']" />
@@ -104,6 +190,27 @@
           </nav>
 
           <div class="mt-8 pt-6 border-t border-stone/20 space-y-6">
+            <!-- Logged-in user card -->
+            <div v-if="isLoggedIn" class="flex items-center gap-3">
+              <img
+                v-if="user?.photoURL"
+                :src="user.photoURL"
+                alt=""
+                referrerpolicy="no-referrer"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-stone/20"
+              />
+              <span
+                v-else
+                class="w-12 h-12 rounded-full bg-sage/15 text-sage flex items-center justify-center text-base font-semibold ring-2 ring-stone/20"
+              >
+                {{ userInitials }}
+              </span>
+              <div class="min-w-0">
+                <p class="text-base font-semibold text-charcoal truncate">{{ user?.displayName || $t('nav.account') }}</p>
+                <p class="text-sm text-muted truncate">{{ user?.email }}</p>
+              </div>
+            </div>
+
             <div class="flex gap-2.5 flex-wrap">
               <button
                 v-for="lang in languages"
@@ -120,10 +227,32 @@
               </button>
             </div>
 
-            <NuxtLink to="/contact" @click="closeMobile" class="btn-primary w-full text-center justify-center py-4 text-base">
+            <NuxtLink
+              to="/book"
+              @click="closeMobile"
+              class="btn-primary w-full text-center justify-center py-4 text-base"
+            >
               <i class="fa-regular fa-calendar-check"></i>
               {{ $t('nav.book') }}
             </NuxtLink>
+
+            <NuxtLink v-if="isAdmin" to="/portal/admin" @click="closeMobile" class="btn-secondary w-full text-center justify-center py-4 text-base">
+              <i class="fa-solid fa-grid-2"></i>
+              {{ $t('nav.admin') }}
+            </NuxtLink>
+
+            <NuxtLink v-if="!isLoggedIn" to="/login" @click="closeMobile" class="btn-secondary w-full text-center justify-center py-4 text-base">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              {{ $t('nav.login') }}
+            </NuxtLink>
+            <button
+              v-else
+              @click="handleLogout"
+              class="w-full text-center justify-center py-4 text-base flex items-center gap-2 font-medium text-muted hover:text-red-500 transition-colors duration-150"
+            >
+              <i class="fa-solid fa-right-from-bracket"></i>
+              {{ $t('auth.logout') }}
+            </button>
           </div>
         </div>
       </div>
@@ -133,10 +262,29 @@
 
 <script setup>
 const { t, locale, setLocale } = useI18n()
+const { isLoggedIn, isAdmin, user, signOut } = useAuth()
 const scrolled = ref(false)
 const mobileOpen = ref(false)
 const langOpen = ref(false)
 const langDropdown = ref(null)
+const userOpen = ref(false)
+const userDropdown = ref(null)
+
+const userInitials = computed(() => {
+  const name = user.value?.displayName || user.value?.email || ''
+  return name
+    .split(/[\s@.]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(p => p[0]?.toUpperCase())
+    .join('') || 'U'
+})
+
+const handleLogout = async () => {
+  userOpen.value = false
+  closeMobile()
+  await signOut()
+}
 
 const languages = [
   { code: 'en', name: 'English' },
@@ -168,7 +316,7 @@ const closeMobile = () => {
 }
 
 const route = useRoute()
-watch(() => route.path, () => closeMobile())
+watch(() => route.path, () => { closeMobile(); userOpen.value = false })
 
 onMounted(() => {
   const onScroll = () => { scrolled.value = window.scrollY > 40 }
@@ -178,6 +326,9 @@ onMounted(() => {
   const onClick = (e) => {
     if (langDropdown.value && !langDropdown.value.contains(e.target)) {
       langOpen.value = false
+    }
+    if (userDropdown.value && !userDropdown.value.contains(e.target)) {
+      userOpen.value = false
     }
   }
   document.addEventListener('click', onClick)

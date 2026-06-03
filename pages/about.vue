@@ -84,7 +84,7 @@
     <section class="section-padding">
       <div class="container-narrow">
         <div class="max-w-2xl mx-auto text-center">
-          <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-8">Memberships & Affiliations</h3>
+          <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-8">{{ $t('about.memberships_label') }}</h3>
           <div class="flex flex-wrap justify-center gap-4">
             <div v-for="item in memberships" :key="item" class="px-5 py-3 rounded-full border border-stone/40 text-sm text-body">
               {{ item }}
@@ -101,38 +101,19 @@
 </template>
 
 <script setup>
+const { t, tm, rt } = useI18n()
+
 useHead({
-  title: 'Über mich — Dr. med. Mai Wald | MaiHealth',
+  title: computed(() => t('meta.about.title')),
   meta: [
-    { name: 'description', content: 'Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.' },
-    { property: 'og:title', content: 'Über Dr. med. Mai Wald — MaiHealth' },
-    { property: 'og:description', content: 'Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen.' },
+    { name: 'description', content: computed(() => t('meta.about.description')) },
+    { property: 'og:title', content: computed(() => t('meta.about.og_title')) },
+    { property: 'og:description', content: computed(() => t('meta.about.og_description')) },
   ],
 })
 
-const education = [
-  { title: 'Medical Degree (Dr. med.)', detail: 'University education in medicine' },
-  { title: 'Functional Medicine Certification', detail: 'Institute for Functional Medicine (IFM), USA' },
-  { title: 'Additional specialization training', detail: 'Preventive and sports medicine' },
-]
-
-const experience = [
-  'Prevention and sports medicine',
-  'Interventional cardiology',
-  'Naturopathic medicine',
-  'Clinical nutrition',
-]
-
-const specializations = [
-  'Irritable bowel syndrome (IBS)',
-  'Microbiome & stool diagnostics',
-  'SIBO diagnosis & treatment',
-  'Nutritional medicine',
-  'Functional gut medicine',
-]
-
-const memberships = [
-  'Healthy Longevity Medicine Society (HLMS)',
-  'Medical Chamber',
-]
+const education = computed(() => tm('about.education_items').map(e => ({ title: rt(e.title), detail: rt(e.detail) })))
+const experience = computed(() => tm('about.experience_items').map(e => rt(e)))
+const specializations = computed(() => tm('about.specialization_items').map(e => rt(e)))
+const memberships = computed(() => tm('about.membership_items').map(e => rt(e)))
 </script>

@@ -18,6 +18,8 @@
           >
             <button
               @click="toggle(index)"
+              :aria-expanded="openIndex === index"
+              :aria-controls="`faq-panel-${index}`"
               class="w-full flex items-center justify-between p-4 sm:p-5 md:p-6 text-left gap-3 sm:gap-4"
             >
               <h3 class="text-base sm:text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
@@ -36,6 +38,8 @@
             </button>
 
             <div
+              :id="`faq-panel-${index}`"
+              role="region"
               class="overflow-hidden transition-all duration-200 ease-in-out"
               :style="{ maxHeight: openIndex === index ? contentHeights[index] + 'px' : '0px' }"
             >
