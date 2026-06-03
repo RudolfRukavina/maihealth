@@ -71,8 +71,8 @@
                   <i class="fa-solid fa-heart-pulse text-sage"></i>
                 </div>
                 <div>
-                  <p class="text-xs font-semibold text-charcoal">Functional Medicine</p>
-                  <p class="text-[10px] text-muted">& Longevity Specialist</p>
+                  <p class="text-xs font-semibold text-charcoal">Darmgesundheit</p>
+                  <p class="text-[10px] text-muted">& Reizdarm-Spezialistin</p>
                 </div>
               </div>
             </div>

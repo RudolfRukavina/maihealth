@@ -59,7 +59,7 @@ const cards = computed(() => [
   },
   {
     key: 'analysis',
-    icon: 'fa-solid fa-chart-line',
+    icon: 'fa-solid fa-file-medical',
     bgClass: 'bg-mauve/15',
     iconColor: '#C0A7B8',
     title: t('services.cards.analysis.title'),

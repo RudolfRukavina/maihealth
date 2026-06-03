@@ -28,9 +28,9 @@
 useHead({
   title: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.',
   meta: [
-    { name: 'description', content: 'Dr. med. Mai Wald — Funktionelle Medizin & Reizdarm-Spezialistin. Individuelle Behandlung, ganzheitlicher Ansatz, evidenzbasierte Diagnostik für nachhaltige Darmgesundheit.' },
+    { name: 'description', content: 'Dr. med. Mai Wald — Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie für nachhaltige Verdauungsgesundheit.' },
     { property: 'og:title', content: 'MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.' },
-    { property: 'og:description', content: 'Funktionelle Medizin & Reizdarm-Spezialistin. Individuelle Behandlung, ganzheitlicher Ansatz, evidenzbasierte Diagnostik.' },
+    { property: 'og:description', content: 'Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie.' },
   ],
 })
 </script>

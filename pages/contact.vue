@@ -14,9 +14,9 @@
 useHead({
   title: 'Kontakt & Termin — MaiHealth | Dr. med. Mai Wald',
   meta: [
-    { name: 'description', content: 'Termin vereinbaren bei Dr. med. Mai Wald — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für funktionelle Medizin & Reizdarm.' },
+    { name: 'description', content: 'Termin vereinbaren bei Dr. med. Mai Wald — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für Darmgesundheit & Reizdarm.' },
     { property: 'og:title', content: 'Kontakt & Termin — MaiHealth' },
-    { property: 'og:description', content: 'Termin vereinbaren bei Dr. med. Mai Wald. Erstgespräch, Telemedizin und persönliche Beratung.' },
+    { property: 'og:description', content: 'Termin vereinbaren bei Dr. med. Mai Wald. Darmgesundheit, Reizdarm-Diagnostik und persönliche Beratung.' },
   ],
 })
 </script>

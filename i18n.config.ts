@@ -1,31 +1,30 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "en",
+  locale: "de",
   messages: {
     en: {
       nav: {
         home: "Home",
         practice: "Practice",
-        corporate: "Corporate Health",
         about: "About",
         contact: "Contact",
         book: "Book Appointment",
       },
       hero: {
-        label: "Functional Medicine & Longevity",
-        title: "Understand the root causes — with evidence-based medicine.",
-        subtitle: "Dr. med. Mai Wald combines conventional medicine, functional medicine, and naturopathy to examine how metabolism, hormones, the gut, and the nervous system work together for long-term health stability.",
+        label: "Gut Health & IBS",
+        title: "Understand IBS. Change your life.",
+        subtitle: "Dr. med. Mai Wald specializes in irritable bowel syndrome and gut health. With functional medicine, targeted diagnostics, and personalized treatment plans, she helps you get to the root of your digestive issues.",
         cta_book: "Book Appointment",
         cta_learn: "Learn More",
       },
       trust: {
         individual: {
           title: "Individual Treatment",
-          description: "Tailored to your symptoms and needs.",
+          description: "Tailored to your symptoms and gut health needs.",
         },
         holistic: {
           title: "Holistic Approach",
-          description: "Body, nutrition, stress & gut in harmony.",
+          description: "Nutrition, microbiome, stress & gut in harmony.",
         },
         knowledge: {
           title: "Knowledge That Helps",
@@ -38,135 +37,104 @@ export default defineI18nConfig(() => ({
       },
       services: {
         label: "Services",
-        title: "Personalized care for your health journey",
-        subtitle: "Three distinct pathways tailored to where you are in your health journey — from initial diagnostics to long-term optimization.",
+        title: "Your path to better gut health",
+        subtitle: "Three pathways tailored to where you are — from initial gut assessment to long-term digestive health management.",
         cards: {
           diagnostics: {
-            title: "Functional & Longevity Diagnostics",
-            description: "Comprehensive health analysis with extended blood work, personalized therapy plan covering nutrition, sleep, movement, and stress management.",
+            title: "Comprehensive Gut Diagnostics",
+            description: "In-depth analysis of your digestive health including stool testing, microbiome analysis, food reactivity panels, and personalized therapy planning.",
             cta: "Learn More",
           },
           analysis: {
-            title: "Analysis of Existing Lab Values",
-            description: "Review of your current and previous lab results with one-on-one consultations to develop individualized health plans. Available in-person or virtually.",
+            title: "Analysis of Existing Results",
+            description: "Review of your current and previous lab results with one-on-one consultation to develop an individualized gut health plan. Available in-person or virtually.",
             cta: "Learn More",
           },
           coaching: {
-            title: "Ongoing Health Management",
-            description: "Long-term, evidence-based health coaching with monthly consultations tracking progress toward your health goals. In-person or via telemedicine.",
+            title: "Ongoing Gut Health Coaching",
+            description: "Long-term support with monthly consultations tracking your digestive health progress. Dietary guidance, protocol adjustments, and symptom monitoring.",
             cta: "Learn More",
           },
         },
       },
       benefits: {
-        label: "Why Functional Medicine",
-        title: "A medicine that looks at the whole picture",
-        subtitle: "Instead of treating isolated symptoms, functional medicine examines the connections between all body systems to find and address root causes.",
+        label: "Why Functional Gut Medicine",
+        title: "Getting to the root of digestive issues",
+        subtitle: "Instead of just managing symptoms, we investigate the underlying causes of your gut problems — from microbiome imbalances to food reactions and stress-related dysfunction.",
         items: [
-          "Early detection before symptoms become chronic conditions",
-          "Hormone balance evaluation and targeted optimization",
-          "Gut health assessment and microbiome optimization",
-          "Cardiovascular risk prevention with advanced biomarkers",
-          "Performance enhancement for executives and athletes",
-          "Personalized nutrition and micronutrient protocols",
-          "Sleep quality analysis and improvement strategies",
-          "Stress resilience and nervous system regulation",
+          "Comprehensive stool and microbiome analysis",
+          "Identification of food intolerances and sensitivities",
+          "SIBO testing and targeted treatment protocols",
+          "Gut barrier function assessment (leaky gut)",
+          "Gut-brain axis evaluation and stress management",
+          "Personalized nutrition and elimination diet plans",
+          "Targeted probiotic and supplement protocols",
+          "Long-term digestive health optimization",
         ],
       },
       concerns: {
-        label: "Common Health Concerns",
+        label: "Common Gut Health Concerns",
         title: "Do these feel familiar?",
         items: {
           energy: {
-            title: "Low energy, weight gain, difficulty concentrating",
-            description: "These symptoms often point to metabolic imbalances, nutrient deficiencies, or hormonal shifts. A thorough functional assessment can identify the root cause and create a path to restored vitality.",
+            title: "Bloating, gas, and abdominal pain after meals",
+            description: "These symptoms often point to imbalances in your gut flora, food intolerances, or conditions like SIBO. Targeted diagnostics can identify the exact triggers and a personalized plan brings lasting relief.",
           },
           digestive: {
-            title: "Digestive complaints, skin problems, bloating",
-            description: "Gut health is foundational to overall wellbeing. Through targeted diagnostics and personalized protocols, we address the underlying causes of digestive discomfort and related symptoms.",
+            title: "Irregular bowel movements, diarrhea, or constipation",
+            description: "Whether alternating between diarrhea and constipation or dealing with one consistently — these patterns reveal important clues about your gut health. Functional testing helps us understand what's driving the dysfunction.",
           },
           hormonal: {
-            title: "Hormonal imbalances, sleep disorders, chronic stress",
-            description: "The interplay between hormones, sleep, and stress forms a critical triangle. Comprehensive testing reveals the imbalances, and evidence-based interventions restore equilibrium.",
+            title: "Fatigue, brain fog, and skin problems linked to digestion",
+            description: "Your gut influences far more than digestion — from energy levels and mental clarity to skin health. When gut function is impaired, the effects ripple throughout your entire body.",
           },
         },
       },
       focus: {
         label: "Focus Areas",
-        title: "Specialized expertise across key health domains",
+        title: "Specialized expertise in gut health",
         areas: {
-          cardiovascular: {
-            title: "Cardiovascular Prevention",
-            description: "Advanced biomarker analysis and risk stratification for heart health optimization.",
+          ibs: {
+            title: "Irritable Bowel Syndrome",
+            description: "Evidence-based IBS diagnosis and individualized treatment combining dietary, lifestyle, and targeted therapeutic approaches.",
           },
-          womens: {
-            title: "Women's Health & Fertility",
-            description: "Hormonal balance, fertility support, and specialized care through all life stages.",
+          sibo: {
+            title: "SIBO",
+            description: "Small intestinal bacterial overgrowth testing, breath tests, and structured eradication and prevention protocols.",
           },
-          gut: {
-            title: "Gut Health",
-            description: "Microbiome analysis, food sensitivity testing, and targeted restoration protocols.",
+          microbiome: {
+            title: "Microbiome Analysis",
+            description: "Comprehensive stool diagnostics to assess your gut flora composition and develop targeted restoration strategies.",
           },
-          autoimmune: {
-            title: "Autoimmune & Inflammation",
-            description: "Root-cause investigation and management of autoimmune conditions and chronic inflammation.",
+          food: {
+            title: "Food Intolerances",
+            description: "Systematic identification of food triggers through testing and guided elimination diets for lasting symptom control.",
           },
-          performance: {
-            title: "Performance Optimization",
-            description: "Evidence-based protocols for executives and athletes seeking peak physical and mental performance.",
+          gutbrain: {
+            title: "Gut-Brain Axis",
+            description: "Understanding the connection between digestive health, stress, mood, and cognitive function for holistic treatment.",
           },
-          nutrition: {
-            title: "Nutrition & Metabolics",
-            description: "Personalized dietary strategies, micronutrient optimization, and metabolic health assessment.",
+          leakygut: {
+            title: "Intestinal Barrier",
+            description: "Assessment and treatment of increased intestinal permeability and its systemic effects on health.",
           },
         },
       },
       about: {
         label: "About",
         title: "Dr. med. Mai Wald",
-        subtitle: "Physician for Functional Medicine & Longevity",
-        bio: "With a foundation in conventional medicine and advanced training in functional and longevity medicine, I take a comprehensive approach to understanding each patient's unique health picture. My practice bridges evidence-based diagnostics with personalized treatment strategies.",
-        philosophy: "Preventing diseases before they develop, and strengthening health sustainably — long-term, measurable, and individualized.",
+        subtitle: "Physician specializing in Gut Health & IBS",
+        bio: "With a foundation in conventional medicine and advanced training in functional medicine, I focus on understanding and treating digestive disorders at their root. My practice combines evidence-based diagnostics with personalized gut health strategies.",
+        philosophy: "Understanding the gut means understanding health. My goal is to help you regain control of your digestion — sustainably, individually, and based on evidence.",
         cta: "More About Me",
         education_label: "Education & Certifications",
         experience_label: "Clinical Experience",
         specializations_label: "Specializations",
       },
-      corporate: {
-        label: "Corporate Health",
-        title: "Investing in the health of your team",
-        subtitle: "Workplace wellness programs designed for companies seeking to establish a preventive health culture among employees and leadership.",
-        services: {
-          coaching: {
-            title: "Employee Health Coaching",
-            description: "Coaching on nutrition, regeneration, stress management, and sleep for employees.",
-          },
-          executive: {
-            title: "Executive Health Programs",
-            description: "Performance-focused wellbeing consulting for managers and leadership teams.",
-          },
-          screening: {
-            title: "Preventive Screenings",
-            description: "Early detection through blood testing, health questionnaires, and consultations.",
-          },
-          longterm: {
-            title: "Long-Term Health Coaching",
-            description: "Sustained behavioral change programs within the workplace.",
-          },
-        },
-        values: [
-          "Mental health treated as a medical priority",
-          "Development of a health-conscious organizational culture",
-          "Healthier, more motivated, less-absent employees",
-          "Resilient leadership managing stress proactively",
-          "Financial gains through improved performance and retention",
-        ],
-        cta: "Get in Touch",
-      },
       contact: {
         label: "Contact",
-        title: "Start your health journey",
-        subtitle: "Whether you have questions or are ready to book your first consultation — I look forward to hearing from you.",
+        title: "Start your gut health journey",
+        subtitle: "Whether you have questions about IBS, gut diagnostics, or are ready to book your first consultation — I look forward to hearing from you.",
         form: {
           first_name: "First Name",
           last_name: "Last Name",
@@ -187,8 +155,8 @@ export default defineI18nConfig(() => ({
         },
       },
       newsletter: {
-        title: "Evidence-based insights for more healthy years",
-        subtitle: "Monthly science-based insights on functional medicine, longevity, and practical health optimization strategies.",
+        title: "Evidence-based insights for better gut health",
+        subtitle: "Monthly science-based insights on IBS, microbiome health, and practical strategies for lasting digestive wellness.",
         cta: "Subscribe to Newsletter",
         placeholder: "Your email address",
       },
@@ -197,20 +165,20 @@ export default defineI18nConfig(() => ({
         title: "Frequently Asked Questions",
         items: {
           q1: {
-            question: "What is functional medicine?",
-            answer: "Functional medicine is a systems-based approach that focuses on identifying and addressing the root causes of disease. Rather than treating symptoms in isolation, it examines how different body systems — metabolism, hormones, gut health, immune function — interact and influence overall health.",
+            question: "What is irritable bowel syndrome (IBS)?",
+            answer: "IBS is a functional gastrointestinal disorder characterized by recurring abdominal pain, bloating, and changes in bowel habits. It affects up to 15% of the population. While conventional medicine often treats symptoms alone, functional medicine investigates the underlying causes — from microbiome imbalances to food sensitivities and stress.",
           },
           q2: {
-            question: "How is this different from conventional medicine?",
-            answer: "Conventional medicine excels at acute care and diagnosis. Functional medicine builds on this foundation by diving deeper into the 'why' behind symptoms. It uses advanced diagnostics, personalized nutrition, lifestyle modifications, and targeted supplementation alongside conventional treatments when needed.",
+            question: "How do you diagnose and treat gut issues?",
+            answer: "We use comprehensive diagnostics including stool analysis, microbiome testing, breath tests for SIBO, food reactivity panels, and intestinal permeability assessment. Treatment is always individualized and may include dietary modifications, targeted supplementation, stress management, and when necessary, pharmaceutical interventions.",
           },
           q3: {
-            question: "Who benefits from functional medicine?",
-            answer: "Anyone seeking to understand their health at a deeper level — whether you're dealing with chronic symptoms that haven't been resolved, want to optimize your performance, or are proactively investing in long-term health and disease prevention.",
+            question: "How long does it take to see improvement?",
+            answer: "Many patients notice initial improvements within 4-6 weeks of starting their personalized protocol. However, sustainable gut health restoration typically requires 3-6 months of consistent work. Complex cases like longstanding IBS or SIBO may take longer. We track progress with regular check-ins and adjust as needed.",
           },
           q4: {
             question: "Are consultations available online?",
-            answer: "Yes. Initial consultations, follow-ups, and ongoing health coaching are all available via telemedicine. Laboratory testing can be arranged through partner labs in your area, and results are discussed in virtual appointments.",
+            answer: "Yes. Initial consultations, follow-ups, and ongoing gut health coaching are all available via telemedicine. Laboratory testing can be arranged through partner labs in your area, and results are discussed in virtual appointments.",
           },
           q5: {
             question: "Is this covered by insurance?",
@@ -219,14 +187,14 @@ export default defineI18nConfig(() => ({
         },
       },
       final_cta: {
-        title: "Your health, understood at its foundation",
-        subtitle: "The first step is a conversation. Together, we'll develop a clear picture of your health and a personalized plan forward.",
+        title: "Your gut health, understood at its root",
+        subtitle: "The first step is a conversation. Together, we'll develop a clear picture of your digestive health and a personalized plan forward.",
         cta: "Book Your Consultation",
       },
       footer: {
-        description: "Dr. med. Mai Wald — Physician for Functional Medicine & Longevity. Evidence-based, personalized health care for long-term wellbeing.",
+        description: "Dr. med. Mai Wald — Physician specializing in gut health & IBS. Evidence-based, personalized digestive health care.",
         navigation: "Navigation",
-        services: "Services",
+        services: "Focus Areas",
         legal: "Legal",
         follow: "Follow",
         impressum: "Impressum",
@@ -243,26 +211,25 @@ export default defineI18nConfig(() => ({
       nav: {
         home: "Startseite",
         practice: "Praxis",
-        corporate: "Corporate Health",
         about: "Über mich",
         contact: "Kontakt",
         book: "Termin vereinbaren",
       },
       hero: {
-        label: "Funktionelle Medizin & Longevity",
-        title: "Ursachen verstehen — mit evidenzbasierter Medizin.",
-        subtitle: "Dr. med. Mai Wald verbindet Schulmedizin, funktionelle Medizin und Naturheilkunde, um zu untersuchen, wie Stoffwechsel, Hormone, Darm und Nervensystem für langfristige Gesundheitsstabilität zusammenwirken.",
+        label: "Darmgesundheit & Reizdarm",
+        title: "Reizdarm verstehen. Leben verändern.",
+        subtitle: "Dr. med. Mai Wald ist spezialisiert auf Reizdarmsyndrom und Darmgesundheit. Mit funktioneller Medizin, gezielter Diagnostik und individuellen Therapieplänen hilft sie Ihnen, die Ursachen Ihrer Verdauungsbeschwerden zu finden.",
         cta_book: "Termin vereinbaren",
         cta_learn: "Mehr erfahren",
       },
       trust: {
         individual: {
           title: "Individuelle Behandlung",
-          description: "Maßgeschneidert auf deine Beschwerden und Bedürfnisse.",
+          description: "Maßgeschneidert auf Ihre Beschwerden und Darmsituation.",
         },
         holistic: {
           title: "Ganzheitlicher Ansatz",
-          description: "Körper, Ernährung, Stress & Darm im Einklang.",
+          description: "Ernährung, Mikrobiom, Stress & Darm im Einklang.",
         },
         knowledge: {
           title: "Wissen, das hilft",
@@ -275,135 +242,104 @@ export default defineI18nConfig(() => ({
       },
       services: {
         label: "Leistungen",
-        title: "Individuelle Betreuung für Ihren Gesundheitsweg",
-        subtitle: "Drei Wege, zugeschnitten darauf, wo Sie auf Ihrem Gesundheitsweg stehen — von der ersten Diagnostik bis zur langfristigen Optimierung.",
+        title: "Ihr Weg zu besserer Darmgesundheit",
+        subtitle: "Drei Wege, zugeschnitten darauf, wo Sie stehen — von der ersten Darm-Diagnostik bis zur langfristigen Betreuung.",
         cards: {
           diagnostics: {
-            title: "Funktionelle & Longevity Diagnostik",
-            description: "Umfassende Gesundheitsanalyse mit erweitertem Blutbild, personalisierter Therapieplan für Ernährung, Schlaf, Bewegung und Stressmanagement.",
+            title: "Umfassende Darm-Diagnostik",
+            description: "Tiefgehende Analyse Ihrer Darmgesundheit inkl. Stuhldiagnostik, Mikrobiom-Analyse, Nahrungsmittel-Reaktivitätspanels und individueller Therapieplanung.",
             cta: "Mehr erfahren",
           },
           analysis: {
-            title: "Analyse vorhandener Laborwerte",
-            description: "Auswertung aktueller und früherer Laborergebnisse mit persönlicher Beratung zur Entwicklung individueller Gesundheitspläne. Vor Ort oder virtuell.",
+            title: "Analyse vorhandener Befunde",
+            description: "Auswertung aktueller und früherer Laborergebnisse mit persönlicher Beratung zur Entwicklung eines individuellen Darmgesundheitsplans. Vor Ort oder virtuell.",
             cta: "Mehr erfahren",
           },
           coaching: {
-            title: "Laufende Gesundheitsbetreuung",
-            description: "Langfristige, evidenzbasierte Gesundheitsbegleitung mit monatlichen Konsultationen zur Verfolgung Ihrer Gesundheitsziele. Vor Ort oder per Telemedizin.",
+            title: "Laufende Darmgesundheits-Betreuung",
+            description: "Langfristige Begleitung mit monatlichen Konsultationen, Ernährungsberatung, Protokollanpassungen und Symptom-Monitoring.",
             cta: "Mehr erfahren",
           },
         },
       },
       benefits: {
-        label: "Warum funktionelle Medizin",
-        title: "Eine Medizin, die das ganze Bild betrachtet",
-        subtitle: "Statt isolierte Symptome zu behandeln, untersucht die funktionelle Medizin die Zusammenhänge zwischen allen Körpersystemen, um Ursachen zu finden und zu behandeln.",
+        label: "Warum funktionelle Darmmedizin",
+        title: "Den Ursachen von Darmproblemen auf den Grund gehen",
+        subtitle: "Statt nur Symptome zu managen, untersuchen wir die zugrundeliegenden Ursachen Ihrer Darmprobleme — von Mikrobiom-Dysbiosen bis zu Nahrungsmittelreaktionen und stressbedingten Störungen.",
         items: [
-          "Früherkennung, bevor Symptome chronisch werden",
-          "Hormonelle Bewertung und gezielte Optimierung",
-          "Darmgesundheitsanalyse und Mikrobiom-Optimierung",
-          "Kardiovaskuläre Risikoprävention mit erweiterten Biomarkern",
-          "Leistungssteigerung für Führungskräfte und Sportler",
-          "Personalisierte Ernährungs- und Mikronährstoffprotokolle",
-          "Schlafqualitätsanalyse und Verbesserungsstrategien",
-          "Stressresilienz und Regulation des Nervensystems",
+          "Umfassende Stuhl- und Mikrobiom-Analyse",
+          "Identifikation von Nahrungsmittelunverträglichkeiten",
+          "SIBO-Diagnostik und gezielte Behandlungsprotokolle",
+          "Beurteilung der Darmbarriere-Funktion (Leaky Gut)",
+          "Darm-Hirn-Achsen-Evaluation und Stressmanagement",
+          "Personalisierte Ernährungs- und Eliminationsdiät-Pläne",
+          "Gezielte Probiotika- und Supplement-Protokolle",
+          "Langfristige Optimierung der Verdauungsgesundheit",
         ],
       },
       concerns: {
-        label: "Häufige Gesundheitsbeschwerden",
+        label: "Häufige Darmbeschwerden",
         title: "Kommt Ihnen das bekannt vor?",
         items: {
           energy: {
-            title: "Energiemangel, Gewichtszunahme, Konzentrationsschwierigkeiten",
-            description: "Diese Symptome deuten oft auf metabolische Ungleichgewichte, Nährstoffmängel oder hormonelle Veränderungen hin. Eine gründliche funktionelle Analyse kann die Ursache identifizieren und einen Weg zu neuer Vitalität schaffen.",
+            title: "Blähungen, Völlegefühl und Bauchschmerzen nach dem Essen",
+            description: "Diese Symptome deuten oft auf Ungleichgewichte in der Darmflora, Nahrungsmittelunverträglichkeiten oder Zustände wie SIBO hin. Gezielte Diagnostik identifiziert die genauen Auslöser, und ein individueller Plan bringt nachhaltige Linderung.",
           },
           digestive: {
-            title: "Verdauungsbeschwerden, Hautprobleme, Blähungen",
-            description: "Die Darmgesundheit ist fundamental für das Wohlbefinden. Durch gezielte Diagnostik und personalisierte Protokolle behandeln wir die zugrundeliegenden Ursachen von Verdauungsbeschwerden und damit verbundenen Symptomen.",
+            title: "Unregelmäßiger Stuhlgang, Durchfall oder Verstopfung",
+            description: "Ob wechselnd zwischen Durchfall und Verstopfung oder dauerhaft eines davon — diese Muster liefern wichtige Hinweise auf Ihre Darmgesundheit. Funktionelle Diagnostik hilft uns zu verstehen, was die Störung antreibt.",
           },
           hormonal: {
-            title: "Hormonelle Dysbalancen, Schlafstörungen, chronischer Stress",
-            description: "Das Zusammenspiel von Hormonen, Schlaf und Stress bildet ein kritisches Dreieck. Umfassende Tests decken die Ungleichgewichte auf, und evidenzbasierte Interventionen stellen das Gleichgewicht wieder her.",
+            title: "Müdigkeit, Brain Fog und Hautprobleme durch den Darm",
+            description: "Ihr Darm beeinflusst weit mehr als die Verdauung — von Energielevel und mentaler Klarheit bis zur Hautgesundheit. Wenn die Darmfunktion gestört ist, wirkt sich das auf den gesamten Körper aus.",
           },
         },
       },
       focus: {
         label: "Schwerpunkte",
-        title: "Spezialisierte Expertise in zentralen Gesundheitsbereichen",
+        title: "Spezialisierte Expertise in Darmgesundheit",
         areas: {
-          cardiovascular: {
-            title: "Kardiovaskuläre Prävention",
-            description: "Erweiterte Biomarker-Analyse und Risikostratifizierung zur Optimierung der Herzgesundheit.",
+          ibs: {
+            title: "Reizdarmsyndrom",
+            description: "Evidenzbasierte Reizdarm-Diagnostik und individuelle Behandlung mit Ernährungs-, Lebensstil- und therapeutischen Ansätzen.",
           },
-          womens: {
-            title: "Frauengesundheit & Fertilität",
-            description: "Hormonelle Balance, Kinderwunschbegleitung und spezialisierte Betreuung in allen Lebensphasen.",
+          sibo: {
+            title: "SIBO",
+            description: "Dünndarm-Fehlbesiedlung: Atemtests, strukturierte Eradikations- und Präventionsprotokolle.",
           },
-          gut: {
-            title: "Darmgesundheit",
-            description: "Mikrobiom-Analyse, Nahrungsmittelunverträglichkeitstests und gezielte Wiederherstellungsprotokolle.",
+          microbiome: {
+            title: "Mikrobiom-Analyse",
+            description: "Umfassende Stuhldiagnostik zur Beurteilung Ihrer Darmflora und Entwicklung gezielter Wiederherstellungsstrategien.",
           },
-          autoimmune: {
-            title: "Autoimmun & Entzündung",
-            description: "Ursachenforschung und Management von Autoimmunerkrankungen und chronischen Entzündungen.",
+          food: {
+            title: "Nahrungsmittelunverträglichkeiten",
+            description: "Systematische Identifikation von Nahrungsmittel-Triggern durch Tests und begleitete Eliminationsdiäten.",
           },
-          performance: {
-            title: "Leistungsoptimierung",
-            description: "Evidenzbasierte Protokolle für Führungskräfte und Sportler auf der Suche nach Höchstleistung.",
+          gutbrain: {
+            title: "Darm-Hirn-Achse",
+            description: "Verständnis der Verbindung zwischen Darmgesundheit, Stress, Stimmung und kognitiver Funktion.",
           },
-          nutrition: {
-            title: "Ernährung & Stoffwechsel",
-            description: "Personalisierte Ernährungsstrategien, Mikronährstoff-Optimierung und Stoffwechselanalyse.",
+          leakygut: {
+            title: "Darmbarriere",
+            description: "Beurteilung und Behandlung erhöhter Darmpermeabilität und deren systemische Auswirkungen.",
           },
         },
       },
       about: {
         label: "Über mich",
         title: "Dr. med. Mai Wald",
-        subtitle: "Ärztin für Funktionelle Medizin & Longevity",
-        bio: "Mit einer Grundlage in der Schulmedizin und Weiterbildung in funktioneller Medizin und Longevity verfolge ich einen ganzheitlichen Ansatz, um das individuelle Gesundheitsbild jedes Patienten zu verstehen. Meine Praxis verbindet evidenzbasierte Diagnostik mit personalisierten Behandlungsstrategien.",
-        philosophy: "Krankheiten verhindern, bevor sie entstehen, und Gesundheit nachhaltig stärken — langfristig, messbar und individuell.",
+        subtitle: "Ärztin für Darmgesundheit & Reizdarm",
+        bio: "Mit einer Grundlage in der Schulmedizin und Weiterbildung in funktioneller Medizin konzentriere ich mich darauf, Verdauungsstörungen an der Wurzel zu verstehen und zu behandeln. Meine Praxis verbindet evidenzbasierte Diagnostik mit personalisierten Darmgesundheitsstrategien.",
+        philosophy: "Den Darm verstehen heißt Gesundheit verstehen. Mein Ziel ist es, Ihnen zu helfen, die Kontrolle über Ihre Verdauung zurückzugewinnen — nachhaltig, individuell und evidenzbasiert.",
         cta: "Mehr über mich",
         education_label: "Ausbildung & Zertifizierungen",
         experience_label: "Klinische Erfahrung",
         specializations_label: "Spezialisierungen",
       },
-      corporate: {
-        label: "Corporate Health",
-        title: "In die Gesundheit Ihres Teams investieren",
-        subtitle: "Betriebliche Gesundheitsprogramme für Unternehmen, die eine präventive Gesundheitskultur unter Mitarbeitern und Führungskräften etablieren möchten.",
-        services: {
-          coaching: {
-            title: "Mitarbeiter-Gesundheitscoaching",
-            description: "Coaching zu Ernährung, Regeneration, Stressmanagement und Schlaf für Mitarbeiter.",
-          },
-          executive: {
-            title: "Executive Health Programme",
-            description: "Leistungsorientierte Gesundheitsberatung für Manager und Führungsteams.",
-          },
-          screening: {
-            title: "Präventive Screenings",
-            description: "Früherkennung durch Bluttests, Gesundheitsfragebögen und Konsultationen.",
-          },
-          longterm: {
-            title: "Langfristiges Gesundheitscoaching",
-            description: "Nachhaltige Verhaltensänderungsprogramme am Arbeitsplatz.",
-          },
-        },
-        values: [
-          "Psychische Gesundheit als medizinische Priorität",
-          "Aufbau einer gesundheitsbewussten Unternehmenskultur",
-          "Gesündere, motiviertere Mitarbeiter mit weniger Fehltagen",
-          "Resiliente Führungskräfte mit proaktivem Stressmanagement",
-          "Finanzielle Vorteile durch verbesserte Leistung und Mitarbeiterbindung",
-        ],
-        cta: "Kontakt aufnehmen",
-      },
       contact: {
         label: "Kontakt",
-        title: "Beginnen Sie Ihren Gesundheitsweg",
-        subtitle: "Ob Sie Fragen haben oder bereit für Ihre erste Konsultation sind — ich freue mich auf Ihre Nachricht.",
+        title: "Starten Sie Ihren Weg zu besserer Darmgesundheit",
+        subtitle: "Ob Sie Fragen zum Reizdarm, zur Darm-Diagnostik haben oder bereit für Ihre erste Konsultation sind — ich freue mich auf Ihre Nachricht.",
         form: {
           first_name: "Vorname",
           last_name: "Nachname",
@@ -424,8 +360,8 @@ export default defineI18nConfig(() => ({
         },
       },
       newsletter: {
-        title: "Fundiertes Wissen für mehr gesunde Lebensjahre",
-        subtitle: "Monatliche wissenschaftsbasierte Einblicke in funktionelle Medizin, Longevity und praktische Gesundheitsoptimierung.",
+        title: "Fundiertes Wissen für bessere Darmgesundheit",
+        subtitle: "Monatliche wissenschaftsbasierte Einblicke zu Reizdarm, Mikrobiom und praktische Strategien für nachhaltige Verdauungsgesundheit.",
         cta: "Newsletter abonnieren",
         placeholder: "Ihre E-Mail-Adresse",
       },
@@ -434,20 +370,20 @@ export default defineI18nConfig(() => ({
         title: "Häufig gestellte Fragen",
         items: {
           q1: {
-            question: "Was ist funktionelle Medizin?",
-            answer: "Funktionelle Medizin ist ein systembasierter Ansatz, der darauf abzielt, die Grundursachen von Krankheiten zu identifizieren und zu behandeln. Statt Symptome isoliert zu behandeln, untersucht sie, wie verschiedene Körpersysteme — Stoffwechsel, Hormone, Darmgesundheit, Immunfunktion — zusammenwirken und die Gesamtgesundheit beeinflussen.",
+            question: "Was ist das Reizdarmsyndrom (RDS)?",
+            answer: "Das Reizdarmsyndrom ist eine funktionelle Magen-Darm-Erkrankung mit wiederkehrenden Bauchschmerzen, Blähungen und veränderten Stuhlgewohnheiten. Bis zu 15% der Bevölkerung sind betroffen. Während die Schulmedizin oft nur Symptome behandelt, untersucht die funktionelle Medizin die zugrundeliegenden Ursachen — von Mikrobiom-Ungleichgewichten bis zu Nahrungsmittelreaktionen und Stress.",
           },
           q2: {
-            question: "Wie unterscheidet sich das von der Schulmedizin?",
-            answer: "Die Schulmedizin ist hervorragend in der Akutversorgung und Diagnostik. Funktionelle Medizin baut auf dieser Grundlage auf, indem sie tiefer nach dem 'Warum' hinter den Symptomen fragt. Sie nutzt erweiterte Diagnostik, personalisierte Ernährung, Lebensstilanpassungen und gezielte Supplementierung neben konventionellen Behandlungen.",
+            question: "Wie werden Darmprobleme diagnostiziert und behandelt?",
+            answer: "Wir nutzen umfassende Diagnostik: Stuhlanalyse, Mikrobiom-Tests, Atemtests auf SIBO, Nahrungsmittel-Reaktivitätspanels und Darmpermeabilitäts-Beurteilung. Die Behandlung ist immer individuell und kann Ernährungsumstellungen, gezielte Supplementierung, Stressmanagement und bei Bedarf medikamentöse Therapie umfassen.",
           },
           q3: {
-            question: "Wer profitiert von funktioneller Medizin?",
-            answer: "Jeder, der seine Gesundheit auf einer tieferen Ebene verstehen möchte — ob Sie mit chronischen Symptomen zu kämpfen haben, Ihre Leistung optimieren oder proaktiv in langfristige Gesundheit und Krankheitsprävention investieren möchten.",
+            question: "Wie schnell kann man Verbesserungen erwarten?",
+            answer: "Viele Patienten bemerken erste Verbesserungen innerhalb von 4-6 Wochen nach Beginn ihres personalisierten Protokolls. Nachhaltige Darmgesundheit erfordert jedoch typischerweise 3-6 Monate konsequenter Arbeit. Komplexe Fälle wie langjähriger Reizdarm oder SIBO können länger dauern. Wir verfolgen den Fortschritt mit regelmäßigen Check-ins.",
           },
           q4: {
             question: "Sind Konsultationen auch online verfügbar?",
-            answer: "Ja. Erstgespräche, Nachsorge und laufendes Gesundheitscoaching sind per Telemedizin verfügbar. Laboruntersuchungen können über Partnerlabore in Ihrer Nähe organisiert werden, und die Ergebnisse werden in virtuellen Terminen besprochen.",
+            answer: "Ja. Erstgespräche, Nachsorge und laufendes Darmgesundheits-Coaching sind per Telemedizin verfügbar. Laboruntersuchungen können über Partnerlabore in Ihrer Nähe organisiert werden, und die Ergebnisse werden in virtuellen Terminen besprochen.",
           },
           q5: {
             question: "Wird das von der Versicherung übernommen?",
@@ -456,14 +392,14 @@ export default defineI18nConfig(() => ({
         },
       },
       final_cta: {
-        title: "Ihre Gesundheit, an der Wurzel verstanden",
-        subtitle: "Der erste Schritt ist ein Gespräch. Gemeinsam entwickeln wir ein klares Bild Ihrer Gesundheit und einen personalisierten Plan.",
+        title: "Ihre Darmgesundheit, an der Wurzel verstanden",
+        subtitle: "Der erste Schritt ist ein Gespräch. Gemeinsam entwickeln wir ein klares Bild Ihrer Verdauungsgesundheit und einen personalisierten Plan.",
         cta: "Konsultation buchen",
       },
       footer: {
-        description: "Dr. med. Mai Wald — Ärztin für Funktionelle Medizin & Longevity. Evidenzbasierte, personalisierte Gesundheitsversorgung für langfristiges Wohlbefinden.",
+        description: "Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Evidenzbasierte, personalisierte Betreuung für nachhaltige Verdauungsgesundheit.",
         navigation: "Navigation",
-        services: "Leistungen",
+        services: "Schwerpunkte",
         legal: "Rechtliches",
         follow: "Folgen",
         impressum: "Impressum",
@@ -480,26 +416,25 @@ export default defineI18nConfig(() => ({
       nav: {
         home: "Početna",
         practice: "Ordinacija",
-        corporate: "Korporativno zdravlje",
         about: "O meni",
         contact: "Kontakt",
         book: "Naruči termin",
       },
       hero: {
-        label: "Funkcionalna medicina i dugovječnost",
-        title: "Razumjeti uzroke — uz medicinu temeljenu na dokazima.",
-        subtitle: "Dr. med. Mai Wald spaja konvencionalnu medicinu, funkcionalnu medicinu i prirodnu medicinu kako bi istražila kako metabolizam, hormoni, probava i živčani sustav zajedno djeluju na dugoročnu stabilnost zdravlja.",
+        label: "Zdravlje probave i IBS",
+        title: "Razumjeti sindrom iritabilnog crijeva. Promijeniti život.",
+        subtitle: "Dr. med. Mai Wald specijalizirana je za sindrom iritabilnog crijeva i zdravlje probave. Funkcionalnom medicinom, ciljanom dijagnostikom i individualnim planovima liječenja pomaže vam pronaći uzroke vaših probavnih tegoba.",
         cta_book: "Naruči termin",
         cta_learn: "Saznaj više",
       },
       trust: {
         individual: {
           title: "Individualni tretman",
-          description: "Prilagođen tvojim tegobama i potrebama.",
+          description: "Prilagođen vašim tegobama i stanju probave.",
         },
         holistic: {
           title: "Holistički pristup",
-          description: "Tijelo, prehrana, stres i probava u skladu.",
+          description: "Prehrana, mikrobiom, stres i probava u skladu.",
         },
         knowledge: {
           title: "Znanje koje pomaže",
@@ -512,135 +447,104 @@ export default defineI18nConfig(() => ({
       },
       services: {
         label: "Usluge",
-        title: "Personalizirana skrb za vaš put do zdravlja",
-        subtitle: "Tri pristupa prilagođena tome gdje se nalazite na svom zdravstvenom putu — od inicijalne dijagnostike do dugoročne optimizacije.",
+        title: "Vaš put do boljeg zdravlja probave",
+        subtitle: "Tri pristupa prilagođena tome gdje se nalazite — od inicijalne dijagnostike probave do dugoročne skrbi.",
         cards: {
           diagnostics: {
-            title: "Funkcionalna i Longevity dijagnostika",
-            description: "Sveobuhvatna zdravstvena analiza s proširenim laboratorijskim nalazima, personalizirani plan terapije za prehranu, san, kretanje i upravljanje stresom.",
+            title: "Sveobuhvatna dijagnostika probave",
+            description: "Detaljna analiza zdravlja probave uključujući analizu stolice, mikrobioma, panele reaktivnosti na hranu i individualno planiranje terapije.",
             cta: "Saznaj više",
           },
           analysis: {
-            title: "Analiza postojećih laboratorijskih nalaza",
-            description: "Pregled vaših trenutnih i prethodnih laboratorijskih rezultata uz individualne konzultacije za razvoj personaliziranih zdravstvenih planova. Uživo ili online.",
+            title: "Analiza postojećih nalaza",
+            description: "Pregled vaših trenutnih i prethodnih laboratorijskih rezultata uz osobnu konzultaciju za razvoj individualnog plana zdravlja probave. Uživo ili online.",
             cta: "Saznaj više",
           },
           coaching: {
-            title: "Dugoročno zdravstveno praćenje",
-            description: "Dugoročno zdravstveno praćenje temeljeno na dokazima s mjesečnim konzultacijama i praćenjem napretka prema vašim zdravstvenim ciljevima.",
+            title: "Dugoročna skrb za zdravlje probave",
+            description: "Dugoročna podrška s mjesečnim konzultacijama, prehrambenim savjetovanjem, prilagodbom protokola i praćenjem simptoma.",
             cta: "Saznaj više",
           },
         },
       },
       benefits: {
-        label: "Zašto funkcionalna medicina",
-        title: "Medicina koja gleda cjelokupnu sliku",
-        subtitle: "Umjesto liječenja izoliranih simptoma, funkcionalna medicina ispituje povezanosti između svih tjelesnih sustava kako bi pronašla i otklonila uzroke.",
+        label: "Zašto funkcionalna medicina probave",
+        title: "Doći do korijena probavnih problema",
+        subtitle: "Umjesto samo upravljanja simptomima, istražujemo temeljne uzroke vaših probavnih problema — od neravnoteže mikrobioma do reakcija na hranu i stresnih poremećaja.",
         items: [
-          "Rano otkrivanje prije nego simptomi postanu kronični",
-          "Procjena hormonalne ravnoteže i ciljana optimizacija",
-          "Analiza zdravlja probave i optimizacija mikrobioma",
-          "Kardiovaskularna prevencija s naprednim biomarkerima",
-          "Poboljšanje performansi za rukovoditelje i sportaše",
-          "Personalizirani protokoli prehrane i mikronutrijenata",
-          "Analiza kvalitete sna i strategije poboljšanja",
-          "Otpornost na stres i regulacija živčanog sustava",
+          "Sveobuhvatna analiza stolice i mikrobioma",
+          "Identifikacija netolerancija i osjetljivosti na hranu",
+          "SIBO dijagnostika i ciljani protokoli liječenja",
+          "Procjena funkcije crijevne barijere (leaky gut)",
+          "Evaluacija osi crijevo-mozak i upravljanje stresom",
+          "Personalizirani planovi prehrane i eliminacijske dijete",
+          "Ciljani protokoli probiotika i suplemenata",
+          "Dugoročna optimizacija zdravlja probave",
         ],
       },
       concerns: {
-        label: "Česti zdravstveni problemi",
+        label: "Česti probavni problemi",
         title: "Zvuči li vam ovo poznato?",
         items: {
           energy: {
-            title: "Nedostatak energije, debljanje, poteškoće s koncentracijom",
-            description: "Ovi simptomi često ukazuju na metaboličke neravnoteže, nedostatke nutrijenata ili hormonalne promjene. Temeljita funkcionalna procjena može identificirati uzrok i stvoriti put do obnovljene vitalnosti.",
+            title: "Nadutost, plinovi i bolovi u trbuhu nakon jela",
+            description: "Ovi simptomi često ukazuju na neravnoteže u crijevnoj flori, netolerancije na hranu ili stanja poput SIBO-a. Ciljana dijagnostika identificira točne okidače, a individualni plan donosi trajno olakšanje.",
           },
           digestive: {
-            title: "Probavne tegobe, problemi s kožom, nadutost",
-            description: "Zdravlje probavnog sustava temelj je cjelokupnog blagostanja. Ciljanom dijagnostikom i personaliziranim protokolima rješavamo temeljne uzroke probavnih tegoba i povezanih simptoma.",
+            title: "Neredovita stolica, proljev ili zatvor",
+            description: "Bilo da se izmjenjuju proljev i zatvor ili trajno imate jedno od toga — ti obrasci daju važne naznake o zdravlju vaše probave. Funkcionalna dijagnostika pomaže razumjeti što pokreće poremećaj.",
           },
           hormonal: {
-            title: "Hormonalne neravnoteže, poremećaji sna, kronični stres",
-            description: "Međusobno djelovanje hormona, sna i stresa čini kritični trokut. Sveobuhvatno testiranje otkriva neravnoteže, a intervencije temeljene na dokazima vraćaju ravnotežu.",
+            title: "Umor, mentalna magla i kožni problemi povezani s probavom",
+            description: "Vaša probava utječe na mnogo više od samog probavljanja — od razine energije i mentalne jasnoće do zdravlja kože. Kad je funkcija crijeva narušena, učinci se šire na cijelo tijelo.",
           },
         },
       },
       focus: {
         label: "Područja rada",
-        title: "Specijalizirana ekspertiza u ključnim zdravstvenim područjima",
+        title: "Specijalizirana ekspertiza u zdravlju probave",
         areas: {
-          cardiovascular: {
-            title: "Kardiovaskularna prevencija",
-            description: "Napredna analiza biomarkera i stratifikacija rizika za optimizaciju zdravlja srca.",
+          ibs: {
+            title: "Sindrom iritabilnog crijeva",
+            description: "Dijagnoza IBS-a temeljena na dokazima i individualizirano liječenje kombinacijom prehrane, životnog stila i terapeutskih pristupa.",
           },
-          womens: {
-            title: "Žensko zdravlje i fertilitet",
-            description: "Hormonalna ravnoteža, podrška plodnosti i specijalizirana skrb kroz sve životne faze.",
+          sibo: {
+            title: "SIBO",
+            description: "Prekomjerni bakterijski rast u tankom crijevu: testovi daha, strukturirani protokoli eradikacije i prevencije.",
           },
-          gut: {
-            title: "Zdravlje probave",
-            description: "Analiza mikrobioma, testiranje osjetljivosti na hranu i ciljani protokoli obnove.",
+          microbiome: {
+            title: "Analiza mikrobioma",
+            description: "Sveobuhvatna dijagnostika stolice za procjenu sastava crijevne flore i razvoj ciljanih strategija obnove.",
           },
-          autoimmune: {
-            title: "Autoimune bolesti i upale",
-            description: "Istraživanje uzroka i upravljanje autoimunim stanjima i kroničnim upalama.",
+          food: {
+            title: "Netolerancije na hranu",
+            description: "Sustavna identifikacija okidača u hrani testiranjem i vođenim eliminacijskim dijetama za trajnu kontrolu simptoma.",
           },
-          performance: {
-            title: "Optimizacija performansi",
-            description: "Protokoli temeljeni na dokazima za rukovoditelje i sportaše koji teže vrhunskim performansama.",
+          gutbrain: {
+            title: "Os crijevo-mozak",
+            description: "Razumijevanje veze između zdravlja probave, stresa, raspoloženja i kognitivne funkcije za cjelovito liječenje.",
           },
-          nutrition: {
-            title: "Prehrana i metabolizam",
-            description: "Personalizirane prehrambene strategije, optimizacija mikronutrijenata i procjena metaboličkog zdravlja.",
+          leakygut: {
+            title: "Crijevna barijera",
+            description: "Procjena i liječenje povećane crijevne propusnosti i njezinih sistemskih učinaka na zdravlje.",
           },
         },
       },
       about: {
         label: "O meni",
         title: "Dr. med. Mai Wald",
-        subtitle: "Liječnica za funkcionalnu medicinu i dugovječnost",
-        bio: "S temeljima u konvencionalnoj medicini i naprednom edukacijom u funkcionalnoj medicini i dugovječnosti, primjenjujem sveobuhvatan pristup razumijevanju jedinstvene zdravstvene slike svakog pacijenta. Moja praksa spaja dijagnostiku temeljenu na dokazima s personaliziranim strategijama liječenja.",
-        philosophy: "Spriječiti bolesti prije nego se razviju i trajno ojačati zdravlje — dugoročno, mjerljivo i individualno.",
+        subtitle: "Liječnica specijalizirana za zdravlje probave i IBS",
+        bio: "S temeljima u konvencionalnoj medicini i naprednom edukacijom u funkcionalnoj medicini, fokusiram se na razumijevanje i liječenje probavnih poremećaja u njihovom korijenu. Moja praksa spaja dijagnostiku temeljenu na dokazima s personaliziranim strategijama za zdravlje probave.",
+        philosophy: "Razumjeti crijevo znači razumjeti zdravlje. Moj cilj je pomoći vam da vratite kontrolu nad svojom probavom — trajno, individualno i temeljeno na dokazima.",
         cta: "Više o meni",
         education_label: "Obrazovanje i certifikati",
         experience_label: "Kliničko iskustvo",
         specializations_label: "Specijalizacije",
       },
-      corporate: {
-        label: "Korporativno zdravlje",
-        title: "Ulaganje u zdravlje vašeg tima",
-        subtitle: "Programi zdravlja na radnom mjestu za tvrtke koje žele uspostaviti preventivnu zdravstvenu kulturu među zaposlenicima i vodstvom.",
-        services: {
-          coaching: {
-            title: "Zdravstveni coaching za zaposlenike",
-            description: "Coaching o prehrani, regeneraciji, upravljanju stresom i snu za zaposlenike.",
-          },
-          executive: {
-            title: "Executive Health programi",
-            description: "Savjetovanje o zdravlju usmjereno na performanse za menadžere i vodstvene timove.",
-          },
-          screening: {
-            title: "Preventivni pregledi",
-            description: "Rano otkrivanje kroz krvne pretrage, zdravstvene upitnike i konzultacije.",
-          },
-          longterm: {
-            title: "Dugoročni zdravstveni coaching",
-            description: "Održivi programi promjene ponašanja na radnom mjestu.",
-          },
-        },
-        values: [
-          "Mentalno zdravlje kao medicinski prioritet",
-          "Razvoj zdravstveno osviještene organizacijske kulture",
-          "Zdraviji, motiviraniji zaposlenici s manje izostanaka",
-          "Otporno vodstvo koje proaktivno upravlja stresom",
-          "Financijski dobici kroz poboljšane performanse i zadržavanje zaposlenika",
-        ],
-        cta: "Kontaktirajte nas",
-      },
       contact: {
         label: "Kontakt",
-        title: "Započnite svoj put do zdravlja",
-        subtitle: "Bilo da imate pitanja ili ste spremni za prvu konzultaciju — radujem se vašoj poruci.",
+        title: "Započnite svoj put do boljeg zdravlja probave",
+        subtitle: "Bilo da imate pitanja o IBS-u, dijagnostici probave ili ste spremni za prvu konzultaciju — radujem se vašoj poruci.",
         form: {
           first_name: "Ime",
           last_name: "Prezime",
@@ -661,8 +565,8 @@ export default defineI18nConfig(() => ({
         },
       },
       newsletter: {
-        title: "Znanje temeljeno na dokazima za više zdravih godina",
-        subtitle: "Mjesečni znanstveni uvidi o funkcionalnoj medicini, dugovječnosti i praktičnim strategijama optimizacije zdravlja.",
+        title: "Znanje temeljeno na dokazima za bolje zdravlje probave",
+        subtitle: "Mjesečni znanstveni uvidi o IBS-u, zdravlju mikrobioma i praktičnim strategijama za trajno zdravlje probave.",
         cta: "Pretplatite se",
         placeholder: "Vaša e-mail adresa",
       },
@@ -671,20 +575,20 @@ export default defineI18nConfig(() => ({
         title: "Često postavljana pitanja",
         items: {
           q1: {
-            question: "Što je funkcionalna medicina?",
-            answer: "Funkcionalna medicina je sustavni pristup koji se fokusira na identificiranje i rješavanje temeljnih uzroka bolesti. Umjesto izoliranog liječenja simptoma, ispituje kako različiti tjelesni sustavi — metabolizam, hormoni, zdravlje probave, imunološka funkcija — međusobno djeluju i utječu na cjelokupno zdravlje.",
+            question: "Što je sindrom iritabilnog crijeva (IBS)?",
+            answer: "IBS je funkcionalni gastrointestinalni poremećaj karakteriziran ponavljajućim bolovima u trbuhu, nadutošću i promjenama u stolici. Pogađa do 15% populacije. Dok konvencionalna medicina često samo liječi simptome, funkcionalna medicina istražuje temeljne uzroke — od neravnoteže mikrobioma do osjetljivosti na hranu i stresa.",
           },
           q2: {
-            question: "Kako se to razlikuje od konvencionalne medicine?",
-            answer: "Konvencionalna medicina izvrsna je u akutnoj skrbi i dijagnostici. Funkcionalna medicina nadograđuje taj temelj dublje istražujući 'zašto' iza simptoma. Koristi naprednu dijagnostiku, personaliziranu prehranu, prilagodbe životnog stila i ciljanu suplementaciju uz konvencionalne tretmane.",
+            question: "Kako se dijagnosticiraju i liječe problemi s probavom?",
+            answer: "Koristimo sveobuhvatnu dijagnostiku: analizu stolice, testiranje mikrobioma, testove daha za SIBO, panele reaktivnosti na hranu i procjenu crijevne propusnosti. Liječenje je uvijek individualizirano i može uključivati promjene u prehrani, ciljanu suplementaciju, upravljanje stresom i po potrebi farmakološku terapiju.",
           },
           q3: {
-            question: "Tko ima koristi od funkcionalne medicine?",
-            answer: "Svatko tko želi razumjeti svoje zdravlje na dubljoj razini — bilo da se nosite s kroničnim simptomima, želite optimizirati performanse ili proaktivno ulažete u dugoročno zdravlje i prevenciju bolesti.",
+            question: "Koliko brzo se mogu očekivati poboljšanja?",
+            answer: "Mnogi pacijenti primijete početna poboljšanja unutar 4-6 tjedana od početka personaliziranog protokola. Međutim, trajno zdravlje probave obično zahtijeva 3-6 mjeseci dosljednog rada. Kompleksni slučajevi poput dugogodišnjeg IBS-a ili SIBO-a mogu trajati dulje. Pratimo napredak redovitim kontrolama.",
           },
           q4: {
             question: "Jesu li konzultacije dostupne online?",
-            answer: "Da. Inicijalne konzultacije, kontrole i kontinuirani zdravstveni coaching dostupni su putem telemedicine. Laboratorijska testiranja mogu se organizirati kroz partnerske laboratorije u vašoj blizini, a rezultati se diskutiraju na virtualnim terminima.",
+            answer: "Da. Inicijalne konzultacije, kontrole i kontinuirani coaching zdravlja probave dostupni su putem telemedicine. Laboratorijska testiranja mogu se organizirati kroz partnerske laboratorije u vašoj blizini, a rezultati se diskutiraju na virtualnim terminima.",
           },
           q5: {
             question: "Pokriva li to osiguranje?",
@@ -693,14 +597,14 @@ export default defineI18nConfig(() => ({
         },
       },
       final_cta: {
-        title: "Vaše zdravlje, shvaćeno u korijenu",
-        subtitle: "Prvi korak je razgovor. Zajedno ćemo razviti jasnu sliku vašeg zdravlja i personalizirani plan naprijed.",
+        title: "Vaše zdravlje probave, shvaćeno u korijenu",
+        subtitle: "Prvi korak je razgovor. Zajedno ćemo razviti jasnu sliku vašeg zdravlja probave i personalizirani plan naprijed.",
         cta: "Zakažite konzultaciju",
       },
       footer: {
-        description: "Dr. med. Mai Wald — Liječnica za funkcionalnu medicinu i dugovječnost. Zdravstvena skrb temeljena na dokazima za dugoročno blagostanje.",
+        description: "Dr. med. Mai Wald — Liječnica specijalizirana za zdravlje probave i IBS. Zdravstvena skrb temeljena na dokazima za trajno zdravlje probave.",
         navigation: "Navigacija",
-        services: "Usluge",
+        services: "Područja rada",
         legal: "Pravno",
         follow: "Pratite nas",
         impressum: "Impressum",
@@ -717,26 +621,25 @@ export default defineI18nConfig(() => ({
       nav: {
         home: "Home",
         practice: "Studio",
-        corporate: "Corporate Health",
         about: "Chi sono",
         contact: "Contatti",
         book: "Prenota appuntamento",
       },
       hero: {
-        label: "Medicina Funzionale & Longevity",
-        title: "Comprendere le cause — con la medicina basata sulle evidenze.",
-        subtitle: "La Dr.ssa Mai Wald combina medicina convenzionale, medicina funzionale e naturopatia per esaminare come metabolismo, ormoni, intestino e sistema nervoso collaborano per la stabilità della salute a lungo termine.",
+        label: "Salute Intestinale & IBS",
+        title: "Capire l'intestino irritabile. Cambiare la vita.",
+        subtitle: "La Dr.ssa Mai Wald è specializzata nella sindrome dell'intestino irritabile e nella salute intestinale. Con la medicina funzionale, diagnostica mirata e piani di trattamento personalizzati, vi aiuta a trovare le cause dei vostri disturbi digestivi.",
         cta_book: "Prenota appuntamento",
         cta_learn: "Scopri di più",
       },
       trust: {
         individual: {
           title: "Trattamento individuale",
-          description: "Su misura per i tuoi disturbi e le tue esigenze.",
+          description: "Su misura per i tuoi disturbi e la tua situazione intestinale.",
         },
         holistic: {
           title: "Approccio olistico",
-          description: "Corpo, nutrizione, stress e intestino in armonia.",
+          description: "Nutrizione, microbioma, stress e intestino in armonia.",
         },
         knowledge: {
           title: "Conoscenza che aiuta",
@@ -749,135 +652,104 @@ export default defineI18nConfig(() => ({
       },
       services: {
         label: "Servizi",
-        title: "Cure personalizzate per il tuo percorso di salute",
-        subtitle: "Tre percorsi distinti su misura per il punto in cui ti trovi nel tuo percorso di salute — dalla diagnostica iniziale all'ottimizzazione a lungo termine.",
+        title: "Il tuo percorso verso una migliore salute intestinale",
+        subtitle: "Tre percorsi su misura per il punto in cui ti trovi — dalla diagnostica intestinale iniziale alla gestione a lungo termine.",
         cards: {
           diagnostics: {
-            title: "Diagnostica Funzionale & Longevity",
-            description: "Analisi sanitaria completa con esami del sangue approfonditi, piano terapeutico personalizzato per nutrizione, sonno, movimento e gestione dello stress.",
+            title: "Diagnostica intestinale completa",
+            description: "Analisi approfondita della salute digestiva inclusi test delle feci, analisi del microbioma, pannelli di reattività alimentare e pianificazione terapeutica personalizzata.",
             cta: "Scopri di più",
           },
           analysis: {
-            title: "Analisi dei valori di laboratorio esistenti",
-            description: "Revisione dei risultati di laboratorio attuali e precedenti con consulenze individuali per sviluppare piani sanitari personalizzati. Di persona o virtualmente.",
+            title: "Analisi dei risultati esistenti",
+            description: "Revisione dei risultati di laboratorio attuali e precedenti con consulenza individuale per sviluppare un piano personalizzato per la salute intestinale. Di persona o virtualmente.",
             cta: "Scopri di più",
           },
           coaching: {
-            title: "Gestione sanitaria continuativa",
-            description: "Coaching sanitario a lungo termine basato sulle evidenze con consulenze mensili per monitorare i progressi verso i tuoi obiettivi di salute.",
+            title: "Coaching continuativo per la salute intestinale",
+            description: "Supporto a lungo termine con consulenze mensili, guida nutrizionale, adeguamenti del protocollo e monitoraggio dei sintomi.",
             cta: "Scopri di più",
           },
         },
       },
       benefits: {
-        label: "Perché la medicina funzionale",
-        title: "Una medicina che guarda il quadro completo",
-        subtitle: "Invece di trattare sintomi isolati, la medicina funzionale esamina le connessioni tra tutti i sistemi corporei per trovare e affrontare le cause profonde.",
+        label: "Perché la medicina funzionale intestinale",
+        title: "Arrivare alla radice dei problemi digestivi",
+        subtitle: "Invece di gestire solo i sintomi, indaghiamo le cause sottostanti dei problemi intestinali — dagli squilibri del microbioma alle reazioni alimentari e alle disfunzioni legate allo stress.",
         items: [
-          "Rilevamento precoce prima che i sintomi diventino cronici",
-          "Valutazione dell'equilibrio ormonale e ottimizzazione mirata",
-          "Analisi della salute intestinale e ottimizzazione del microbioma",
-          "Prevenzione del rischio cardiovascolare con biomarcatori avanzati",
-          "Miglioramento delle prestazioni per dirigenti e atleti",
-          "Protocolli personalizzati di nutrizione e micronutrienti",
-          "Analisi della qualità del sonno e strategie di miglioramento",
-          "Resilienza allo stress e regolazione del sistema nervoso",
+          "Analisi completa delle feci e del microbioma",
+          "Identificazione di intolleranze e sensibilità alimentari",
+          "Diagnostica SIBO e protocolli di trattamento mirati",
+          "Valutazione della funzione della barriera intestinale (leaky gut)",
+          "Valutazione dell'asse intestino-cervello e gestione dello stress",
+          "Piani nutrizionali personalizzati e diete di eliminazione",
+          "Protocolli mirati di probiotici e integratori",
+          "Ottimizzazione a lungo termine della salute digestiva",
         ],
       },
       concerns: {
-        label: "Problemi di salute comuni",
+        label: "Disturbi digestivi comuni",
         title: "Ti suona familiare?",
         items: {
           energy: {
-            title: "Poca energia, aumento di peso, difficoltà di concentrazione",
-            description: "Questi sintomi spesso indicano squilibri metabolici, carenze nutrizionali o cambiamenti ormonali. Una valutazione funzionale approfondita può identificare la causa e creare un percorso verso una vitalità rinnovata.",
+            title: "Gonfiore, gas e dolore addominale dopo i pasti",
+            description: "Questi sintomi spesso indicano squilibri nella flora intestinale, intolleranze alimentari o condizioni come la SIBO. La diagnostica mirata identifica i trigger esatti e un piano personalizzato porta sollievo duraturo.",
           },
           digestive: {
-            title: "Disturbi digestivi, problemi cutanei, gonfiore",
-            description: "La salute intestinale è fondamentale per il benessere generale. Attraverso diagnostica mirata e protocolli personalizzati, affrontiamo le cause sottostanti dei disturbi digestivi e dei sintomi correlati.",
+            title: "Movimenti intestinali irregolari, diarrea o stitichezza",
+            description: "Che si alterni tra diarrea e stitichezza o si abbia costantemente uno dei due — questi schemi rivelano indizi importanti sulla salute intestinale. I test funzionali ci aiutano a capire cosa guida la disfunzione.",
           },
           hormonal: {
-            title: "Squilibri ormonali, disturbi del sonno, stress cronico",
-            description: "L'interazione tra ormoni, sonno e stress forma un triangolo critico. Test completi rivelano gli squilibri e interventi basati sulle evidenze ripristinano l'equilibrio.",
+            title: "Stanchezza, nebbia mentale e problemi cutanei legati alla digestione",
+            description: "L'intestino influenza molto più della digestione — dai livelli di energia e chiarezza mentale alla salute della pelle. Quando la funzione intestinale è compromessa, gli effetti si ripercuotono su tutto il corpo.",
           },
         },
       },
       focus: {
         label: "Aree di specializzazione",
-        title: "Competenza specializzata nei principali ambiti della salute",
+        title: "Competenza specializzata nella salute intestinale",
         areas: {
-          cardiovascular: {
-            title: "Prevenzione Cardiovascolare",
-            description: "Analisi avanzata dei biomarcatori e stratificazione del rischio per l'ottimizzazione della salute cardiaca.",
+          ibs: {
+            title: "Sindrome dell'intestino irritabile",
+            description: "Diagnosi IBS basata sulle evidenze e trattamento individualizzato combinando approcci dietetici, di stile di vita e terapeutici.",
           },
-          womens: {
-            title: "Salute Femminile & Fertilità",
-            description: "Equilibrio ormonale, supporto alla fertilità e cure specializzate in tutte le fasi della vita.",
+          sibo: {
+            title: "SIBO",
+            description: "Sovraccrescita batterica dell'intestino tenue: breath test, protocolli strutturati di eradicazione e prevenzione.",
           },
-          gut: {
-            title: "Salute Intestinale",
-            description: "Analisi del microbioma, test di sensibilità alimentare e protocolli di ripristino mirati.",
+          microbiome: {
+            title: "Analisi del microbioma",
+            description: "Diagnostica completa delle feci per valutare la composizione della flora intestinale e sviluppare strategie di ripristino mirate.",
           },
-          autoimmune: {
-            title: "Autoimmunità & Infiammazione",
-            description: "Indagine sulle cause profonde e gestione delle condizioni autoimmuni e dell'infiammazione cronica.",
+          food: {
+            title: "Intolleranze alimentari",
+            description: "Identificazione sistematica dei trigger alimentari attraverso test e diete di eliminazione guidate per il controllo duraturo dei sintomi.",
           },
-          performance: {
-            title: "Ottimizzazione delle Prestazioni",
-            description: "Protocolli basati sulle evidenze per dirigenti e atleti che cercano prestazioni fisiche e mentali ottimali.",
+          gutbrain: {
+            title: "Asse intestino-cervello",
+            description: "Comprensione della connessione tra salute digestiva, stress, umore e funzione cognitiva per un trattamento olistico.",
           },
-          nutrition: {
-            title: "Nutrizione & Metabolismo",
-            description: "Strategie dietetiche personalizzate, ottimizzazione dei micronutrienti e valutazione della salute metabolica.",
+          leakygut: {
+            title: "Barriera intestinale",
+            description: "Valutazione e trattamento dell'aumentata permeabilità intestinale e dei suoi effetti sistemici sulla salute.",
           },
         },
       },
       about: {
         label: "Chi sono",
         title: "Dr.ssa Mai Wald",
-        subtitle: "Medico di Medicina Funzionale & Longevity",
-        bio: "Con una formazione in medicina convenzionale e specializzazione in medicina funzionale e longevity, adotto un approccio completo per comprendere il quadro sanitario unico di ogni paziente. Il mio studio unisce diagnostica basata sulle evidenze con strategie di trattamento personalizzate.",
-        philosophy: "Prevenire le malattie prima che si sviluppino e rafforzare la salute in modo sostenibile — a lungo termine, misurabile e individualizzato.",
+        subtitle: "Medico specializzata in salute intestinale e IBS",
+        bio: "Con una formazione in medicina convenzionale e specializzazione in medicina funzionale, mi concentro sulla comprensione e il trattamento dei disturbi digestivi alla radice. Il mio studio unisce diagnostica basata sulle evidenze con strategie personalizzate per la salute intestinale.",
+        philosophy: "Capire l'intestino significa capire la salute. Il mio obiettivo è aiutarti a riprendere il controllo della tua digestione — in modo sostenibile, individuale e basato sulle evidenze.",
         cta: "Scopri di più su di me",
         education_label: "Formazione e Certificazioni",
         experience_label: "Esperienza Clinica",
         specializations_label: "Specializzazioni",
       },
-      corporate: {
-        label: "Corporate Health",
-        title: "Investire nella salute del tuo team",
-        subtitle: "Programmi di benessere aziendale per aziende che vogliono stabilire una cultura della salute preventiva tra dipendenti e dirigenti.",
-        services: {
-          coaching: {
-            title: "Coaching Salute Dipendenti",
-            description: "Coaching su nutrizione, rigenerazione, gestione dello stress e sonno per i dipendenti.",
-          },
-          executive: {
-            title: "Programmi Executive Health",
-            description: "Consulenza benessere orientata alle prestazioni per manager e team dirigenziali.",
-          },
-          screening: {
-            title: "Screening Preventivi",
-            description: "Rilevamento precoce attraverso esami del sangue, questionari sanitari e consulenze.",
-          },
-          longterm: {
-            title: "Coaching Sanitario a Lungo Termine",
-            description: "Programmi sostenibili di cambiamento comportamentale sul posto di lavoro.",
-          },
-        },
-        values: [
-          "Salute mentale trattata come priorità medica",
-          "Sviluppo di una cultura organizzativa attenta alla salute",
-          "Dipendenti più sani, motivati e meno assenti",
-          "Leadership resiliente con gestione proattiva dello stress",
-          "Vantaggi finanziari attraverso prestazioni migliori e fidelizzazione",
-        ],
-        cta: "Contattaci",
-      },
       contact: {
         label: "Contatti",
-        title: "Inizia il tuo percorso di salute",
-        subtitle: "Che tu abbia domande o sia pronto per la tua prima consulenza — non vedo l'ora di sentirti.",
+        title: "Inizia il tuo percorso verso una migliore salute intestinale",
+        subtitle: "Che tu abbia domande sull'IBS, sulla diagnostica intestinale o sia pronto per la prima consulenza — non vedo l'ora di sentirti.",
         form: {
           first_name: "Nome",
           last_name: "Cognome",
@@ -898,8 +770,8 @@ export default defineI18nConfig(() => ({
         },
       },
       newsletter: {
-        title: "Conoscenze basate sulle evidenze per più anni di vita sana",
-        subtitle: "Approfondimenti mensili basati sulla scienza su medicina funzionale, longevity e strategie pratiche di ottimizzazione della salute.",
+        title: "Conoscenze basate sulle evidenze per una migliore salute intestinale",
+        subtitle: "Approfondimenti mensili basati sulla scienza su IBS, salute del microbioma e strategie pratiche per un benessere digestivo duraturo.",
         cta: "Iscriviti alla newsletter",
         placeholder: "Il tuo indirizzo email",
       },
@@ -908,20 +780,20 @@ export default defineI18nConfig(() => ({
         title: "Domande Frequenti",
         items: {
           q1: {
-            question: "Cos'è la medicina funzionale?",
-            answer: "La medicina funzionale è un approccio sistemico che si concentra sull'identificazione e il trattamento delle cause profonde delle malattie. Invece di trattare i sintomi isolatamente, esamina come i diversi sistemi corporei — metabolismo, ormoni, salute intestinale, funzione immunitaria — interagiscono e influenzano la salute generale.",
+            question: "Cos'è la sindrome dell'intestino irritabile (IBS)?",
+            answer: "L'IBS è un disturbo gastrointestinale funzionale caratterizzato da dolore addominale ricorrente, gonfiore e cambiamenti nelle abitudini intestinali. Colpisce fino al 15% della popolazione. Mentre la medicina convenzionale spesso tratta solo i sintomi, la medicina funzionale indaga le cause sottostanti — dagli squilibri del microbioma alle sensibilità alimentari e allo stress.",
           },
           q2: {
-            question: "In cosa si differenzia dalla medicina convenzionale?",
-            answer: "La medicina convenzionale eccelle nella cura acuta e nella diagnosi. La medicina funzionale si basa su questa base approfondendo il 'perché' dietro i sintomi. Utilizza diagnostica avanzata, nutrizione personalizzata, modifiche dello stile di vita e integrazione mirata insieme ai trattamenti convenzionali.",
+            question: "Come vengono diagnosticati e trattati i problemi intestinali?",
+            answer: "Utilizziamo diagnostica completa: analisi delle feci, test del microbioma, breath test per SIBO, pannelli di reattività alimentare e valutazione della permeabilità intestinale. Il trattamento è sempre individualizzato e può includere modifiche dietetiche, integrazione mirata, gestione dello stress e, quando necessario, interventi farmaceutici.",
           },
           q3: {
-            question: "Chi beneficia della medicina funzionale?",
-            answer: "Chiunque cerchi di comprendere la propria salute a un livello più profondo — che tu stia affrontando sintomi cronici irrisolti, voglia ottimizzare le tue prestazioni o stia investendo proattivamente nella salute a lungo termine e nella prevenzione delle malattie.",
+            question: "Quanto tempo ci vuole per vedere miglioramenti?",
+            answer: "Molti pazienti notano miglioramenti iniziali entro 4-6 settimane dall'inizio del protocollo personalizzato. Tuttavia, il ripristino sostenibile della salute intestinale richiede tipicamente 3-6 mesi di lavoro costante. Casi complessi come IBS di lunga data o SIBO possono richiedere più tempo. Monitoriamo i progressi con controlli regolari.",
           },
           q4: {
             question: "Le consulenze sono disponibili online?",
-            answer: "Sì. Consulenze iniziali, follow-up e coaching sanitario continuativo sono disponibili tramite telemedicina. I test di laboratorio possono essere organizzati presso laboratori partner nella tua zona e i risultati vengono discussi in appuntamenti virtuali.",
+            answer: "Sì. Consulenze iniziali, follow-up e coaching continuativo per la salute intestinale sono disponibili tramite telemedicina. I test di laboratorio possono essere organizzati presso laboratori partner nella tua zona e i risultati vengono discussi in appuntamenti virtuali.",
           },
           q5: {
             question: "È coperto dall'assicurazione?",
@@ -930,14 +802,14 @@ export default defineI18nConfig(() => ({
         },
       },
       final_cta: {
-        title: "La tua salute, compresa alla radice",
-        subtitle: "Il primo passo è una conversazione. Insieme svilupperemo un quadro chiaro della tua salute e un piano personalizzato.",
+        title: "La tua salute intestinale, compresa alla radice",
+        subtitle: "Il primo passo è una conversazione. Insieme svilupperemo un quadro chiaro della tua salute digestiva e un piano personalizzato.",
         cta: "Prenota la tua consulenza",
       },
       footer: {
-        description: "Dr.ssa Mai Wald — Medico di Medicina Funzionale & Longevity. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere a lungo termine.",
+        description: "Dr.ssa Mai Wald — Medico specializzata in salute intestinale e IBS. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere digestivo.",
         navigation: "Navigazione",
-        services: "Servizi",
+        services: "Aree di specializzazione",
         legal: "Legale",
         follow: "Seguici",
         impressum: "Impressum",

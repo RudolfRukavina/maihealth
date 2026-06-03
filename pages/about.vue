@@ -104,9 +104,9 @@
 useHead({
   title: 'Über mich — Dr. med. Mai Wald | MaiHealth',
   meta: [
-    { name: 'description', content: 'Dr. med. Mai Wald — Ärztin für Funktionelle Medizin & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.' },
+    { name: 'description', content: 'Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.' },
     { property: 'og:title', content: 'Über Dr. med. Mai Wald — MaiHealth' },
-    { property: 'og:description', content: 'Ärztin für Funktionelle Medizin & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen.' },
+    { property: 'og:description', content: 'Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen.' },
   ],
 })
 
@@ -124,11 +124,11 @@ const experience = [
 ]
 
 const specializations = [
-  'Sport and performance medicine',
+  'Irritable bowel syndrome (IBS)',
+  'Microbiome & stool diagnostics',
+  'SIBO diagnosis & treatment',
   'Nutritional medicine',
-  'Orthomolecular medicine',
-  'Naturopathic medicine',
-  'Longevity medicine',
+  'Functional gut medicine',
 ]
 
 const memberships = [

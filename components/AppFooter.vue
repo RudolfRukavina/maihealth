@@ -80,18 +80,17 @@ const { t } = useI18n()
 const navItems = computed(() => [
   { to: '/', label: t('nav.home') },
   { to: '/practice', label: t('nav.practice') },
-  { to: '/corporate-health', label: t('nav.corporate') },
   { to: '/about', label: t('nav.about') },
   { to: '/contact', label: t('nav.contact') },
 ])
 
 const focusAreas = computed(() => [
-  t('focus.areas.cardiovascular.title'),
-  t('focus.areas.womens.title'),
-  t('focus.areas.gut.title'),
-  t('focus.areas.autoimmune.title'),
-  t('focus.areas.performance.title'),
-  t('focus.areas.nutrition.title'),
+  t('focus.areas.ibs.title'),
+  t('focus.areas.sibo.title'),
+  t('focus.areas.microbiome.title'),
+  t('focus.areas.food.title'),
+  t('focus.areas.gutbrain.title'),
+  t('focus.areas.leakygut.title'),
 ])
 
 const scrollToTop = () => {

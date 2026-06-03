@@ -54,8 +54,8 @@
     <section class="section-padding bg-white">
       <div class="container-narrow">
         <div class="text-center mb-14">
-          <span class="section-label">Your Journey</span>
-          <h2 class="section-title">Four phases to better health</h2>
+          <span class="section-label">{{ $t('focus.label') }}</span>
+          <h2 class="section-title">{{ phases_title }}</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -83,7 +83,7 @@
       <div class="container-narrow">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
           <div>
-            <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">Diagnostic Methods</h3>
+            <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">{{ diagnostics_label }}</h3>
             <div class="space-y-3">
               <div v-for="item in diagnostics" :key="item" class="flex items-start gap-3 p-3 rounded-lg hover:bg-cream transition-colors">
                 <i class="fa-solid fa-flask text-sage text-sm flex-shrink-0 mt-0.5"></i>
@@ -93,7 +93,7 @@
           </div>
 
           <div>
-            <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">Treatment Components</h3>
+            <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">{{ treatments_label }}</h3>
             <div class="space-y-3">
               <div v-for="item in treatments" :key="item" class="flex items-start gap-3 p-3 rounded-lg hover:bg-cream transition-colors">
                 <i class="fa-solid fa-heart text-mauve text-sm flex-shrink-0 mt-0.5"></i>
@@ -107,35 +107,12 @@
 
     <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="4" />
 
-    <!-- FM vs Longevity -->
-    <section class="section-padding">
-      <div class="container-narrow">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-2xl border border-stone/30 p-8 md:p-10">
-            <div class="w-10 h-10 rounded-xl bg-sage/10 flex items-center justify-center mb-5">
-              <i class="fa-solid fa-magnifying-glass text-sage"></i>
-            </div>
-            <h3 class="text-xl font-serif font-semibold text-charcoal mb-3">Functional Medicine</h3>
-            <p class="text-sm text-body/70 leading-relaxed">The diagnostic and treatment methodology addressing root causes. It examines how interconnected body systems contribute to disease and uses that understanding to create targeted interventions.</p>
-          </div>
-
-          <div class="bg-white rounded-2xl border border-stone/30 p-8 md:p-10">
-            <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
-              <i class="fa-solid fa-sun text-gold"></i>
-            </div>
-            <h3 class="text-xl font-serif font-semibold text-charcoal mb-3">Longevity Medicine</h3>
-            <p class="text-sm text-body/70 leading-relaxed">The overarching objective of maximizing healthy lifespan through preventive strategies. It combines functional medicine diagnostics with proactive interventions to delay aging and maintain vitality.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Insurance Note -->
-    <section class="pb-12">
+    <section class="py-12">
       <div class="container-narrow">
         <div class="max-w-2xl mx-auto bg-cream-dark/60 rounded-2xl p-6 md:p-8 border border-stone/20">
-          <h3 class="text-sm font-semibold text-charcoal mb-2">Insurance & Payment</h3>
-          <p class="text-sm text-body/70 leading-relaxed">Services are typically not covered by statutory health insurance. Some private insurance plans may offer partial coverage depending on your policy terms. Most patients are self-paying. Detailed invoices are provided for potential reimbursement claims.</p>
+          <h3 class="text-sm font-semibold text-charcoal mb-2">{{ insurance_title }}</h3>
+          <p class="text-sm text-body/70 leading-relaxed">{{ insurance_text }}</p>
         </div>
       </div>
     </section>
@@ -147,14 +124,14 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 useHead({
   title: 'Praxis & Leistungen — MaiHealth | Dr. med. Mai Wald',
   meta: [
-    { name: 'description', content: 'Funktionelle Diagnostik, Laborwert-Analyse & laufende Gesundheitsbetreuung. Individuelle Therapiepläne für Reizdarm, Darmgesundheit und ganzheitliche Medizin.' },
+    { name: 'description', content: 'Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung. Individuelle Therapiepläne für Reizdarm, SIBO und Darmgesundheit.' },
     { property: 'og:title', content: 'Praxis & Leistungen — MaiHealth' },
-    { property: 'og:description', content: 'Funktionelle Diagnostik, Laborwert-Analyse & laufende Gesundheitsbetreuung bei Dr. med. Mai Wald.' },
+    { property: 'og:description', content: 'Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung bei Dr. med. Mai Wald.' },
   ],
 })
 
@@ -163,22 +140,55 @@ const services = computed(() => [
     key: 'diagnostics',
     title: t('services.cards.diagnostics.title'),
     description: t('services.cards.diagnostics.description'),
-    details: [
-      'Extended blood biomarker panel',
-      'Hormonal balance assessment',
-      'Nutritional status testing',
+    details: locale.value === 'de' ? [
+      'Umfassende Stuhldiagnostik & Mikrobiom-Analyse',
+      'Atemtests auf SIBO (Dünndarm-Fehlbesiedlung)',
+      'Nahrungsmittelunverträglichkeits-Tests',
+      'Darmpermeabilitäts-Beurteilung',
+      'Personalisierter Therapieplan',
+    ] : locale.value === 'hr' ? [
+      'Sveobuhvatna dijagnostika stolice i mikrobioma',
+      'Testovi daha za SIBO',
+      'Testovi netolerancije na hranu',
+      'Procjena crijevne propusnosti',
+      'Personalizirani plan terapije',
+    ] : locale.value === 'it' ? [
+      'Diagnostica completa delle feci e del microbioma',
+      'Breath test per SIBO',
+      'Test di intolleranza alimentare',
+      'Valutazione della permeabilità intestinale',
+      'Piano terapeutico personalizzato',
+    ] : [
+      'Comprehensive stool diagnostics & microbiome analysis',
+      'SIBO breath testing',
+      'Food intolerance and reactivity panels',
+      'Intestinal permeability assessment',
       'Personalized therapy plan',
-      'Targeted supplementation protocols',
     ],
   },
   {
     key: 'analysis',
     title: t('services.cards.analysis.title'),
     description: t('services.cards.analysis.description'),
-    details: [
+    details: locale.value === 'de' ? [
+      'Auswertung aktueller und früherer Befunde',
+      'Persönliche Einzelkonsultation',
+      'Individueller Darmgesundheitsplan',
+      'Vor Ort oder per Telemedizin verfügbar',
+    ] : locale.value === 'hr' ? [
+      'Pregled aktualnih i prethodnih nalaza',
+      'Osobna konzultacija',
+      'Individualni plan zdravlja probave',
+      'Dostupno uživo ili putem telemedicine',
+    ] : locale.value === 'it' ? [
+      'Revisione dei risultati attuali e precedenti',
+      'Consulenza individuale',
+      'Piano personalizzato per la salute intestinale',
+      'Disponibile di persona o in telemedicina',
+    ] : [
       'Review of current and previous results',
       'One-on-one consultation',
-      'Individualized health plan development',
+      'Individualized gut health plan',
       'Available in-person or via telemedicine',
     ],
   },
@@ -186,38 +196,158 @@ const services = computed(() => [
     key: 'coaching',
     title: t('services.cards.coaching.title'),
     description: t('services.cards.coaching.description'),
-    details: [
+    details: locale.value === 'de' ? [
+      'Monatliche Fortschritts-Konsultationen',
+      'Laufende Protokollanpassungen',
+      'Ernährungs- und Lebensstilberatung',
+      'Symptom-Monitoring und Tracking',
+      'Bundesweit per Telemedizin verfügbar',
+    ] : locale.value === 'hr' ? [
+      'Mjesečne konzultacije o napretku',
+      'Kontinuirane prilagodbe protokola',
+      'Savjetovanje o prehrani i životnom stilu',
+      'Praćenje simptoma',
+      'Dostupno putem telemedicine',
+    ] : locale.value === 'it' ? [
+      'Consulenze mensili sui progressi',
+      'Adeguamenti continui del protocollo',
+      'Consulenza nutrizionale e sullo stile di vita',
+      'Monitoraggio dei sintomi',
+      'Disponibile in telemedicina',
+    ] : [
       'Monthly progress consultations',
-      'Ongoing plan adjustments',
+      'Ongoing protocol adjustments',
       'Nutrition and lifestyle coaching',
+      'Symptom monitoring and tracking',
       'Nationwide telemedicine available',
     ],
   },
 ])
 
-const phases = [
-  { title: 'Initial Consultation', description: 'Comprehensive patient history — in-person or telemedical.', icon: 'fa-solid fa-comments' },
-  { title: 'Individualized Diagnostics', description: 'Testing tailored to your specific health situation.', icon: 'fa-solid fa-microscope' },
-  { title: 'Therapy & Prevention Plan', description: 'Structured, evidence-based plan development.', icon: 'fa-solid fa-clipboard-list' },
-  { title: 'Ongoing Monitoring', description: 'Progress tracking with plan adjustments.', icon: 'fa-solid fa-chart-line' },
-]
+const phases_title = computed(() => ({
+  de: 'Vier Schritte zu besserer Darmgesundheit',
+  hr: 'Četiri koraka do boljeg zdravlja probave',
+  it: 'Quattro passi verso una migliore salute intestinale',
+  en: 'Four steps to better gut health',
+})[locale.value] || 'Four steps to better gut health')
 
-const diagnostics = [
-  'Advanced blood biomarker analysis',
-  'Hormonal balance assessment',
-  'Cardiovascular-metabolic evaluation',
-  'Nutritional status testing',
-  'Genetic examinations',
-  'Inflammatory marker screening',
-  'Detailed patient history collection',
-]
+const phases = computed(() => ({
+  de: [
+    { title: 'Erstgespräch', description: 'Ausführliche Anamnese Ihrer Darmbeschwerden — persönlich oder per Telemedizin.', icon: 'fa-solid fa-comments' },
+    { title: 'Gezielte Diagnostik', description: 'Stuhlanalyse, Mikrobiom-Tests und weitere auf Ihre Situation abgestimmte Untersuchungen.', icon: 'fa-solid fa-microscope' },
+    { title: 'Therapieplan', description: 'Individueller, evidenzbasierter Behandlungsplan für Ihre Darmgesundheit.', icon: 'fa-solid fa-clipboard-list' },
+    { title: 'Begleitung', description: 'Fortlaufendes Monitoring mit Anpassungen für nachhaltige Besserung.', icon: 'fa-solid fa-chart-line' },
+  ],
+  hr: [
+    { title: 'Inicijalni razgovor', description: 'Detaljna anamneza vaših probavnih tegoba — osobno ili putem telemedicine.', icon: 'fa-solid fa-comments' },
+    { title: 'Ciljana dijagnostika', description: 'Analiza stolice, testovi mikrobioma i druge pretrage prilagođene vašoj situaciji.', icon: 'fa-solid fa-microscope' },
+    { title: 'Plan terapije', description: 'Individualni, na dokazima utemeljen plan liječenja za zdravlje probave.', icon: 'fa-solid fa-clipboard-list' },
+    { title: 'Praćenje', description: 'Kontinuirano praćenje s prilagodbama za trajno poboljšanje.', icon: 'fa-solid fa-chart-line' },
+  ],
+  it: [
+    { title: 'Primo colloquio', description: 'Anamnesi dettagliata dei disturbi digestivi — di persona o in telemedicina.', icon: 'fa-solid fa-comments' },
+    { title: 'Diagnostica mirata', description: 'Analisi delle feci, test del microbioma e altri esami adattati alla situazione.', icon: 'fa-solid fa-microscope' },
+    { title: 'Piano terapeutico', description: 'Piano di trattamento individualizzato e basato sulle evidenze per la salute intestinale.', icon: 'fa-solid fa-clipboard-list' },
+    { title: 'Accompagnamento', description: 'Monitoraggio continuo con adeguamenti per un miglioramento sostenibile.', icon: 'fa-solid fa-chart-line' },
+  ],
+  en: [
+    { title: 'Initial Consultation', description: 'Comprehensive history of your gut symptoms — in-person or via telemedicine.', icon: 'fa-solid fa-comments' },
+    { title: 'Targeted Diagnostics', description: 'Stool analysis, microbiome tests, and further assessments tailored to your situation.', icon: 'fa-solid fa-microscope' },
+    { title: 'Therapy Plan', description: 'Individualized, evidence-based treatment plan for your gut health.', icon: 'fa-solid fa-clipboard-list' },
+    { title: 'Ongoing Support', description: 'Continuous monitoring with adjustments for sustainable improvement.', icon: 'fa-solid fa-chart-line' },
+  ],
+})[locale.value] || [])
 
-const treatments = [
-  'Nutritional counseling',
-  'Sleep optimization strategies',
-  'Exercise programming',
-  'Stress regulation techniques',
-  'Targeted supplementation',
-  'Pharmaceutical interventions when necessary',
-]
+const diagnostics_label = computed(() => ({
+  de: 'Diagnostische Methoden', hr: 'Dijagnostičke metode', it: 'Metodi diagnostici', en: 'Diagnostic Methods',
+})[locale.value])
+
+const diagnostics = computed(() => ({
+  de: [
+    'Umfassende Stuhldiagnostik',
+    'Mikrobiom-Sequenzierung',
+    'SIBO-Atemtests (H2/CH4)',
+    'Nahrungsmittelunverträglichkeits-Panels',
+    'Zonulin & Darmpermeabilitäts-Marker',
+    'Entzündungsmarker (Calprotectin)',
+    'Ausführliche Anamnese',
+  ],
+  hr: [
+    'Sveobuhvatna dijagnostika stolice',
+    'Sekvenciranje mikrobioma',
+    'SIBO testovi daha (H2/CH4)',
+    'Paneli netolerancija na hranu',
+    'Zonulin i markeri crijevne propusnosti',
+    'Markeri upale (kalprotektin)',
+    'Detaljna anamneza',
+  ],
+  it: [
+    'Diagnostica completa delle feci',
+    'Sequenziamento del microbioma',
+    'Breath test SIBO (H2/CH4)',
+    'Pannelli di intolleranza alimentare',
+    'Zonulina e marcatori di permeabilità',
+    'Marcatori infiammatori (calprotectina)',
+    'Anamnesi dettagliata',
+  ],
+  en: [
+    'Comprehensive stool diagnostics',
+    'Microbiome sequencing',
+    'SIBO breath tests (H2/CH4)',
+    'Food intolerance panels',
+    'Zonulin & intestinal permeability markers',
+    'Inflammatory markers (calprotectin)',
+    'Detailed patient history',
+  ],
+})[locale.value] || [])
+
+const treatments_label = computed(() => ({
+  de: 'Behandlungskomponenten', hr: 'Komponente liječenja', it: 'Componenti del trattamento', en: 'Treatment Components',
+})[locale.value])
+
+const treatments = computed(() => ({
+  de: [
+    'Personalisierte Ernährungsberatung',
+    'Eliminationsdiät-Begleitung',
+    'Gezielte Probiotika-Protokolle',
+    'Darmbarriere-Wiederherstellung',
+    'Stressmanagement & Darm-Hirn-Achse',
+    'Gezielte Supplementierung',
+  ],
+  hr: [
+    'Personalizirano savjetovanje o prehrani',
+    'Praćenje eliminacijske dijete',
+    'Ciljani protokoli probiotika',
+    'Obnova crijevne barijere',
+    'Upravljanje stresom i os crijevo-mozak',
+    'Ciljana suplementacija',
+  ],
+  it: [
+    'Consulenza nutrizionale personalizzata',
+    'Accompagnamento dieta di eliminazione',
+    'Protocolli probiotici mirati',
+    'Ripristino della barriera intestinale',
+    'Gestione dello stress e asse intestino-cervello',
+    'Integrazione mirata',
+  ],
+  en: [
+    'Personalized nutrition counseling',
+    'Elimination diet guidance',
+    'Targeted probiotic protocols',
+    'Gut barrier restoration',
+    'Stress management & gut-brain axis',
+    'Targeted supplementation',
+  ],
+})[locale.value] || [])
+
+const insurance_title = computed(() => ({
+  de: 'Versicherung & Bezahlung', hr: 'Osiguranje i plaćanje', it: 'Assicurazione e pagamento', en: 'Insurance & Payment',
+})[locale.value])
+
+const insurance_text = computed(() => ({
+  de: 'Die Leistungen werden in der Regel nicht von der gesetzlichen Krankenversicherung übernommen. Einige private Krankenversicherungen bieten je nach Vertragsbedingungen eine teilweise Kostenübernahme an. Die meisten Patienten sind Selbstzahler. Detaillierte Rechnungen werden für mögliche Erstattungsanträge bereitgestellt.',
+  hr: 'Usluge obično nisu pokrivene obveznim zdravstvenim osiguranjem. Neka privatna osiguranja mogu ponuditi djelomično pokriće ovisno o uvjetima polise. Većina pacijenata su samoplatiše. Detaljni računi se izdaju za moguće zahtjeve za povrat troškova.',
+  it: 'I servizi in genere non sono coperti dall\'assicurazione sanitaria obbligatoria. Alcune assicurazioni private possono offrire una copertura parziale. La maggior parte dei pazienti paga privatamente. Vengono fornite fatture dettagliate per eventuali richieste di rimborso.',
+  en: 'Services are typically not covered by statutory health insurance. Some private insurance plans may offer partial coverage depending on your policy terms. Most patients are self-paying. Detailed invoices are provided for potential reimbursement claims.',
+})[locale.value])
 </script>

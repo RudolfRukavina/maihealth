@@ -63,9 +63,9 @@ const innerRefs = ref([])
 const contentHeights = ref({})
 
 const items = computed(() => [
-  { key: 'energy', icon: 'fa-solid fa-battery-quarter', title: t('concerns.items.energy.title'), description: t('concerns.items.energy.description') },
-  { key: 'digestive', icon: 'fa-solid fa-lungs', title: t('concerns.items.digestive.title'), description: t('concerns.items.digestive.description') },
-  { key: 'hormonal', icon: 'fa-solid fa-moon', title: t('concerns.items.hormonal.title'), description: t('concerns.items.hormonal.description') },
+  { key: 'energy', icon: 'fa-solid fa-wind', title: t('concerns.items.energy.title'), description: t('concerns.items.energy.description') },
+  { key: 'digestive', icon: 'fa-solid fa-arrows-rotate', title: t('concerns.items.digestive.title'), description: t('concerns.items.digestive.description') },
+  { key: 'hormonal', icon: 'fa-solid fa-brain', title: t('concerns.items.hormonal.title'), description: t('concerns.items.hormonal.description') },
 ])
 
 const toggle = (index) => {

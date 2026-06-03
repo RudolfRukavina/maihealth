@@ -148,7 +148,6 @@ const languages = [
 const navItems = computed(() => [
   { to: '/', label: t('nav.home'), icon: 'fa-solid fa-house' },
   { to: '/practice', label: t('nav.practice'), icon: 'fa-solid fa-stethoscope' },
-  { to: '/corporate-health', label: t('nav.corporate'), icon: 'fa-solid fa-building' },
   { to: '/about', label: t('nav.about'), icon: 'fa-solid fa-user-doctor' },
   { to: '/contact', label: t('nav.contact'), icon: 'fa-solid fa-envelope' },
 ])
