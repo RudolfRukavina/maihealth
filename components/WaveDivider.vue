@@ -34,6 +34,10 @@ defineProps({
 .wave-divider {
   line-height: 0;
   overflow: hidden;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .wave-divider svg {

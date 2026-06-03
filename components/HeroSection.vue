@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-dvh lg:min-h-screen lg:h-auto flex items-center overflow-hidden">
+  <section class="relative h-dvh lg:min-h-screen lg:h-auto flex items-center overflow-hidden bg-cream">
     <div class="absolute inset-0 bg-gradient-to-br from-cream via-cream to-cream-dark/30" />
     <div class="absolute top-20 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full bg-sage/[0.04] blur-[60px] md:blur-[100px]" />
     <div class="absolute bottom-20 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full bg-mauve/[0.06] blur-[50px] md:blur-[80px]" />
