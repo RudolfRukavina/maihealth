@@ -10,13 +10,13 @@
         <div
           v-for="area in areas"
           :key="area.key"
-          class="group relative p-5 sm:p-7 md:p-8 rounded-2xl bg-white border border-stone/20 transition-all duration-200 hover:border-sage/25 hover:shadow-lg hover:shadow-sage/[0.05] hover:-translate-y-0.5"
+          class="group relative p-5 sm:p-7 md:p-8 rounded-2xl bg-white border border-stone/20 transition-all duration-200 hover:border-sage/25 hover:shadow-lg hover:shadow-sage/[0.05] hover:-translate-y-0.5 overflow-hidden"
         >
           <div class="icon-box mb-4 sm:mb-5 w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl" :class="area.bgClass">
             <i :class="area.icon" class="text-sm sm:text-base" :style="{ color: area.iconColor }"></i>
           </div>
 
-          <h3 class="text-base sm:text-lg font-serif font-semibold text-charcoal mb-1.5 sm:mb-2.5 group-hover:text-sage transition-colors duration-150 leading-snug">
+          <h3 class="text-base sm:text-lg font-serif font-semibold text-charcoal mb-1.5 sm:mb-2.5 group-hover:text-sage transition-colors duration-150 leading-snug break-words">
             {{ area.title }}
           </h3>
 
