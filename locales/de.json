@@ -12,7 +12,8 @@
   },
   "hero": {
     "label": "Darmgesundheit & Reizdarm",
-    "title": "Reizdarm verstehen. Leben verändern.",
+    "title_line1": "Reizdarm verstehen.",
+    "title_line2": "Leben verändern.",
     "subtitle": "Dr. med. Mai Wald ist spezialisiert auf Reizdarmsyndrom und Darmgesundheit. Mit funktioneller Medizin, gezielter Diagnostik und individuellen Therapieplänen hilft sie Ihnen, die Ursachen Ihrer Verdauungsbeschwerden zu finden.",
     "cta_book": "Termin vereinbaren",
     "cta_learn": "Mehr erfahren",

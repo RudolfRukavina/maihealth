@@ -7,16 +7,16 @@
     <div class="container-narrow relative z-10 pt-20 pb-6 sm:pt-28 sm:pb-16 md:py-0 h-full lg:h-auto flex flex-col justify-center">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
-        <div class="max-w-xl text-center lg:text-left mx-auto lg:mx-0 lg:order-1">
-          <h1 class="hero-fade hero-fade-1 text-display-hero sm:text-4xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal text-balance mb-5 sm:mb-5">
-            {{ $t('hero.title') }}
+        <div class="max-w-xl text-left mx-auto lg:mx-0 lg:order-1">
+          <h1 class="hero-fade hero-fade-1 text-display-hero sm:text-4xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal mb-5 sm:mb-5">
+            {{ $t('hero.title_line1') }}<br>{{ $t('hero.title_line2') }}
           </h1>
 
           <p class="hero-fade hero-fade-2 text-base sm:text-base md:text-lg text-body/80 leading-relaxed mb-8 sm:mb-8">
             {{ $t('hero.subtitle') }}
           </p>
 
-          <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-center lg:justify-start">
+          <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-start">
             <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
               <i class="fa-regular fa-calendar-check text-sm"></i>
               {{ $t('hero.cta_book') }}

@@ -12,7 +12,8 @@
   },
   "hero": {
     "label": "Zdravlje probave i IBS",
-    "title": "Razumjeti sindrom iritabilnog crijeva. Promijeniti život.",
+    "title_line1": "Razumjeti sindrom iritabilnog crijeva.",
+    "title_line2": "Promijeniti život.",
     "subtitle": "Dr. med. Mai Wald specijalizirana je za sindrom iritabilnog crijeva i zdravlje probave. Funkcionalnom medicinom, ciljanom dijagnostikom i individualnim planovima liječenja pomaže vam pronaći uzroke vaših probavnih tegoba.",
     "cta_book": "Naruči termin",
     "cta_learn": "Saznaj više",

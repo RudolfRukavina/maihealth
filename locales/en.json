@@ -12,7 +12,8 @@
   },
   "hero": {
     "label": "Gut Health & IBS",
-    "title": "Understand IBS. Change your life.",
+    "title_line1": "Understand IBS.",
+    "title_line2": "Change your life.",
     "subtitle": "Dr. med. Mai Wald specializes in irritable bowel syndrome and gut health. With functional medicine, targeted diagnostics, and personalized treatment plans, she helps you get to the root of your digestive issues.",
     "cta_book": "Book Appointment",
     "cta_learn": "Learn More",
