@@ -1,9 +1,7 @@
 import { FieldValue } from 'firebase-admin/firestore'
 import { verifyAuth } from '../../utils/verify-auth'
 import { getAdminDb } from '../../utils/firebase-admin'
-
-// Accounts that are granted the admin role on sign-in (lowercase).
-const ADMIN_EMAILS = ['noamaijimenez@gmail.com']
+import { ADMIN_EMAILS } from '../../utils/admins'
 
 // Creates the user profile on first sign-in and resolves the user's role.
 // Runs with the Admin SDK because Firestore rules (correctly) forbid clients

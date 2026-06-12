@@ -1,4 +1,5 @@
 import { Resend } from 'resend'
+import { getAdminRecipients } from './admins'
 
 let resendInstance: Resend | null = null
 
@@ -10,6 +11,7 @@ function getResend(): Resend | null {
 }
 
 const FROM = 'MaiHealth <noreply@mai-health.de>'
+const SITE_URL = 'https://mai-health.de'
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
@@ -30,7 +32,7 @@ function layout(body: string): string {
       ${body}
       <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E4DF; font-size: 12px; color: #999;">
         Mai Jimenez · Physician for Gut Health & IBS<br>
-        <a href="https://maihealth.com" style="color: #8B9A6B;">maihealth.com</a>
+        <a href="${SITE_URL}" style="color: #8B9A6B;">mai-health.de</a>
       </div>
     </div>
   `
@@ -110,7 +112,7 @@ export async function sendRequestDeclined(opts: {
       <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Request Update</h2>
       <p>Dear ${name},</p>
       <p>Unfortunately, we were unable to accommodate your requested time slot. This can happen when a slot is no longer available or doesn't fit the current schedule.</p>
-      <p>We'd love to find a time that works for you. Please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
+      <p>We'd love to find a time that works for you. Please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
     `),
   })
 }
@@ -132,7 +134,7 @@ export async function sendAppointmentCancelled(opts: {
       <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Cancelled</h2>
       <p>Dear ${name},</p>
       <p>Your appointment on <strong>${formatDate(date)}</strong> at <strong>${formatTime(date)}</strong> has been cancelled.</p>
-      <p>If you'd like to reschedule, please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
+      <p>If you'd like to reschedule, please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
     `),
   })
 }
@@ -149,12 +151,11 @@ export async function sendAdminNewRequest(opts: {
 }) {
   const resend = getResend()
   if (!resend) return
-  const config = useRuntimeConfig()
   const { name, email, phone, date, type, reason } = opts
 
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New appointment request from ${name}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request</h2>
@@ -165,7 +166,7 @@ export async function sendAdminNewRequest(opts: {
         <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
         <p style="margin: 0;"><strong>Reason:</strong> ${reason || 'Not provided'}</p>
       </div>
-      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel →</a></p>
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel →</a></p>
     `),
   })
 }
@@ -179,12 +180,11 @@ export async function sendAdminContactForm(opts: {
 }) {
   const resend = getResend()
   if (!resend) return
-  const config = useRuntimeConfig()
   const { firstName, lastName, email, phone, message } = opts
 
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New contact from ${firstName} ${lastName}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Contact Form Submission</h2>
@@ -209,12 +209,11 @@ export async function sendAdminPortalRequest(opts: {
 }) {
   const resend = getResend()
   if (!resend) return
-  const config = useRuntimeConfig()
   const { name, email, preferredDates, preferredTime, type, reason } = opts
 
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New appointment request from ${name}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request (Portal)</h2>
@@ -225,7 +224,7 @@ export async function sendAdminPortalRequest(opts: {
         <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
         <p style="margin: 0;"><strong>Reason:</strong> ${reason || 'Not provided'}</p>
       </div>
-      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel →</a></p>
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel →</a></p>
     `),
   })
 }

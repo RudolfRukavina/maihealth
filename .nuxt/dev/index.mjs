@@ -1559,6 +1559,23 @@ async function createZoomMeeting(topic, startTime, duration = 60) {
   };
 }
 
+const ADMIN_EMAILS = ["noamaijimenez@gmail.com"];
+async function getAdminRecipients() {
+  const config = useRuntimeConfig();
+  const recipients = new Set(ADMIN_EMAILS);
+  if (config.contactEmail) recipients.add(String(config.contactEmail).toLowerCase());
+  try {
+    const snap = await getAdminDb().collection("users").where("role", "==", "admin").get();
+    snap.forEach((doc) => {
+      const email = doc.data().email;
+      if (typeof email === "string" && email) recipients.add(email.toLowerCase());
+    });
+  } catch (err) {
+    console.error("Failed to load admin users for notifications:", err);
+  }
+  return [...recipients];
+}
+
 let resendInstance = null;
 function getResend() {
   const config = useRuntimeConfig();
@@ -1567,6 +1584,7 @@ function getResend() {
   return resendInstance;
 }
 const FROM = "MaiHealth <noreply@mai-health.de>";
+const SITE_URL = "https://mai-health.de";
 function formatDate(date) {
   return date.toLocaleDateString("en-US", {
     weekday: "long",
@@ -1587,7 +1605,7 @@ function layout(body) {
       ${body}
       <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E4DF; font-size: 12px; color: #999;">
         Mai Jimenez \xB7 Physician for Gut Health & IBS<br>
-        <a href="https://maihealth.com" style="color: #8B9A6B;">maihealth.com</a>
+        <a href="${SITE_URL}" style="color: #8B9A6B;">mai-health.de</a>
       </div>
     </div>
   `;
@@ -1646,7 +1664,7 @@ async function sendRequestDeclined(opts) {
       <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Request Update</h2>
       <p>Dear ${name},</p>
       <p>Unfortunately, we were unable to accommodate your requested time slot. This can happen when a slot is no longer available or doesn't fit the current schedule.</p>
-      <p>We'd love to find a time that works for you. Please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
+      <p>We'd love to find a time that works for you. Please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
     `)
   });
 }
@@ -1662,18 +1680,17 @@ async function sendAppointmentCancelled(opts) {
       <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Cancelled</h2>
       <p>Dear ${name},</p>
       <p>Your appointment on <strong>${formatDate(date)}</strong> at <strong>${formatTime(date)}</strong> has been cancelled.</p>
-      <p>If you'd like to reschedule, please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
+      <p>If you'd like to reschedule, please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
     `)
   });
 }
 async function sendAdminNewRequest(opts) {
   const resend = getResend();
   if (!resend) return;
-  const config = useRuntimeConfig();
   const { name, email, phone, date, type, reason } = opts;
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New appointment request from ${name}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request</h2>
@@ -1684,18 +1701,17 @@ async function sendAdminNewRequest(opts) {
         <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
         <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
       </div>
-      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
     `)
   });
 }
 async function sendAdminContactForm(opts) {
   const resend = getResend();
   if (!resend) return;
-  const config = useRuntimeConfig();
   const { firstName, lastName, email, phone, message } = opts;
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New contact from ${firstName} ${lastName}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Contact Form Submission</h2>
@@ -1712,11 +1728,10 @@ async function sendAdminContactForm(opts) {
 async function sendAdminPortalRequest(opts) {
   const resend = getResend();
   if (!resend) return;
-  const config = useRuntimeConfig();
   const { name, email, preferredDates, preferredTime, type, reason } = opts;
   await resend.emails.send({
     from: FROM,
-    to: config.contactEmail,
+    to: await getAdminRecipients(),
     subject: `New appointment request from ${name}`,
     html: layout(`
       <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request (Portal)</h2>
@@ -1727,7 +1742,7 @@ async function sendAdminPortalRequest(opts) {
         <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
         <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
       </div>
-      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
     `)
   });
 }
@@ -2122,7 +2137,6 @@ const request_post$1 = /*#__PURE__*/Object.freeze({
   default: request_post
 });
 
-const ADMIN_EMAILS = ["noamaijimenez@gmail.com"];
 const bootstrap_post = defineEventHandler(async (event) => {
   var _a, _b, _c, _d, _e, _f;
   const decoded = await verifyAuth(event);
