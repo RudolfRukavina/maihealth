@@ -18,7 +18,7 @@
       </div>
 
       <div class="text-center mt-8 sm:mt-10">
-        <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm">
+        <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 text-base sm:text-sm">
           <i class="fa-regular fa-calendar-check text-sm"></i>
           {{ $t('hero.cta_book') }}
         </NuxtLink>

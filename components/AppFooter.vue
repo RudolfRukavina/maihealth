@@ -6,21 +6,12 @@
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-2.5 mb-4 sm:mb-5">
-            <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 brightness-0 invert opacity-80" />
+            <img src="/maihealth.svg" alt="" aria-hidden="true" class="w-9 h-9 sm:w-10 sm:h-10 brightness-0 invert opacity-80" />
             <img src="/maihealthfull.svg" alt="MaiHealth" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto brightness-0 invert opacity-80" />
           </div>
-          <p class="text-xs sm:text-sm leading-relaxed text-cream/40 mb-5 sm:mb-6">
+          <p class="text-xs sm:text-sm leading-relaxed text-cream/40">
             {{ $t('footer.description') }}
           </p>
-          <div class="flex gap-3">
-            <!-- TODO: Replace with real social URLs -->
-            <a href="https://instagram.com/maihealth" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="Instagram">
-              <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
-            </a>
-            <a href="https://linkedin.com/company/maihealth" target="_blank" rel="noopener" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center hover:bg-sage hover:border-sage transition-all duration-150" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in text-xs sm:text-sm"></i>
-            </a>
-          </div>
         </div>
 
         <!-- Navigation -->

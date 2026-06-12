@@ -16,11 +16,11 @@
             <i :class="pillar.icon" class="text-base sm:text-xl md:text-2xl" :style="{ color: pillar.iconColor }"></i>
           </div>
 
-          <h3 class="text-xs sm:text-xs font-sans font-bold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-cream/90 mb-1.5 sm:mb-2.5">
+          <h3 class="text-xs font-sans font-bold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-cream/90 mb-1.5 sm:mb-2.5">
             {{ pillar.title }}
           </h3>
 
-          <p class="text-sm sm:text-sm text-cream/50 leading-relaxed max-w-[220px] mx-auto">
+          <p class="text-sm text-cream/50 leading-relaxed max-w-[220px] mx-auto">
             {{ pillar.description }}
           </p>
         </div>

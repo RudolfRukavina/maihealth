@@ -29,7 +29,7 @@
                 >
                   <i :class="[item.icon, 'text-xs sm:text-sm transition-colors duration-150', openIndex === index ? 'text-sage' : 'text-muted']"></i>
                 </div>
-                <h3 class="text-base sm:text-base md:text-lg font-serif font-semibold text-charcoal pr-2 sm:pr-4">
+                <h3 class="text-base md:text-lg font-serif font-semibold text-charcoal pr-2 sm:pr-4">
                   {{ item.title }}
                 </h3>
               </div>
@@ -44,11 +44,11 @@
             <div
               :id="`concern-panel-${index}`"
               role="region"
-              class="overflow-hidden transition-all duration-200 ease-in-out"
-              :style="{ maxHeight: openIndex === index ? contentHeights[index] + 'px' : '0px' }"
+              class="grid transition-[grid-template-rows] duration-200 ease-in-out"
+              :class="openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
             >
-              <div :ref="el => innerRefs[index] = el" class="px-5 sm:px-6 md:px-8 pb-5 sm:pb-6 md:pb-8 pl-[52px] sm:pl-[60px] md:pl-[84px]">
-                <p class="text-sm text-body/75 leading-relaxed">
+              <div class="overflow-hidden">
+                <p class="text-sm text-body/75 leading-relaxed px-5 sm:px-6 md:px-8 pb-5 sm:pb-6 md:pb-8 pl-[52px] sm:pl-[60px] md:pl-[84px]">
                   {{ item.description }}
                 </p>
               </div>
@@ -63,8 +63,6 @@
 <script setup>
 const { t } = useI18n()
 const openIndex = ref(0)
-const innerRefs = ref([])
-const contentHeights = ref({})
 
 const items = computed(() => [
   { key: 'energy', icon: 'fa-solid fa-wind', title: t('concerns.items.energy.title'), description: t('concerns.items.energy.description') },
@@ -75,19 +73,4 @@ const items = computed(() => [
 const toggle = (index) => {
   openIndex.value = openIndex.value === index ? -1 : index
 }
-
-const measureHeights = () => {
-  innerRefs.value.forEach((el, i) => {
-    if (el) contentHeights.value[i] = el.scrollHeight
-  })
-}
-
-onMounted(() => {
-  nextTick(measureHeights)
-  window.addEventListener('resize', measureHeights)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', measureHeights)
-})
 </script>

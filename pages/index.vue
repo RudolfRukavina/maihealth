@@ -11,7 +11,6 @@
     <TrustPillars />
     <WaveDivider fromColor="#2D3A24" toColor="#FFFFFF" :variant="4" />
     <StepsOverview />
-    <WaveDivider fromColor="#FFFFFF" toColor="#FFFFFF" :variant="1" />
     <HealthConcerns />
     <WaveDivider fromColor="#FFFFFF" toColor="#EEF1EA" :variant="3" />
     <AboutPreview />

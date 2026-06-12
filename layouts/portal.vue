@@ -4,7 +4,7 @@
     <header class="bg-white border-b border-stone/20">
       <div class="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-16">
         <NuxtLink to="/" class="flex items-center gap-2">
-          <img src="/maihealth.svg" alt="MaiHealth" class="w-8 h-8" />
+          <img src="/maihealth.svg" alt="" aria-hidden="true" class="w-8 h-8" />
           <img src="/maihealthfull.svg" alt="MaiHealth" class="h-20 -ms-4 w-auto" />
         </NuxtLink>
 

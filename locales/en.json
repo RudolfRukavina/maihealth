@@ -49,13 +49,6 @@
     "label": "How I Help",
     "title": "How I help you as a holistic physician",
     "subtitle": "Comprehensive, individualized gut health care — from first consultation to lasting results.",
-    "description": "You receive individualized medical care tailored exactly to your health situation. Through holistic diagnostics, guided detox, and targeted gut regeneration, I support your body in finding its balance again.",
-    "points": [
-      "Online consultations & personal 1-on-1 care",
-      "Microbiome analysis & holistic gut diagnostics",
-      "Guided detox & gut regeneration protocols"
-    ],
-    "cta": "Book Online Appointment",
     "cards": {
       "diagnostics": {
         "title": "Therapy",
@@ -90,21 +83,6 @@
         ]
       }
     }
-  },
-  "benefits": {
-    "label": "Why Functional Gut Medicine",
-    "title": "Getting to the root of digestive issues",
-    "subtitle": "Instead of just managing symptoms, we investigate the underlying causes of your gut problems — from microbiome imbalances to food reactions and stress-related dysfunction.",
-    "items": [
-      "Comprehensive stool and microbiome analysis",
-      "Identification of food intolerances and sensitivities",
-      "SIBO testing and targeted treatment protocols",
-      "Gut barrier function assessment (leaky gut)",
-      "Gut-brain axis evaluation and stress management",
-      "Personalized nutrition and elimination diet plans",
-      "Targeted probiotic and supplement protocols",
-      "Long-term digestive health optimization"
-    ]
   },
   "concerns": {
     "label": "Common Gut Health Concerns",

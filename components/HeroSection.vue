@@ -8,35 +8,35 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
         <div class="max-w-xl text-left mx-auto lg:mx-0 lg:order-1">
-          <h1 class="hero-fade hero-fade-1 text-display-hero sm:text-4xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal mb-5 sm:mb-5">
+          <h1 class="hero-fade hero-fade-1 text-4xl sm:text-5xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal mb-5">
             {{ $t('hero.title_line1') }}<br>{{ $t('hero.title_line2') }}
           </h1>
 
-          <p class="hero-fade hero-fade-2 text-base sm:text-base md:text-lg text-body/80 leading-relaxed mb-8 sm:mb-8">
+          <p class="hero-fade hero-fade-2 text-base md:text-lg text-body/80 leading-relaxed mb-8">
             {{ $t('hero.subtitle') }}
           </p>
 
-          <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-start">
-            <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
+          <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <NuxtLink to="/book" class="btn-primary px-8 py-4 sm:px-9 text-base sm:text-sm justify-center">
               <i class="fa-regular fa-calendar-check text-sm"></i>
               {{ $t('hero.cta_book') }}
             </NuxtLink>
-            <NuxtLink to="/practice" class="btn-secondary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
+            <NuxtLink to="/practice" class="btn-secondary px-8 py-4 sm:px-9 text-base sm:text-sm justify-center">
               {{ $t('hero.cta_learn') }}
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </NuxtLink>
           </div>
 
           <div class="hero-fade hero-fade-4 flex items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 lg:mt-10 pt-5 lg:pt-8 border-t border-stone/30">
-            <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
+            <div class="flex items-center gap-1.5 text-xs text-muted">
               <i class="fa-solid fa-shield-halved text-sage text-xs"></i>
               <span>{{ $t('hero.badges.evidence') }}</span>
             </div>
-            <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
+            <div class="flex items-center gap-1.5 text-xs text-muted">
               <i class="fa-solid fa-video text-sage text-xs"></i>
               <span>{{ $t('hero.badges.telemedicine') }}</span>
             </div>
-            <div class="flex items-center gap-1.5 text-xs sm:text-xs text-muted">
+            <div class="flex items-center gap-1.5 text-xs text-muted">
               <i class="fa-solid fa-earth-europe text-sage text-xs"></i>
               <span>{{ $t('hero.badges.languages') }}</span>
             </div>
@@ -69,6 +69,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-</script>

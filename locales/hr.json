@@ -49,13 +49,6 @@
     "label": "Kako pomažem",
     "title": "Kako ti pomažem kao holistička liječnica",
     "subtitle": "Sveobuhvatna, individualizirana skrb za zdravlje probave — od prvog razgovora do trajnih rezultata.",
-    "description": "Dobivaš individualnu medicinsku pratnju koja je točno prilagođena tvojoj zdravstvenoj situaciji. Pratim samo mali broj odabranih pacijenata kako bih garantirala zaista dubinske tretmane.",
-    "points": [
-      "Online konzultacije & 1-on-1 praćenje",
-      "Sveobuhvatna dijagnostika probave & analiza mikrobioma",
-      "Individualni planovi terapije & trajna podrška"
-    ],
-    "cta": "Zakaži online termin",
     "cards": {
       "diagnostics": {
         "title": "Dijagnostika probave",
@@ -90,21 +83,6 @@
         ]
       }
     }
-  },
-  "benefits": {
-    "label": "Zašto funkcionalna medicina probave",
-    "title": "Doći do korijena probavnih problema",
-    "subtitle": "Umjesto samo upravljanja simptomima, istražujemo temeljne uzroke vaših probavnih problema — od neravnoteže mikrobioma do reakcija na hranu i stresnih poremećaja.",
-    "items": [
-      "Sveobuhvatna analiza stolice i mikrobioma",
-      "Identifikacija netolerancija i osjetljivosti na hranu",
-      "SIBO dijagnostika i ciljani protokoli liječenja",
-      "Procjena funkcije crijevne barijere (leaky gut)",
-      "Evaluacija osi crijevo-mozak i upravljanje stresom",
-      "Personalizirani planovi prehrane i eliminacijske dijete",
-      "Ciljani protokoli probiotika i suplemenata",
-      "Dugoročna optimizacija zdravlja probave"
-    ]
   },
   "concerns": {
     "label": "Česti probavni problemi",

@@ -9,7 +9,7 @@
       <div class="flex items-center justify-between h-16 sm:h-20 md:h-[88px]">
 
         <NuxtLink to="/" class="flex items-center gap-2.5 group relative z-50" @click="mobileOpen = false">
-          <img src="/maihealth.svg" alt="MaiHealth" class="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-150 group-hover:scale-105" />
+          <img src="/maihealth.svg" alt="" aria-hidden="true" class="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-150 group-hover:scale-105" />
           <img src="/maihealthfull.svg" alt="MaiHealth" class="h-20 sm:h-24 md:h-28 -ms-5 w-auto" />
         </NuxtLink>
 

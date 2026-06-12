@@ -49,13 +49,6 @@
     "label": "So helfe ich",
     "title": "So helfe ich dir als ganzheitliche Ärztin",
     "subtitle": "Umfassende, individualisierte Darmgesundheitsbetreuung — vom Erstgespräch bis zu nachhaltigen Ergebnissen.",
-    "description": "Du bekommst eine individuelle medizinische Begleitung, die genau auf deine gesundheitliche Ausgangssituation abgestimmt ist. Durch ganzheitliche Diagnostik, begleiteten Detox und gezielten Wiederaufbau unterstütze ich deinen Körper dabei, wieder in Balance zu kommen.",
-    "points": [
-      "Online-Sprechstunden & persönliche 1-on-1 Betreuung",
-      "Mikrobiom-Analyse & ganzheitliche Darmdiagnostik",
-      "Begleiteter Detox & Darmregenerations-Protokolle"
-    ],
-    "cta": "Online-Termin vereinbaren",
     "cards": {
       "diagnostics": {
         "title": "Therapie",
@@ -90,21 +83,6 @@
         ]
       }
     }
-  },
-  "benefits": {
-    "label": "Warum funktionelle Darmmedizin",
-    "title": "Den Ursachen von Darmproblemen auf den Grund gehen",
-    "subtitle": "Statt nur Symptome zu managen, untersuchen wir die zugrundeliegenden Ursachen Ihrer Darmprobleme — von Mikrobiom-Dysbiosen bis zu Nahrungsmittelreaktionen und stressbedingten Störungen.",
-    "items": [
-      "Umfassende Stuhl- und Mikrobiom-Analyse",
-      "Identifikation von Nahrungsmittelunverträglichkeiten",
-      "SIBO-Diagnostik und gezielte Behandlungsprotokolle",
-      "Beurteilung der Darmbarriere-Funktion (Leaky Gut)",
-      "Darm-Hirn-Achsen-Evaluation und Stressmanagement",
-      "Personalisierte Ernährungs- und Eliminationsdiät-Pläne",
-      "Gezielte Probiotika- und Supplement-Protokolle",
-      "Langfristige Optimierung der Verdauungsgesundheit"
-    ]
   },
   "concerns": {
     "label": "Häufige Darmbeschwerden",

@@ -49,13 +49,6 @@
     "label": "Come aiuto",
     "title": "Come ti aiuto come medico olistico",
     "subtitle": "Assistenza sanitaria intestinale completa e individualizzata — dalla prima consulenza ai risultati duraturi.",
-    "description": "Ricevi un'assistenza medica individuale, calibrata esattamente sulla tua situazione di salute. Seguo solo un piccolo numero di pazienti selezionati per garantire trattamenti davvero approfonditi.",
-    "points": [
-      "Consulenze online & assistenza 1-on-1",
-      "Diagnostica intestinale completa & analisi del microbioma",
-      "Piani terapeutici personalizzati & supporto continuo"
-    ],
-    "cta": "Prenota appuntamento online",
     "cards": {
       "diagnostics": {
         "title": "Diagnostica intestinale",
@@ -90,21 +83,6 @@
         ]
       }
     }
-  },
-  "benefits": {
-    "label": "Perché la medicina funzionale intestinale",
-    "title": "Arrivare alla radice dei problemi digestivi",
-    "subtitle": "Invece di gestire solo i sintomi, indaghiamo le cause sottostanti dei problemi intestinali — dagli squilibri del microbioma alle reazioni alimentari e alle disfunzioni legate allo stress.",
-    "items": [
-      "Analisi completa delle feci e del microbioma",
-      "Identificazione di intolleranze e sensibilità alimentari",
-      "Diagnostica SIBO e protocolli di trattamento mirati",
-      "Valutazione della funzione della barriera intestinale (leaky gut)",
-      "Valutazione dell'asse intestino-cervello e gestione dello stress",
-      "Piani nutrizionali personalizzati e diete di eliminazione",
-      "Protocolli mirati di probiotici e integratori",
-      "Ottimizzazione a lungo termine della salute digestiva"
-    ]
   },
   "concerns": {
     "label": "Disturbi digestivi comuni",

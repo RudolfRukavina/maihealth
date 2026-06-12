@@ -3,7 +3,7 @@
     <div class="max-w-md w-full">
       <div class="text-center mb-10">
         <NuxtLink to="/" class="inline-flex items-center gap-2.5 mb-8">
-          <img src="/maihealth.svg" alt="MaiHealth" class="w-10 h-10" />
+          <img src="/maihealth.svg" alt="" aria-hidden="true" class="w-10 h-10" />
           <img src="/maihealthfull.svg" alt="MaiHealth" class="h-24 -ms-5 w-auto" />
         </NuxtLink>
         <h1 class="text-3xl font-serif font-semibold text-charcoal mb-3">

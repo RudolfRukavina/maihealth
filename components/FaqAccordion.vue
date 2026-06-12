@@ -22,7 +22,7 @@
               :aria-controls="`faq-panel-${index}`"
               class="w-full flex items-center justify-between p-4 sm:p-5 md:p-6 text-left gap-3 sm:gap-4"
             >
-              <h3 class="text-base sm:text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
+              <h3 class="text-base font-medium text-charcoal flex items-center gap-2.5 sm:gap-3">
                 <span
                   class="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 text-[10px] font-semibold transition-colors duration-150"
                   :class="openIndex === index ? 'bg-sage/15 text-sage' : 'bg-stone/10 text-muted'"
@@ -40,11 +40,11 @@
             <div
               :id="`faq-panel-${index}`"
               role="region"
-              class="overflow-hidden transition-all duration-200 ease-in-out"
-              :style="{ maxHeight: openIndex === index ? contentHeights[index] + 'px' : '0px' }"
+              class="grid transition-[grid-template-rows] duration-200 ease-in-out"
+              :class="openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
             >
-              <div :ref="el => innerRefs[index] = el" class="px-4 sm:px-5 md:px-6 pb-4 sm:pb-5 md:pb-6 pl-[46px] sm:pl-[52px] md:pl-[56px]">
-                <p class="text-sm text-body/70 leading-relaxed">
+              <div class="overflow-hidden">
+                <p class="text-sm text-body/70 leading-relaxed px-4 sm:px-5 md:px-6 pb-4 sm:pb-5 md:pb-6 pl-[46px] sm:pl-[52px] md:pl-[56px]">
                   {{ item.answer }}
                 </p>
               </div>
@@ -59,8 +59,6 @@
 <script setup>
 const { t } = useI18n()
 const openIndex = ref(-1)
-const innerRefs = ref([])
-const contentHeights = ref({})
 
 const items = computed(() => [
   { key: 'q1', question: t('faq.items.q1.question'), answer: t('faq.items.q1.answer') },
@@ -73,19 +71,4 @@ const items = computed(() => [
 const toggle = (index) => {
   openIndex.value = openIndex.value === index ? -1 : index
 }
-
-const measureHeights = () => {
-  innerRefs.value.forEach((el, i) => {
-    if (el) contentHeights.value[i] = el.scrollHeight
-  })
-}
-
-onMounted(() => {
-  nextTick(measureHeights)
-  window.addEventListener('resize', measureHeights)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', measureHeights)
-})
 </script>

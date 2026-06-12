@@ -10,22 +10,17 @@
           <i class="fa-solid fa-heart-pulse text-lg sm:text-xl text-sage"></i>
         </div>
 
-        <h2 class="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-charcoal text-balance mb-4 sm:mb-5">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-charcoal text-balance mb-4 sm:mb-5">
           {{ $t('final_cta.title') }}
         </h2>
-        <p class="text-base sm:text-base md:text-lg text-body/70 leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto">
+        <p class="text-base md:text-lg text-body/70 leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto">
           {{ $t('final_cta.subtitle') }}
         </p>
-        <div class="flex flex-col items-center gap-3">
-          <NuxtLink to="/book" class="btn-primary text-sm sm:text-base px-8 py-3.5 sm:px-10 sm:py-4">
-            {{ $t('final_cta.cta') }}
-            <i class="fa-solid fa-arrow-right"></i>
-          </NuxtLink>
-        </div>
+        <NuxtLink to="/book" class="btn-primary text-sm sm:text-base px-8 py-3.5 sm:px-10 sm:py-4">
+          {{ $t('final_cta.cta') }}
+          <i class="fa-solid fa-arrow-right"></i>
+        </NuxtLink>
       </div>
     </div>
   </section>
 </template>
-
-<script setup>
-</script>

@@ -11,10 +11,10 @@
           <i class="fa-solid fa-book-medical text-cream/60"></i>
         </div>
 
-        <h2 class="text-3xl sm:text-3xl md:text-4xl font-serif font-semibold text-cream mb-3 sm:mb-4">
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-cream mb-3 sm:mb-4">
           {{ $t('newsletter.title') }}
         </h2>
-        <p class="text-base sm:text-base text-cream/50 leading-relaxed mb-8 sm:mb-10">
+        <p class="text-base text-cream/50 leading-relaxed mb-8 sm:mb-10">
           {{ $t('newsletter.subtitle') }}
         </p>
 

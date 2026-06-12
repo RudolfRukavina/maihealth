@@ -11,7 +11,7 @@
           <p class="hero-fade hero-fade-1 text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-4">
             {{ isAdmin ? $t('portal.dashboard') : $t('portal.my_appointments') }}
           </p>
-          <h1 class="hero-fade hero-fade-1 text-display-hero sm:text-4xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal text-balance mb-5">
+          <h1 class="hero-fade hero-fade-1 text-4xl sm:text-5xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal text-balance mb-5">
             {{ $t('portal.welcome') }}, {{ firstName }}
           </h1>
 
@@ -102,11 +102,11 @@
           </p>
 
           <div class="hero-fade hero-fade-3 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-center lg:justify-start">
-            <NuxtLink v-if="isAdmin" to="/portal/admin" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
+            <NuxtLink v-if="isAdmin" to="/portal/admin" class="btn-primary px-8 py-4 sm:px-9 text-base sm:text-sm justify-center">
               <i class="fa-solid fa-sliders text-sm"></i>
               {{ $t('nav.admin') }}
             </NuxtLink>
-            <NuxtLink v-else to="/book" class="btn-primary px-8 py-4 sm:px-9 sm:py-4 text-base sm:text-sm justify-center">
+            <NuxtLink v-else to="/book" class="btn-primary px-8 py-4 sm:px-9 text-base sm:text-sm justify-center">
               <i class="fa-regular fa-calendar-check text-sm"></i>
               {{ $t('nav.book') }}
             </NuxtLink>

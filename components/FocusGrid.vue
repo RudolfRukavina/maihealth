@@ -20,7 +20,7 @@
             {{ area.title }}
           </h3>
 
-          <p class="text-sm sm:text-sm text-body/65 leading-relaxed hidden sm:block">
+          <p class="text-sm text-body/65 leading-relaxed hidden sm:block">
             {{ area.description }}
           </p>
 
