@@ -8,7 +8,8 @@ export const useAuth = () => {
   const loading = useState<boolean>('auth-loading', () => true)
 
   const isLoggedIn = computed(() => !!user.value)
-  const isAdmin = computed(() => userRole.value === 'admin')
+  const isAdmin = computed(() => !loading.value && userRole.value === 'admin')
+  const authReady = computed(() => !loading.value)
 
   const initAuth = () => {
     if (!import.meta.client) return
@@ -57,5 +58,5 @@ export const useAuth = () => {
     initAuth()
   }
 
-  return { user, isLoggedIn, isAdmin, loading, signInWithGoogle, signOut, getIdToken }
+  return { user, isLoggedIn, isAdmin, authReady, loading, signInWithGoogle, signOut, getIdToken }
 }

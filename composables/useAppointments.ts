@@ -2,7 +2,7 @@ import { collection, query, where, orderBy, onSnapshot, type Unsubscribe } from 
 
 export const useAppointments = () => {
   const { $firebase } = useNuxtApp()
-  const { user } = useAuth()
+  const { user, isAdmin } = useAuth()
   const appointments = ref<any[]>([])
   const pendingRequests = ref<any[]>([])
   let unsub: Unsubscribe | null = null
@@ -22,7 +22,6 @@ export const useAppointments = () => {
       .sort((a, b) => b.date.toDate() - a.date.toDate())
   )
 
-  // Requests awaiting admin approval that are still in the future.
   const upcomingRequests = computed(() =>
     pendingRequests.value
       .filter(r => r.slotDate?.toDate() > new Date())
@@ -32,21 +31,17 @@ export const useAppointments = () => {
   const fetchAppointments = () => {
     if (!user.value || !import.meta.client) return
 
-    const q = query(
-      collection($firebase.db, 'appointments'),
-      where('patientId', '==', user.value.uid),
-      orderBy('date', 'desc')
-    )
+    const apptQuery = isAdmin.value
+      ? query(collection($firebase.db, 'appointments'), orderBy('date', 'desc'))
+      : query(collection($firebase.db, 'appointments'), where('patientId', '==', user.value.uid), orderBy('date', 'desc'))
 
-    unsub = onSnapshot(q, (snapshot) => {
+    unsub = onSnapshot(apptQuery, (snapshot) => {
       appointments.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     })
 
-    const reqQuery = query(
-      collection($firebase.db, 'appointmentRequests'),
-      where('patientId', '==', user.value.uid),
-      where('status', '==', 'pending')
-    )
+    const reqQuery = isAdmin.value
+      ? query(collection($firebase.db, 'appointmentRequests'), where('status', '==', 'pending'))
+      : query(collection($firebase.db, 'appointmentRequests'), where('patientId', '==', user.value.uid), where('status', '==', 'pending'))
 
     unsubReq = onSnapshot(reqQuery, (snapshot) => {
       pendingRequests.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
@@ -62,6 +57,14 @@ export const useAppointments = () => {
       pendingRequests.value = []
     }
   }, { immediate: true })
+
+  watch(isAdmin, () => {
+    if (user.value) {
+      unsub?.()
+      unsubReq?.()
+      fetchAppointments()
+    }
+  })
 
   onUnmounted(() => {
     unsub?.()

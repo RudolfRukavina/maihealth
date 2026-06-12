@@ -27,7 +27,7 @@
                   <source media="(max-width: 639px)" srcset="/mai2-sm.webp" type="image/webp" />
                   <source media="(max-width: 1023px)" srcset="/mai2-md.webp" type="image/webp" />
                   <source srcset="/mai2.webp" type="image/webp" />
-                  <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" loading="eager" />
+                  <img src="/mai2.png" alt="Mai Jimenez" class="w-full h-full object-cover" loading="eager" />
                 </picture>
               </div>
               <div class="absolute -bottom-3 -right-3 w-20 h-20 rounded-2xl bg-sage/8 -z-10" />

@@ -12,9 +12,9 @@
             </div>
 
             <div class="space-y-4">
-              <h2 class="text-lg font-serif font-semibold text-charcoal">Dr. med. Mai Wald</h2>
+              <h2 class="text-lg font-serif font-semibold text-charcoal">Mai Jimenez</h2>
               <p class="text-sm text-body/70">MaiHealth</p>
-              <p class="text-sm text-body/70">hello@maihealth.com</p>
+              <a href="mailto:Mai.jimenez@gmx.de" class="text-sm text-body/70 hover:text-sage transition-colors">Mai.jimenez@gmx.de</a>
             </div>
           </div>
         </div>

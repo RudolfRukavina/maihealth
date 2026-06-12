@@ -4,8 +4,8 @@ import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
 import { getFirestore, Timestamp } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
 import { getApps, initializeApp, cert } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/app/index.js';
 import { getAuth } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/auth/index.js';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/Rudolf/Work/mai/node_modules/vue-bundle-renderer/dist/runtime.mjs';
@@ -421,7 +421,7 @@ const _gtZIT93UES = (function(nitro) {
 
 const rootDir = "/Users/Rudolf/Work/mai";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Dr. med. Mai Wald. Gut health & IBS specialist."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"},{"property":"og:locale:alternate","content":"hr_HR"},{"property":"og:locale:alternate","content":"it_IT"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Dr. med. Mai Wald"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Mai Jimenez. Gut health & IBS specialist."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"},{"property":"og:locale:alternate","content":"hr_HR"},{"property":"og:locale:alternate","content":"it_IT"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Mai Jimenez"};
 
 const appRootTag = "div";
 
@@ -1058,7 +1058,7 @@ const _inlineRuntimeConfig = {
   "zoomAccountId": "",
   "zoomClientId": "",
   "zoomClientSecret": "",
-  "contactEmail": "hello@maihealth.com"
+  "contactEmail": "Mai.jimenez@gmx.de"
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -1557,6 +1557,179 @@ async function createZoomMeeting(topic, startTime, duration = 60) {
   };
 }
 
+let resendInstance = null;
+function getResend() {
+  const config = useRuntimeConfig();
+  if (!config.resendApiKey) return null;
+  if (!resendInstance) resendInstance = new Resend(config.resendApiKey);
+  return resendInstance;
+}
+const FROM = "MaiHealth <noreply@mai-health.de>";
+function formatDate(date) {
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+}
+function formatTime(date) {
+  return date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+}
+function layout(body) {
+  return `
+    <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 520px; margin: 0 auto; color: #2D3A24;">
+      <div style="padding: 32px 0 16px; border-bottom: 1px solid #E8E4DF; margin-bottom: 24px;">
+        <strong style="font-size: 18px; color: #2D3A24;">Mai</strong><span style="font-size: 18px; color: #8B9A6B;">Health</span>
+      </div>
+      ${body}
+      <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E4DF; font-size: 12px; color: #999;">
+        Mai Jimenez \xB7 Physician for Gut Health & IBS<br>
+        <a href="https://maihealth.com" style="color: #8B9A6B;">maihealth.com</a>
+      </div>
+    </div>
+  `;
+}
+async function sendBookingConfirmation(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { to, name, date, duration, zoomJoinUrl } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Your MaiHealth appointment is confirmed",
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Confirmed</h2>
+      <p>Dear ${name},</p>
+      <p>Your appointment has been booked:</p>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>Date:</strong> ${formatDate(date)}</p>
+        <p style="margin: 0 0 4px;"><strong>Time:</strong> ${formatTime(date)}</p>
+        <p style="margin: 0;"><strong>Duration:</strong> ${duration} minutes</p>
+      </div>
+      ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">Join Zoom Meeting</a></p>` : ""}
+      <p>You'll receive a reminder before your appointment. If you need to reschedule, please get in touch.</p>
+    `)
+  });
+}
+async function sendRequestReceived(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { to, name, date } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "We received your appointment request",
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Request Received</h2>
+      <p>Dear ${name},</p>
+      <p>Thank you for your appointment request. We've received it and will get back to you within 24 hours.</p>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>Requested slot:</strong> ${formatDate(date)}</p>
+        <p style="margin: 0;"><strong>Time:</strong> ${formatTime(date)}</p>
+      </div>
+      <p>If you have any questions in the meantime, feel free to reply to this email.</p>
+    `)
+  });
+}
+async function sendRequestDeclined(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { to, name } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Update on your MaiHealth appointment request",
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Request Update</h2>
+      <p>Dear ${name},</p>
+      <p>Unfortunately, we were unable to accommodate your requested time slot. This can happen when a slot is no longer available or doesn't fit the current schedule.</p>
+      <p>We'd love to find a time that works for you. Please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
+    `)
+  });
+}
+async function sendAppointmentCancelled(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { to, name, date } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Your MaiHealth appointment has been cancelled",
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Cancelled</h2>
+      <p>Dear ${name},</p>
+      <p>Your appointment on <strong>${formatDate(date)}</strong> at <strong>${formatTime(date)}</strong> has been cancelled.</p>
+      <p>If you'd like to reschedule, please <a href="https://maihealth.com/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
+    `)
+  });
+}
+async function sendAdminNewRequest(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const config = useRuntimeConfig();
+  const { name, email, phone, date, type, reason } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to: config.contactEmail,
+    subject: `New appointment request from ${name}`,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request</h2>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>Patient:</strong> ${name} (${email})</p>
+        ${phone ? `<p style="margin: 0 0 4px;"><strong>Phone:</strong> ${phone}</p>` : ""}
+        <p style="margin: 0 0 4px;"><strong>Requested slot:</strong> ${formatDate(date)} at ${formatTime(date)}</p>
+        <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
+        <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
+      </div>
+      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
+    `)
+  });
+}
+async function sendAdminContactForm(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const config = useRuntimeConfig();
+  const { firstName, lastName, email, phone, message } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to: config.contactEmail,
+    subject: `New contact from ${firstName} ${lastName}`,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">New Contact Form Submission</h2>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p style="margin: 0 0 4px;"><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p style="margin: 0 0 4px;"><strong>Phone:</strong> ${phone}</p>` : ""}
+      </div>
+      <p><strong>Message:</strong></p>
+      <p style="white-space: pre-wrap;">${message}</p>
+    `)
+  });
+}
+async function sendAdminPortalRequest(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const config = useRuntimeConfig();
+  const { name, email, preferredDates, preferredTime, type, reason } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to: config.contactEmail,
+    subject: `New appointment request from ${name}`,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request (Portal)</h2>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>Patient:</strong> ${name} (${email})</p>
+        <p style="margin: 0 0 4px;"><strong>Preferred dates:</strong> ${preferredDates}</p>
+        <p style="margin: 0 0 4px;"><strong>Preferred time:</strong> ${preferredTime}</p>
+        <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
+        <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
+      </div>
+      <p><a href="https://maihealth.com/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
+    `)
+  });
+}
+
 const appointments_post = defineEventHandler(async (event) => {
   var _a;
   const decoded = await verifyAuth(event);
@@ -1585,6 +1758,7 @@ const appointments_post = defineEventHandler(async (event) => {
   const appointment = await db.collection("appointments").add({
     patientId,
     patientName: patientName || "",
+    patientEmail: patientEmail || "",
     date: Timestamp.fromDate(new Date(date)),
     duration: duration || 60,
     type: type || "initial",
@@ -1594,24 +1768,13 @@ const appointments_post = defineEventHandler(async (event) => {
     notes: notes || "",
     createdAt: Timestamp.now()
   });
-  if (config.resendApiKey && patientEmail) {
-    const resend = new Resend(config.resendApiKey);
-    await resend.emails.send({
-      from: "MaiHealth <noreply@maihealth.com>",
+  if (patientEmail) {
+    await sendBookingConfirmation({
       to: patientEmail,
-      subject: "Your MaiHealth appointment is confirmed",
-      html: `
-        <h2>Appointment Confirmed</h2>
-        <p>Dear ${patientName},</p>
-        <p>Your appointment with Dr. med. Mai Wald has been scheduled:</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
-        <p><strong>Time:</strong> ${new Date(date).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
-        <p><strong>Duration:</strong> ${duration || 60} minutes</p>
-        ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
-        <p>You can also view this appointment in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
-        <br>
-        <p>Best regards,<br>MaiHealth Team</p>
-      `
+      name: patientName || "there",
+      date: new Date(date),
+      duration: duration || 60,
+      zoomJoinUrl
     });
   }
   return { success: true, appointmentId: appointment.id, zoomJoinUrl };
@@ -1623,7 +1786,7 @@ const appointments_post$1 = /*#__PURE__*/Object.freeze({
 });
 
 const _id__patch = defineEventHandler(async (event) => {
-  var _a;
+  var _a, _b, _c, _d, _e, _f;
   const decoded = await verifyAuth(event);
   const db = getAdminDb();
   const userDoc = await db.collection("users").doc(decoded.uid).get();
@@ -1632,6 +1795,11 @@ const _id__patch = defineEventHandler(async (event) => {
   }
   const id = getRouterParam(event, "id");
   if (!id) throw createError({ statusCode: 400, statusMessage: "Appointment ID required" });
+  const apptDoc = await db.collection("appointments").doc(id).get();
+  if (!apptDoc.exists) {
+    throw createError({ statusCode: 404, statusMessage: "Appointment not found" });
+  }
+  const existing = apptDoc.data();
   const body = await readBody(event);
   const updates = {};
   if (body.date) updates.date = Timestamp.fromDate(new Date(body.date));
@@ -1639,6 +1807,23 @@ const _id__patch = defineEventHandler(async (event) => {
   if (body.status) updates.status = body.status;
   if (body.notes !== void 0) updates.notes = body.notes;
   await db.collection("appointments").doc(id).update(updates);
+  const patientEmail = existing.patientEmail;
+  const patientName = existing.patientName || "there";
+  if (patientEmail) {
+    if (body.status === "cancelled" && existing.status !== "cancelled") {
+      const apptDate = ((_c = (_b = existing.date) == null ? void 0 : _b.toDate) == null ? void 0 : _c.call(_b)) || /* @__PURE__ */ new Date();
+      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate });
+    }
+    if (body.date && body.date !== ((_f = (_e = (_d = existing.date) == null ? void 0 : _d.toDate) == null ? void 0 : _e.call(_d)) == null ? void 0 : _f.toISOString())) {
+      await sendBookingConfirmation({
+        to: patientEmail,
+        name: patientName,
+        date: new Date(body.date),
+        duration: body.duration || existing.duration || 60,
+        zoomJoinUrl: existing.zoomJoinUrl
+      });
+    }
+  }
   return { success: true };
 });
 
@@ -1699,6 +1884,12 @@ const _id__post = defineEventHandler(async (event) => {
   const request = requestDoc.data();
   if (action === "decline") {
     await db.collection("appointmentRequests").doc(id).update({ status: "declined" });
+    if (request.patientEmail) {
+      await sendRequestDeclined({
+        to: request.patientEmail,
+        name: request.patientName || "there"
+      });
+    }
     return { success: true };
   }
   if (!date) {
@@ -1718,6 +1909,7 @@ const _id__post = defineEventHandler(async (event) => {
   await db.collection("appointments").add({
     patientId: request.patientId,
     patientName: request.patientName || "",
+    patientEmail: request.patientEmail || "",
     date: Timestamp.fromDate(new Date(date)),
     duration: duration || 60,
     type: request.type || "initial",
@@ -1728,21 +1920,13 @@ const _id__post = defineEventHandler(async (event) => {
     createdAt: Timestamp.now()
   });
   await db.collection("appointmentRequests").doc(id).update({ status: "accepted" });
-  if (config.resendApiKey && request.patientEmail) {
-    const resend = new Resend(config.resendApiKey);
-    await resend.emails.send({
-      from: "MaiHealth <noreply@maihealth.com>",
+  if (request.patientEmail) {
+    await sendBookingConfirmation({
       to: request.patientEmail,
-      subject: "Your MaiHealth appointment is confirmed",
-      html: `
-        <h2>Appointment Confirmed</h2>
-        <p>Dear ${request.patientName},</p>
-        <p>Your appointment request has been accepted:</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
-        <p><strong>Time:</strong> ${new Date(date).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
-        ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
-        <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
-      `
+      name: request.patientName || "there",
+      date: new Date(date),
+      duration: duration || 60,
+      zoomJoinUrl
     });
   }
   return { success: true, zoomJoinUrl };
@@ -1838,26 +2022,13 @@ const book_post = defineEventHandler(async (event) => {
       notes: reason || "",
       createdAt: Timestamp.now()
     });
-    if (config.resendApiKey && patientEmail) {
-      const resend = new Resend(config.resendApiKey);
-      const dateStr = slotDate.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-      const timeStr = slotDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
-      await resend.emails.send({
-        from: "MaiHealth <noreply@maihealth.com>",
-        to: patientEmail,
-        subject: "Your MaiHealth appointment is confirmed",
-        html: `
-          <h2>Appointment Confirmed</h2>
-          <p>Dear ${patientName},</p>
-          <p>Your appointment has been booked:</p>
-          <p><strong>Date:</strong> ${dateStr}</p>
-          <p><strong>Time:</strong> ${timeStr}</p>
-          <p><strong>Duration:</strong> ${slotDuration} minutes</p>
-          ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ""}
-          <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
-        `
-      });
-    }
+    await sendBookingConfirmation({
+      to: patientEmail,
+      name: patientName,
+      date: slotDate,
+      duration: slotDuration,
+      zoomJoinUrl
+    });
     return {
       type: "booked",
       appointmentId: apptRef.id,
@@ -1882,22 +2053,19 @@ const book_post = defineEventHandler(async (event) => {
       status: "pending",
       createdAt: Timestamp.now()
     });
-    if (config.resendApiKey) {
-      const resend = new Resend(config.resendApiKey);
-      const dateStr = slotDate.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-      const timeStr = slotDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
-      await resend.emails.send({
-        from: "MaiHealth <noreply@maihealth.com>",
-        to: config.contactEmail,
-        subject: `New appointment request from ${patientName}`,
-        html: `
-          <h2>New Appointment Request</h2>
-          <p><strong>Patient:</strong> ${patientName} (${patientEmail})</p>
-          ${patientPhone ? `<p><strong>Phone:</strong> ${patientPhone}</p>` : ""}
-          <p><strong>Requested slot:</strong> ${dateStr} at ${timeStr}</p>
-          <p><strong>Type:</strong> ${type || "initial"}</p>
-          <p><strong>Reason:</strong> ${reason || "Not provided"}</p>
-        `
+    await sendAdminNewRequest({
+      name: patientName,
+      email: patientEmail,
+      phone: patientPhone,
+      date: slotDate,
+      type: type || "initial",
+      reason
+    });
+    if (patientEmail) {
+      await sendRequestReceived({
+        to: patientEmail,
+        name: patientName,
+        date: slotDate
       });
     }
     return {
@@ -1920,7 +2088,6 @@ const request_post = defineEventHandler(async (event) => {
   if (!preferredDateStart) {
     throw createError({ statusCode: 400, statusMessage: "Preferred date is required" });
   }
-  const config = useRuntimeConfig();
   const db = getAdminDb();
   await db.collection("appointmentRequests").add({
     patientId: decoded.uid,
@@ -1936,22 +2103,15 @@ const request_post = defineEventHandler(async (event) => {
     status: "pending",
     createdAt: Timestamp.now()
   });
-  if (config.resendApiKey) {
-    const resend = new Resend(config.resendApiKey);
-    await resend.emails.send({
-      from: "MaiHealth <noreply@maihealth.com>",
-      to: config.contactEmail,
-      subject: `New appointment request from ${decoded.name || decoded.email}`,
-      html: `
-        <h2>New Appointment Request</h2>
-        <p><strong>Patient:</strong> ${decoded.name || "N/A"} (${decoded.email})</p>
-        <p><strong>Preferred dates:</strong> ${preferredDateStart}${preferredDateEnd ? " \u2013 " + preferredDateEnd : ""}</p>
-        <p><strong>Preferred time:</strong> ${preferredTime}</p>
-        <p><strong>Type:</strong> ${type}</p>
-        <p><strong>Reason:</strong> ${reason || "Not provided"}</p>
-      `
-    });
-  }
+  const preferredDates = preferredDateEnd ? `${preferredDateStart} \u2013 ${preferredDateEnd}` : preferredDateStart;
+  await sendAdminPortalRequest({
+    name: decoded.name || decoded.email || "Patient",
+    email: decoded.email || "",
+    preferredDates,
+    preferredTime: preferredTime || "morning",
+    type: type || "initial",
+    reason
+  });
   return { success: true };
 });
 
@@ -2057,7 +2217,6 @@ const contact_post = defineEventHandler(async (event) => {
   if (!firstName || !lastName || !email || !message) {
     throw createError({ statusCode: 400, statusMessage: "Missing required fields" });
   }
-  const config = useRuntimeConfig();
   const db = getAdminDb();
   await db.collection("contactSubmissions").add({
     firstName,
@@ -2068,22 +2227,7 @@ const contact_post = defineEventHandler(async (event) => {
     read: false,
     createdAt: Timestamp.now()
   });
-  if (config.resendApiKey) {
-    const resend = new Resend(config.resendApiKey);
-    await resend.emails.send({
-      from: "MaiHealth <noreply@maihealth.com>",
-      to: config.contactEmail,
-      subject: `New contact from ${firstName} ${lastName}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `
-    });
-  }
+  await sendAdminContactForm({ firstName, lastName, email, phone, message });
   return { success: true };
 });
 

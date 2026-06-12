@@ -61,7 +61,7 @@
 
       <div class="border-t border-cream/8 mt-10 sm:mt-14 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
         <p class="text-[10px] sm:text-xs text-cream/30">
-          &copy; {{ new Date().getFullYear() }} Dr. med. Mai Wald — MaiHealth. {{ $t('footer.rights') }}
+          &copy; {{ new Date().getFullYear() }} Mai Jimenez — MaiHealth. {{ $t('footer.rights') }}
         </p>
         <button
           @click="scrollToTop"

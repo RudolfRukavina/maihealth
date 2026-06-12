@@ -1,6 +1,6 @@
-import { Resend } from 'resend'
 import { getAdminDb } from '../../utils/firebase-admin'
 import { verifyAuth } from '../../utils/verify-auth'
+import { sendAdminPortalRequest } from '../../utils/email'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Preferred date is required' })
   }
 
-  const config = useRuntimeConfig()
   const db = getAdminDb()
 
   await db.collection('appointmentRequests').add({
@@ -30,22 +29,18 @@ export default defineEventHandler(async (event) => {
     createdAt: Timestamp.now(),
   })
 
-  if (config.resendApiKey) {
-    const resend = new Resend(config.resendApiKey)
-    await resend.emails.send({
-      from: 'MaiHealth <noreply@maihealth.com>',
-      to: config.contactEmail,
-      subject: `New appointment request from ${decoded.name || decoded.email}`,
-      html: `
-        <h2>New Appointment Request</h2>
-        <p><strong>Patient:</strong> ${decoded.name || 'N/A'} (${decoded.email})</p>
-        <p><strong>Preferred dates:</strong> ${preferredDateStart}${preferredDateEnd ? ' – ' + preferredDateEnd : ''}</p>
-        <p><strong>Preferred time:</strong> ${preferredTime}</p>
-        <p><strong>Type:</strong> ${type}</p>
-        <p><strong>Reason:</strong> ${reason || 'Not provided'}</p>
-      `,
-    })
-  }
+  const preferredDates = preferredDateEnd
+    ? `${preferredDateStart} – ${preferredDateEnd}`
+    : preferredDateStart
+
+  await sendAdminPortalRequest({
+    name: decoded.name || decoded.email || 'Patient',
+    email: decoded.email || '',
+    preferredDates,
+    preferredTime: preferredTime || 'morning',
+    type: type || 'initial',
+    reason,
+  })
 
   return { success: true }
 })

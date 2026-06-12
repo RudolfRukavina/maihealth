@@ -50,7 +50,7 @@
             <div class="relative hero-blob w-[420px] h-[500px] xl:w-[460px] xl:h-[540px] overflow-hidden shadow-2xl shadow-charcoal/8">
               <picture>
                 <source srcset="/mai2.webp" type="image/webp" />
-                <img src="/mai2.png" alt="Dr. med. Mai Wald" class="w-full h-full object-cover" loading="eager" fetchpriority="high" />
+                <img src="/mai2.png" alt="Mai Jimenez" class="w-full h-full object-cover" loading="eager" fetchpriority="high" />
               </picture>
             </div>
 

@@ -14,12 +14,12 @@
     "label": "Darmgesundheit & Reizdarm",
     "title_line1": "Reizdarm verstehen.",
     "title_line2": "Leben verändern.",
-    "subtitle": "Dr. med. Mai Wald ist spezialisiert auf Reizdarmsyndrom und Darmgesundheit. Mit funktioneller Medizin, gezielter Diagnostik und individuellen Therapieplänen hilft sie Ihnen, die Ursachen Ihrer Verdauungsbeschwerden zu finden.",
+    "subtitle": "Sie kämpfen mit Blähungen, Bauchschmerzen, Verdauungsproblemen oder einem Reizdarm? Gemeinsam finden wir heraus, was hinter Ihren Beschwerden steckt, und entwickeln einen klaren, individuellen Weg zu mehr Wohlbefinden und Lebensqualität.",
     "cta_book": "Termin vereinbaren",
     "cta_learn": "Mehr erfahren",
     "badges": {
       "evidence": "Evidenzbasiert",
-      "telemedicine": "Telemedizin",
+      "telemedicine": "Nur Online",
       "languages": "4 Sprachen"
     },
     "badge_card": {
@@ -49,44 +49,44 @@
     "label": "So helfe ich",
     "title": "So helfe ich dir als ganzheitliche Ärztin",
     "subtitle": "Umfassende, individualisierte Darmgesundheitsbetreuung — vom Erstgespräch bis zu nachhaltigen Ergebnissen.",
-    "description": "Du bekommst eine individuelle medizinische Begleitung, die genau auf deine gesundheitliche Ausgangssituation abgestimmt ist. Ich betreue nur eine kleine Anzahl ausgewählter Patient:innen, um wirklich tiefgehende Behandlungen zu garantieren.",
+    "description": "Du bekommst eine individuelle medizinische Begleitung, die genau auf deine gesundheitliche Ausgangssituation abgestimmt ist. Durch ganzheitliche Diagnostik, begleiteten Detox und gezielten Wiederaufbau unterstütze ich deinen Körper dabei, wieder in Balance zu kommen.",
     "points": [
-      "Online-Sprechstunden & 1-on-1 Betreuung",
-      "Umfassende Darm-Diagnostik & Mikrobiom-Analyse",
-      "Individuelle Therapiepläne & laufende Begleitung"
+      "Online-Sprechstunden & persönliche 1-on-1 Betreuung",
+      "Mikrobiom-Analyse & ganzheitliche Darmdiagnostik",
+      "Begleiteter Detox & Darmregenerations-Protokolle"
     ],
     "cta": "Online-Termin vereinbaren",
     "cards": {
       "diagnostics": {
-        "title": "Darm-Diagnostik",
-        "description": "Gründliche Untersuchung Ihrer Darmgesundheit mit den neuesten evidenzbasierten Testmethoden.",
+        "title": "Therapie",
+        "description": "Ganzheitliche Diagnostik mit Mikrobiomanalyse sowie individuell abgestimmte Maßnahmen zur Entgiftung und Darmregeneration.",
         "details": [
           "Umfassende Stuhldiagnostik & Mikrobiom-Analyse",
-          "Atemtests auf SIBO (Dünndarm-Fehlbesiedlung)",
-          "Nahrungsmittelunverträglichkeits-Tests",
-          "Darmpermeabilitäts-Beurteilung",
+          "Begleiteter Detox & therapeutisches Fasten",
+          "Gezielte Darmbarriere-Wiederherstellung",
+          "Individuelles Regenerationsprotokoll",
           "Personalisierter Therapieplan"
         ]
       },
       "analysis": {
-        "title": "Persönliche Konsultation",
-        "description": "Ausführliche Einzelkonsultation, um Ihre individuelle Darmsituation zu verstehen und einen maßgeschneiderten Plan zu entwickeln.",
+        "title": "Coaching",
+        "description": "Persönliche Begleitung auf dem Weg zu mehr Körperbewusstsein und Selbstverständnis.",
         "details": [
-          "Auswertung aktueller und früherer Befunde",
-          "Persönliche Einzelkonsultation",
-          "Individueller Darmgesundheitsplan",
-          "Vor Ort oder per Telemedizin verfügbar"
+          "Die Signale deines Körpers lesen lernen",
+          "Zusammenhänge der Darmgesundheit verstehen",
+          "Stressfaktoren erkennen und managen",
+          "Gesündere Routinen aufbauen"
         ]
       },
       "coaching": {
-        "title": "Laufende Begleitung",
-        "description": "Kontinuierliche Beratung und Monitoring für nachhaltige Verbesserung Ihrer Verdauungsgesundheit.",
+        "title": "Wissen & Beratung",
+        "description": "Fundiertes Wissen rund um Darmgesundheit, Mikrobiom und Entgiftung — plus individuelle Ernährungs- und Lebensstilempfehlungen.",
         "details": [
-          "Monatliche Fortschritts-Konsultationen",
-          "Laufende Protokollanpassungen",
-          "Ernährungs- und Lebensstilberatung",
-          "Symptom-Monitoring und Tracking",
-          "Bundesweit per Telemedizin verfügbar"
+          "Darmgesundheit & Mikrobiom-Wissen",
+          "Personalisierte Ernährungsberatung",
+          "Alltagstaugliche Lifestyle-Strategien",
+          "Langfristige gesundheitsfördernde Gewohnheiten",
+          "Laufende Betreuung per Telemedizin"
         ]
       }
     }
@@ -156,9 +156,9 @@
   },
   "about": {
     "label": "Über mich",
-    "title": "Dr. med. Mai Wald",
+    "title": "Mai Jimenez",
     "subtitle": "Ärztin für Darmgesundheit & Reizdarm",
-    "bio": "Mit einer Grundlage in der Schulmedizin und Weiterbildung in funktioneller Medizin konzentriere ich mich darauf, Verdauungsstörungen an der Wurzel zu verstehen und zu behandeln. Meine Praxis verbindet evidenzbasierte Diagnostik mit personalisierten Darmgesundheitsstrategien.",
+    "bio": "Ich unterstütze Frauen mit Reizdarmsymptomen dabei, ihre Darmgesundheit ganzheitlich zu verstehen und nachhaltig zu verbessern. Im Mittelpunkt steht nicht nur die Symptomreduktion, sondern die Suche nach den individuellen Ursachen und Belastungsfaktoren des Körpers.",
     "philosophy": "Den Darm verstehen heißt Gesundheit verstehen. Mein Ziel ist es, Ihnen zu helfen, die Kontrolle über Ihre Verdauung zurückzugewinnen — nachhaltig, individuell und evidenzbasiert.",
     "cta": "Mehr über mich",
     "education_label": "Ausbildung & Zertifizierungen",
@@ -166,22 +166,23 @@
     "specializations_label": "Spezialisierungen",
     "memberships_label": "Mitgliedschaften & Verbände",
     "education_items": [
-      { "title": "Medizinstudium (Dr. med.)", "detail": "Universitäre Ausbildung in Medizin" },
-      { "title": "Zertifizierung Funktionelle Medizin", "detail": "Institute for Functional Medicine (IFM), USA" },
-      { "title": "Zusätzliche Facharztausbildung", "detail": "Präventiv- und Sportmedizin" }
+      { "title": "Humanmedizinstudium", "detail": "Universitäre Ausbildung in Humanmedizin" },
+      { "title": "Mikronährstoffmedizin", "detail": "Ausbildung in Prävention und Therapie" },
+      { "title": "Autoimmun-Therapeutin", "detail": "Spezialisierte Ausbildung in Autoimmuntherapie" },
+      { "title": "Ärztin für Naturheilverfahren", "detail": "24 Monate Weiterbildung (BLÄK)" }
     ],
     "experience_items": [
-      "Präventiv- und Sportmedizin",
-      "Interventionelle Kardiologie",
-      "Naturheilkunde",
-      "Klinische Ernährung"
+      "Naturheilverfahren",
+      "Mikronährstofftherapie",
+      "Klinische Ernährung",
+      "Autoimmuntherapie"
     ],
     "specialization_items": [
       "Reizdarmsyndrom (IBS)",
-      "Mikrobiom- & Stuhldiagnostik",
-      "SIBO-Diagnostik & -Behandlung",
+      "Mikrobiom-Analyse & Darmdiagnostik",
+      "Entgiftung & Darmregeneration",
       "Ernährungsmedizin",
-      "Funktionelle Darmmedizin"
+      "Ganzheitliche Darmgesundheit"
     ],
     "membership_items": [
       "Healthy Longevity Medicine Society (HLMS)",
@@ -253,7 +254,7 @@
     "cta": "Konsultation buchen"
   },
   "footer": {
-    "description": "Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Evidenzbasierte, personalisierte Betreuung für nachhaltige Verdauungsgesundheit.",
+    "description": "Mai Jimenez — Ärztin für Darmgesundheit & Reizdarm. Ganzheitliche, personalisierte Betreuung für nachhaltige Verdauungsgesundheit — online, von überall.",
     "navigation": "Navigation",
     "services": "Schwerpunkte",
     "legal": "Rechtliches",
@@ -270,10 +271,10 @@
   "practice": {
     "phases_title": "Vier Schritte zu besserer Darmgesundheit",
     "phases": [
-      { "title": "Erstgespräch", "description": "Ausführliche Anamnese Ihrer Darmbeschwerden — persönlich oder per Telemedizin.", "icon": "fa-solid fa-comments" },
-      { "title": "Gezielte Diagnostik", "description": "Stuhlanalyse, Mikrobiom-Tests und weitere auf Ihre Situation abgestimmte Untersuchungen.", "icon": "fa-solid fa-microscope" },
-      { "title": "Therapieplan", "description": "Individueller, evidenzbasierter Behandlungsplan für Ihre Darmgesundheit.", "icon": "fa-solid fa-clipboard-list" },
-      { "title": "Begleitung", "description": "Fortlaufendes Monitoring mit Anpassungen für nachhaltige Besserung.", "icon": "fa-solid fa-chart-line" }
+      { "title": "Beratung", "description": "Ausführliche Anamnese Ihrer Darmbeschwerden — per Online-Konsultation.", "icon": "fa-solid fa-comments" },
+      { "title": "Diagnostik", "description": "Mikrobiom-Analyse, Stuhldiagnostik und auf Sie abgestimmte Untersuchungen.", "icon": "fa-solid fa-microscope" },
+      { "title": "Therapieplan", "description": "Individueller Plan: Entgiftung, Darmregeneration und Ernährungsberatung.", "icon": "fa-solid fa-clipboard-list" },
+      { "title": "Begleitung", "description": "Laufendes Monitoring und Anpassungen für nachhaltige Ergebnisse.", "icon": "fa-solid fa-chart-line" }
     ],
     "diagnostics_label": "Diagnostische Methoden",
     "diagnostics": [
@@ -299,28 +300,28 @@
   },
   "meta": {
     "index": {
-      "title": "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
-      "description": "MaiHealth — Dr. med. Mai Wald. Funktionelle Medizin & Reizdarm-Spezialistin. Ursachen verstehen, ganzheitlich behandeln, nachhaltig gesund leben.",
-      "og_title": "MaiHealth — Dr. med. Mai Wald | Reizdarm verstehen. Leben verändern.",
-      "og_description": "Spezialistin für Darmgesundheit & Reizdarm. Individuelle Darm-Diagnostik, Mikrobiom-Analyse und evidenzbasierte Therapie."
+      "title": "MaiHealth — Mai Jimenez | Reizdarm verstehen. Leben verändern.",
+      "description": "Mai Jimenez — Ärztin für Darmgesundheit & Reizdarm. Ganzheitliche Diagnostik, Mikrobiom-Analyse und individuelle Therapie. Online-Konsultationen.",
+      "og_title": "MaiHealth — Mai Jimenez | Reizdarm verstehen. Leben verändern.",
+      "og_description": "Ärztin für Darmgesundheit & Reizdarm. Ganzheitliche Diagnostik, Mikrobiom-Analyse und individuelle Therapie. Nur online."
     },
     "practice": {
-      "title": "Praxis & Leistungen — MaiHealth | Dr. med. Mai Wald",
+      "title": "Praxis & Leistungen — MaiHealth | Mai Jimenez",
       "description": "Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung. Individuelle Therapiepläne für Reizdarm, SIBO und Darmgesundheit.",
       "og_title": "Praxis & Leistungen — MaiHealth",
-      "og_description": "Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung bei Dr. med. Mai Wald."
+      "og_description": "Darm-Diagnostik, Mikrobiom-Analyse & laufende Betreuung bei Mai Jimenez."
     },
     "about": {
-      "title": "Über mich — Dr. med. Mai Wald | MaiHealth",
-      "description": "Dr. med. Mai Wald — Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.",
-      "og_title": "Über Dr. med. Mai Wald — MaiHealth",
+      "title": "Über mich — Mai Jimenez | MaiHealth",
+      "description": "Mai Jimenez — Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen. Evidenzbasiert, individuell, ganzheitlich.",
+      "og_title": "Über Mai Jimenez — MaiHealth",
       "og_description": "Ärztin für Darmgesundheit & Reizdarm. Ausbildung, Erfahrung und Spezialisierungen."
     },
     "contact": {
-      "title": "Kontakt & Termin — MaiHealth | Dr. med. Mai Wald",
-      "description": "Termin vereinbaren bei Dr. med. Mai Wald — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für Darmgesundheit & Reizdarm.",
+      "title": "Kontakt & Termin — MaiHealth | Mai Jimenez",
+      "description": "Termin vereinbaren bei Mai Jimenez — MaiHealth. Erstgespräch, Telemedizin und persönliche Beratung für Darmgesundheit & Reizdarm.",
       "og_title": "Kontakt & Termin — MaiHealth",
-      "og_description": "Termin vereinbaren bei Dr. med. Mai Wald. Darmgesundheit, Reizdarm-Diagnostik und persönliche Beratung."
+      "og_description": "Termin vereinbaren bei Mai Jimenez. Darmgesundheit, Reizdarm-Diagnostik und persönliche Beratung."
     }
   },
   "impressum": {
@@ -339,7 +340,7 @@
   },
   "auth": {
     "login_title": "Patientenportal",
-    "login_subtitle": "Melden Sie sich an, um Ihre Termine einzusehen und mit Dr. Wald in Kontakt zu treten.",
+    "login_subtitle": "Melden Sie sich an, um Ihre Termine einzusehen und mit Mai Jimenez in Kontakt zu treten.",
     "google_login": "Mit Google anmelden",
     "login_note": "Ihr Portalkonto ist mit Ihrem Google-Konto verbunden.",
     "logout": "Abmelden"
@@ -389,7 +390,7 @@
     "step_nav_slots": "Zeit wählen",
     "step_nav_confirm": "Bestätigen",
     "step_auth": "Anmelden, um fortzufahren",
-    "step_auth_subtitle": "Melden Sie sich mit Google an, um Ihren Termin mit Dr. Wald zu buchen.",
+    "step_auth_subtitle": "Melden Sie sich mit Google an, um Ihren Termin mit Mai Jimenez zu buchen.",
     "step_slots": "Datum & Uhrzeit wählen",
     "step_slots_empty": "Derzeit keine freien Termine. Bitte schauen Sie bald wieder vorbei.",
     "step_slots_empty_hint": "Regelmäßig werden neue Termine frei. Sie können uns auch direkt kontaktieren und wir finden einen Termin für Sie.",
@@ -419,12 +420,12 @@
     "slots_error": "Verfügbare Zeiten konnten gerade nicht geladen werden. Bitte versuchen Sie es erneut.",
     "retry": "Erneut versuchen",
     "request_sent_title": "Anfrage gesendet!",
-    "request_sent_subtitle": "Dr. Wald wird Ihren Termin in Kürze per E-Mail bestätigen.",
-    "requesting": "Bei Erstgesprächen prüft Dr. Wald die Anfrage und bestätigt innerhalb von 24 Stunden. Ihr Slot wird vorläufig reserviert.",
+    "request_sent_subtitle": "Mai Jimenez wird Ihren Termin in Kürze per E-Mail bestätigen.",
+    "requesting": "Bei Erstgesprächen prüft Mai Jimenez die Anfrage und bestätigt innerhalb von 24 Stunden. Ihr Slot wird vorläufig reserviert.",
     "zoom_link": "Videoanruf beitreten",
-    "what_to_expect_text": "Sie erhalten eine Bestätigungs-E-Mail mit Ihrem Zoom-Link und einer Kalendereinladung. Der Beitreten-Button wird 15 Minuten vor Ihrem Termin aktiv.",
+    "what_to_expect_text": "Sie erhalten eine Bestätigungs-E-Mail mit Ihrem Zoom-Link. Der Beitreten-Button wird 15 Minuten vor Ihrem Termin aktiv.",
     "meta_title": "Termin buchen — MaiHealth",
-    "meta_description": "Buchen Sie eine Online-Konsultation zur Darmgesundheit mit Dr. med. Mai Wald."
+    "meta_description": "Buchen Sie eine Online-Konsultation zur Darmgesundheit mit Mai Jimenez."
   },
   "admin": {
     "availability": {

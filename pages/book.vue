@@ -180,12 +180,12 @@
               {{ $t('book.logged_in_as', { name: user?.displayName || user?.email }) }}
             </div>
 
-            <!-- Not signed in: Google or guest form -->
+            <!-- Not signed in: Google only -->
             <template v-else>
               <button
                 @click="handleLogin"
                 :disabled="signingIn"
-                class="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white border border-stone/40 rounded-xl text-sm font-medium text-charcoal hover:bg-cream/50 hover:border-stone/60 transition-all duration-150 active:scale-[0.98] disabled:opacity-60 mb-5"
+                class="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white border border-stone/40 rounded-xl text-sm font-medium text-charcoal hover:bg-cream/50 hover:border-stone/60 transition-all duration-150 active:scale-[0.98] disabled:opacity-60"
               >
                 <i v-if="signingIn" class="fa-solid fa-spinner fa-spin text-xs" />
                 <svg v-else class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
@@ -196,33 +196,6 @@
                 </svg>
                 {{ $t('book.continue_google') }}
               </button>
-
-              <div class="flex items-center gap-3 mb-5">
-                <div class="flex-1 h-px bg-stone/20" />
-                <span class="text-[11px] uppercase tracking-wide text-muted">{{ $t('book.or_divider') }}</span>
-                <div class="flex-1 h-px bg-stone/20" />
-              </div>
-
-              <div class="space-y-3">
-                <input
-                  v-model="guest.name"
-                  type="text"
-                  :placeholder="$t('book.name_placeholder')"
-                  class="w-full px-4 py-3 bg-cream rounded-xl border border-stone/30 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all"
-                />
-                <input
-                  v-model="guest.email"
-                  type="email"
-                  :placeholder="$t('book.email_placeholder')"
-                  class="w-full px-4 py-3 bg-cream rounded-xl border border-stone/30 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all"
-                />
-                <input
-                  v-model="guest.phone"
-                  type="tel"
-                  :placeholder="$t('book.phone_placeholder')"
-                  class="w-full px-4 py-3 bg-cream rounded-xl border border-stone/30 text-sm text-charcoal placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-sage/15 focus:border-sage/30 transition-all"
-                />
-              </div>
             </template>
 
             <!-- Error -->
@@ -431,7 +404,6 @@ onMounted(fetchSlots)
 
 // Booking
 const form = reactive({ type: 'initial', reason: '' })
-const guest = reactive({ name: '', email: '', phone: '' })
 const booking = ref(false)
 const bookError = ref('')
 // Captured at confirmation time so they persist on the confirmed screen
@@ -442,12 +414,9 @@ const handleBook = async () => {
   if (!selectedSlot.value) return
   bookError.value = ''
 
-  // Guests must provide their contact details
   if (!isLoggedIn.value) {
-    if (!guest.name.trim() || !guest.email.trim() || !guest.phone.trim()) {
-      bookError.value = t('book.guest_required')
-      return
-    }
+    bookError.value = t('book.step_auth')
+    return
   }
 
   booking.value = true
@@ -464,9 +433,9 @@ const handleBook = async () => {
         slotDateTime: selectedSlot.value,
         type: form.type,
         reason: form.reason,
-        guestName: guest.name,
-        guestEmail: guest.email,
-        guestPhone: guest.phone,
+        guestName: '',
+        guestEmail: '',
+        guestPhone: '',
       },
     })
     confirmedDate.value = selectedDate.value

@@ -1,7 +1,7 @@
-import { Resend } from 'resend'
 import { getAdminDb } from '../../../utils/firebase-admin'
 import { verifyAuth } from '../../../utils/verify-auth'
 import { createZoomMeeting } from '../../../utils/zoom'
+import { sendBookingConfirmation, sendRequestDeclined } from '../../../utils/email'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
@@ -29,6 +29,14 @@ export default defineEventHandler(async (event) => {
 
   if (action === 'decline') {
     await db.collection('appointmentRequests').doc(id).update({ status: 'declined' })
+
+    if (request.patientEmail) {
+      await sendRequestDeclined({
+        to: request.patientEmail,
+        name: request.patientName || 'there',
+      })
+    }
+
     return { success: true }
   }
 
@@ -52,6 +60,7 @@ export default defineEventHandler(async (event) => {
   await db.collection('appointments').add({
     patientId: request.patientId,
     patientName: request.patientName || '',
+    patientEmail: request.patientEmail || '',
     date: Timestamp.fromDate(new Date(date)),
     duration: duration || 60,
     type: request.type || 'initial',
@@ -64,21 +73,13 @@ export default defineEventHandler(async (event) => {
 
   await db.collection('appointmentRequests').doc(id).update({ status: 'accepted' })
 
-  if (config.resendApiKey && request.patientEmail) {
-    const resend = new Resend(config.resendApiKey)
-    await resend.emails.send({
-      from: 'MaiHealth <noreply@maihealth.com>',
+  if (request.patientEmail) {
+    await sendBookingConfirmation({
       to: request.patientEmail,
-      subject: 'Your MaiHealth appointment is confirmed',
-      html: `
-        <h2>Appointment Confirmed</h2>
-        <p>Dear ${request.patientName},</p>
-        <p>Your appointment request has been accepted:</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-        <p><strong>Time:</strong> ${new Date(date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</p>
-        ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ''}
-        <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
-      `,
+      name: request.patientName || 'there',
+      date: new Date(date),
+      duration: duration || 60,
+      zoomJoinUrl,
     })
   }
 

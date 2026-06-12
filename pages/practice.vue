@@ -50,26 +50,7 @@
 
     <WaveDivider fromColor="#F5F1EC" toColor="#FFFFFF" :variant="1" />
 
-    <!-- Patient Journey -->
-    <section class="section-padding bg-white">
-      <div class="container-narrow">
-        <div class="text-center mb-14">
-          <span class="section-label">{{ $t('focus.label') }}</span>
-          <h2 class="section-title">{{ $t('practice.phases_title') }}</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div v-for="(phase, index) in phases" :key="phase.title" class="text-center relative">
-            <div class="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mx-auto mb-5 border border-stone/30">
-              <i :class="phase.icon" class="text-lg text-gold"></i>
-            </div>
-            <h3 class="text-base font-serif font-semibold text-charcoal mb-2">{{ phase.title }}</h3>
-            <p class="text-xs text-body/60 leading-relaxed">{{ phase.description }}</p>
-            <div v-if="index < 3" class="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[1px] bg-stone/40" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <StepsOverview />
 
     <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="3" />
 
@@ -136,12 +117,6 @@ useHead({
 })
 
 const resolveArray = (key) => tm(key).map(i => rt(i))
-const resolveObjectArray = (key, fields) => tm(key).map(obj => {
-  const resolved = {}
-  for (const f of fields) resolved[f] = rt(obj[f])
-  return resolved
-})
-
 const services = computed(() => [
   {
     key: 'diagnostics',
@@ -163,7 +138,6 @@ const services = computed(() => [
   },
 ])
 
-const phases = computed(() => resolveObjectArray('practice.phases', ['title', 'description', 'icon']))
 const diagnostics = computed(() => resolveArray('practice.diagnostics'))
 const treatments = computed(() => resolveArray('practice.treatments'))
 </script>

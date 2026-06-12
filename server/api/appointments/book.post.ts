@@ -1,6 +1,6 @@
-import { Resend } from 'resend'
 import { getAdminDb, getAdminAuth } from '../../utils/firebase-admin'
 import { createZoomMeeting } from '../../utils/zoom'
+import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest } from '../../utils/email'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
@@ -20,7 +20,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Cannot book a slot in the past' })
   }
 
-  // Auth is optional: a signed-in Google user OR an anonymous guest may book.
   let decoded: { uid: string; name?: string; email?: string } | null = null
   const authHeader = getHeader(event, 'authorization')
   if (authHeader?.startsWith('Bearer ')) {
@@ -32,7 +31,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  // Resolve the patient identity from the account or the guest details.
   let patientId = ''
   let patientName = ''
   let patientEmail = ''
@@ -58,7 +56,6 @@ export default defineEventHandler(async (event) => {
   const db = getAdminDb()
   const slotTimestamp = Timestamp.fromDate(slotDate)
 
-  // Check that the slot is still free
   const existingAppt = await db.collection('appointments')
     .where('date', '==', slotTimestamp)
     .where('status', '==', 'scheduled')
@@ -79,11 +76,9 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 409, statusMessage: 'This slot is no longer available' })
   }
 
-  // Get slot duration from availability config
   const availDoc = await db.collection('availability').doc('config').get()
   const slotDuration = availDoc.exists ? (availDoc.data()!.slotDuration || 60) : 60
 
-  // Only signed-in patients can qualify for instant (no-approval) booking.
   let isReturning = false
   if (decoded) {
     const completedSnapshot = await db.collection('appointments')
@@ -95,7 +90,6 @@ export default defineEventHandler(async (event) => {
   }
 
   if (isReturning) {
-    // Direct booking: create appointment immediately
     let zoomMeetingId = ''
     let zoomJoinUrl = ''
 
@@ -124,26 +118,13 @@ export default defineEventHandler(async (event) => {
       createdAt: Timestamp.now(),
     })
 
-    if (config.resendApiKey && patientEmail) {
-      const resend = new Resend(config.resendApiKey)
-      const dateStr = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-      const timeStr = slotDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-      await resend.emails.send({
-        from: 'MaiHealth <noreply@maihealth.com>',
-        to: patientEmail,
-        subject: 'Your MaiHealth appointment is confirmed',
-        html: `
-          <h2>Appointment Confirmed</h2>
-          <p>Dear ${patientName},</p>
-          <p>Your appointment has been booked:</p>
-          <p><strong>Date:</strong> ${dateStr}</p>
-          <p><strong>Time:</strong> ${timeStr}</p>
-          <p><strong>Duration:</strong> ${slotDuration} minutes</p>
-          ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}">Join Zoom Meeting</a></p>` : ''}
-          <p>View your appointments in your <a href="https://maihealth.com/portal">patient portal</a>.</p>
-        `,
-      })
-    }
+    await sendBookingConfirmation({
+      to: patientEmail,
+      name: patientName,
+      date: slotDate,
+      duration: slotDuration,
+      zoomJoinUrl,
+    })
 
     return {
       type: 'booked',
@@ -153,7 +134,6 @@ export default defineEventHandler(async (event) => {
       duration: slotDuration,
     }
   } else {
-    // First-time / guest patient: hold the slot as a pending request
     await db.collection('appointmentRequests').add({
       patientId: decoded?.uid || null,
       patientName,
@@ -171,22 +151,20 @@ export default defineEventHandler(async (event) => {
       createdAt: Timestamp.now(),
     })
 
-    if (config.resendApiKey) {
-      const resend = new Resend(config.resendApiKey)
-      const dateStr = slotDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-      const timeStr = slotDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-      await resend.emails.send({
-        from: 'MaiHealth <noreply@maihealth.com>',
-        to: config.contactEmail,
-        subject: `New appointment request from ${patientName}`,
-        html: `
-          <h2>New Appointment Request</h2>
-          <p><strong>Patient:</strong> ${patientName} (${patientEmail})</p>
-          ${patientPhone ? `<p><strong>Phone:</strong> ${patientPhone}</p>` : ''}
-          <p><strong>Requested slot:</strong> ${dateStr} at ${timeStr}</p>
-          <p><strong>Type:</strong> ${type || 'initial'}</p>
-          <p><strong>Reason:</strong> ${reason || 'Not provided'}</p>
-        `,
+    await sendAdminNewRequest({
+      name: patientName,
+      email: patientEmail,
+      phone: patientPhone,
+      date: slotDate,
+      type: type || 'initial',
+      reason,
+    })
+
+    if (patientEmail) {
+      await sendRequestReceived({
+        to: patientEmail,
+        name: patientName,
+        date: slotDate,
       })
     }
 

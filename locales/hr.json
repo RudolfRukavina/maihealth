@@ -14,12 +14,12 @@
     "label": "Zdravlje probave i IBS",
     "title_line1": "Razumjeti sindrom iritabilnog crijeva.",
     "title_line2": "Promijeniti život.",
-    "subtitle": "Dr. med. Mai Wald specijalizirana je za sindrom iritabilnog crijeva i zdravlje probave. Funkcionalnom medicinom, ciljanom dijagnostikom i individualnim planovima liječenja pomaže vam pronaći uzroke vaših probavnih tegoba.",
+    "subtitle": "Mučite se s nadutošću, bolovima u trbuhu, probavnim problemima ili sindromom iritabilnog crijeva? Zajedno ćemo otkriti što stoji iza vaših tegoba i razviti jasan, individualan put do većeg blagostanja i kvalitete života.",
     "cta_book": "Naruči termin",
     "cta_learn": "Saznaj više",
     "badges": {
       "evidence": "Temeljena na dokazima",
-      "telemedicine": "Telemedicina",
+      "telemedicine": "Samo Online",
       "languages": "4 jezika"
     },
     "badge_card": {
@@ -156,9 +156,9 @@
   },
   "about": {
     "label": "O meni",
-    "title": "Dr. med. Mai Wald",
-    "subtitle": "Liječnica specijalizirana za zdravlje probave i IBS",
-    "bio": "S temeljima u konvencionalnoj medicini i naprednom edukacijom u funkcionalnoj medicini, fokusiram se na razumijevanje i liječenje probavnih poremećaja u njihovom korijenu. Moja praksa spaja dijagnostiku temeljenu na dokazima s personaliziranim strategijama za zdravlje probave.",
+    "title": "Mai Jimenez",
+    "subtitle": "Liječnica za zdravlje probave i IBS",
+    "bio": "Podržavam žene sa simptomima iritabilnog crijeva u holističkom razumijevanju zdravlja probave i njegovom trajnom poboljšanju. Fokus nije samo na smanjenju simptoma, već na pronalaženju individualnih uzroka i faktora opterećenja tijela.",
     "philosophy": "Razumjeti crijevo znači razumjeti zdravlje. Moj cilj je pomoći vam da vratite kontrolu nad svojom probavom — trajno, individualno i temeljeno na dokazima.",
     "cta": "Više o meni",
     "education_label": "Obrazovanje i certifikati",
@@ -166,26 +166,27 @@
     "specializations_label": "Specijalizacije",
     "memberships_label": "Članstva i udruženja",
     "education_items": [
-      { "title": "Doktor medicine (Dr. med.)", "detail": "Sveučilišno obrazovanje u medicini" },
-      { "title": "Certifikat funkcionalne medicine", "detail": "Institute for Functional Medicine (IFM), SAD" },
-      { "title": "Dodatna specijalizacija", "detail": "Preventivna i sportska medicina" }
+      { "title": "Studij humane medicine", "detail": "Sveučilišno obrazovanje u humanoj medicini" },
+      { "title": "Medicina mikronutrijenata", "detail": "Certifikacija u prevenciji i terapiji" },
+      { "title": "Autoimuni terapeut", "detail": "Specijalizirana edukacija za autoimunu terapiju" },
+      { "title": "Liječnica za naturopatsku medicinu", "detail": "24 mjeseca napredne edukacije (BLÄK)" }
     ],
     "experience_items": [
-      "Preventivna i sportska medicina",
-      "Intervencijska kardiologija",
       "Naturopatska medicina",
-      "Klinička prehrana"
+      "Terapija mikronutrijentima",
+      "Klinička prehrana",
+      "Autoimuna terapija"
     ],
     "specialization_items": [
       "Sindrom iritabilnog crijeva (IBS)",
-      "Mikrobiom i dijagnostika stolice",
-      "SIBO dijagnostika i liječenje",
+      "Analiza mikrobioma i dijagnostika probave",
+      "Detoksikacija i regeneracija crijeva",
       "Nutritivna medicina",
-      "Funkcionalna medicina probave"
+      "Holistično zdravlje probave"
     ],
     "membership_items": [
       "Healthy Longevity Medicine Society (HLMS)",
-      "Liječnička komora"
+      "Liječnička komora (Ärztekammer)"
     ]
   },
   "contact": {
@@ -253,7 +254,7 @@
     "cta": "Zakažite konzultaciju"
   },
   "footer": {
-    "description": "Dr. med. Mai Wald — Liječnica specijalizirana za zdravlje probave i IBS. Zdravstvena skrb temeljena na dokazima za trajno zdravlje probave.",
+    "description": "Mai Jimenez — Liječnica specijalizirana za zdravlje probave i IBS. Zdravstvena skrb temeljena na dokazima za trajno zdravlje probave.",
     "navigation": "Navigacija",
     "services": "Područja rada",
     "legal": "Pravno",
@@ -299,28 +300,28 @@
   },
   "meta": {
     "index": {
-      "title": "MaiHealth — Dr. med. Mai Wald | Razumjeti IBS. Promijeniti život.",
-      "description": "Dr. med. Mai Wald — Specijalizirana za zdravlje probave i IBS. Individualizirana dijagnostika, analiza mikrobioma i terapija temeljena na dokazima.",
-      "og_title": "MaiHealth — Dr. med. Mai Wald | Razumjeti IBS. Promijeniti život.",
+      "title": "MaiHealth — Mai Jimenez | Razumjeti IBS. Promijeniti život.",
+      "description": "Mai Jimenez — Specijalizirana za zdravlje probave i IBS. Individualizirana dijagnostika, analiza mikrobioma i terapija temeljena na dokazima.",
+      "og_title": "MaiHealth — Mai Jimenez | Razumjeti IBS. Promijeniti život.",
       "og_description": "Specijalizirana za zdravlje probave i IBS. Individualizirana dijagnostika i terapija temeljena na dokazima."
     },
     "practice": {
-      "title": "Ordinacija i usluge — MaiHealth | Dr. med. Mai Wald",
+      "title": "Ordinacija i usluge — MaiHealth | Mai Jimenez",
       "description": "Dijagnostika probave, analiza mikrobioma i kontinuirana podrška. Individualni planovi terapije za IBS, SIBO i zdravlje probave.",
       "og_title": "Ordinacija i usluge — MaiHealth",
-      "og_description": "Dijagnostika probave, analiza mikrobioma i kontinuirana podrška kod Dr. med. Mai Wald."
+      "og_description": "Dijagnostika probave, analiza mikrobioma i kontinuirana podrška kod Mai Jimenez."
     },
     "about": {
-      "title": "O meni — Dr. med. Mai Wald | MaiHealth",
-      "description": "Dr. med. Mai Wald — Liječnica za zdravlje probave i IBS. Obrazovanje, iskustvo i specijalizacije.",
-      "og_title": "O Dr. med. Mai Wald — MaiHealth",
+      "title": "O meni — Mai Jimenez | MaiHealth",
+      "description": "Mai Jimenez — Liječnica za zdravlje probave i IBS. Obrazovanje, iskustvo i specijalizacije.",
+      "og_title": "O Mai Jimenez — MaiHealth",
       "og_description": "Liječnica za zdravlje probave i IBS. Obrazovanje, iskustvo i specijalizacije."
     },
     "contact": {
-      "title": "Kontakt i termin — MaiHealth | Dr. med. Mai Wald",
-      "description": "Zakažite termin kod Dr. med. Mai Wald — MaiHealth. Prvi razgovor, telemedicina i osobno savjetovanje za zdravlje probave.",
+      "title": "Kontakt i termin — MaiHealth | Mai Jimenez",
+      "description": "Zakažite termin kod Mai Jimenez — MaiHealth. Prvi razgovor, telemedicina i osobno savjetovanje za zdravlje probave.",
       "og_title": "Kontakt i termin — MaiHealth",
-      "og_description": "Zakažite termin kod Dr. med. Mai Wald. Zdravlje probave i IBS dijagnostika."
+      "og_description": "Zakažite termin kod Mai Jimenez. Zdravlje probave i IBS dijagnostika."
     }
   },
   "impressum": {
@@ -339,7 +340,7 @@
   },
   "auth": {
     "login_title": "Portal za pacijente",
-    "login_subtitle": "Prijavite se za pregled termina i kontakt s Dr. Wald.",
+    "login_subtitle": "Prijavite se za pregled termina i kontakt s Mai Jimenez.",
     "google_login": "Prijavite se putem Googlea",
     "login_note": "Vaš račun na portalu povezan je s vašim Google računom.",
     "logout": "Odjava"
@@ -389,7 +390,7 @@
     "step_nav_slots": "Odabir termina",
     "step_nav_confirm": "Potvrdi",
     "step_auth": "Prijavite se za nastavak",
-    "step_auth_subtitle": "Prijavite se Google računom za rezervaciju termina s Dr. Wald.",
+    "step_auth_subtitle": "Prijavite se Google računom za rezervaciju termina s Mai Jimenez.",
     "step_slots": "Odaberite datum i vrijeme",
     "step_slots_empty": "Trenutno nema slobodnih termina. Provjerite uskoro.",
     "step_slots_empty_hint": "Novi termini otvaraju se redovito. Možete nas i izravno kontaktirati i naći ćemo termin za vas.",
@@ -419,12 +420,12 @@
     "slots_error": "Trenutačno nismo mogli učitati dostupne termine. Pokušajte ponovno.",
     "retry": "Pokušaj ponovno",
     "request_sent_title": "Zahtjev poslan!",
-    "request_sent_subtitle": "Dr. Wald će uskoro potvrditi vaš termin putem e-pošte.",
-    "requesting": "Za prve konzultacije Dr. Wald pregledava zahtjev i potvrđuje u roku od 24 sata. Vaš termin je privremeno rezerviran.",
+    "request_sent_subtitle": "Mai Jimenez će uskoro potvrditi vaš termin putem e-pošte.",
+    "requesting": "Za prve konzultacije Mai Jimenez pregledava zahtjev i potvrđuje u roku od 24 sata. Vaš termin je privremeno rezerviran.",
     "zoom_link": "Pridruži se videopozivom",
-    "what_to_expect_text": "Primit ćete potvrdni e-mail s Zoom linkom i pozivnicom za kalendar. Gumb za pridruživanje bit će aktivan 15 minuta prije termina.",
+    "what_to_expect_text": "Primit ćete potvrdni e-mail s Zoom linkom. Gumb za pridruživanje bit će aktivan 15 minuta prije termina.",
     "meta_title": "Naruči konzultaciju — MaiHealth",
-    "meta_description": "Naručite online konzultaciju za zdravlje crijeva s Dr. med. Mai Wald."
+    "meta_description": "Naručite online konzultaciju za zdravlje crijeva s Mai Jimenez."
   },
   "admin": {
     "availability": {

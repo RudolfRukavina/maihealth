@@ -27,7 +27,7 @@
                 </div>
                 <div>
                   <h4 class="text-sm font-semibold text-charcoal mb-1">{{ $t('contact.info.email_label') }}</h4>
-                  <p class="text-sm text-body/70">hello@maijimenez.com</p>
+                  <a href="mailto:Mai.jimenez@gmx.de" class="text-sm text-body/70 hover:text-sage transition-colors">Mai.jimenez@gmx.de</a>
                 </div>
               </div>
 

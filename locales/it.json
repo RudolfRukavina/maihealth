@@ -14,12 +14,12 @@
     "label": "Salute Intestinale & IBS",
     "title_line1": "Capire l'intestino irritabile.",
     "title_line2": "Cambiare la vita.",
-    "subtitle": "La Dr.ssa Mai Wald è specializzata nella sindrome dell'intestino irritabile e nella salute intestinale. Con la medicina funzionale, diagnostica mirata e piani di trattamento personalizzati, vi aiuta a trovare le cause dei vostri disturbi digestivi.",
+    "subtitle": "Soffrite di gonfiore, dolori addominali, problemi digestivi o intestino irritabile? Insieme scopriremo cosa si nasconde dietro i vostri disturbi e svilupperemo un percorso chiaro e individuale verso più benessere e qualità di vita.",
     "cta_book": "Prenota appuntamento",
     "cta_learn": "Scopri di più",
     "badges": {
       "evidence": "Basata sulle evidenze",
-      "telemedicine": "Telemedicina",
+      "telemedicine": "Solo Online",
       "languages": "4 lingue"
     },
     "badge_card": {
@@ -156,9 +156,9 @@
   },
   "about": {
     "label": "Chi sono",
-    "title": "Dr.ssa Mai Wald",
-    "subtitle": "Medico specializzata in salute intestinale e IBS",
-    "bio": "Con una formazione in medicina convenzionale e specializzazione in medicina funzionale, mi concentro sulla comprensione e il trattamento dei disturbi digestivi alla radice. Il mio studio unisce diagnostica basata sulle evidenze con strategie personalizzate per la salute intestinale.",
+    "title": "Mai Jimenez",
+    "subtitle": "Medico per la salute intestinale e IBS",
+    "bio": "Supporto le donne con sintomi di intestino irritabile nella comprensione olistica della loro salute intestinale e nel miglioramento sostenibile. L'attenzione non è solo sulla riduzione dei sintomi, ma sulla ricerca delle cause individuali e dei fattori di stress del corpo.",
     "philosophy": "Capire l'intestino significa capire la salute. Il mio obiettivo è aiutarti a riprendere il controllo della tua digestione — in modo sostenibile, individuale e basato sulle evidenze.",
     "cta": "Scopri di più su di me",
     "education_label": "Formazione e Certificazioni",
@@ -166,26 +166,27 @@
     "specializations_label": "Specializzazioni",
     "memberships_label": "Appartenenze e affiliazioni",
     "education_items": [
-      { "title": "Laurea in Medicina (Dr. med.)", "detail": "Formazione universitaria in medicina" },
-      { "title": "Certificazione in Medicina Funzionale", "detail": "Institute for Functional Medicine (IFM), USA" },
-      { "title": "Formazione specialistica aggiuntiva", "detail": "Medicina preventiva e sportiva" }
+      { "title": "Laurea in Medicina", "detail": "Formazione universitaria in medicina umana" },
+      { "title": "Medicina dei Micronutrienti", "detail": "Certificazione in prevenzione e terapia" },
+      { "title": "Terapeuta Autoimmune", "detail": "Formazione specializzata in terapia autoimmune" },
+      { "title": "Medico per Medicina Naturopatica", "detail": "24 mesi di formazione avanzata (BLÄK)" }
     ],
     "experience_items": [
-      "Medicina preventiva e sportiva",
-      "Cardiologia interventistica",
       "Medicina naturopatica",
-      "Nutrizione clinica"
+      "Terapia dei micronutrienti",
+      "Nutrizione clinica",
+      "Terapia autoimmune"
     ],
     "specialization_items": [
       "Sindrome dell'intestino irritabile (IBS)",
-      "Microbioma e diagnostica delle feci",
-      "Diagnosi e trattamento SIBO",
+      "Analisi del microbioma e diagnostica intestinale",
+      "Detox e rigenerazione intestinale",
       "Medicina nutrizionale",
-      "Medicina funzionale intestinale"
+      "Salute intestinale olistica"
     ],
     "membership_items": [
       "Healthy Longevity Medicine Society (HLMS)",
-      "Ordine dei Medici"
+      "Ordine dei Medici (Ärztekammer)"
     ]
   },
   "contact": {
@@ -253,7 +254,7 @@
     "cta": "Prenota la tua consulenza"
   },
   "footer": {
-    "description": "Dr.ssa Mai Wald — Medico specializzata in salute intestinale e IBS. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere digestivo.",
+    "description": "Mai Jimenez — Medico specializzata in salute intestinale e IBS. Assistenza sanitaria personalizzata e basata sulle evidenze per il benessere digestivo.",
     "navigation": "Navigazione",
     "services": "Aree di specializzazione",
     "legal": "Legale",
@@ -299,28 +300,28 @@
   },
   "meta": {
     "index": {
-      "title": "MaiHealth — Dr.ssa Mai Wald | Capire l'IBS. Cambiare la vita.",
-      "description": "Dr.ssa Mai Wald — Specialista in salute intestinale e IBS. Diagnostica individualizzata, analisi del microbioma e terapia basata sulle evidenze.",
-      "og_title": "MaiHealth — Dr.ssa Mai Wald | Capire l'IBS. Cambiare la vita.",
+      "title": "MaiHealth — Mai Jimenez | Capire l'IBS. Cambiare la vita.",
+      "description": "Mai Jimenez — Specialista in salute intestinale e IBS. Diagnostica individualizzata, analisi del microbioma e terapia basata sulle evidenze.",
+      "og_title": "MaiHealth — Mai Jimenez | Capire l'IBS. Cambiare la vita.",
       "og_description": "Specialista in salute intestinale e IBS. Diagnostica individualizzata e terapia basata sulle evidenze."
     },
     "practice": {
-      "title": "Studio e servizi — MaiHealth | Dr.ssa Mai Wald",
+      "title": "Studio e servizi — MaiHealth | Mai Jimenez",
       "description": "Diagnostica intestinale, analisi del microbioma e supporto continuo. Piani terapeutici individualizzati per IBS, SIBO e salute intestinale.",
       "og_title": "Studio e servizi — MaiHealth",
-      "og_description": "Diagnostica intestinale, analisi del microbioma e supporto continuo presso Dr.ssa Mai Wald."
+      "og_description": "Diagnostica intestinale, analisi del microbioma e supporto continuo presso Mai Jimenez."
     },
     "about": {
-      "title": "Chi sono — Dr.ssa Mai Wald | MaiHealth",
-      "description": "Dr.ssa Mai Wald — Medico per la salute intestinale e IBS. Formazione, esperienza e specializzazioni.",
-      "og_title": "Chi è Dr.ssa Mai Wald — MaiHealth",
+      "title": "Chi sono — Mai Jimenez | MaiHealth",
+      "description": "Mai Jimenez — Medico per la salute intestinale e IBS. Formazione, esperienza e specializzazioni.",
+      "og_title": "Chi è Mai Jimenez — MaiHealth",
       "og_description": "Medico per la salute intestinale e IBS. Formazione, esperienza e specializzazioni."
     },
     "contact": {
-      "title": "Contatti e appuntamento — MaiHealth | Dr.ssa Mai Wald",
-      "description": "Prenota un appuntamento con Dr.ssa Mai Wald — MaiHealth. Prima consulenza, telemedicina e consulenza personale per la salute intestinale.",
+      "title": "Contatti e appuntamento — MaiHealth | Mai Jimenez",
+      "description": "Prenota un appuntamento con Mai Jimenez — MaiHealth. Prima consulenza, telemedicina e consulenza personale per la salute intestinale.",
       "og_title": "Contatti e appuntamento — MaiHealth",
-      "og_description": "Prenota un appuntamento con Dr.ssa Mai Wald. Salute intestinale e diagnostica IBS."
+      "og_description": "Prenota un appuntamento con Mai Jimenez. Salute intestinale e diagnostica IBS."
     }
   },
   "impressum": {
@@ -339,7 +340,7 @@
   },
   "auth": {
     "login_title": "Portale pazienti",
-    "login_subtitle": "Accedi per visualizzare i tuoi appuntamenti e connetterti con la Dr.ssa Wald.",
+    "login_subtitle": "Accedi per visualizzare i tuoi appuntamenti e connetterti con Mai Jimenez.",
     "google_login": "Accedi con Google",
     "login_note": "Il tuo account del portale è collegato al tuo account Google.",
     "logout": "Disconnetti"
@@ -389,7 +390,7 @@
     "step_nav_slots": "Scegli orario",
     "step_nav_confirm": "Conferma",
     "step_auth": "Accedi per continuare",
-    "step_auth_subtitle": "Accedi con Google per prenotare il tuo appuntamento con la Dr.ssa Wald.",
+    "step_auth_subtitle": "Accedi con Google per prenotare il tuo appuntamento con Mai Jimenez.",
     "step_slots": "Scegli data e orario",
     "step_slots_empty": "Nessuno slot disponibile al momento. Ricontrolla presto.",
     "step_slots_empty_hint": "Nuovi orari si liberano regolarmente. Puoi anche contattarci direttamente e troveremo un posto per te.",
@@ -419,12 +420,12 @@
     "slots_error": "Al momento non è stato possibile caricare gli orari disponibili. Riprova.",
     "retry": "Riprova",
     "request_sent_title": "Richiesta inviata!",
-    "request_sent_subtitle": "La Dr.ssa Wald confermerà il tuo appuntamento a breve via e-mail.",
-    "requesting": "Per le prime visite, la Dr.ssa Wald esamina la richiesta e conferma entro 24 ore. Il tuo slot è provvisoriamente riservato.",
+    "request_sent_subtitle": "La Mai Jimenez confermerà il tuo appuntamento a breve via e-mail.",
+    "requesting": "Per le prime visite, Mai Jimenez esamina la richiesta e conferma entro 24 ore. Il tuo slot è provvisoriamente riservato.",
     "zoom_link": "Unisciti alla videochiamata",
-    "what_to_expect_text": "Riceverai un'e-mail di conferma con il link Zoom e un invito al calendario. Il pulsante di accesso si attiva 15 minuti prima dell'appuntamento.",
+    "what_to_expect_text": "Riceverai un'e-mail di conferma con il link Zoom. Il pulsante di accesso si attiva 15 minuti prima dell'appuntamento.",
     "meta_title": "Prenota una consulenza — MaiHealth",
-    "meta_description": "Prenota una consulenza online per la salute intestinale con la Dr.ssa Mai Wald."
+    "meta_description": "Prenota una consulenza online per la salute intestinale con la Mai Jimenez."
   },
   "admin": {
     "availability": {

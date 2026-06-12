@@ -3,9 +3,9 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "MaiHealth — Dr. med. Mai Wald",
+      title: "MaiHealth — Mai Jimenez",
       meta: [
-        { name: "description", content: "MaiHealth — Dr. med. Mai Wald. Gut health & IBS specialist." },
+        { name: "description", content: "MaiHealth — Mai Jimenez. Gut health & IBS specialist." },
         { name: "theme-color", content: "#F5F1EC" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "MaiHealth" },
@@ -77,7 +77,7 @@ export default defineNuxtConfig({
     zoomAccountId: '',
     zoomClientId: '',
     zoomClientSecret: '',
-    contactEmail: 'hello@maihealth.com',
+    contactEmail: 'Mai.jimenez@gmx.de',
     public: {
       firebaseApiKey: '',
       firebaseAuthDomain: '',

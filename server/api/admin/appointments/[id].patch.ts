@@ -1,5 +1,6 @@
 import { getAdminDb } from '../../../utils/firebase-admin'
 import { verifyAuth } from '../../../utils/verify-auth'
+import { sendAppointmentCancelled, sendBookingConfirmation } from '../../../utils/email'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
@@ -14,6 +15,12 @@ export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')
   if (!id) throw createError({ statusCode: 400, statusMessage: 'Appointment ID required' })
 
+  const apptDoc = await db.collection('appointments').doc(id).get()
+  if (!apptDoc.exists) {
+    throw createError({ statusCode: 404, statusMessage: 'Appointment not found' })
+  }
+  const existing = apptDoc.data()!
+
   const body = await readBody(event)
   const updates: Record<string, any> = {}
 
@@ -23,6 +30,26 @@ export default defineEventHandler(async (event) => {
   if (body.notes !== undefined) updates.notes = body.notes
 
   await db.collection('appointments').doc(id).update(updates)
+
+  const patientEmail = existing.patientEmail
+  const patientName = existing.patientName || 'there'
+
+  if (patientEmail) {
+    if (body.status === 'cancelled' && existing.status !== 'cancelled') {
+      const apptDate = existing.date?.toDate?.() || new Date()
+      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate })
+    }
+
+    if (body.date && body.date !== existing.date?.toDate?.()?.toISOString()) {
+      await sendBookingConfirmation({
+        to: patientEmail,
+        name: patientName,
+        date: new Date(body.date),
+        duration: body.duration || existing.duration || 60,
+        zoomJoinUrl: existing.zoomJoinUrl,
+      })
+    }
+  }
 
   return { success: true }
 })

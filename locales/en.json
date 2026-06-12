@@ -14,12 +14,12 @@
     "label": "Gut Health & IBS",
     "title_line1": "Understand IBS.",
     "title_line2": "Change your life.",
-    "subtitle": "Dr. med. Mai Wald specializes in irritable bowel syndrome and gut health. With functional medicine, targeted diagnostics, and personalized treatment plans, she helps you get to the root of your digestive issues.",
+    "subtitle": "Struggling with bloating, stomach pain, digestive issues, or IBS? In a personal consultation, we'll explore what's behind your symptoms together and find a clear, individual path to more well-being and quality of life.",
     "cta_book": "Book Appointment",
     "cta_learn": "Learn More",
     "badges": {
       "evidence": "Evidence-based",
-      "telemedicine": "Telemedicine",
+      "telemedicine": "Online Only",
       "languages": "4 Languages"
     },
     "badge_card": {
@@ -49,44 +49,44 @@
     "label": "How I Help",
     "title": "How I help you as a holistic physician",
     "subtitle": "Comprehensive, individualized gut health care — from first consultation to lasting results.",
-    "description": "You receive individualized medical care tailored exactly to your health situation. I work with only a small number of selected patients to ensure truly in-depth treatment.",
+    "description": "You receive individualized medical care tailored exactly to your health situation. Through holistic diagnostics, guided detox, and targeted gut regeneration, I support your body in finding its balance again.",
     "points": [
-      "Online consultations & 1-on-1 care",
-      "Comprehensive gut diagnostics & microbiome analysis",
-      "Personalized treatment plans & ongoing support"
+      "Online consultations & personal 1-on-1 care",
+      "Microbiome analysis & holistic gut diagnostics",
+      "Guided detox & gut regeneration protocols"
     ],
     "cta": "Book Online Appointment",
     "cards": {
       "diagnostics": {
-        "title": "Gut Diagnostics",
-        "description": "Thorough investigation of your digestive health using the latest evidence-based testing methods.",
+        "title": "Therapy",
+        "description": "Holistic diagnostics with microbiome analysis and individually tailored measures for detox and gut regeneration.",
         "details": [
           "Comprehensive stool diagnostics & microbiome analysis",
-          "SIBO breath testing",
-          "Food intolerance and reactivity panels",
-          "Intestinal permeability assessment",
+          "Guided detox & therapeutic fasting",
+          "Targeted gut barrier restoration",
+          "Individualized regeneration protocol",
           "Personalized therapy plan"
         ]
       },
       "analysis": {
-        "title": "Personal Consultation",
-        "description": "In-depth one-on-one consultation to understand your unique gut health situation and develop a tailored plan.",
+        "title": "Coaching",
+        "description": "Personal accompaniment on the path to greater body awareness and self-understanding.",
         "details": [
-          "Review of current and previous results",
-          "One-on-one consultation",
-          "Individualized gut health plan",
-          "Available in-person or via telemedicine"
+          "Learn to read your body's signals",
+          "Understand gut health connections",
+          "Recognize and manage stress factors",
+          "Build healthier routines"
         ]
       },
       "coaching": {
-        "title": "Ongoing Support",
-        "description": "Continuous guidance and monitoring to ensure lasting improvement in your digestive health.",
+        "title": "Knowledge & Guidance",
+        "description": "Evidence-based knowledge about gut health, microbiome, and detox — plus personalized nutrition and lifestyle recommendations.",
         "details": [
-          "Monthly progress consultations",
-          "Ongoing protocol adjustments",
-          "Nutrition and lifestyle coaching",
-          "Symptom monitoring and tracking",
-          "Nationwide telemedicine available"
+          "Gut health & microbiome education",
+          "Personalized nutrition counseling",
+          "Practical lifestyle strategies",
+          "Long-term health-promoting habits",
+          "Ongoing support via telemedicine"
         ]
       }
     }
@@ -156,9 +156,9 @@
   },
   "about": {
     "label": "About",
-    "title": "Dr. med. Mai Wald",
-    "subtitle": "Physician specializing in Gut Health & IBS",
-    "bio": "With a foundation in conventional medicine and advanced training in functional medicine, I focus on understanding and treating digestive disorders at their root. My practice combines evidence-based diagnostics with personalized gut health strategies.",
+    "title": "Mai Jimenez",
+    "subtitle": "Physician for Gut Health & IBS",
+    "bio": "I support women with IBS symptoms in understanding their gut health holistically and improving it sustainably. The focus is not just on symptom reduction, but on finding the individual causes and stress factors of the body.",
     "philosophy": "Understanding the gut means understanding health. My goal is to help you regain control of your digestion — sustainably, individually, and based on evidence.",
     "cta": "More About Me",
     "education_label": "Education & Certifications",
@@ -166,26 +166,27 @@
     "specializations_label": "Specializations",
     "memberships_label": "Memberships & Affiliations",
     "education_items": [
-      { "title": "Medical Degree (Dr. med.)", "detail": "University education in medicine" },
-      { "title": "Functional Medicine Certification", "detail": "Institute for Functional Medicine (IFM), USA" },
-      { "title": "Additional specialization training", "detail": "Preventive and sports medicine" }
+      { "title": "Medical Degree", "detail": "University education in human medicine" },
+      { "title": "Micronutrient Medicine", "detail": "Certification in prevention and therapy" },
+      { "title": "Autoimmune Therapist", "detail": "Specialized autoimmune therapy training" },
+      { "title": "Physician for Naturopathic Medicine", "detail": "24 months advanced training (BLÄK)" }
     ],
     "experience_items": [
-      "Prevention and sports medicine",
-      "Interventional cardiology",
       "Naturopathic medicine",
-      "Clinical nutrition"
+      "Micronutrient therapy",
+      "Clinical nutrition",
+      "Autoimmune therapy"
     ],
     "specialization_items": [
       "Irritable bowel syndrome (IBS)",
-      "Microbiome & stool diagnostics",
-      "SIBO diagnosis & treatment",
+      "Microbiome analysis & gut diagnostics",
+      "Detox & gut regeneration",
       "Nutritional medicine",
-      "Functional gut medicine"
+      "Holistic gut health"
     ],
     "membership_items": [
       "Healthy Longevity Medicine Society (HLMS)",
-      "Medical Chamber"
+      "Medical Chamber (Ärztekammer)"
     ]
   },
   "contact": {
@@ -253,7 +254,7 @@
     "cta": "Book Your Consultation"
   },
   "footer": {
-    "description": "Dr. med. Mai Wald — Physician specializing in gut health & IBS. Evidence-based, personalized digestive health care.",
+    "description": "Mai Jimenez — Physician for gut health & IBS. Holistic, personalized digestive health care — online, from anywhere.",
     "navigation": "Navigation",
     "services": "Focus Areas",
     "legal": "Legal",
@@ -270,10 +271,10 @@
   "practice": {
     "phases_title": "Four steps to better gut health",
     "phases": [
-      { "title": "Initial Consultation", "description": "Comprehensive history of your gut symptoms — in-person or via telemedicine.", "icon": "fa-solid fa-comments" },
-      { "title": "Targeted Diagnostics", "description": "Stool analysis, microbiome tests, and further assessments tailored to your situation.", "icon": "fa-solid fa-microscope" },
-      { "title": "Therapy Plan", "description": "Individualized, evidence-based treatment plan for your gut health.", "icon": "fa-solid fa-clipboard-list" },
-      { "title": "Ongoing Support", "description": "Continuous monitoring with adjustments for sustainable improvement.", "icon": "fa-solid fa-chart-line" }
+      { "title": "Consultation", "description": "Comprehensive history of your gut symptoms — via online consultation.", "icon": "fa-solid fa-comments" },
+      { "title": "Diagnostics", "description": "Microbiome analysis, stool diagnostics, and assessments tailored to you.", "icon": "fa-solid fa-microscope" },
+      { "title": "Therapy Plan", "description": "Personalized plan: detox, gut regeneration, and nutrition guidance.", "icon": "fa-solid fa-clipboard-list" },
+      { "title": "Support", "description": "Ongoing monitoring and adjustments for lasting results.", "icon": "fa-solid fa-chart-line" }
     ],
     "diagnostics_label": "Diagnostic Methods",
     "diagnostics": [
@@ -299,28 +300,28 @@
   },
   "meta": {
     "index": {
-      "title": "MaiHealth — Dr. med. Mai Wald | Understand IBS. Change your life.",
-      "description": "Dr. med. Mai Wald — Gut health & IBS specialist. Individualized gut diagnostics, microbiome analysis, and evidence-based therapy for lasting digestive health.",
-      "og_title": "MaiHealth — Dr. med. Mai Wald | Understand IBS. Change your life.",
-      "og_description": "Gut health & IBS specialist. Individualized gut diagnostics, microbiome analysis, and evidence-based therapy."
+      "title": "MaiHealth — Mai Jimenez | Understand IBS. Change your life.",
+      "description": "Mai Jimenez — Gut health & IBS specialist. Holistic gut diagnostics, microbiome analysis, and personalized therapy for lasting digestive health. Online consultations.",
+      "og_title": "MaiHealth — Mai Jimenez | Understand IBS. Change your life.",
+      "og_description": "Gut health & IBS specialist. Holistic gut diagnostics, microbiome analysis, and personalized therapy. Online only."
     },
     "practice": {
-      "title": "Practice & Services — MaiHealth | Dr. med. Mai Wald",
+      "title": "Practice & Services — MaiHealth | Mai Jimenez",
       "description": "Gut diagnostics, microbiome analysis & ongoing support. Individualized treatment plans for IBS, SIBO, and gut health.",
       "og_title": "Practice & Services — MaiHealth",
-      "og_description": "Gut diagnostics, microbiome analysis & ongoing support at Dr. med. Mai Wald."
+      "og_description": "Gut diagnostics, microbiome analysis & ongoing support at Mai Jimenez."
     },
     "about": {
-      "title": "About — Dr. med. Mai Wald | MaiHealth",
-      "description": "Dr. med. Mai Wald — Physician specializing in gut health & IBS. Education, experience, and specializations. Evidence-based, individualized, holistic.",
-      "og_title": "About Dr. med. Mai Wald — MaiHealth",
+      "title": "About — Mai Jimenez | MaiHealth",
+      "description": "Mai Jimenez — Physician specializing in gut health & IBS. Education, experience, and specializations. Evidence-based, individualized, holistic.",
+      "og_title": "About Mai Jimenez — MaiHealth",
       "og_description": "Physician specializing in gut health & IBS. Education, experience, and specializations."
     },
     "contact": {
-      "title": "Contact & Appointment — MaiHealth | Dr. med. Mai Wald",
-      "description": "Book an appointment with Dr. med. Mai Wald — MaiHealth. Initial consultation, telemedicine, and personal advice for gut health & IBS.",
+      "title": "Contact & Appointment — MaiHealth | Mai Jimenez",
+      "description": "Book an appointment with Mai Jimenez — MaiHealth. Initial consultation, telemedicine, and personal advice for gut health & IBS.",
       "og_title": "Contact & Appointment — MaiHealth",
-      "og_description": "Book an appointment with Dr. med. Mai Wald. Gut health, IBS diagnostics, and personal advice."
+      "og_description": "Book an appointment with Mai Jimenez. Gut health, IBS diagnostics, and personal advice."
     }
   },
   "impressum": {
@@ -339,7 +340,7 @@
   },
   "auth": {
     "login_title": "Patient Portal",
-    "login_subtitle": "Sign in to view your appointments and connect with Dr. Wald.",
+    "login_subtitle": "Sign in to view your appointments and connect with Mai Jimenez.",
     "google_login": "Sign in with Google",
     "login_note": "Your portal account is connected to your Google account.",
     "logout": "Sign out"
@@ -389,7 +390,7 @@
     "step_nav_slots": "Choose Time",
     "step_nav_confirm": "Confirm",
     "step_auth": "Sign in to continue",
-    "step_auth_subtitle": "Sign in with Google to book your appointment with Dr. Wald.",
+    "step_auth_subtitle": "Sign in with Google to book your appointment with Mai Jimenez.",
     "step_slots": "Choose a date & time",
     "step_slots_empty": "No available slots at the moment. Please check back soon.",
     "step_slots_empty_hint": "New times open up regularly. You can also reach out directly and we'll find a slot for you.",
@@ -419,12 +420,12 @@
     "slots_error": "We couldn't load available times right now. Please try again.",
     "retry": "Try again",
     "request_sent_title": "Request Submitted!",
-    "request_sent_subtitle": "Dr. Wald will confirm your appointment shortly via email.",
-    "requesting": "For first-time consultations, Dr. Wald reviews the request and confirms within 24 hours. Your slot is tentatively held.",
+    "request_sent_subtitle": "Mai Jimenez will confirm your appointment shortly via email.",
+    "requesting": "For first-time consultations, Mai Jimenez reviews the request and confirms within 24 hours. Your slot is tentatively held.",
     "zoom_link": "Join Video Call",
-    "what_to_expect_text": "You'll receive a confirmation email with your Zoom link and a calendar invite. The join button becomes active 15 minutes before your appointment.",
+    "what_to_expect_text": "You'll receive a confirmation email with your Zoom link. The join button becomes active 15 minutes before your appointment.",
     "meta_title": "Book a Consultation — MaiHealth",
-    "meta_description": "Book an online gut health consultation with Dr. med. Mai Wald. Real-time availability, instant confirmation."
+    "meta_description": "Book an online gut health consultation with Mai Jimenez. Real-time availability, instant confirmation."
   },
   "admin": {
     "availability": {

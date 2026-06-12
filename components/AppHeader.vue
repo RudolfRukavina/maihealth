@@ -58,7 +58,11 @@
             </Transition>
           </div>
 
-          <NuxtLink to="/book" class="btn-primary text-xs px-6 py-2.5">
+          <NuxtLink v-if="isAdmin" to="/portal/admin" class="btn-primary text-xs px-6 py-2.5">
+            <i class="fa-solid fa-sliders"></i>
+            {{ $t('nav.admin') }}
+          </NuxtLink>
+          <NuxtLink v-else to="/book" class="btn-primary text-xs px-6 py-2.5">
             <i class="fa-regular fa-calendar-check"></i>
             {{ $t('nav.book') }}
           </NuxtLink>
@@ -123,10 +127,11 @@
                   @click="userOpen = false"
                   class="flex items-center gap-3 px-4 py-2.5 text-sm text-body hover:bg-cream transition-colors duration-150"
                 >
-                  <i class="fa-solid fa-grid-2 text-xs text-muted w-4 text-center"></i>
+                  <i class="fa-solid fa-sliders text-xs text-muted w-4 text-center"></i>
                   {{ $t('nav.admin') }}
                 </NuxtLink>
                 <NuxtLink
+                  v-if="!isAdmin"
                   to="/book"
                   @click="userOpen = false"
                   class="flex items-center gap-3 px-4 py-2.5 text-sm text-body hover:bg-cream transition-colors duration-150"
@@ -227,18 +232,13 @@
               </button>
             </div>
 
-            <NuxtLink
-              to="/book"
-              @click="closeMobile"
-              class="btn-primary w-full text-center justify-center py-4 text-base"
-            >
+            <NuxtLink v-if="isAdmin" to="/portal/admin" @click="closeMobile" class="btn-primary w-full text-center justify-center py-4 text-base">
+              <i class="fa-solid fa-sliders"></i>
+              {{ $t('nav.admin') }}
+            </NuxtLink>
+            <NuxtLink v-else to="/book" @click="closeMobile" class="btn-primary w-full text-center justify-center py-4 text-base">
               <i class="fa-regular fa-calendar-check"></i>
               {{ $t('nav.book') }}
-            </NuxtLink>
-
-            <NuxtLink v-if="isAdmin" to="/portal/admin" @click="closeMobile" class="btn-secondary w-full text-center justify-center py-4 text-base">
-              <i class="fa-solid fa-grid-2"></i>
-              {{ $t('nav.admin') }}
             </NuxtLink>
 
             <NuxtLink v-if="!isLoggedIn" to="/login" @click="closeMobile" class="btn-secondary w-full text-center justify-center py-4 text-base">
