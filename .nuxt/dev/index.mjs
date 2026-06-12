@@ -4,7 +4,7 @@ import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { getFirestore, Timestamp } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { getFirestore, Timestamp, FieldValue } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
 import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
 import { getApps, initializeApp, cert } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/app/index.js';
 import { getAuth } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/auth/index.js';
@@ -518,6 +518,7 @@ const _lazy_4llXf1 = () => Promise.resolve().then(function () { return availabil
 const _lazy_iTayOl = () => Promise.resolve().then(function () { return _id__post$1; });
 const _lazy_Yu7KvH = () => Promise.resolve().then(function () { return book_post$1; });
 const _lazy_XnNalK = () => Promise.resolve().then(function () { return request_post$1; });
+const _lazy_1t0xXZ = () => Promise.resolve().then(function () { return bootstrap_post$1; });
 const _lazy_Dm8u8d = () => Promise.resolve().then(function () { return config_get$1; });
 const _lazy_OQeO2T = () => Promise.resolve().then(function () { return slots_get$1; });
 const _lazy_amYChR = () => Promise.resolve().then(function () { return contact_post$1; });
@@ -531,6 +532,7 @@ const handlers = [
   { route: '/api/admin/requests/:id', handler: _lazy_iTayOl, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/book', handler: _lazy_Yu7KvH, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/request', handler: _lazy_XnNalK, lazy: true, middleware: false, method: "post" },
+  { route: '/api/auth/bootstrap', handler: _lazy_1t0xXZ, lazy: true, middleware: false, method: "post" },
   { route: '/api/availability/config', handler: _lazy_Dm8u8d, lazy: true, middleware: false, method: "get" },
   { route: '/api/availability/slots', handler: _lazy_OQeO2T, lazy: true, middleware: false, method: "get" },
   { route: '/api/contact', handler: _lazy_amYChR, lazy: true, middleware: false, method: "post" },
@@ -2118,6 +2120,37 @@ const request_post = defineEventHandler(async (event) => {
 const request_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: request_post
+});
+
+const ADMIN_EMAILS = ["noamaijimenez@gmail.com"];
+const bootstrap_post = defineEventHandler(async (event) => {
+  var _a, _b, _c, _d, _e, _f;
+  const decoded = await verifyAuth(event);
+  const ref = getAdminDb().collection("users").doc(decoded.uid);
+  const snap = await ref.get();
+  const isAdminEmail = ADMIN_EMAILS.includes((_b = (_a = decoded.email) == null ? void 0 : _a.toLowerCase()) != null ? _b : "");
+  if (!snap.exists) {
+    const role2 = isAdminEmail ? "admin" : "patient";
+    await ref.set({
+      email: (_c = decoded.email) != null ? _c : null,
+      displayName: (_d = decoded.name) != null ? _d : null,
+      photoURL: (_e = decoded.picture) != null ? _e : null,
+      role: role2,
+      createdAt: FieldValue.serverTimestamp()
+    });
+    return { role: role2 };
+  }
+  let role = ((_f = snap.data()) == null ? void 0 : _f.role) || "patient";
+  if (isAdminEmail && role !== "admin") {
+    role = "admin";
+    await ref.update({ role });
+  }
+  return { role };
+});
+
+const bootstrap_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: bootstrap_post
 });
 
 const config_get = defineEventHandler(async (event) => {

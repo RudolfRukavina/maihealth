@@ -21,6 +21,9 @@ declare module "nitropack/types" {
     '/api/appointments/request': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/appointments/request.post').default>>>>
     }
+    '/api/auth/bootstrap': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/auth/bootstrap.post').default>>>>
+    }
     '/api/availability/config': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/availability/config.get').default>>>>
     }

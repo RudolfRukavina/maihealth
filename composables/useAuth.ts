@@ -1,5 +1,4 @@
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, type User } from 'firebase/auth'
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore'
 
 export const useAuth = () => {
   const { $firebase } = useNuxtApp()
@@ -17,20 +16,18 @@ export const useAuth = () => {
     onAuthStateChanged($firebase.auth, async (firebaseUser) => {
       user.value = firebaseUser
       if (firebaseUser) {
-        const userDoc = await getDoc(doc($firebase.db, 'users', firebaseUser.uid))
-        if (userDoc.exists()) {
-          userRole.value = userDoc.data().role || 'patient'
-        } else {
-          const adminEmails = ['mai.jimenez@gmx.de']
-          const role = adminEmails.includes(firebaseUser.email?.toLowerCase() || '') ? 'admin' : 'patient'
-          await setDoc(doc($firebase.db, 'users', firebaseUser.uid), {
-            email: firebaseUser.email,
-            displayName: firebaseUser.displayName,
-            photoURL: firebaseUser.photoURL,
-            role,
-            createdAt: serverTimestamp(),
+        // The server creates the profile and resolves the role — clients
+        // aren't allowed to write roles (see firestore.rules).
+        try {
+          const token = await firebaseUser.getIdToken()
+          const { role } = await $fetch<{ role: string }>('/api/auth/bootstrap', {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${token}` },
           })
           userRole.value = role
+        } catch (err) {
+          console.error('Failed to resolve user role:', err)
+          userRole.value = 'patient'
         }
       } else {
         userRole.value = 'patient'
