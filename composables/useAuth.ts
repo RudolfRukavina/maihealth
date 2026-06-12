@@ -21,14 +21,16 @@ export const useAuth = () => {
         if (userDoc.exists()) {
           userRole.value = userDoc.data().role || 'patient'
         } else {
+          const adminEmails = ['mai.jimenez@gmx.de']
+          const role = adminEmails.includes(firebaseUser.email?.toLowerCase() || '') ? 'admin' : 'patient'
           await setDoc(doc($firebase.db, 'users', firebaseUser.uid), {
             email: firebaseUser.email,
             displayName: firebaseUser.displayName,
             photoURL: firebaseUser.photoURL,
-            role: 'patient',
+            role,
             createdAt: serverTimestamp(),
           })
-          userRole.value = 'patient'
+          userRole.value = role
         }
       } else {
         userRole.value = 'patient'
