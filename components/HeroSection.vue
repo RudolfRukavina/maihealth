@@ -1,18 +1,18 @@
 <template>
-  <section class="relative min-h-svh lg:min-h-screen lg:h-auto flex items-center overflow-hidden bg-cream">
+  <section class="relative lg:min-h-screen lg:h-auto flex items-center overflow-hidden bg-cream">
     <div class="absolute inset-0 bg-gradient-to-br from-cream via-cream to-cream-dark/30" />
     <div class="absolute top-20 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full bg-sage/[0.04] blur-[60px] md:blur-[100px]" />
     <div class="absolute bottom-20 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full bg-mauve/[0.06] blur-[50px] md:blur-[80px]" />
 
-    <div class="container-narrow relative z-10 pt-20 pb-6 sm:pt-28 sm:pb-16 md:py-0 h-full lg:h-auto flex flex-col justify-center">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+    <div class="container-narrow relative z-10 pt-24 pb-12 sm:pt-28 sm:pb-16 md:py-0 lg:h-auto flex flex-col justify-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-center">
 
         <div class="max-w-xl text-left mx-auto lg:mx-0 lg:order-1">
           <h1 class="hero-fade hero-fade-1 text-4xl sm:text-5xl md:text-display-sm xl:text-display font-serif font-bold text-charcoal mb-5">
             {{ $t('hero.title_line1') }}<br>{{ $t('hero.title_line2') }}
           </h1>
 
-          <p class="hero-fade hero-fade-2 text-base md:text-lg text-body/80 leading-relaxed mb-8">
+          <p class="hero-fade hero-fade-2 text-base md:text-lg text-body/80 leading-relaxed mb-6 sm:mb-8">
             {{ $t('hero.subtitle') }}
           </p>
 
@@ -52,7 +52,7 @@
         <div class="hero-fade hero-fade-0 flex order-first lg:order-2 justify-center items-center">
           <div class="relative">
             <div class="absolute -inset-4 hero-blob bg-gradient-to-br from-sage/8 via-mauve/5 to-sage/8" />
-            <div class="relative hero-blob w-[200px] h-[240px] sm:w-[260px] sm:h-[320px] lg:w-[420px] lg:h-[500px] xl:w-[460px] xl:h-[540px] overflow-hidden shadow-2xl shadow-charcoal/8">
+            <div class="relative hero-blob w-[170px] h-[210px] sm:w-[240px] sm:h-[300px] lg:w-[420px] lg:h-[500px] xl:w-[460px] xl:h-[540px] overflow-hidden shadow-2xl shadow-charcoal/8">
               <picture>
                 <source media="(max-width: 639px)" srcset="/mai2-sm.webp" type="image/webp" />
                 <source media="(max-width: 1023px)" srcset="/mai2-md.webp" type="image/webp" />
