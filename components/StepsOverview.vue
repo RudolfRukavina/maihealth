@@ -39,7 +39,7 @@
           <!-- Connector with animated fill -->
           <div
             v-if="index < phases.length - 1"
-            class="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-stone/30 overflow-hidden rounded-full"
+            class="hidden md:block absolute top-7 left-[calc(50%+2.25rem)] w-[calc(100%-2.5rem)] h-[2px] bg-stone/30 overflow-hidden rounded-full"
           >
             <div
               class="h-full bg-sage transition-all duration-700 ease-out"
