@@ -1,6 +1,5 @@
 import { Resend } from 'resend'
 import { getAdminRecipients } from './admins'
-import { LOGO_BASE64 } from './email-logo'
 
 let resendInstance: Resend | null = null
 
@@ -13,13 +12,6 @@ function getResend(): Resend | null {
 
 const FROM = 'MaiHealth <noreply@mai-health.de>'
 const SITE_URL = 'https://mai-health.de'
-
-// The logo travels with every email as an inline attachment (referenced in the
-// layout via `cid:maihealth-logo`), so it renders without depending on the
-// image being deployed/reachable or on remote-image loading being enabled.
-const LOGO_ATTACHMENTS = [
-  { filename: 'maihealth.png', content: LOGO_BASE64, contentId: 'maihealth-logo' },
-]
 
 export type Locale = 'de' | 'en'
 
@@ -65,7 +57,7 @@ function layout(body: string, locale: Locale): string {
   return `
     <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 520px; margin: 0 auto; color: #2D3A24;">
       <div style="padding: 32px 0 16px; border-bottom: 1px solid #E8E4DF; margin-bottom: 24px;">
-        <img src="cid:maihealth-logo" alt="MaiHealth" width="180" style="display: block; width: 180px; height: auto; border: 0;" />
+        <strong style="font-size: 18px; color: #2D3A24;">Mai</strong><span style="font-size: 18px; color: #8B9A6B;">Health</span>
       </div>
       ${body}
       <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E4DF; font-size: 12px; color: #999;">
@@ -111,7 +103,6 @@ export async function sendNewsletterConfirm(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to,
     subject: t.subject,
     html: layout(`
@@ -164,7 +155,6 @@ export async function sendBookingConfirmation(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to,
     subject: t.subject,
     html: layout(`
@@ -214,7 +204,6 @@ export async function sendRequestReceived(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to,
     subject: t.subject,
     html: layout(`
@@ -263,7 +252,6 @@ export async function sendRequestDeclined(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to,
     subject: t.subject,
     html: layout(`
@@ -309,7 +297,6 @@ export async function sendAppointmentCancelled(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to,
     subject: t.subject,
     html: layout(`
@@ -336,7 +323,6 @@ export async function sendAdminReply(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to: opts.to,
     // Patient replies land in the practice inbox, not the noreply address.
     replyTo: config.contactEmail || undefined,
@@ -380,7 +366,6 @@ export async function sendAdminNewRequest(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to: await getAdminRecipients(),
     subject: t.subject,
     html: layout(`
@@ -425,7 +410,6 @@ export async function sendAdminContactForm(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to: await getAdminRecipients(),
     subject: t.subject,
     html: layout(`
@@ -472,7 +456,6 @@ export async function sendAdminPortalRequest(opts: {
 
   await resend.emails.send({
     from: FROM,
-    attachments: LOGO_ATTACHMENTS,
     to: await getAdminRecipients(),
     subject: t.subject,
     html: layout(`

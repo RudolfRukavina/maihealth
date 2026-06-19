@@ -1,5 +1,6 @@
 declare global {
   const ADMIN_EMAILS: typeof import('../../server/utils/admins')['ADMIN_EMAILS']
+  const LOGO_BASE64: typeof import('../../server/utils/email-logo')['LOGO_BASE64']
   const PRIVACY_POLICY_VERSION: typeof import('../../server/utils/consent')['PRIVACY_POLICY_VERSION']
   const __buildAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['buildAssetsURL']
   const __publicAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['publicAssetsURL']
@@ -166,6 +167,7 @@ export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsUR
 export { defineAppConfig } from '../../node_modules/nuxt/dist/core/runtime/nitro/config';
 export { ADMIN_EMAILS, getAdminRecipients } from '../../server/utils/admins';
 export { PRIVACY_POLICY_VERSION, consentRecord } from '../../server/utils/consent';
+export { LOGO_BASE64 } from '../../server/utils/email-logo';
 export { normLocale, sendNewsletterConfirm, sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminReply, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
 export { getAdminAuth, getAdminDb } from '../../server/utils/firebase-admin';
 export { simplePage } from '../../server/utils/html-page';
