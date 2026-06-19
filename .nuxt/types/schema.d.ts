@@ -199,14 +199,6 @@ declare module 'nuxt/schema' {
          de: {
             domain: any,
          },
-
-         hr: {
-            domain: any,
-         },
-
-         it: {
-            domain: any,
-         },
       },
 
       detectBrowserLanguage: {

@@ -10,14 +10,20 @@
               {{ $t('about.title') }}
             </h1>
             <p class="text-lg text-gold font-medium mb-8">{{ $t('about.subtitle') }}</p>
-            <p class="text-body/80 leading-relaxed text-base mb-8">
-              {{ $t('about.bio') }}
-            </p>
-            <blockquote class="border-l-2 border-gold/40 pl-5">
-              <p class="text-lg font-serif italic text-charcoal/80 leading-relaxed">
-                "{{ $t('about.philosophy') }}"
-              </p>
-            </blockquote>
+            <div class="space-y-5 text-body/80 leading-relaxed text-base">
+              <p v-for="(paragraph, i) in visibleStory" :key="i">{{ paragraph }}</p>
+            </div>
+            <button
+              v-if="story.length > previewCount"
+              @click="expanded = !expanded"
+              class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-charcoal transition-colors duration-150"
+            >
+              {{ expanded ? $t('about.read_less') : $t('about.read_more') }}
+              <i
+                class="fa-solid fa-chevron-down text-xs transition-transform duration-200"
+                :class="{ 'rotate-180': expanded }"
+              ></i>
+            </button>
           </div>
 
           <div class="lg:sticky lg:top-32">
@@ -49,8 +55,8 @@
             <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">{{ $t('about.education_label') }}</h3>
             <div class="space-y-5">
               <div v-for="item in education" :key="item.title" class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full before:bg-sage/30">
-                <h4 class="text-sm font-semibold text-charcoal">{{ item.title }}</h4>
-                <p class="text-xs text-body/60 mt-0.5">{{ item.detail }}</p>
+                <h4 class="text-base font-semibold text-charcoal">{{ item.title }}</h4>
+                <p class="text-sm text-body/70 mt-1 leading-relaxed">{{ item.detail }}</p>
               </div>
             </div>
           </div>
@@ -60,7 +66,7 @@
             <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">{{ $t('about.experience_label') }}</h3>
             <div class="space-y-5">
               <div v-for="item in experience" :key="item" class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full before:bg-sage/30">
-                <p class="text-sm text-body">{{ item }}</p>
+                <p class="text-base text-body">{{ item }}</p>
               </div>
             </div>
           </div>
@@ -70,7 +76,7 @@
             <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6">{{ $t('about.specializations_label') }}</h3>
             <div class="space-y-5">
               <div v-for="item in specializations" :key="item" class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full before:bg-sage/30">
-                <p class="text-sm text-body">{{ item }}</p>
+                <p class="text-base text-body">{{ item }}</p>
               </div>
             </div>
           </div>
@@ -78,23 +84,7 @@
       </div>
     </section>
 
-    <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="4" />
-
-    <!-- Memberships -->
-    <section class="section-padding">
-      <div class="container-narrow">
-        <div class="max-w-2xl mx-auto text-center">
-          <h3 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-8">{{ $t('about.memberships_label') }}</h3>
-          <div class="flex flex-wrap justify-center gap-4">
-            <div v-for="item in memberships" :key="item" class="px-5 py-3 rounded-full border border-stone/40 text-sm text-body">
-              {{ item }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <WaveDivider fromColor="#F5F1EC" toColor="#EEF1EA" :variant="1" />
+    <WaveDivider fromColor="#FFFFFF" toColor="#EEF1EA" :variant="1" />
 
     <FinalCTA />
   </div>
@@ -113,7 +103,10 @@ useHead({
 })
 
 const education = computed(() => tm('about.education_items').map(e => ({ title: rt(e.title), detail: rt(e.detail) })))
+const story = computed(() => tm('about.story').map(e => rt(e)))
+const previewCount = 2
+const expanded = ref(false)
+const visibleStory = computed(() => expanded.value ? story.value : story.value.slice(0, previewCount))
 const experience = computed(() => tm('about.experience_items').map(e => rt(e)))
 const specializations = computed(() => tm('about.specialization_items').map(e => rt(e)))
-const memberships = computed(() => tm('about.membership_items').map(e => rt(e)))
 </script>

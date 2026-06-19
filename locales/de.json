@@ -17,10 +17,11 @@
     "subtitle": "Sie kämpfen mit Blähungen, Bauchschmerzen, Verdauungsproblemen oder einem Reizdarm? Gemeinsam finden wir heraus, was hinter Ihren Beschwerden steckt, und entwickeln einen klaren, individuellen Weg zu mehr Wohlbefinden und Lebensqualität.",
     "cta_book": "Termin vereinbaren",
     "cta_learn": "Mehr erfahren",
+    "free_first": "Erstgespräch kostenlos & unverbindlich",
     "badges": {
       "evidence": "Evidenzbasiert",
       "telemedicine": "Nur Online",
-      "languages": "4 Sprachen"
+      "personal": "Individuelle Betreuung"
     },
     "badge_card": {
       "title": "Darmgesundheit",
@@ -134,37 +135,36 @@
   },
   "about": {
     "label": "Über mich",
-    "title": "Mai Jimenez",
-    "subtitle": "Ärztin für Darmgesundheit & Reizdarm",
-    "bio": "Ich unterstütze Frauen mit Reizdarmsymptomen dabei, ihre Darmgesundheit ganzheitlich zu verstehen und nachhaltig zu verbessern. Im Mittelpunkt steht nicht nur die Symptomreduktion, sondern die Suche nach den individuellen Ursachen und Belastungsfaktoren des Körpers.",
-    "philosophy": "Den Darm verstehen heißt Gesundheit verstehen. Mein Ziel ist es, Ihnen zu helfen, die Kontrolle über Ihre Verdauung zurückzugewinnen — nachhaltig, individuell und evidenzbasiert.",
+    "title": "dr. med. Mai Jimenez",
+    "subtitle": "Ärztin mit Schwerpunkt für Darmgesundheit & Reizdarm",
+    "bio": "Meine Begeisterung für die Medizin begann bereits in meiner Kindheit. Aufgewachsen mit naturkundlichen und medizinischen Verfahren, entwickelte ich früh eine enge Verbindung zur Komplementärmedizin und den Möglichkeiten, Gesundheit ganzheitlich zu fördern.",
+    "story": [
+      "Meine Begeisterung für die Medizin begann bereits in meiner Kindheit. Aufgewachsen mit naturkundlichen und medizinischen Verfahren, entwickelte ich früh eine enge Verbindung zur Komplementärmedizin und den Möglichkeiten, Gesundheit ganzheitlich zu fördern.",
+      "Mein Medizinstudium habe ich in einer wunderschönen Hafenstadt in Kroatien absolviert. Nach dem Studium arbeitete ich im Krankenhaus für Naturheilweisen in München und begann meine Weiterbildung beim Kneipp-Ärztebund in Bad Wörishofen.",
+      "Heute liegen meine Schwerpunkte in der Mikronährstoffmedizin, Autoimmunerkrankungen und vor allem in der Darmgesundheit. Gerade bei funktionellen Magen-Darm-Beschwerden sehe ich viele Menschen, die lange nach Antworten suchen und sich oft allein gelassen fühlen.",
+      "Mir ist wichtig, nicht nur einzelne Symptome zu betrachten, sondern den Menschen als Ganzes zu verstehen. Ich glaube nicht an die eine Standardlösung, sondern daran, dass gute Medizin oft aus einer individuell abgestimmten Kombination verschiedener Ansätze entsteht – modern, evidenzbasiert und gleichzeitig ganzheitlich gedacht.",
+      "Im Mittelpunkt meiner Arbeit steht daher der Mensch mit seiner persönlichen Geschichte. Ich nehme mir Zeit, Beschwerden und Zusammenhänge sorgfältig zu verstehen, begleite meine Patientinnen und Patienten eng auf ihrem Weg und möchte Sicherheit, Orientierung und Vertrauen vermitteln. Gemeinsam entwickeln wir einen individuellen Weg, um Gesundheit und Wohlbefinden langfristig zu fördern."
+    ],
+    "philosophy": "Ich glaube nicht an die eine Standardlösung, sondern daran, dass gute Medizin oft aus einer individuell abgestimmten Kombination verschiedener Ansätze entsteht – modern, evidenzbasiert und gleichzeitig ganzheitlich gedacht.",
     "cta": "Mehr über mich",
-    "education_label": "Ausbildung & Zertifizierungen",
+    "read_more": "Weiterlesen",
+    "read_less": "Weniger anzeigen",
+    "education_label": "Ausbildung & Qualifikationen",
     "experience_label": "Klinische Erfahrung",
-    "specializations_label": "Spezialisierungen",
-    "memberships_label": "Mitgliedschaften & Verbände",
+    "specializations_label": "Schwerpunkte",
     "education_items": [
-      { "title": "Humanmedizinstudium", "detail": "Universitäre Ausbildung in Humanmedizin" },
-      { "title": "Mikronährstoffmedizin", "detail": "Ausbildung in Prävention und Therapie" },
-      { "title": "Autoimmun-Therapeutin", "detail": "Spezialisierte Ausbildung in Autoimmuntherapie" },
-      { "title": "Ärztin für Naturheilverfahren", "detail": "24 Monate Weiterbildung (BLÄK)" }
+      { "title": "Humanmedizinstudium", "detail": "Universitäre Ausbildung in Humanmedizin an der medizinischen Fakultät in Rijeka, Kroatien (2018–2024)" },
+      { "title": "Mikronährstoffmedizin", "detail": "Ausbildung zur Mikronährstoffmedizin für die Praxis an der Akademie für Mikronährstoffmedizin in Essen (2025)" },
+      { "title": "Autoimmun-Therapeutin", "detail": "Spezialisierte Ausbildung in Autoimmuntherapie bei der Ärzteplattform Österreich (2026)" },
+      { "title": "Zusatzbezeichnung Naturheilverfahren", "detail": "Ärztegesellschaft für Präventionsmedizin und klassische Naturheilverfahren, Kneippärztebund e.V. in Bad Wörishofen (seit 2024)" }
     ],
     "experience_items": [
-      "Naturheilverfahren",
-      "Mikronährstofftherapie",
-      "Klinische Ernährung",
-      "Autoimmuntherapie"
+      "Naturheilverfahren und Mikronährstofftherapie im Krankenhaus für Naturheilweisen in München"
     ],
     "specialization_items": [
-      "Reizdarmsyndrom (IBS)",
+      "Reizdarmsyndrom",
       "Mikrobiom-Analyse & Darmdiagnostik",
-      "Entgiftung & Darmregeneration",
-      "Ernährungsmedizin",
-      "Ganzheitliche Darmgesundheit"
-    ],
-    "membership_items": [
-      "Healthy Longevity Medicine Society (HLMS)",
-      "Ärztekammer"
+      "Entgiftung & Darmregeneration"
     ]
   },
   "contact": {
@@ -182,8 +182,8 @@
       "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
     },
     "info": {
-      "address_label": "Adresse",
-      "address_value": "Adresse folgt in Kürze",
+      "online_label": "Online-Sprechstunde",
+      "online_value": "Telemedizin — ortsunabhängig, ganz ohne Anfahrt",
       "phone_label": "Telefon",
       "email_label": "E-Mail",
       "hours_label": "Sprechzeiten",
@@ -197,8 +197,15 @@
     "subtitle": "Monatliche wissenschaftsbasierte Einblicke zu Reizdarm, Mikrobiom und praktische Strategien für nachhaltige Verdauungsgesundheit.",
     "cta": "Newsletter abonnieren",
     "placeholder": "Ihre E-Mail-Adresse",
-    "success": "Vielen Dank für Ihre Anmeldung!",
+    "success": "Fast geschafft! Bitte prüfen Sie Ihr Postfach und klicken Sie auf den Bestätigungslink, um Ihre Anmeldung abzuschließen.",
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  },
+  "consent": {
+    "privacy_link": "Datenschutzerklärung",
+    "required": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten können.",
+    "contact": "Ich willige ein, dass MaiHealth die hier von mir angegebenen Daten speichert und verarbeitet, um meine Anfrage zu beantworten. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Weitere Informationen finden Sie in der",
+    "newsletter": "Ich möchte den Newsletter per E-Mail erhalten und willige ein, dass meine E-Mail-Adresse zu diesem Zweck verarbeitet wird. Ich kann mich jederzeit wieder abmelden. Weitere Informationen finden Sie in der",
+    "booking": "Ich willige in die Verarbeitung meiner Daten – einschließlich der von mir freiwillig mitgeteilten Gesundheitsdaten – zum Zweck der Vereinbarung und Durchführung meiner Beratung ein. Ich kann diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Weitere Informationen finden Sie in der"
   },
   "faq": {
     "label": "FAQ",
@@ -249,7 +256,7 @@
   "practice": {
     "phases_title": "Vier Schritte zu besserer Darmgesundheit",
     "phases": [
-      { "title": "Beratung", "description": "Ausführliche Anamnese Ihrer Darmbeschwerden — per Online-Konsultation.", "icon": "fa-solid fa-comments" },
+      { "title": "Beratung", "description": "Am Anfang steht das Gespräch. Gemeinsam entwickeln wir ein klares Bild Ihrer Darmgesundheit und den Weg nach vorn.", "icon": "fa-solid fa-comments" },
       { "title": "Diagnostik", "description": "Mikrobiom-Analyse, Stuhldiagnostik und auf Sie abgestimmte Untersuchungen.", "icon": "fa-solid fa-microscope" },
       { "title": "Therapieplan", "description": "Individueller Plan: Entgiftung, Darmregeneration und Ernährungsberatung.", "icon": "fa-solid fa-clipboard-list" },
       { "title": "Begleitung", "description": "Laufendes Monitoring und Anpassungen für nachhaltige Ergebnisse.", "icon": "fa-solid fa-chart-line" }
@@ -275,6 +282,10 @@
     ],
     "insurance_title": "Versicherung & Bezahlung",
     "insurance_text": "Die Leistungen werden in der Regel nicht von der gesetzlichen Krankenversicherung übernommen. Einige private Krankenversicherungen bieten je nach Vertragsbedingungen eine teilweise Kostenübernahme an. Die meisten Patienten sind Selbstzahler. Detaillierte Rechnungen werden für mögliche Erstattungsanträge bereitgestellt."
+  },
+  "steps": {
+    "your_journey": "Ihr Weg",
+    "progress": "{done} von {total} Schritten abgeschlossen"
   },
   "meta": {
     "index": {
@@ -304,11 +315,163 @@
   },
   "impressum": {
     "title": "Impressum",
-    "content": "Rechtliche Informationen werden hier vor dem Launch bereitgestellt."
+    "sections": [
+      {
+        "heading": "Angaben gemäß § 5 DDG",
+        "body": [
+          "Mai Jimenez",
+          "MaiHealth",
+          "[Straße und Hausnummer — erforderlich]",
+          "[Postleitzahl und Ort — erforderlich]",
+          "Deutschland"
+        ]
+      },
+      {
+        "heading": "Kontakt",
+        "body": [
+          "Telefon: [Telefonnummer — erforderlich]",
+          "E-Mail: Mai.jimenez{'@'}gmx.de"
+        ]
+      },
+      {
+        "heading": "Berufsrechtliche Angaben",
+        "body": [
+          "Berufsbezeichnung: [z. B. Ärztin — bitte exakte, rechtlich zulässige Bezeichnung bestätigen]",
+          "[Bei Approbation: zuständige Kammer — z. B. Bayerische Landesärztekammer]",
+          "[Staat, der die Berufsbezeichnung/Approbation verliehen hat — falls zutreffend]",
+          "[Maßgebliche berufsrechtliche Regelungen (Berufsordnung) und wo sie einsehbar sind — falls zutreffend]",
+          "[Falls keine deutsche Approbation vorliegt: tatsächlichen Berufsstatus angeben und die Arzt-Felder oben entfernen]"
+        ]
+      },
+      {
+        "heading": "Umsatzsteuer",
+        "body": [
+          "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [USt-IdNr. — oder Hinweis auf Kleinunternehmerregelung § 19 UStG]"
+        ]
+      },
+      {
+        "heading": "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)",
+        "body": [
+          "Mai Jimenez, Anschrift wie oben"
+        ]
+      },
+      {
+        "heading": "EU-Streitschlichtung",
+        "body": [
+          "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr",
+          "Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+        ]
+      }
+    ]
   },
   "privacy": {
     "title": "Datenschutzerklärung",
-    "content": "Die Datenschutzerklärung wird hier vor dem Launch bereitgestellt."
+    "meta": {
+      "updated": "Stand:",
+      "version": "19. Juni 2026"
+    },
+    "intro": "Der Schutz Ihrer personenbezogenen Daten ist uns sehr wichtig. Diese Erklärung informiert Sie darüber, welche Daten wir verarbeiten, wenn Sie diese Website besuchen, unsere Kontakt- und Buchungsformulare nutzen oder unseren Newsletter abonnieren, auf welcher Rechtsgrundlage dies geschieht und welche Rechte Ihnen zustehen. Gesundheitsbezogene Daten verarbeiten wir nur, soweit Sie diese freiwillig angeben, und ausschließlich auf Grundlage Ihrer ausdrücklichen Einwilligung oder zur Gesundheitsvorsorge.",
+    "sections": [
+      {
+        "heading": "Verantwortlicher",
+        "body": [
+          "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
+          "Mai Jimenez (MaiHealth)",
+          "[Postanschrift — siehe Impressum]",
+          "E-Mail: Mai.jimenez{'@'}gmx.de"
+        ]
+      },
+      {
+        "heading": "Welche Daten wir verarbeiten, zu welchem Zweck und auf welcher Rechtsgrundlage",
+        "body": [
+          "Kontaktformular: Vor- und Nachname, E-Mail-Adresse, Telefonnummer (optional) sowie Ihre Nachricht. Zweck: Entgegennahme und Beantwortung Ihrer Anfrage. Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); enthält Ihre Nachricht Gesundheitsdaten, zusätzlich Ihre ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a DSGVO).",
+          "Terminbuchung: Name, E-Mail-Adresse, Telefonnummer, Grund Ihres Anliegens sowie die gewählten Termindaten. Zweck: Vereinbarung und Durchführung Ihrer Beratung. Rechtsgrundlage: Durchführung (vor-)vertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO) sowie für Gesundheitsdaten Ihre ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a DSGVO) und/oder die Gesundheitsvorsorge (Art. 9 Abs. 2 lit. h DSGVO).",
+          "Patientenkonto: Bei der Anmeldung mit Google erhalten wir Ihren Namen und Ihre E-Mail-Adresse, um Ihr Patientenkonto im Portal anzulegen und zu verwalten. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.",
+          "Newsletter: Ihre E-Mail-Adresse. Wir verwenden das Double-Opt-in-Verfahren — Sie erhalten den Newsletter erst nach Bestätigung über den Ihnen zugesandten Link. Zweck: Versand unseres Newsletters. Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Zeitpunkt der Anmeldung und Bestätigung werden zum Nachweis Ihrer Einwilligung gespeichert.",
+          "Server-Logdaten: Beim Aufruf der Seite werden technische Daten wie IP-Adresse, Browsertyp und Zugriffszeit verarbeitet, um die Website sicher und zuverlässig bereitzustellen. Rechtsgrundlage: unser berechtigtes Interesse an einer sicheren und funktionsfähigen Website (Art. 6 Abs. 1 lit. f DSGVO)."
+        ]
+      },
+      {
+        "heading": "Empfänger und Auftragsverarbeiter",
+        "body": [
+          "Wir setzen sorgfältig ausgewählte Dienstleister ein, die Daten in unserem Auftrag und auf Grundlage von Auftragsverarbeitungsverträgen (Art. 28 DSGVO) verarbeiten:"
+        ],
+        "items": [
+          "Google Ireland Ltd. / Google LLC — Firebase Authentication, Cloud Firestore (Datenbank) und Hosting-Infrastruktur. Speicherung in der Region [Firestore-Region bestätigen — empfohlen: europe-west, z. B. Frankfurt].",
+          "Resend (Plusten, Inc., USA) — Versand von Transaktions- und Newsletter-E-Mails.",
+          "Zoom Video Communications, Inc. (USA) — Videoberatungen, soweit online durchgeführt.",
+          "[Hosting-Anbieter bestätigen, z. B. Vercel Inc., USA, mit EU-Region] — Betrieb und Auslieferung der Website."
+        ]
+      },
+      {
+        "heading": "Übermittlung in Drittländer",
+        "body": [
+          "Einige der genannten Anbieter haben ihren Sitz in den USA oder verarbeiten Daten dort. Solche Übermittlungen erfolgen auf Grundlage der EU-Standardvertragsklauseln (Art. 46 DSGVO) und/oder des EU-US Data Privacy Framework, sofern der Anbieter zertifiziert ist. Eine Kopie der einschlägigen Garantien können Sie jederzeit bei uns anfordern.",
+          "Soweit möglich konfigurieren wir unsere Dienste so, dass personenbezogene Daten innerhalb der Europäischen Union gespeichert und verarbeitet werden."
+        ]
+      },
+      {
+        "heading": "Speicherdauer",
+        "body": [
+          "Kontaktanfragen: spätestens 6 Monate nach abschließender Bearbeitung gelöscht, sofern kein Behandlungsverhältnis oder keine gesetzliche Aufbewahrungspflicht entsteht.",
+          "Termin- und behandlungsbezogene Unterlagen: Aufbewahrung für die gesetzliche Dokumentationsfrist für Gesundheits-/Behandlungsunterlagen (in der Regel bis zu 10 Jahre; vgl. § 630f BGB und berufsrechtliche Vorgaben).",
+          "Newsletter: bis zu Ihrer Abmeldung; der Einwilligungsnachweis wird anschließend so lange aufbewahrt, wie er zum Nachweis der Rechtmäßigkeit erforderlich ist.",
+          "Server-Logs: nach kurzer Zeit gelöscht oder anonymisiert."
+        ]
+      },
+      {
+        "heading": "Ihre Rechte",
+        "body": [
+          "Nach der DSGVO stehen Ihnen bezüglich Ihrer personenbezogenen Daten folgende Rechte zu:"
+        ],
+        "items": [
+          "Auskunft über die zu Ihnen gespeicherten Daten (Art. 15)",
+          "Berichtigung unrichtiger Daten (Art. 16)",
+          "Löschung (Art. 17)",
+          "Einschränkung der Verarbeitung (Art. 18)",
+          "Datenübertragbarkeit (Art. 20)",
+          "Widerspruch gegen auf berechtigten Interessen beruhende Verarbeitung (Art. 21)",
+          "Widerruf einer Einwilligung jederzeit mit Wirkung für die Zukunft (Art. 7 Abs. 3) — die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt"
+        ]
+      },
+      {
+        "heading": "Beschwerderecht",
+        "body": [
+          "Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die für uns zuständige Behörde ist [Aufsichtsbehörde des jeweiligen Bundeslandes — zu ergänzen, z. B. Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)]."
+        ]
+      },
+      {
+        "heading": "Cookies und lokale Speicherung",
+        "body": [
+          "Wir verwenden ausschließlich technisch notwendige Cookies bzw. lokale Speicherung: ein Cookie, das Ihre gewählte Sprache speichert, sowie den von Firebase Authentication genutzten Speicher, um Sie im Patientenportal angemeldet zu halten. Diese sind für den Betrieb der Website erforderlich und daher einwilligungsfrei (§ 25 Abs. 2 TDDDG).",
+          "Wir setzen keinerlei Analyse-, Werbe- oder Tracking-Werkzeuge ein. Daher gibt es kein Tracking-Cookie-Banner."
+        ]
+      },
+      {
+        "heading": "Schriftarten (Fonts)",
+        "body": [
+          "Schriftarten werden auf unserem eigenen Server gehostet. Zum Laden der Schriften wird keine Verbindung zu Google-Servern aufgebaut; Ihre IP-Adresse wird hierfür nicht an Google übermittelt."
+        ]
+      },
+      {
+        "heading": "Automatisierte Entscheidungsfindung",
+        "body": [
+          "Eine automatisierte Entscheidungsfindung oder ein Profiling im Sinne des Art. 22 DSGVO findet nicht statt."
+        ]
+      },
+      {
+        "heading": "Änderungen dieser Erklärung",
+        "body": [
+          "Wir können diese Erklärung anpassen, um Änderungen unserer Dienste oder rechtlicher Vorgaben abzubilden. Es gilt jeweils die aktuelle, durch das oben genannte Datum gekennzeichnete Fassung."
+        ]
+      },
+      {
+        "heading": "Kontakt zum Datenschutz",
+        "body": [
+          "Zur Ausübung Ihrer Rechte oder bei Fragen zum Datenschutz erreichen Sie uns unter: Mai.jimenez{'@'}gmx.de."
+        ]
+      }
+    ]
   },
   "cta": {
     "request_appointment": "Termin anfragen",
@@ -377,6 +540,7 @@
     "type_label": "Art der Konsultation",
     "initial": "Erstgespräch",
     "followup": "Folgetermin",
+    "free_badge": "Kostenlos",
     "reason_label": "Hauptanliegen (optional)",
     "reason_placeholder": "Beschreiben Sie kurz Ihr Hauptanliegen",
     "confirm_btn": "Termin bestätigen",

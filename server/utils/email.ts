@@ -38,6 +38,34 @@ function layout(body: string): string {
   `
 }
 
+// --- Newsletter (double opt-in) ---
+
+// Note: under German law (UWG §7) the confirmation email must not contain any
+// advertising — only the request to confirm the subscription.
+export async function sendNewsletterConfirm(opts: {
+  to: string
+  confirmUrl: string
+}) {
+  const resend = getResend()
+  if (!resend) return
+  const { to, confirmUrl } = opts
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: 'Please confirm your newsletter subscription',
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Confirm your subscription</h2>
+      <p>You (or someone using this email address) asked to receive the MaiHealth newsletter.</p>
+      <p>Please confirm by clicking the button below. If you did not request this, simply ignore this email — no subscription will be created.</p>
+      <p style="margin: 24px 0;">
+        <a href="${confirmUrl}" style="background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 600; display: inline-block;">Confirm subscription</a>
+      </p>
+      <p style="font-size: 12px; color: #999;">Or paste this link into your browser:<br>${confirmUrl}</p>
+    `),
+  })
+}
+
 // --- Client-facing emails ---
 
 export async function sendBookingConfirmation(opts: {

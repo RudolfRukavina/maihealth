@@ -1,15 +1,22 @@
 import { getAdminDb, getAdminAuth } from '../../utils/firebase-admin'
 import { createZoomMeeting } from '../../utils/zoom'
 import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest } from '../../utils/email'
+import { consentRecord } from '../../utils/consent'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  const { slotDateTime, type, reason, guestName, guestEmail, guestPhone } = body
+  const { slotDateTime, type, reason, consent, guestName, guestEmail, guestPhone } = body
 
   if (!slotDateTime) {
     throw createError({ statusCode: 400, statusMessage: 'slotDateTime is required' })
   }
+
+  if (consent !== true) {
+    throw createError({ statusCode: 400, statusMessage: 'Consent is required to book a consultation' })
+  }
+
+  const consent_ = consentRecord(event)
 
   const slotDate = new Date(slotDateTime)
   if (isNaN(slotDate.getTime())) {
@@ -115,6 +122,7 @@ export default defineEventHandler(async (event) => {
       zoomMeetingId,
       zoomJoinUrl,
       notes: reason || '',
+      consent: consent_,
       createdAt: Timestamp.now(),
     })
 
@@ -147,6 +155,7 @@ export default defineEventHandler(async (event) => {
       preferredTimeOfDay: 'morning',
       type: type || 'initial',
       reason: reason || '',
+      consent: consent_,
       status: 'pending',
       createdAt: Timestamp.now(),
     })

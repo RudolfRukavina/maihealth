@@ -1,4 +1,6 @@
 declare global {
+  const ADMIN_EMAILS: typeof import('../../server/utils/admins')['ADMIN_EMAILS']
+  const PRIVACY_POLICY_VERSION: typeof import('../../server/utils/consent')['PRIVACY_POLICY_VERSION']
   const __buildAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['buildAssetsURL']
   const __publicAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['publicAssetsURL']
   const appendCorsHeaders: typeof import('../../node_modules/h3')['appendCorsHeaders']
@@ -13,6 +15,7 @@ declare global {
   const callNodeListener: typeof import('../../node_modules/h3')['callNodeListener']
   const clearResponseHeaders: typeof import('../../node_modules/h3')['clearResponseHeaders']
   const clearSession: typeof import('../../node_modules/h3')['clearSession']
+  const consentRecord: typeof import('../../server/utils/consent')['consentRecord']
   const createApp: typeof import('../../node_modules/h3')['createApp']
   const createAppEventHandler: typeof import('../../node_modules/h3')['createAppEventHandler']
   const createError: typeof import('../../node_modules/h3')['createError']
@@ -46,6 +49,7 @@ declare global {
   const fromWebHandler: typeof import('../../node_modules/h3')['fromWebHandler']
   const getAdminAuth: typeof import('../../server/utils/firebase-admin')['getAdminAuth']
   const getAdminDb: typeof import('../../server/utils/firebase-admin')['getAdminDb']
+  const getAdminRecipients: typeof import('../../server/utils/admins')['getAdminRecipients']
   const getCookie: typeof import('../../node_modules/h3')['getCookie']
   const getHeader: typeof import('../../node_modules/h3')['getHeader']
   const getHeaders: typeof import('../../node_modules/h3')['getHeaders']
@@ -104,6 +108,7 @@ declare global {
   const sendBookingConfirmation: typeof import('../../server/utils/email')['sendBookingConfirmation']
   const sendError: typeof import('../../node_modules/h3')['sendError']
   const sendIterable: typeof import('../../node_modules/h3')['sendIterable']
+  const sendNewsletterConfirm: typeof import('../../server/utils/email')['sendNewsletterConfirm']
   const sendNoContent: typeof import('../../node_modules/h3')['sendNoContent']
   const sendProxy: typeof import('../../node_modules/h3')['sendProxy']
   const sendRedirect: typeof import('../../node_modules/h3')['sendRedirect']
@@ -118,6 +123,7 @@ declare global {
   const setResponseHeader: typeof import('../../node_modules/h3')['setResponseHeader']
   const setResponseHeaders: typeof import('../../node_modules/h3')['setResponseHeaders']
   const setResponseStatus: typeof import('../../node_modules/h3')['setResponseStatus']
+  const simplePage: typeof import('../../server/utils/html-page')['simplePage']
   const splitCookiesString: typeof import('../../node_modules/h3')['splitCookiesString']
   const toEventHandler: typeof import('../../node_modules/h3')['toEventHandler']
   const toNodeListener: typeof import('../../node_modules/h3')['toNodeListener']
@@ -150,7 +156,10 @@ export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error';
 export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '../../node_modules/nuxt/dist/core/runtime/nitro/paths';
 export { defineAppConfig } from '../../node_modules/nuxt/dist/core/runtime/nitro/config';
-export { sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
+export { ADMIN_EMAILS, getAdminRecipients } from '../../server/utils/admins';
+export { PRIVACY_POLICY_VERSION, consentRecord } from '../../server/utils/consent';
+export { sendNewsletterConfirm, sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
 export { getAdminAuth, getAdminDb } from '../../server/utils/firebase-admin';
+export { simplePage } from '../../server/utils/html-page';
 export { verifyAuth } from '../../server/utils/verify-auth';
 export { createZoomMeeting } from '../../server/utils/zoom';

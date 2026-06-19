@@ -4,6 +4,7 @@ export const useAuth = () => {
   const { $firebase } = useNuxtApp()
   const user = useState<User | null>('auth-user', () => null)
   const userRole = useState<string>('auth-role', () => 'patient')
+  const journeyStage = useState<number>('auth-journey-stage', () => 0)
   const loading = useState<boolean>('auth-loading', () => true)
 
   const isLoggedIn = computed(() => !!user.value)
@@ -20,17 +21,19 @@ export const useAuth = () => {
         // aren't allowed to write roles (see firestore.rules).
         try {
           const token = await firebaseUser.getIdToken()
-          const { role } = await $fetch<{ role: string }>('/api/auth/bootstrap', {
+          const { role, journeyStage: stage } = await $fetch<{ role: string; journeyStage: number }>('/api/auth/bootstrap', {
             method: 'POST',
             headers: { Authorization: `Bearer ${token}` },
           })
           userRole.value = role
+          journeyStage.value = stage ?? 0
         } catch (err) {
           console.error('Failed to resolve user role:', err)
           userRole.value = 'patient'
         }
       } else {
         userRole.value = 'patient'
+        journeyStage.value = 0
       }
       loading.value = false
     })
@@ -45,6 +48,7 @@ export const useAuth = () => {
     await $firebase.auth.signOut()
     user.value = null
     userRole.value = 'patient'
+    journeyStage.value = 0
     navigateTo('/')
   }
 
@@ -57,5 +61,5 @@ export const useAuth = () => {
     initAuth()
   }
 
-  return { user, isLoggedIn, isAdmin, authReady, loading, signInWithGoogle, signOut, getIdToken }
+  return { user, isLoggedIn, isAdmin, journeyStage, authReady, loading, signInWithGoogle, signOut, getIdToken }
 }

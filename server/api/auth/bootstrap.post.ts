@@ -19,16 +19,18 @@ export default defineEventHandler(async (event) => {
       displayName: decoded.name ?? null,
       photoURL: decoded.picture ?? null,
       role,
+      journeyStage: 0,
       createdAt: FieldValue.serverTimestamp(),
     })
-    return { role }
+    return { role, journeyStage: 0 }
   }
 
-  let role = snap.data()?.role || 'patient'
+  const data = snap.data()
+  let role = data?.role || 'patient'
   // Promote accounts that signed in before being added to ADMIN_EMAILS.
   if (isAdminEmail && role !== 'admin') {
     role = 'admin'
     await ref.update({ role })
   }
-  return { role }
+  return { role, journeyStage: data?.journeyStage ?? 0 }
 })

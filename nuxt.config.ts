@@ -11,8 +11,6 @@ export default defineNuxtConfig({
         { property: "og:site_name", content: "MaiHealth" },
         { property: "og:locale", content: "de_DE" },
         { property: "og:locale:alternate", content: "en_US" },
-        { property: "og:locale:alternate", content: "hr_HR" },
-        { property: "og:locale:alternate", content: "it_IT" },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -42,6 +40,12 @@ export default defineNuxtConfig({
       'Inter': [400, 500, 600],
     },
     display: 'swap',
+    // GDPR: self-host fonts at build time so visitor IPs are never sent to
+    // Google (fonts.gstatic.com). Required in Germany — cf. LG München I,
+    // 3 O 17493/20. Do not disable without another self-hosting solution.
+    download: true,
+    inject: true,
+    overwriting: false,
   },
 
   i18n: {
@@ -49,8 +53,6 @@ export default defineNuxtConfig({
     locales: [
       { code: "en", name: "English", iso: "en-US", file: "en.json" },
       { code: "de", name: "Deutsch", iso: "de-DE", file: "de.json" },
-      { code: "hr", name: "Hrvatski", iso: "hr-HR", file: "hr.json" },
-      { code: "it", name: "Italiano", iso: "it-IT", file: "it.json" },
     ],
     defaultLocale: "en",
     langDir: "locales",

@@ -1,6 +1,10 @@
 <template>
-  <footer class="bg-charcoal text-cream/70">
-    <div class="container-narrow py-12 sm:py-16 md:py-20">
+  <footer class="text-cream/70">
+    <div class="-mt-10 sm:-mt-[60px] lg:-mt-20 relative pointer-events-none">
+      <WaveDivider fromColor="transparent" toColor="#2D3A24" :variant="1" />
+    </div>
+    <div class="bg-charcoal">
+      <div class="container-narrow py-12 sm:py-16 md:py-20">
       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
 
         <!-- Brand -->
@@ -63,6 +67,7 @@
         </button>
       </div>
     </div>
+    </div>
   </footer>
 </template>
 
@@ -71,7 +76,6 @@ const { t } = useI18n()
 
 const navItems = computed(() => [
   { to: '/', label: t('nav.home') },
-  { to: '/practice', label: t('nav.practice') },
   { to: '/about', label: t('nav.about') },
   { to: '/contact', label: t('nav.contact') },
 ])

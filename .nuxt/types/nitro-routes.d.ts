@@ -12,6 +12,9 @@ declare module "nitropack/types" {
     '/api/admin/availability': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/availability.post').default>>>>
     }
+    '/api/admin/patients/:id': {
+      'patch': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/patients/[id].patch').default>>>>
+    }
     '/api/admin/requests/:id': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/requests/[id].post').default>>>>
     }
@@ -35,6 +38,12 @@ declare module "nitropack/types" {
     }
     '/api/newsletter': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/newsletter.post').default>>>>
+    }
+    '/api/newsletter/confirm': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/newsletter/confirm.get').default>>>>
+    }
+    '/api/newsletter/unsubscribe': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/newsletter/unsubscribe.get').default>>>>
     }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>

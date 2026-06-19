@@ -18,21 +18,35 @@
           {{ $t('newsletter.subtitle') }}
         </p>
 
-        <form @submit.prevent="subscribe" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            v-model="email"
-            type="email"
-            :placeholder="$t('newsletter.placeholder')"
-            required
-            class="flex-1 px-5 py-3.5 bg-white/8 border border-cream/12 rounded-full text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:ring-2 focus:ring-cream/15 focus:border-cream/25 transition-all duration-150"
-          />
-          <button type="submit" :disabled="submitting" class="px-7 py-3.5 bg-cream text-charcoal font-sans text-sm font-medium rounded-full hover:bg-white transition-colors duration-150 active:scale-[0.98] whitespace-nowrap flex items-center justify-center gap-2">
-            <i v-if="submitting" class="fa-solid fa-spinner fa-spin text-xs"></i>
-            <template v-else>
-              <i class="fa-solid fa-paper-plane text-xs"></i>
-              {{ $t('newsletter.cta') }}
-            </template>
-          </button>
+        <form @submit.prevent="subscribe" class="max-w-md mx-auto">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              v-model="email"
+              type="email"
+              :placeholder="$t('newsletter.placeholder')"
+              required
+              class="flex-1 px-5 py-3.5 bg-white/8 border border-cream/12 rounded-full text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:ring-2 focus:ring-cream/15 focus:border-cream/25 transition-all duration-150"
+            />
+            <button type="submit" :disabled="submitting || !consent" class="px-7 py-3.5 bg-cream text-charcoal font-sans text-sm font-medium rounded-full hover:bg-white transition-colors duration-150 active:scale-[0.98] whitespace-nowrap flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+              <i v-if="submitting" class="fa-solid fa-spinner fa-spin text-xs"></i>
+              <template v-else>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+                {{ $t('newsletter.cta') }}
+              </template>
+            </button>
+          </div>
+          <label class="flex items-start gap-2.5 cursor-pointer mt-4 text-left">
+            <input
+              v-model="consent"
+              type="checkbox"
+              required
+              class="mt-0.5 h-4 w-4 shrink-0 rounded border-cream/30 bg-white/10 text-sage focus:ring-cream/20"
+            />
+            <span class="text-xs text-cream/40 leading-relaxed">
+              {{ $t('consent.newsletter') }}
+              <NuxtLink to="/privacy" class="text-cream/70 underline underline-offset-2 hover:text-cream">{{ $t('consent.privacy_link') }}</NuxtLink>.
+            </span>
+          </label>
         </form>
 
         <p v-if="submitted" class="text-sm text-cream/80 font-medium mt-4 flex items-center justify-center gap-2">
@@ -51,18 +65,21 @@
 <script setup>
 const { locale } = useI18n()
 const email = ref('')
+const consent = ref(false)
 const submitted = ref(false)
 const error = ref(false)
 const submitting = ref(false)
 
 const subscribe = async () => {
+  if (!consent.value) return
   submitting.value = true
   error.value = false
   try {
-    await $fetch('/api/newsletter', { method: 'POST', body: { email: email.value, locale: locale.value } })
+    await $fetch('/api/newsletter', { method: 'POST', body: { email: email.value, locale: locale.value, consent: true } })
     submitted.value = true
     email.value = ''
-    setTimeout(() => { submitted.value = false }, 5000)
+    consent.value = false
+    setTimeout(() => { submitted.value = false }, 8000)
   } catch {
     error.value = true
     setTimeout(() => { error.value = false }, 5000)

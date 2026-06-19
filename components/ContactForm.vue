@@ -13,11 +13,11 @@
             <div class="space-y-5 sm:space-y-6">
               <div class="flex items-start gap-3.5 sm:gap-4">
                 <div class="icon-box bg-sage/10 flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11">
-                  <i class="fa-solid fa-location-dot text-sage text-sm"></i>
+                  <i class="fa-solid fa-video text-sage text-sm"></i>
                 </div>
                 <div>
-                  <h4 class="text-sm font-semibold text-charcoal mb-1">{{ $t('contact.info.address_label') }}</h4>
-                  <p class="text-sm text-body/70">{{ $t('contact.info.address_value') }}</p>
+                  <h4 class="text-sm font-semibold text-charcoal mb-1">{{ $t('contact.info.online_label') }}</h4>
+                  <p class="text-sm text-body/70">{{ $t('contact.info.online_value') }}</p>
                 </div>
               </div>
 
@@ -104,7 +104,20 @@
               />
             </div>
 
-            <button type="submit" :disabled="submitting" class="btn-primary w-full sm:w-auto">
+            <label class="flex items-start gap-2.5 cursor-pointer pt-1">
+              <input
+                v-model="consent"
+                type="checkbox"
+                required
+                class="mt-0.5 h-4 w-4 shrink-0 rounded border-stone/50 text-sage focus:ring-sage/30"
+              />
+              <span class="text-xs text-body/60 leading-relaxed">
+                {{ $t('consent.contact') }}
+                <NuxtLink to="/privacy" class="text-sage underline underline-offset-2 hover:text-charcoal">{{ $t('consent.privacy_link') }}</NuxtLink>.
+              </span>
+            </label>
+
+            <button type="submit" :disabled="submitting || !consent" class="btn-primary w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
               <i v-if="submitting" class="fa-solid fa-spinner fa-spin text-xs"></i>
               <template v-else>
                 {{ $t('contact.form.submit') }}
@@ -141,17 +154,20 @@ const props = defineProps({
 })
 
 const form = reactive({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+const consent = ref(false)
 const submitted = ref(false)
 const submitting = ref(false)
 const error = ref(false)
 
 const handleSubmit = async () => {
+  if (!consent.value) return
   submitting.value = true
   error.value = false
   try {
-    await $fetch('/api/contact', { method: 'POST', body: { ...form } })
+    await $fetch('/api/contact', { method: 'POST', body: { ...form, consent: true } })
     submitted.value = true
     Object.assign(form, { firstName: '', lastName: '', email: '', phone: '', message: '' })
+    consent.value = false
     setTimeout(() => { submitted.value = false }, 5000)
   } catch {
     error.value = true

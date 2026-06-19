@@ -17,10 +17,11 @@
     "subtitle": "Struggling with bloating, stomach pain, digestive issues, or IBS? In a personal consultation, we'll explore what's behind your symptoms together and find a clear, individual path to more well-being and quality of life.",
     "cta_book": "Book Appointment",
     "cta_learn": "Learn More",
+    "free_first": "First consultation free — no obligation",
     "badges": {
       "evidence": "Evidence-based",
       "telemedicine": "Online Only",
-      "languages": "4 Languages"
+      "personal": "Personalized care"
     },
     "badge_card": {
       "title": "Gut Health",
@@ -134,37 +135,36 @@
   },
   "about": {
     "label": "About",
-    "title": "Mai Jimenez",
-    "subtitle": "Physician for Gut Health & IBS",
-    "bio": "I support women with IBS symptoms in understanding their gut health holistically and improving it sustainably. The focus is not just on symptom reduction, but on finding the individual causes and stress factors of the body.",
-    "philosophy": "Understanding the gut means understanding health. My goal is to help you regain control of your digestion — sustainably, individually, and based on evidence.",
+    "title": "dr. med. Mai Jimenez",
+    "subtitle": "Physician with a Focus on Gut Health & Irritable Bowel Syndrome (IBS)",
+    "bio": "My passion for medicine began in childhood. Growing up surrounded by both natural healing methods and conventional medical approaches, I developed an early appreciation for complementary medicine and its potential to support health in a holistic way.",
+    "story": [
+      "My passion for medicine began in childhood. Growing up surrounded by both natural healing methods and conventional medical approaches, I developed an early appreciation for complementary medicine and its potential to support health in a holistic way.",
+      "I completed my medical studies in the beautiful coastal city of Rijeka, Croatia. After graduating, I worked at the Hospital for Naturopathic Medicine in Munich and continued my professional training with the Kneipp Physicians Association in Bad Wörishofen.",
+      "Today, my primary areas of interest include micronutrient medicine, autoimmune conditions, and, above all, gut health. In particular, I work with many individuals suffering from functional gastrointestinal disorders who have often spent years searching for answers and frequently feel unheard or unsupported.",
+      "My approach is not limited to treating isolated symptoms. I believe in understanding the whole person and recognizing the complex interactions that influence health and well-being. Rather than relying on a one-size-fits-all solution, I believe that effective medicine is often achieved through an individualized combination of approaches—modern, evidence-based, and holistic.",
+      "At the heart of my work is the individual and their unique story. I take the time to understand symptoms and underlying connections thoroughly, support my patients closely throughout their journey, and aim to provide clarity, reassurance, and trust. Together, we develop a personalized path toward lasting health and well-being."
+    ],
+    "philosophy": "Rather than relying on a one-size-fits-all solution, I believe that effective medicine is often achieved through an individualized combination of approaches—modern, evidence-based, and holistic.",
     "cta": "More About Me",
-    "education_label": "Education & Certifications",
+    "read_more": "Read more",
+    "read_less": "Show less",
+    "education_label": "Education & Qualifications",
     "experience_label": "Clinical Experience",
-    "specializations_label": "Specializations",
-    "memberships_label": "Memberships & Affiliations",
+    "specializations_label": "Areas of Focus",
     "education_items": [
-      { "title": "Medical Degree", "detail": "University education in human medicine" },
-      { "title": "Micronutrient Medicine", "detail": "Certification in prevention and therapy" },
-      { "title": "Autoimmune Therapist", "detail": "Specialized autoimmune therapy training" },
-      { "title": "Physician for Naturopathic Medicine", "detail": "24 months advanced training (BLÄK)" }
+      { "title": "Medical Degree", "detail": "University training in Human Medicine at the Faculty of Medicine, University of Rijeka, Croatia (2018–2024)." },
+      { "title": "Micronutrient Medicine", "detail": "Professional training in Micronutrient Medicine for Clinical Practice at the Academy for Micronutrient Medicine in Essen, Germany (2025)." },
+      { "title": "Autoimmune Therapy", "detail": "Specialized training in autoimmune therapy through the Austrian Physicians’ Platform (Ärzteplattform Österreich) (2026)." },
+      { "title": "Additional Qualification in Naturopathic Medicine", "detail": "Training through the Physicians’ Society for Preventive Medicine and Classical Naturopathy and the Kneipp Physicians Association (Kneippärztebund e.V.) in Bad Wörishofen, Germany (since 2024)." }
     ],
     "experience_items": [
-      "Naturopathic medicine",
-      "Micronutrient therapy",
-      "Clinical nutrition",
-      "Autoimmune therapy"
+      "Clinical experience in naturopathic medicine and micronutrient therapy at the Hospital for Naturopathic Medicine in Munich, Germany."
     ],
     "specialization_items": [
-      "Irritable bowel syndrome (IBS)",
-      "Microbiome analysis & gut diagnostics",
-      "Detox & gut regeneration",
-      "Nutritional medicine",
-      "Holistic gut health"
-    ],
-    "membership_items": [
-      "Healthy Longevity Medicine Society (HLMS)",
-      "Medical Chamber (Ärztekammer)"
+      "Irritable Bowel Syndrome (IBS)",
+      "Microbiome Analysis and Gastrointestinal Diagnostics",
+      "Detoxification and Gut Restoration"
     ]
   },
   "contact": {
@@ -182,11 +182,11 @@
       "error": "Something went wrong. Please try again."
     },
     "info": {
-      "address_label": "Address",
-      "address_value": "Address coming soon",
+      "online_label": "Online consultations",
+      "online_value": "Telemedicine — from anywhere, no travel needed",
       "phone_label": "Phone",
       "email_label": "Email",
-      "hours_label": "Office Hours",
+      "hours_label": "Availability",
       "hours_practice": "Monday – Friday, 8:00 AM – 5:00 PM",
       "hours_online": "Online consultations by appointment",
       "hours_note": "By appointment only"
@@ -197,8 +197,15 @@
     "subtitle": "Monthly science-based insights on IBS, microbiome health, and practical strategies for lasting digestive wellness.",
     "cta": "Subscribe to Newsletter",
     "placeholder": "Your email address",
-    "success": "Thank you for subscribing!",
+    "success": "Almost there! Please check your inbox and click the confirmation link to complete your subscription.",
     "error": "Something went wrong. Please try again."
+  },
+  "consent": {
+    "privacy_link": "Privacy Policy",
+    "required": "Please confirm your consent so we can process your request.",
+    "contact": "I consent to MaiHealth storing and processing the data I provide here in order to respond to my enquiry. I can withdraw this consent at any time with effect for the future. Further information can be found in the",
+    "newsletter": "I would like to receive the newsletter by email and consent to my email address being processed for this purpose. I can unsubscribe at any time. Further information can be found in the",
+    "booking": "I consent to the processing of my data — including any health information I choose to share — for the purpose of arranging and carrying out my consultation. I can withdraw this consent at any time with effect for the future. Further information can be found in the"
   },
   "faq": {
     "label": "FAQ",
@@ -240,7 +247,7 @@
     "impressum": "Impressum",
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
-    "hours_label": "Practice Hours",
+    "hours_label": "Availability",
     "hours": "Mon – Fri: 8:00 – 17:00",
     "hours_note": "By appointment",
     "rights": "All rights reserved.",
@@ -249,7 +256,7 @@
   "practice": {
     "phases_title": "Four steps to better gut health",
     "phases": [
-      { "title": "Consultation", "description": "Comprehensive history of your gut symptoms — via online consultation.", "icon": "fa-solid fa-comments" },
+      { "title": "Consultation", "description": "The first step is a conversation. Together, we build a clear picture of your gut health and a path forward.", "icon": "fa-solid fa-comments" },
       { "title": "Diagnostics", "description": "Microbiome analysis, stool diagnostics, and assessments tailored to you.", "icon": "fa-solid fa-microscope" },
       { "title": "Therapy Plan", "description": "Personalized plan: detox, gut regeneration, and nutrition guidance.", "icon": "fa-solid fa-clipboard-list" },
       { "title": "Support", "description": "Ongoing monitoring and adjustments for lasting results.", "icon": "fa-solid fa-chart-line" }
@@ -275,6 +282,10 @@
     ],
     "insurance_title": "Insurance & Payment",
     "insurance_text": "Services are typically not covered by statutory health insurance. Some private insurance plans may offer partial coverage depending on your policy terms. Most patients are self-paying. Detailed invoices are provided for potential reimbursement claims."
+  },
+  "steps": {
+    "your_journey": "Your journey",
+    "progress": "{done} of {total} steps completed"
   },
   "meta": {
     "index": {
@@ -303,12 +314,164 @@
     }
   },
   "impressum": {
-    "title": "Impressum",
-    "content": "Legal information will be provided here before launch."
+    "title": "Legal Notice (Impressum)",
+    "sections": [
+      {
+        "heading": "Information pursuant to § 5 DDG",
+        "body": [
+          "Mai Jimenez",
+          "MaiHealth",
+          "[Street and house number — required]",
+          "[Postal code and city — required]",
+          "Germany"
+        ]
+      },
+      {
+        "heading": "Contact",
+        "body": [
+          "Phone: [Phone number — required]",
+          "Email: Mai.jimenez{'@'}gmx.de"
+        ]
+      },
+      {
+        "heading": "Professional details",
+        "body": [
+          "Job title: [e.g. Ärztin / Physician — confirm exact legally permitted title]",
+          "[If a licensed physician (Approbation): competent chamber — e.g. Bayerische Landesärztekammer]",
+          "[Country/state that granted the professional title (Approbation) — required if applicable]",
+          "[Statutory professional regulations (Berufsordnung) and where to find them — required if applicable]",
+          "[If NOT a German-licensed physician, state the actual professional status here and remove the physician fields above]"
+        ]
+      },
+      {
+        "heading": "VAT / Tax",
+        "body": [
+          "VAT identification number (§ 27a UStG): [VAT ID, or state that the small-business rule § 19 UStG applies]"
+        ]
+      },
+      {
+        "heading": "Responsible for content (§ 18(2) MStV)",
+        "body": [
+          "Mai Jimenez, address as above"
+        ]
+      },
+      {
+        "heading": "EU dispute resolution",
+        "body": [
+          "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr",
+          "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board."
+        ]
+      }
+    ]
   },
   "privacy": {
     "title": "Privacy Policy",
-    "content": "Privacy policy will be provided here before launch."
+    "meta": {
+      "updated": "Last updated:",
+      "version": "19 June 2026"
+    },
+    "intro": "Protecting your personal data is very important to us. This policy explains what data we process when you visit this website, use our contact and booking forms, or subscribe to our newsletter, on what legal basis, and what rights you have. We process health-related data only where you choose to provide it and only on the basis of your explicit consent or the provision of healthcare.",
+    "sections": [
+      {
+        "heading": "Controller",
+        "body": [
+          "The controller responsible for data processing on this website is:",
+          "Mai Jimenez (MaiHealth)",
+          "[Postal address — see Legal Notice]",
+          "Email: Mai.jimenez{'@'}gmx.de"
+        ]
+      },
+      {
+        "heading": "What data we process, for what purpose, and on what legal basis",
+        "body": [
+          "Contact form: first and last name, email address, phone number (optional) and your message. Purpose: to receive and respond to your enquiry. Legal basis: your consent (Art. 6(1)(a) GDPR); where your message contains health data, additionally your explicit consent (Art. 9(2)(a) GDPR).",
+          "Appointment booking: name, email address, phone number, the reason for your visit and the chosen appointment details. Purpose: to arrange and carry out your consultation. Legal basis: performance of (pre-)contractual measures (Art. 6(1)(b) GDPR) and, for health data, your explicit consent (Art. 9(2)(a) GDPR) and/or the provision of healthcare (Art. 9(2)(h) GDPR).",
+          "Patient account: when you sign in with Google, we receive your name and email address to create and manage your patient account in the portal. Legal basis: Art. 6(1)(b) GDPR.",
+          "Newsletter: your email address. We use a double opt-in procedure — you only receive the newsletter after confirming via the link we email you. Purpose: sending our newsletter. Legal basis: your consent (Art. 6(1)(a) GDPR). We store the time of subscription and confirmation to document your consent.",
+          "Server log data: when you access the site, technical data such as your IP address, browser type and time of access are processed to deliver the site securely and reliably. Legal basis: our legitimate interest in a secure and functional website (Art. 6(1)(f) GDPR)."
+        ]
+      },
+      {
+        "heading": "Recipients and processors",
+        "body": [
+          "We use carefully selected service providers who process data on our behalf under data processing agreements (Art. 28 GDPR):"
+        ],
+        "items": [
+          "Google Ireland Ltd. / Google LLC — Firebase Authentication, Cloud Firestore (database) and hosting infrastructure. Data is stored in the region [confirm Firestore region — recommended: europe-west, e.g. Frankfurt].",
+          "Resend (Plusten, Inc., USA) — delivery of transactional and newsletter emails.",
+          "Zoom Video Communications, Inc. (USA) — video consultations, where conducted online.",
+          "[Hosting provider — confirm, e.g. Vercel Inc., USA, with EU region] — operation and delivery of the website."
+        ]
+      },
+      {
+        "heading": "Transfers to third countries",
+        "body": [
+          "Some of the providers above are based in the USA or may process data there. Such transfers take place on the basis of the EU Standard Contractual Clauses (Art. 46 GDPR) and/or the EU–US Data Privacy Framework where the provider is certified. You can request a copy of the relevant safeguards from us at any time.",
+          "Where possible, we configure our services to store and process personal data within the European Union."
+        ]
+      },
+      {
+        "heading": "How long we keep your data",
+        "body": [
+          "Contact enquiries: deleted no later than 6 months after your request has been dealt with, unless a treatment relationship or legal retention obligation arises.",
+          "Appointment and treatment-related records: retained for the statutory documentation period applicable to medical/health records (generally up to 10 years; cf. § 630f BGB and professional rules).",
+          "Newsletter: until you unsubscribe; the proof-of-consent record is then kept as required to demonstrate lawful processing.",
+          "Server logs: deleted or anonymised after a short period."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "body": [
+          "Under the GDPR you have the following rights regarding your personal data:"
+        ],
+        "items": [
+          "Access to the data we hold about you (Art. 15)",
+          "Rectification of inaccurate data (Art. 16)",
+          "Erasure (Art. 17)",
+          "Restriction of processing (Art. 18)",
+          "Data portability (Art. 20)",
+          "Objection to processing based on legitimate interests (Art. 21)",
+          "Withdrawal of consent at any time with effect for the future (Art. 7(3)) — this does not affect the lawfulness of processing carried out before the withdrawal"
+        ]
+      },
+      {
+        "heading": "Right to lodge a complaint",
+        "body": [
+          "You have the right to lodge a complaint with a data protection supervisory authority. The authority competent for us is [the data protection authority of the relevant federal state — to be completed, e.g. Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)]."
+        ]
+      },
+      {
+        "heading": "Cookies and local storage",
+        "body": [
+          "We use only strictly necessary cookies and local storage: a cookie that remembers your chosen language, and the session storage that Firebase Authentication uses to keep you signed in to the patient portal. These are required for the website to function and therefore do not require consent (§ 25(2) TDDDG).",
+          "We do not use any analytics, advertising or tracking tools. There is therefore no tracking cookie banner."
+        ]
+      },
+      {
+        "heading": "Fonts",
+        "body": [
+          "Fonts are hosted on our own server. No connection to Google servers is established to load fonts, so your IP address is not transmitted to Google for this purpose."
+        ]
+      },
+      {
+        "heading": "Automated decision-making",
+        "body": [
+          "We do not use automated decision-making or profiling within the meaning of Art. 22 GDPR."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "body": [
+          "We may update this policy to reflect changes to our services or legal requirements. The current version always applies, as indicated by the date above."
+        ]
+      },
+      {
+        "heading": "Contact regarding data protection",
+        "body": [
+          "To exercise your rights or for any questions about data protection, contact us at: Mai.jimenez{'@'}gmx.de."
+        ]
+      }
+    ]
   },
   "cta": {
     "request_appointment": "Request Appointment",
@@ -377,6 +540,7 @@
     "type_label": "Consultation type",
     "initial": "Initial Consultation",
     "followup": "Follow-up",
+    "free_badge": "Free",
     "reason_label": "Main concern (optional)",
     "reason_placeholder": "Briefly describe your main health concern",
     "confirm_btn": "Confirm Booking",

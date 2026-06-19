@@ -289,13 +289,10 @@ const handleLogout = async () => {
 const languages = [
   { code: 'en', name: 'English' },
   { code: 'de', name: 'Deutsch' },
-  { code: 'hr', name: 'Hrvatski' },
-  { code: 'it', name: 'Italiano' },
 ]
 
 const navItems = computed(() => [
   { to: '/', label: t('nav.home'), icon: 'fa-solid fa-house' },
-  { to: '/practice', label: t('nav.practice'), icon: 'fa-solid fa-stethoscope' },
   { to: '/about', label: t('nav.about'), icon: 'fa-solid fa-user-doctor' },
   { to: '/contact', label: t('nav.contact'), icon: 'fa-solid fa-envelope' },
 ])

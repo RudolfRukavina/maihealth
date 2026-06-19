@@ -4,16 +4,12 @@
 
 export const localeCodes =  [
   "en",
-  "de",
-  "hr",
-  "it"
+  "de"
 ]
 
 export const localeLoaders = {
   "en": [{ key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_en_json" */), cache: true }],
-  "de": [{ key: "../locales/de.json", load: () => import("../locales/de.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_de_json" */), cache: true }],
-  "hr": [{ key: "../locales/hr.json", load: () => import("../locales/hr.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_hr_json" */), cache: true }],
-  "it": [{ key: "../locales/it.json", load: () => import("../locales/it.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_it_json" */), cache: true }]
+  "de": [{ key: "../locales/de.json", load: () => import("../locales/de.json" /* webpackChunkName: "locale__Users_Rudolf_Work_mai_locales_de_json" */), cache: true }]
 }
 
 export const vueI18nConfigs = [
@@ -57,22 +53,6 @@ export const nuxtI18nOptions = {
       "language": "de-DE",
       "files": [
         "/Users/Rudolf/Work/mai/locales/de.json"
-      ]
-    },
-    {
-      "code": "hr",
-      "name": "Hrvatski",
-      "language": "hr-HR",
-      "files": [
-        "/Users/Rudolf/Work/mai/locales/hr.json"
-      ]
-    },
-    {
-      "code": "it",
-      "name": "Italiano",
-      "language": "it-IT",
-      "files": [
-        "/Users/Rudolf/Work/mai/locales/it.json"
       ]
     }
   ],
@@ -125,26 +105,6 @@ export const normalizedLocales = [
     "files": [
       {
         "path": "/Users/Rudolf/Work/mai/locales/de.json"
-      }
-    ]
-  },
-  {
-    "code": "hr",
-    "name": "Hrvatski",
-    "language": "hr-HR",
-    "files": [
-      {
-        "path": "/Users/Rudolf/Work/mai/locales/hr.json"
-      }
-    ]
-  },
-  {
-    "code": "it",
-    "name": "Italiano",
-    "language": "it-IT",
-    "files": [
-      {
-        "path": "/Users/Rudolf/Work/mai/locales/it.json"
       }
     ]
   }

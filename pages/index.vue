@@ -7,12 +7,15 @@
         <HeroSection />
       </template>
     </ClientOnly>
-    <WaveDivider fromColor="#F5F1EC" toColor="#2D3A24" :variant="3" />
-    <TrustPillars />
-    <WaveDivider fromColor="#2D3A24" toColor="#FFFFFF" :variant="4" />
+    <WaveDivider fromColor="#F5F1EC" toColor="#FFFFFF" :variant="3" />
     <StepsOverview />
+    <WaveDivider fromColor="#FFFFFF" toColor="#2D3A24" :variant="4" />
+    <TrustPillars />
+    <WaveDivider fromColor="#2D3A24" toColor="#FFFFFF" :variant="3" />
     <HealthConcerns />
-    <WaveDivider fromColor="#FFFFFF" toColor="#EEF1EA" :variant="3" />
+    <WaveDivider fromColor="#FFFFFF" toColor="#F5F1EC" :variant="3" />
+    <FocusGrid />
+    <WaveDivider fromColor="#F5F1EC" toColor="#EEF1EA" :variant="4" />
     <AboutPreview />
     <WaveDivider fromColor="#EEF1EA" toColor="#FFFFFF" :variant="4" />
     <FaqAccordion />

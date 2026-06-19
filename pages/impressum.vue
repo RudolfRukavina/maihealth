@@ -6,16 +6,21 @@
           <h1 class="text-4xl md:text-display-sm font-serif font-semibold text-charcoal mb-8">
             {{ $t('impressum.title') }}
           </h1>
-          <div class="prose prose-body text-body leading-relaxed space-y-6">
-            <div class="bg-cream-dark/40 rounded-2xl p-6 md:p-8 border border-stone/20">
-              <p class="text-sm text-body/70">{{ $t('impressum.content') }}</p>
-            </div>
 
-            <div class="space-y-4">
-              <h2 class="text-lg font-serif font-semibold text-charcoal">Mai Jimenez</h2>
-              <p class="text-sm text-body/70">MaiHealth</p>
-              <a href="mailto:Mai.jimenez@gmx.de" class="text-sm text-body/70 hover:text-sage transition-colors">Mai.jimenez@gmx.de</a>
-            </div>
+          <div class="space-y-8">
+            <section v-for="(s, i) in sections" :key="i">
+              <h2 class="text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-3">{{ s.heading }}</h2>
+              <div class="space-y-1.5">
+                <p
+                  v-for="(line, li) in s.body"
+                  :key="li"
+                  class="text-sm text-body/80 leading-relaxed"
+                  :class="{ 'text-amber-700 bg-amber-50 inline-block px-1.5 rounded': line.includes('[') }"
+                >
+                  {{ line }}
+                </p>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -24,7 +29,14 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+const { t, tm, rt } = useI18n()
+
+const sections = computed(() =>
+  tm('impressum.sections').map((s) => ({
+    heading: rt(s.heading),
+    body: (s.body || []).map((line) => rt(line)),
+  }))
+)
 
 useHead({
   title: computed(() => `${t('impressum.title')} — MaiHealth`),

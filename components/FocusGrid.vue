@@ -1,5 +1,5 @@
 <template>
-  <section class="section-padding">
+  <section id="focus" class="section-padding scroll-mt-24 bg-cream">
     <div class="container-narrow">
       <div class="text-center mb-10 md:mb-16">
         <span class="section-label">{{ $t('focus.label') }}</span>

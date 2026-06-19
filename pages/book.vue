@@ -10,7 +10,7 @@
       </div>
     </section>
 
-    <div class="container-narrow py-10 md:py-14">
+    <div class="container-narrow pt-10 md:pt-14 pb-24 sm:pb-28 lg:pb-36">
 
       <!-- Step indicator -->
       <div class="flex items-center gap-1.5 mb-10">
@@ -157,6 +157,15 @@
                 ]"
               >
                 {{ $t(`book.${typeOpt}`) }}
+                <span
+                  v-if="typeOpt === 'initial'"
+                  :class="[
+                    'ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide align-middle',
+                    form.type === typeOpt ? 'bg-cream text-sage' : 'bg-gold text-cream',
+                  ]"
+                >
+                  {{ $t('book.free_badge') }}
+                </span>
               </button>
             </div>
           </div>
@@ -198,6 +207,20 @@
               </button>
             </template>
 
+            <!-- Consent (health data — Art. 9 GDPR) -->
+            <label class="flex items-start gap-2.5 cursor-pointer mt-5">
+              <input
+                v-model="consent"
+                type="checkbox"
+                required
+                class="mt-0.5 h-4 w-4 shrink-0 rounded border-stone/50 text-sage focus:ring-sage/30"
+              />
+              <span class="text-xs text-body/60 leading-relaxed">
+                {{ $t('consent.booking') }}
+                <NuxtLink to="/privacy" class="text-sage underline underline-offset-2 hover:text-charcoal">{{ $t('consent.privacy_link') }}</NuxtLink>.
+              </span>
+            </label>
+
             <!-- Error -->
             <p v-if="bookError" class="text-sm text-red-600 mt-4 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-circle-exclamation text-xs"></i>
@@ -205,7 +228,7 @@
             </p>
 
             <!-- Confirm button -->
-            <button @click="handleBook" :disabled="booking" class="btn-primary w-full justify-center mt-5">
+            <button @click="handleBook" :disabled="booking || !consent" class="btn-primary w-full justify-center mt-5 disabled:opacity-50 disabled:cursor-not-allowed">
               <i v-if="booking" class="fa-solid fa-spinner fa-spin text-xs" />
               <template v-else>
                 {{ $t('book.confirm_btn') }}
@@ -404,6 +427,7 @@ onMounted(fetchSlots)
 
 // Booking
 const form = reactive({ type: 'initial', reason: '' })
+const consent = ref(false)
 const booking = ref(false)
 const bookError = ref('')
 // Captured at confirmation time so they persist on the confirmed screen
@@ -413,6 +437,11 @@ const confirmedTime = ref('')
 const handleBook = async () => {
   if (!selectedSlot.value) return
   bookError.value = ''
+
+  if (!consent.value) {
+    bookError.value = t('consent.required')
+    return
+  }
 
   if (!isLoggedIn.value) {
     bookError.value = t('book.step_auth')
@@ -433,6 +462,7 @@ const handleBook = async () => {
         slotDateTime: selectedSlot.value,
         type: form.type,
         reason: form.reason,
+        consent: true,
         guestName: '',
         guestEmail: '',
         guestPhone: '',

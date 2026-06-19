@@ -23,7 +23,7 @@
     <WaveDivider fromColor="#F5F1EC" toColor="#2D3A24" :variant="1" />
     <NewsletterCTA />
     <WaveDivider fromColor="#2D3A24" toColor="#FFFFFF" :variant="2" />
-    <FaqAccordion />
+    <FaqAccordion class="pb-24 sm:pb-28 lg:pb-36" />
   </div>
 </template>
 

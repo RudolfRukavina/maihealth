@@ -1,10 +1,11 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getHeader, getResponseStatusText } from 'file:///Users/Rudolf/Work/mai/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, readBody, getQuery as getQuery$1, getHeader, getRequestIP, getRequestURL, setHeader, getResponseStatusText } from 'file:///Users/Rudolf/Work/mai/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
 import { getFirestore, Timestamp, FieldValue } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { randomUUID } from 'node:crypto';
 import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
 import { getApps, initializeApp, cert } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/app/index.js';
 import { getAuth } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/auth/index.js';
@@ -421,7 +422,7 @@ const _gtZIT93UES = (function(nitro) {
 
 const rootDir = "/Users/Rudolf/Work/mai";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Mai Jimenez. Gut health & IBS specialist."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"},{"property":"og:locale:alternate","content":"hr_HR"},{"property":"og:locale:alternate","content":"it_IT"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Mai Jimenez"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"MaiHealth — Mai Jimenez. Gut health & IBS specialist."},{"name":"theme-color","content":"#F5F1EC"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"MaiHealth"},{"property":"og:locale","content":"de_DE"},{"property":"og:locale:alternate","content":"en_US"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","sizes":"180x180","href":"/apple-touch-icon.png"},{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon-32x32.png"},{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon-16x16.png"},{"rel":"manifest","href":"/site.webmanifest"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1","title":"MaiHealth — Mai Jimenez"};
 
 const appRootTag = "div";
 
@@ -513,8 +514,9 @@ _76nvq2ezMH
 ];
 
 const _lazy_M1nVnh = () => Promise.resolve().then(function () { return appointments_post$1; });
-const _lazy_S6svPp = () => Promise.resolve().then(function () { return _id__patch$1; });
+const _lazy_S6svPp = () => Promise.resolve().then(function () { return _id__patch$3; });
 const _lazy_4llXf1 = () => Promise.resolve().then(function () { return availability_post$1; });
+const _lazy_zXV6Yv = () => Promise.resolve().then(function () { return _id__patch$1; });
 const _lazy_iTayOl = () => Promise.resolve().then(function () { return _id__post$1; });
 const _lazy_Yu7KvH = () => Promise.resolve().then(function () { return book_post$1; });
 const _lazy_XnNalK = () => Promise.resolve().then(function () { return request_post$1; });
@@ -523,12 +525,15 @@ const _lazy_Dm8u8d = () => Promise.resolve().then(function () { return config_ge
 const _lazy_OQeO2T = () => Promise.resolve().then(function () { return slots_get$1; });
 const _lazy_amYChR = () => Promise.resolve().then(function () { return contact_post$1; });
 const _lazy_HH9gBA = () => Promise.resolve().then(function () { return newsletter_post$1; });
+const _lazy_gRZynU = () => Promise.resolve().then(function () { return confirm_get$1; });
+const _lazy_ievdYf = () => Promise.resolve().then(function () { return unsubscribe_get$1; });
 const _lazy_cjtSQX = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/api/admin/appointments', handler: _lazy_M1nVnh, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/appointments/:id', handler: _lazy_S6svPp, lazy: true, middleware: false, method: "patch" },
   { route: '/api/admin/availability', handler: _lazy_4llXf1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/patients/:id', handler: _lazy_zXV6Yv, lazy: true, middleware: false, method: "patch" },
   { route: '/api/admin/requests/:id', handler: _lazy_iTayOl, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/book', handler: _lazy_Yu7KvH, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/request', handler: _lazy_XnNalK, lazy: true, middleware: false, method: "post" },
@@ -537,6 +542,8 @@ const handlers = [
   { route: '/api/availability/slots', handler: _lazy_OQeO2T, lazy: true, middleware: false, method: "get" },
   { route: '/api/contact', handler: _lazy_amYChR, lazy: true, middleware: false, method: "post" },
   { route: '/api/newsletter', handler: _lazy_HH9gBA, lazy: true, middleware: false, method: "post" },
+  { route: '/api/newsletter/confirm', handler: _lazy_gRZynU, lazy: true, middleware: false, method: "get" },
+  { route: '/api/newsletter/unsubscribe', handler: _lazy_ievdYf, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_cjtSQX, lazy: true, middleware: false, method: undefined }
 ];
@@ -1003,22 +1010,6 @@ const _inlineRuntimeConfig = {
           "files": [
             "/Users/Rudolf/Work/mai/locales/de.json"
           ]
-        },
-        {
-          "code": "hr",
-          "name": "Hrvatski",
-          "language": "hr-HR",
-          "files": [
-            "/Users/Rudolf/Work/mai/locales/hr.json"
-          ]
-        },
-        {
-          "code": "it",
-          "name": "Italiano",
-          "language": "it-IT",
-          "files": [
-            "/Users/Rudolf/Work/mai/locales/it.json"
-          ]
         }
       ],
       "locales": {
@@ -1026,12 +1017,6 @@ const _inlineRuntimeConfig = {
           "domain": ""
         },
         "de": {
-          "domain": ""
-        },
-        "hr": {
-          "domain": ""
-        },
-        "it": {
           "domain": ""
         }
       },
@@ -1610,6 +1595,25 @@ function layout(body) {
     </div>
   `;
 }
+async function sendNewsletterConfirm(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { to, confirmUrl } = opts;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Please confirm your newsletter subscription",
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Confirm your subscription</h2>
+      <p>You (or someone using this email address) asked to receive the MaiHealth newsletter.</p>
+      <p>Please confirm by clicking the button below. If you did not request this, simply ignore this email \u2014 no subscription will be created.</p>
+      <p style="margin: 24px 0;">
+        <a href="${confirmUrl}" style="background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 600; display: inline-block;">Confirm subscription</a>
+      </p>
+      <p style="font-size: 12px; color: #999;">Or paste this link into your browser:<br>${confirmUrl}</p>
+    `)
+  });
+}
 async function sendBookingConfirmation(opts) {
   const resend = getResend();
   if (!resend) return;
@@ -1802,7 +1806,7 @@ const appointments_post$1 = /*#__PURE__*/Object.freeze({
   default: appointments_post
 });
 
-const _id__patch = defineEventHandler(async (event) => {
+const _id__patch$2 = defineEventHandler(async (event) => {
   var _a, _b, _c, _d, _e, _f;
   const decoded = await verifyAuth(event);
   const db = getAdminDb();
@@ -1844,9 +1848,9 @@ const _id__patch = defineEventHandler(async (event) => {
   return { success: true };
 });
 
-const _id__patch$1 = /*#__PURE__*/Object.freeze({
+const _id__patch$3 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: _id__patch
+  default: _id__patch$2
 });
 
 const availability_post = defineEventHandler(async (event) => {
@@ -1879,6 +1883,33 @@ const availability_post = defineEventHandler(async (event) => {
 const availability_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: availability_post
+});
+
+const _id__patch = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const db = getAdminDb();
+  const adminDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!adminDoc.exists || ((_a = adminDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const id = getRouterParam(event, "id");
+  if (!id) throw createError({ statusCode: 400, statusMessage: "Patient ID required" });
+  const body = await readBody(event);
+  const stage = Number(body.journeyStage);
+  if (!Number.isInteger(stage) || stage < 0 || stage > 4) {
+    throw createError({ statusCode: 400, statusMessage: "journeyStage must be an integer between 0 and 4" });
+  }
+  const ref = db.collection("users").doc(id);
+  const snap = await ref.get();
+  if (!snap.exists) throw createError({ statusCode: 404, statusMessage: "Patient not found" });
+  await ref.update({ journeyStage: stage });
+  return { success: true, journeyStage: stage };
+});
+
+const _id__patch$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__patch
 });
 
 const _id__post = defineEventHandler(async (event) => {
@@ -1954,12 +1985,27 @@ const _id__post$1 = /*#__PURE__*/Object.freeze({
   default: _id__post
 });
 
+const PRIVACY_POLICY_VERSION = "2026-06-19";
+function consentRecord(event) {
+  return {
+    given: true,
+    policyVersion: PRIVACY_POLICY_VERSION,
+    at: Timestamp.now(),
+    ip: getRequestIP(event, { xForwardedFor: true }) || null,
+    userAgent: getHeader(event, "user-agent") || null
+  };
+}
+
 const book_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { slotDateTime, type, reason, guestName, guestEmail, guestPhone } = body;
+  const { slotDateTime, type, reason, consent, guestName, guestEmail, guestPhone } = body;
   if (!slotDateTime) {
     throw createError({ statusCode: 400, statusMessage: "slotDateTime is required" });
   }
+  if (consent !== true) {
+    throw createError({ statusCode: 400, statusMessage: "Consent is required to book a consultation" });
+  }
+  const consent_ = consentRecord(event);
   const slotDate = new Date(slotDateTime);
   if (isNaN(slotDate.getTime())) {
     throw createError({ statusCode: 400, statusMessage: "Invalid slotDateTime" });
@@ -2037,6 +2083,7 @@ const book_post = defineEventHandler(async (event) => {
       zoomMeetingId,
       zoomJoinUrl,
       notes: reason || "",
+      consent: consent_,
       createdAt: Timestamp.now()
     });
     await sendBookingConfirmation({
@@ -2067,6 +2114,7 @@ const book_post = defineEventHandler(async (event) => {
       preferredTimeOfDay: "morning",
       type: type || "initial",
       reason: reason || "",
+      consent: consent_,
       status: "pending",
       createdAt: Timestamp.now()
     });
@@ -2117,6 +2165,9 @@ const request_post = defineEventHandler(async (event) => {
     preferredTimeOfDay: preferredTime || "morning",
     type: type || "initial",
     reason: reason || "",
+    // Existing patient acting within the care relationship (Art. 9(2)(h));
+    // record the policy version in force for accountability.
+    policyVersion: PRIVACY_POLICY_VERSION,
     status: "pending",
     createdAt: Timestamp.now()
   });
@@ -2150,16 +2201,18 @@ const bootstrap_post = defineEventHandler(async (event) => {
       displayName: (_d = decoded.name) != null ? _d : null,
       photoURL: (_e = decoded.picture) != null ? _e : null,
       role: role2,
+      journeyStage: 0,
       createdAt: FieldValue.serverTimestamp()
     });
-    return { role: role2 };
+    return { role: role2, journeyStage: 0 };
   }
-  let role = ((_f = snap.data()) == null ? void 0 : _f.role) || "patient";
+  const data = snap.data();
+  let role = (data == null ? void 0 : data.role) || "patient";
   if (isAdminEmail && role !== "admin") {
     role = "admin";
     await ref.update({ role });
   }
-  return { role };
+  return { role, journeyStage: (_f = data == null ? void 0 : data.journeyStage) != null ? _f : 0 };
 });
 
 const bootstrap_post$1 = /*#__PURE__*/Object.freeze({
@@ -2260,9 +2313,12 @@ const slots_get$1 = /*#__PURE__*/Object.freeze({
 
 const contact_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { firstName, lastName, email, phone, message } = body;
+  const { firstName, lastName, email, phone, message, consent } = body;
   if (!firstName || !lastName || !email || !message) {
     throw createError({ statusCode: 400, statusMessage: "Missing required fields" });
+  }
+  if (consent !== true) {
+    throw createError({ statusCode: 400, statusMessage: "Consent is required to process this request" });
   }
   const db = getAdminDb();
   await db.collection("contactSubmissions").add({
@@ -2272,6 +2328,7 @@ const contact_post = defineEventHandler(async (event) => {
     phone: phone || "",
     message,
     read: false,
+    consent: consentRecord(event),
     createdAt: Timestamp.now()
   });
   await sendAdminContactForm({ firstName, lastName, email, phone, message });
@@ -2285,19 +2342,45 @@ const contact_post$1 = /*#__PURE__*/Object.freeze({
 
 const newsletter_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { email, locale } = body;
-  if (!email) {
-    throw createError({ statusCode: 400, statusMessage: "Email is required" });
+  const { email, locale, consent } = body;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+    throw createError({ statusCode: 400, statusMessage: "A valid email is required" });
   }
+  if (consent !== true) {
+    throw createError({ statusCode: 400, statusMessage: "Consent is required to subscribe" });
+  }
+  const normalizedEmail = String(email).trim().toLowerCase();
   const db = getAdminDb();
-  const existing = await db.collection("newsletterSubscribers").where("email", "==", email).limit(1).get();
-  if (!existing.empty) {
+  const origin = getRequestURL(event).origin;
+  const existing = await db.collection("newsletterSubscribers").where("email", "==", normalizedEmail).limit(1).get();
+  if (!existing.empty && existing.docs[0].data().status === "confirmed") {
     return { success: true };
   }
-  await db.collection("newsletterSubscribers").add({
-    email,
-    locale: locale || "en",
-    subscribedAt: Timestamp.now()
+  const confirmToken = randomUUID();
+  const unsubscribeToken = randomUUID();
+  if (existing.empty) {
+    await db.collection("newsletterSubscribers").add({
+      email: normalizedEmail,
+      locale: locale || "en",
+      status: "pending",
+      confirmToken,
+      unsubscribeToken,
+      consent: consentRecord(event),
+      subscribedAt: Timestamp.now(),
+      confirmedAt: null
+    });
+  } else {
+    await existing.docs[0].ref.update({
+      locale: locale || "en",
+      status: "pending",
+      confirmToken,
+      consent: consentRecord(event),
+      subscribedAt: Timestamp.now()
+    });
+  }
+  await sendNewsletterConfirm({
+    to: normalizedEmail,
+    confirmUrl: `${origin}/api/newsletter/confirm?token=${confirmToken}`
   });
   return { success: true };
 });
@@ -2305,6 +2388,92 @@ const newsletter_post = defineEventHandler(async (event) => {
 const newsletter_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: newsletter_post
+});
+
+function simplePage(opts) {
+  const { title, message, ok = true } = opts;
+  const accent = ok ? "#8B9A6B" : "#B45454";
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>${title} \u2014 MaiHealth</title>
+<style>
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; background:#F5F1EC; color:#2D3A24; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px; }
+  .card { background:#fff; border:1px solid #E8E4DF; border-radius:20px; padding:40px 32px; max-width:440px; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,.04); }
+  .badge { width:56px; height:56px; border-radius:50%; background:${accent}1a; color:${accent}; display:flex; align-items:center; justify-content:center; font-size:26px; margin:0 auto 20px; }
+  h1 { font-size:22px; margin:0 0 10px; }
+  p { font-size:15px; line-height:1.6; color:#2D3A24cc; margin:0 0 24px; }
+  a { display:inline-block; color:${accent}; font-weight:600; text-decoration:none; font-size:14px; }
+  .brand { margin-top:28px; font-size:13px; color:#999; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">${ok ? "\u2713" : "!"}</div>
+    <h1>${title}</h1>
+    <p>${message}</p>
+    <a href="https://mai-health.de">\u2190 mai-health.de</a>
+    <div class="brand"><strong>Mai</strong>Health</div>
+  </div>
+</body>
+</html>`;
+}
+
+const confirm_get = defineEventHandler(async (event) => {
+  setHeader(event, "content-type", "text/html; charset=utf-8");
+  const token = String(getQuery$1(event).token || "");
+  if (!token) {
+    return simplePage({ ok: false, title: "Invalid link", message: "This confirmation link is missing or malformed." });
+  }
+  const db = getAdminDb();
+  const snap = await db.collection("newsletterSubscribers").where("confirmToken", "==", token).limit(1).get();
+  if (snap.empty) {
+    return simplePage({ ok: false, title: "Link expired", message: "This confirmation link is no longer valid. It may have already been used. You can subscribe again from our website." });
+  }
+  await snap.docs[0].ref.update({
+    status: "confirmed",
+    confirmedAt: Timestamp.now(),
+    confirmToken: null
+  });
+  return simplePage({
+    title: "Subscription confirmed",
+    message: "Thank you \u2014 your subscription to the MaiHealth newsletter is now active. You can unsubscribe at any time via the link in every email."
+  });
+});
+
+const confirm_get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: confirm_get
+});
+
+const unsubscribe_get = defineEventHandler(async (event) => {
+  setHeader(event, "content-type", "text/html; charset=utf-8");
+  const token = String(getQuery$1(event).token || "");
+  if (!token) {
+    return simplePage({ ok: false, title: "Invalid link", message: "This unsubscribe link is missing or malformed." });
+  }
+  const db = getAdminDb();
+  const snap = await db.collection("newsletterSubscribers").where("unsubscribeToken", "==", token).limit(1).get();
+  if (snap.empty) {
+    return simplePage({ ok: false, title: "Link not found", message: "We could not find a subscription for this link. You may already be unsubscribed." });
+  }
+  await snap.docs[0].ref.update({
+    status: "unsubscribed",
+    unsubscribedAt: Timestamp.now(),
+    confirmToken: null
+  });
+  return simplePage({
+    title: "You have been unsubscribed",
+    message: "You will no longer receive the MaiHealth newsletter. We are sorry to see you go \u2014 you can resubscribe any time from our website."
+  });
+});
+
+const unsubscribe_get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: unsubscribe_get
 });
 
 const Vue3 = version[0] === "3";

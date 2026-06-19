@@ -1,6 +1,7 @@
 import { getAdminDb } from '../../utils/firebase-admin'
 import { verifyAuth } from '../../utils/verify-auth'
 import { sendAdminPortalRequest } from '../../utils/email'
+import { PRIVACY_POLICY_VERSION } from '../../utils/consent'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
@@ -25,6 +26,9 @@ export default defineEventHandler(async (event) => {
     preferredTimeOfDay: preferredTime || 'morning',
     type: type || 'initial',
     reason: reason || '',
+    // Existing patient acting within the care relationship (Art. 9(2)(h));
+    // record the policy version in force for accountability.
+    policyVersion: PRIVACY_POLICY_VERSION,
     status: 'pending',
     createdAt: Timestamp.now(),
   })
