@@ -517,6 +517,7 @@ const _lazy_M1nVnh = () => Promise.resolve().then(function () { return appointme
 const _lazy_S6svPp = () => Promise.resolve().then(function () { return _id__patch$3; });
 const _lazy_4llXf1 = () => Promise.resolve().then(function () { return availability_post$1; });
 const _lazy_zXV6Yv = () => Promise.resolve().then(function () { return _id__patch$1; });
+const _lazy_pGTbOi = () => Promise.resolve().then(function () { return reply_post$1; });
 const _lazy_iTayOl = () => Promise.resolve().then(function () { return _id__post$1; });
 const _lazy_Yu7KvH = () => Promise.resolve().then(function () { return book_post$1; });
 const _lazy_XnNalK = () => Promise.resolve().then(function () { return request_post$1; });
@@ -534,6 +535,7 @@ const handlers = [
   { route: '/api/admin/appointments/:id', handler: _lazy_S6svPp, lazy: true, middleware: false, method: "patch" },
   { route: '/api/admin/availability', handler: _lazy_4llXf1, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/patients/:id', handler: _lazy_zXV6Yv, lazy: true, middleware: false, method: "patch" },
+  { route: '/api/admin/reply', handler: _lazy_pGTbOi, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/requests/:id', handler: _lazy_iTayOl, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/book', handler: _lazy_Yu7KvH, lazy: true, middleware: false, method: "post" },
   { route: '/api/appointments/request', handler: _lazy_XnNalK, lazy: true, middleware: false, method: "post" },
@@ -1570,26 +1572,39 @@ function getResend() {
 }
 const FROM = "MaiHealth <noreply@mai-health.de>";
 const SITE_URL = "https://mai-health.de";
-function formatDate(date) {
-  return date.toLocaleDateString("en-US", {
+function normLocale(value) {
+  return value === "de" ? "de" : "en";
+}
+function formatDate(date, locale) {
+  return date.toLocaleDateString(locale === "de" ? "de-DE" : "en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"
   });
 }
-function formatTime(date) {
-  return date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+function formatTime(date, locale) {
+  return date.toLocaleTimeString(locale === "de" ? "de-DE" : "en-US", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
-function layout(body) {
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function textToHtml(text) {
+  return text.trim().split(/\n{2,}/).map((para) => `<p style="margin: 0 0 16px; line-height: 1.7;">${escapeHtml(para).replace(/\n/g, "<br>")}</p>`).join("");
+}
+function layout(body, locale) {
+  const tagline = locale === "de" ? "\xC4rztin f\xFCr Darmgesundheit & Reizdarm" : "Physician for Gut Health & IBS";
   return `
     <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 520px; margin: 0 auto; color: #2D3A24;">
       <div style="padding: 32px 0 16px; border-bottom: 1px solid #E8E4DF; margin-bottom: 24px;">
-        <strong style="font-size: 18px; color: #2D3A24;">Mai</strong><span style="font-size: 18px; color: #8B9A6B;">Health</span>
+        <img src="${SITE_URL}/email-logo.png" alt="MaiHealth" width="180" style="display: block; width: 180px; height: auto; border: 0;" />
       </div>
       ${body}
       <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #E8E4DF; font-size: 12px; color: #999;">
-        Mai Jimenez \xB7 Physician for Gut Health & IBS<br>
+        Mai Jimenez \xB7 ${tagline}<br>
         <a href="${SITE_URL}" style="color: #8B9A6B;">mai-health.de</a>
       </div>
     </div>
@@ -1599,155 +1614,352 @@ async function sendNewsletterConfirm(opts) {
   const resend = getResend();
   if (!resend) return;
   const { to, confirmUrl } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Bitte best\xE4tigen Sie Ihr Newsletter-Abonnement",
+      heading: "Abonnement best\xE4tigen",
+      p1: "Sie (oder jemand mit dieser E-Mail-Adresse) m\xF6chten den MaiHealth-Newsletter erhalten.",
+      p2: "Bitte best\xE4tigen Sie \xFCber die Schaltfl\xE4che unten. Falls Sie das nicht angefordert haben, ignorieren Sie diese E-Mail einfach \u2014 es wird kein Abonnement angelegt.",
+      button: "Abonnement best\xE4tigen",
+      fallback: "Oder kopieren Sie diesen Link in Ihren Browser:"
+    },
+    en: {
+      subject: "Please confirm your newsletter subscription",
+      heading: "Confirm your subscription",
+      p1: "You (or someone using this email address) asked to receive the MaiHealth newsletter.",
+      p2: "Please confirm by clicking the button below. If you did not request this, simply ignore this email \u2014 no subscription will be created.",
+      button: "Confirm subscription",
+      fallback: "Or paste this link into your browser:"
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to,
-    subject: "Please confirm your newsletter subscription",
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Confirm your subscription</h2>
-      <p>You (or someone using this email address) asked to receive the MaiHealth newsletter.</p>
-      <p>Please confirm by clicking the button below. If you did not request this, simply ignore this email \u2014 no subscription will be created.</p>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.p1}</p>
+      <p>${t.p2}</p>
       <p style="margin: 24px 0;">
-        <a href="${confirmUrl}" style="background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 600; display: inline-block;">Confirm subscription</a>
+        <a href="${confirmUrl}" style="background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 600; display: inline-block;">${t.button}</a>
       </p>
-      <p style="font-size: 12px; color: #999;">Or paste this link into your browser:<br>${confirmUrl}</p>
-    `)
+      <p style="font-size: 12px; color: #999;">${t.fallback}<br>${confirmUrl}</p>
+    `, L)
   });
 }
 async function sendBookingConfirmation(opts) {
   const resend = getResend();
   if (!resend) return;
   const { to, name, date, duration, zoomJoinUrl } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Ihr MaiHealth-Termin ist best\xE4tigt",
+      heading: "Termin best\xE4tigt",
+      greeting: `Hallo ${name},`,
+      intro: "Ihr Termin wurde gebucht:",
+      lDate: "Datum",
+      lTime: "Uhrzeit",
+      lDuration: "Dauer",
+      minutes: "Minuten",
+      video: "Videogespr\xE4ch",
+      join: "Zoom-Meeting beitreten",
+      outro: "Sie erhalten vor Ihrem Termin eine Erinnerung. Wenn Sie den Termin verschieben m\xF6chten, melden Sie sich gerne bei uns."
+    },
+    en: {
+      subject: "Your MaiHealth appointment is confirmed",
+      heading: "Appointment Confirmed",
+      greeting: `Dear ${name},`,
+      intro: "Your appointment has been booked:",
+      lDate: "Date",
+      lTime: "Time",
+      lDuration: "Duration",
+      minutes: "minutes",
+      video: "Video Call",
+      join: "Join Zoom Meeting",
+      outro: "You'll receive a reminder before your appointment. If you need to reschedule, please get in touch."
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to,
-    subject: "Your MaiHealth appointment is confirmed",
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Confirmed</h2>
-      <p>Dear ${name},</p>
-      <p>Your appointment has been booked:</p>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.intro}</p>
       <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
-        <p style="margin: 0 0 4px;"><strong>Date:</strong> ${formatDate(date)}</p>
-        <p style="margin: 0 0 4px;"><strong>Time:</strong> ${formatTime(date)}</p>
-        <p style="margin: 0;"><strong>Duration:</strong> ${duration} minutes</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lDate}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
       </div>
-      ${zoomJoinUrl ? `<p><strong>Video Call:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">Join Zoom Meeting</a></p>` : ""}
-      <p>You'll receive a reminder before your appointment. If you need to reschedule, please get in touch.</p>
-    `)
+      ${zoomJoinUrl ? `<p><strong>${t.video}:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">${t.join}</a></p>` : ""}
+      <p>${t.outro}</p>
+    `, L)
   });
 }
 async function sendRequestReceived(opts) {
   const resend = getResend();
   if (!resend) return;
   const { to, name, date } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Wir haben Ihre Terminanfrage erhalten",
+      heading: "Anfrage erhalten",
+      greeting: `Hallo ${name},`,
+      intro: "Vielen Dank f\xFCr Ihre Terminanfrage. Wir haben sie erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.",
+      lSlot: "Gew\xFCnschter Termin",
+      lTime: "Uhrzeit",
+      outro: "Bei Fragen k\xF6nnen Sie jederzeit einfach auf diese E-Mail antworten."
+    },
+    en: {
+      subject: "We received your appointment request",
+      heading: "Request Received",
+      greeting: `Dear ${name},`,
+      intro: "Thank you for your appointment request. We've received it and will get back to you within 24 hours.",
+      lSlot: "Requested slot",
+      lTime: "Time",
+      outro: "If you have any questions in the meantime, feel free to reply to this email."
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to,
-    subject: "We received your appointment request",
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Request Received</h2>
-      <p>Dear ${name},</p>
-      <p>Thank you for your appointment request. We've received it and will get back to you within 24 hours.</p>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.intro}</p>
       <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
-        <p style="margin: 0 0 4px;"><strong>Requested slot:</strong> ${formatDate(date)}</p>
-        <p style="margin: 0;"><strong>Time:</strong> ${formatTime(date)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lSlot}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
       </div>
-      <p>If you have any questions in the meantime, feel free to reply to this email.</p>
-    `)
+      <p>${t.outro}</p>
+    `, L)
   });
 }
 async function sendRequestDeclined(opts) {
   const resend = getResend();
   if (!resend) return;
   const { to, name } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Update zu Ihrer MaiHealth-Terminanfrage",
+      heading: "Update zu Ihrer Terminanfrage",
+      greeting: `Hallo ${name},`,
+      p1: "Leider konnten wir Ihren Wunschtermin nicht best\xE4tigen. Das kann vorkommen, wenn ein Termin nicht mehr verf\xFCgbar ist oder nicht in den aktuellen Kalender passt.",
+      p2pre: "Gerne finden wir einen passenden Termin f\xFCr Sie. Bitte ",
+      link: "buchen Sie einen neuen Termin",
+      p2post: " oder melden Sie sich direkt bei uns."
+    },
+    en: {
+      subject: "Update on your MaiHealth appointment request",
+      heading: "Appointment Request Update",
+      greeting: `Dear ${name},`,
+      p1: "Unfortunately, we were unable to accommodate your requested time slot. This can happen when a slot is no longer available or doesn't fit the current schedule.",
+      p2pre: "We'd love to find a time that works for you. Please ",
+      link: "book a new slot",
+      p2post: " or reach out to us directly."
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to,
-    subject: "Update on your MaiHealth appointment request",
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Request Update</h2>
-      <p>Dear ${name},</p>
-      <p>Unfortunately, we were unable to accommodate your requested time slot. This can happen when a slot is no longer available or doesn't fit the current schedule.</p>
-      <p>We'd love to find a time that works for you. Please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new slot</a> or reach out to us directly.</p>
-    `)
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.p1}</p>
+      <p>${t.p2pre}<a href="${SITE_URL}/book" style="color: #8B9A6B;">${t.link}</a>${t.p2post}</p>
+    `, L)
   });
 }
 async function sendAppointmentCancelled(opts) {
   const resend = getResend();
   if (!resend) return;
   const { to, name, date } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Ihr MaiHealth-Termin wurde abgesagt",
+      heading: "Termin abgesagt",
+      greeting: `Hallo ${name},`,
+      p1: `Ihr Termin am <strong>${formatDate(date, L)}</strong> um <strong>${formatTime(date, L)}</strong> wurde abgesagt.`,
+      p2pre: "Wenn Sie einen neuen Termin vereinbaren m\xF6chten, ",
+      link: "buchen Sie einen neuen Termin",
+      p2post: " oder melden Sie sich bei uns."
+    },
+    en: {
+      subject: "Your MaiHealth appointment has been cancelled",
+      heading: "Appointment Cancelled",
+      greeting: `Dear ${name},`,
+      p1: `Your appointment on <strong>${formatDate(date, L)}</strong> at <strong>${formatTime(date, L)}</strong> has been cancelled.`,
+      p2pre: "If you'd like to reschedule, please ",
+      link: "book a new time",
+      p2post: " or get in touch."
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to,
-    subject: "Your MaiHealth appointment has been cancelled",
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Appointment Cancelled</h2>
-      <p>Dear ${name},</p>
-      <p>Your appointment on <strong>${formatDate(date)}</strong> at <strong>${formatTime(date)}</strong> has been cancelled.</p>
-      <p>If you'd like to reschedule, please <a href="${SITE_URL}/book" style="color: #8B9A6B;">book a new time</a> or get in touch.</p>
-    `)
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.p1}</p>
+      <p>${t.p2pre}<a href="${SITE_URL}/book" style="color: #8B9A6B;">${t.link}</a>${t.p2post}</p>
+    `, L)
   });
+}
+async function sendAdminReply(opts) {
+  const resend = getResend();
+  if (!resend) return { ok: false, reason: "not_configured" };
+  const config = useRuntimeConfig();
+  const L = normLocale(opts.locale);
+  await resend.emails.send({
+    from: FROM,
+    to: opts.to,
+    // Patient replies land in the practice inbox, not the noreply address.
+    replyTo: config.contactEmail || void 0,
+    subject: opts.subject,
+    html: layout(textToHtml(opts.message), L)
+  });
+  return { ok: true };
 }
 async function sendAdminNewRequest(opts) {
   const resend = getResend();
   if (!resend) return;
   const { name, email, phone, date, type, reason } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: `Neue Terminanfrage von ${name}`,
+      heading: "Neue Terminanfrage",
+      lPatient: "Patient:in",
+      lPhone: "Telefon",
+      lSlot: "Gew\xFCnschter Termin",
+      at: "um",
+      lType: "Art",
+      lReason: "Grund",
+      notProvided: "Nicht angegeben",
+      cta: "Im Admin-Bereich ansehen \u2192"
+    },
+    en: {
+      subject: `New appointment request from ${name}`,
+      heading: "New Appointment Request",
+      lPatient: "Patient",
+      lPhone: "Phone",
+      lSlot: "Requested slot",
+      at: "at",
+      lType: "Type",
+      lReason: "Reason",
+      notProvided: "Not provided",
+      cta: "Review in admin panel \u2192"
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to: await getAdminRecipients(),
-    subject: `New appointment request from ${name}`,
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request</h2>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
       <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
-        <p style="margin: 0 0 4px;"><strong>Patient:</strong> ${name} (${email})</p>
-        ${phone ? `<p style="margin: 0 0 4px;"><strong>Phone:</strong> ${phone}</p>` : ""}
-        <p style="margin: 0 0 4px;"><strong>Requested slot:</strong> ${formatDate(date)} at ${formatTime(date)}</p>
-        <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
-        <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lPatient}:</strong> ${name} (${email})</p>
+        ${phone ? `<p style="margin: 0 0 4px;"><strong>${t.lPhone}:</strong> ${phone}</p>` : ""}
+        <p style="margin: 0 0 4px;"><strong>${t.lSlot}:</strong> ${formatDate(date, L)} ${t.at} ${formatTime(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lType}:</strong> ${type}</p>
+        <p style="margin: 0;"><strong>${t.lReason}:</strong> ${reason || t.notProvided}</p>
       </div>
-      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
-    `)
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">${t.cta}</a></p>
+    `, L)
   });
 }
 async function sendAdminContactForm(opts) {
   const resend = getResend();
   if (!resend) return;
   const { firstName, lastName, email, phone, message } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: `Neue Kontaktanfrage von ${firstName} ${lastName}`,
+      heading: "Neue Nachricht \xFCber das Kontaktformular",
+      lName: "Name",
+      lEmail: "E-Mail",
+      lPhone: "Telefon",
+      lMessage: "Nachricht"
+    },
+    en: {
+      subject: `New contact from ${firstName} ${lastName}`,
+      heading: "New Contact Form Submission",
+      lName: "Name",
+      lEmail: "Email",
+      lPhone: "Phone",
+      lMessage: "Message"
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to: await getAdminRecipients(),
-    subject: `New contact from ${firstName} ${lastName}`,
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">New Contact Form Submission</h2>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
       <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
-        <p style="margin: 0 0 4px;"><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p style="margin: 0 0 4px;"><strong>Email:</strong> ${email}</p>
-        ${phone ? `<p style="margin: 0 0 4px;"><strong>Phone:</strong> ${phone}</p>` : ""}
+        <p style="margin: 0 0 4px;"><strong>${t.lName}:</strong> ${firstName} ${lastName}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lEmail}:</strong> ${email}</p>
+        ${phone ? `<p style="margin: 0 0 4px;"><strong>${t.lPhone}:</strong> ${phone}</p>` : ""}
       </div>
-      <p><strong>Message:</strong></p>
+      <p><strong>${t.lMessage}:</strong></p>
       <p style="white-space: pre-wrap;">${message}</p>
-    `)
+    `, L)
   });
 }
 async function sendAdminPortalRequest(opts) {
   const resend = getResend();
   if (!resend) return;
   const { name, email, preferredDates, preferredTime, type, reason } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: `Neue Terminanfrage von ${name}`,
+      heading: "Neue Terminanfrage (Portal)",
+      lPatient: "Patient:in",
+      lDates: "Wunschdaten",
+      lTime: "Wunschzeit",
+      lType: "Art",
+      lReason: "Grund",
+      notProvided: "Nicht angegeben",
+      cta: "Im Admin-Bereich ansehen \u2192"
+    },
+    en: {
+      subject: `New appointment request from ${name}`,
+      heading: "New Appointment Request (Portal)",
+      lPatient: "Patient",
+      lDates: "Preferred dates",
+      lTime: "Preferred time",
+      lType: "Type",
+      lReason: "Reason",
+      notProvided: "Not provided",
+      cta: "Review in admin panel \u2192"
+    }
+  }[L];
   await resend.emails.send({
     from: FROM,
     to: await getAdminRecipients(),
-    subject: `New appointment request from ${name}`,
+    subject: t.subject,
     html: layout(`
-      <h2 style="font-size: 20px; margin: 0 0 16px;">New Appointment Request (Portal)</h2>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
       <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
-        <p style="margin: 0 0 4px;"><strong>Patient:</strong> ${name} (${email})</p>
-        <p style="margin: 0 0 4px;"><strong>Preferred dates:</strong> ${preferredDates}</p>
-        <p style="margin: 0 0 4px;"><strong>Preferred time:</strong> ${preferredTime}</p>
-        <p style="margin: 0 0 4px;"><strong>Type:</strong> ${type}</p>
-        <p style="margin: 0;"><strong>Reason:</strong> ${reason || "Not provided"}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lPatient}:</strong> ${name} (${email})</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lDates}:</strong> ${preferredDates}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${preferredTime}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lType}:</strong> ${type}</p>
+        <p style="margin: 0;"><strong>${t.lReason}:</strong> ${reason || t.notProvided}</p>
       </div>
-      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">Review in admin panel \u2192</a></p>
-    `)
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">${t.cta}</a></p>
+    `, L)
   });
 }
 
@@ -1761,7 +1973,8 @@ const appointments_post = defineEventHandler(async (event) => {
     throw createError({ statusCode: 403, statusMessage: "Admin access required" });
   }
   const body = await readBody(event);
-  const { patientId, patientName, patientEmail, date, duration, type, notes } = body;
+  const { patientId, patientName, patientEmail, date, duration, type, notes, locale } = body;
+  const loc = locale === "en" ? "en" : "de";
   if (!patientId || !date) {
     throw createError({ statusCode: 400, statusMessage: "Patient and date are required" });
   }
@@ -1787,6 +2000,7 @@ const appointments_post = defineEventHandler(async (event) => {
     zoomMeetingId,
     zoomJoinUrl,
     notes: notes || "",
+    locale: loc,
     createdAt: Timestamp.now()
   });
   if (patientEmail) {
@@ -1795,7 +2009,8 @@ const appointments_post = defineEventHandler(async (event) => {
       name: patientName || "there",
       date: new Date(date),
       duration: duration || 60,
-      zoomJoinUrl
+      zoomJoinUrl,
+      locale: loc
     });
   }
   return { success: true, appointmentId: appointment.id, zoomJoinUrl };
@@ -1830,10 +2045,11 @@ const _id__patch$2 = defineEventHandler(async (event) => {
   await db.collection("appointments").doc(id).update(updates);
   const patientEmail = existing.patientEmail;
   const patientName = existing.patientName || "there";
+  const loc = existing.locale === "de" ? "de" : "en";
   if (patientEmail) {
     if (body.status === "cancelled" && existing.status !== "cancelled") {
       const apptDate = ((_c = (_b = existing.date) == null ? void 0 : _b.toDate) == null ? void 0 : _c.call(_b)) || /* @__PURE__ */ new Date();
-      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate });
+      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate, locale: loc });
     }
     if (body.date && body.date !== ((_f = (_e = (_d = existing.date) == null ? void 0 : _d.toDate) == null ? void 0 : _e.call(_d)) == null ? void 0 : _f.toISOString())) {
       await sendBookingConfirmation({
@@ -1841,7 +2057,8 @@ const _id__patch$2 = defineEventHandler(async (event) => {
         name: patientName,
         date: new Date(body.date),
         duration: body.duration || existing.duration || 60,
-        zoomJoinUrl: existing.zoomJoinUrl
+        zoomJoinUrl: existing.zoomJoinUrl,
+        locale: loc
       });
     }
   }
@@ -1912,6 +2129,43 @@ const _id__patch$1 = /*#__PURE__*/Object.freeze({
   default: _id__patch
 });
 
+const reply_post = defineEventHandler(async (event) => {
+  var _a;
+  const decoded = await verifyAuth(event);
+  const db = getAdminDb();
+  const userDoc = await db.collection("users").doc(decoded.uid).get();
+  if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
+    throw createError({ statusCode: 403, statusMessage: "Admin access required" });
+  }
+  const body = await readBody(event);
+  const { to, subject, message, locale, submissionId } = body;
+  if (!to || !subject || !(message == null ? void 0 : message.trim())) {
+    throw createError({ statusCode: 400, statusMessage: "Recipient, subject and message are required" });
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(to))) {
+    throw createError({ statusCode: 400, statusMessage: "Invalid recipient email" });
+  }
+  const result = await sendAdminReply({ to, subject, message, locale });
+  if (!result.ok) {
+    throw createError({
+      statusCode: 503,
+      statusMessage: 'Email service is not configured. Use the "open in mail app" option instead.'
+    });
+  }
+  if (submissionId) {
+    await db.collection("contactSubmissions").doc(String(submissionId)).update({
+      repliedAt: Timestamp.now()
+    }).catch(() => {
+    });
+  }
+  return { success: true };
+});
+
+const reply_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: reply_post
+});
+
 const _id__post = defineEventHandler(async (event) => {
   var _a;
   const decoded = await verifyAuth(event);
@@ -1930,12 +2184,14 @@ const _id__post = defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: "Request not found" });
   }
   const request = requestDoc.data();
+  const loc = request.locale === "de" ? "de" : "en";
   if (action === "decline") {
     await db.collection("appointmentRequests").doc(id).update({ status: "declined" });
     if (request.patientEmail) {
       await sendRequestDeclined({
         to: request.patientEmail,
-        name: request.patientName || "there"
+        name: request.patientName || "there",
+        locale: loc
       });
     }
     return { success: true };
@@ -1965,6 +2221,7 @@ const _id__post = defineEventHandler(async (event) => {
     zoomMeetingId,
     zoomJoinUrl,
     notes: request.reason || "",
+    locale: loc,
     createdAt: Timestamp.now()
   });
   await db.collection("appointmentRequests").doc(id).update({ status: "accepted" });
@@ -1974,7 +2231,8 @@ const _id__post = defineEventHandler(async (event) => {
       name: request.patientName || "there",
       date: new Date(date),
       duration: duration || 60,
-      zoomJoinUrl
+      zoomJoinUrl,
+      locale: loc
     });
   }
   return { success: true, zoomJoinUrl };
@@ -1998,7 +2256,8 @@ function consentRecord(event) {
 
 const book_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { slotDateTime, type, reason, consent, guestName, guestEmail, guestPhone } = body;
+  const { slotDateTime, type, reason, consent, locale, guestName, guestEmail, guestPhone } = body;
+  const loc = normLocale(locale);
   if (!slotDateTime) {
     throw createError({ statusCode: 400, statusMessage: "slotDateTime is required" });
   }
@@ -2084,6 +2343,7 @@ const book_post = defineEventHandler(async (event) => {
       zoomJoinUrl,
       notes: reason || "",
       consent: consent_,
+      locale: loc,
       createdAt: Timestamp.now()
     });
     await sendBookingConfirmation({
@@ -2091,7 +2351,8 @@ const book_post = defineEventHandler(async (event) => {
       name: patientName,
       date: slotDate,
       duration: slotDuration,
-      zoomJoinUrl
+      zoomJoinUrl,
+      locale: loc
     });
     return {
       type: "booked",
@@ -2115,6 +2376,7 @@ const book_post = defineEventHandler(async (event) => {
       type: type || "initial",
       reason: reason || "",
       consent: consent_,
+      locale: loc,
       status: "pending",
       createdAt: Timestamp.now()
     });
@@ -2124,13 +2386,15 @@ const book_post = defineEventHandler(async (event) => {
       phone: patientPhone,
       date: slotDate,
       type: type || "initial",
-      reason
+      reason,
+      locale: loc
     });
     if (patientEmail) {
       await sendRequestReceived({
         to: patientEmail,
         name: patientName,
-        date: slotDate
+        date: slotDate,
+        locale: loc
       });
     }
     return {
@@ -2149,7 +2413,7 @@ const book_post$1 = /*#__PURE__*/Object.freeze({
 const request_post = defineEventHandler(async (event) => {
   const decoded = await verifyAuth(event);
   const body = await readBody(event);
-  const { preferredDateStart, preferredDateEnd, preferredTime, type, reason } = body;
+  const { preferredDateStart, preferredDateEnd, preferredTime, type, reason, locale } = body;
   if (!preferredDateStart) {
     throw createError({ statusCode: 400, statusMessage: "Preferred date is required" });
   }
@@ -2168,6 +2432,8 @@ const request_post = defineEventHandler(async (event) => {
     // Existing patient acting within the care relationship (Art. 9(2)(h));
     // record the policy version in force for accountability.
     policyVersion: PRIVACY_POLICY_VERSION,
+    // Patient's site language — used to localise later confirmation/decline emails.
+    locale: locale === "de" ? "de" : "en",
     status: "pending",
     createdAt: Timestamp.now()
   });
@@ -2178,7 +2444,8 @@ const request_post = defineEventHandler(async (event) => {
     preferredDates,
     preferredTime: preferredTime || "morning",
     type: type || "initial",
-    reason
+    reason,
+    locale: locale === "de" ? "de" : "en"
   });
   return { success: true };
 });
@@ -2313,7 +2580,7 @@ const slots_get$1 = /*#__PURE__*/Object.freeze({
 
 const contact_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { firstName, lastName, email, phone, message, consent } = body;
+  const { firstName, lastName, email, phone, message, consent, locale } = body;
   if (!firstName || !lastName || !email || !message) {
     throw createError({ statusCode: 400, statusMessage: "Missing required fields" });
   }
@@ -2328,10 +2595,11 @@ const contact_post = defineEventHandler(async (event) => {
     phone: phone || "",
     message,
     read: false,
+    locale: locale === "de" ? "de" : "en",
     consent: consentRecord(event),
     createdAt: Timestamp.now()
   });
-  await sendAdminContactForm({ firstName, lastName, email, phone, message });
+  await sendAdminContactForm({ firstName, lastName, email, phone, message, locale });
   return { success: true };
 });
 
@@ -2380,7 +2648,8 @@ const newsletter_post = defineEventHandler(async (event) => {
   }
   await sendNewsletterConfirm({
     to: normalizedEmail,
-    confirmUrl: `${origin}/api/newsletter/confirm?token=${confirmToken}`
+    confirmUrl: `${origin}/api/newsletter/confirm?token=${confirmToken}`,
+    locale: locale || "en"
   });
   return { success: true };
 });

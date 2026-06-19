@@ -27,9 +27,18 @@
               <p class="text-xs text-muted">{{ patient.email }}</p>
             </div>
           </div>
-          <p class="text-xs text-muted whitespace-nowrap">
-            Joined {{ patient.createdAt?.toDate().toLocaleDateString() }}
-          </p>
+          <div class="flex flex-col items-end gap-2">
+            <p class="text-xs text-muted whitespace-nowrap">
+              Joined {{ patient.createdAt?.toDate().toLocaleDateString() }}
+            </p>
+            <button
+              @click="openReply(patient)"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone/40 text-xs font-medium text-charcoal hover:border-sage hover:text-sage transition-colors"
+            >
+              <i class="fa-regular fa-envelope text-[11px]"></i>
+              Email
+            </button>
+          </div>
         </div>
 
         <!-- Treatment journey stage -->
@@ -69,6 +78,14 @@
         No patients found.
       </p>
     </div>
+
+    <ReplyComposer
+      v-if="replyTarget"
+      :to="replyTarget.to"
+      :name="replyTarget.name"
+      :locale="replyTarget.locale"
+      @close="replyTarget = null"
+    />
   </div>
 </template>
 
@@ -83,6 +100,15 @@ const patients = ref([])
 const search = ref('')
 const savingId = ref('')
 const errorId = ref('')
+const replyTarget = ref(null)
+
+const openReply = (patient) => {
+  replyTarget.value = {
+    to: patient.email,
+    name: patient.displayName || '',
+    locale: patient.locale,
+  }
+}
 
 // Mirrors the public "Four steps" labels so the dots are self-explanatory.
 const phaseTitles = ['Consultation', 'Diagnostics', 'Therapy Plan', 'Support']

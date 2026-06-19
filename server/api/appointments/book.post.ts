@@ -1,12 +1,13 @@
 import { getAdminDb, getAdminAuth } from '../../utils/firebase-admin'
 import { createZoomMeeting } from '../../utils/zoom'
-import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest } from '../../utils/email'
+import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest, normLocale } from '../../utils/email'
 import { consentRecord } from '../../utils/consent'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  const { slotDateTime, type, reason, consent, guestName, guestEmail, guestPhone } = body
+  const { slotDateTime, type, reason, consent, locale, guestName, guestEmail, guestPhone } = body
+  const loc = normLocale(locale)
 
   if (!slotDateTime) {
     throw createError({ statusCode: 400, statusMessage: 'slotDateTime is required' })
@@ -123,6 +124,7 @@ export default defineEventHandler(async (event) => {
       zoomJoinUrl,
       notes: reason || '',
       consent: consent_,
+      locale: loc,
       createdAt: Timestamp.now(),
     })
 
@@ -132,6 +134,7 @@ export default defineEventHandler(async (event) => {
       date: slotDate,
       duration: slotDuration,
       zoomJoinUrl,
+      locale: loc,
     })
 
     return {
@@ -156,6 +159,7 @@ export default defineEventHandler(async (event) => {
       type: type || 'initial',
       reason: reason || '',
       consent: consent_,
+      locale: loc,
       status: 'pending',
       createdAt: Timestamp.now(),
     })
@@ -167,6 +171,7 @@ export default defineEventHandler(async (event) => {
       date: slotDate,
       type: type || 'initial',
       reason,
+      locale: loc,
     })
 
     if (patientEmail) {
@@ -174,6 +179,7 @@ export default defineEventHandler(async (event) => {
         to: patientEmail,
         name: patientName,
         date: slotDate,
+        locale: loc,
       })
     }
 

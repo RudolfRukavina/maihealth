@@ -64,6 +64,7 @@ export default defineEventHandler(async (event) => {
   await sendNewsletterConfirm({
     to: normalizedEmail,
     confirmUrl: `${origin}/api/newsletter/confirm?token=${confirmToken}`,
+    locale: locale || 'en',
   })
 
   return { success: true }

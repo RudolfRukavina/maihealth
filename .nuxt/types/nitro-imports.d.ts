@@ -87,6 +87,7 @@ declare global {
   const isWebResponse: typeof import('../../node_modules/h3')['isWebResponse']
   const lazyEventHandler: typeof import('../../node_modules/h3')['lazyEventHandler']
   const nitroPlugin: typeof import('../../node_modules/nitropack/dist/runtime/internal/plugin')['nitroPlugin']
+  const normLocale: typeof import('../../server/utils/email')['normLocale']
   const parseCookies: typeof import('../../node_modules/h3')['parseCookies']
   const promisifyNodeListener: typeof import('../../node_modules/h3')['promisifyNodeListener']
   const proxyRequest: typeof import('../../node_modules/h3')['proxyRequest']
@@ -104,6 +105,7 @@ declare global {
   const sendAdminContactForm: typeof import('../../server/utils/email')['sendAdminContactForm']
   const sendAdminNewRequest: typeof import('../../server/utils/email')['sendAdminNewRequest']
   const sendAdminPortalRequest: typeof import('../../server/utils/email')['sendAdminPortalRequest']
+  const sendAdminReply: typeof import('../../server/utils/email')['sendAdminReply']
   const sendAppointmentCancelled: typeof import('../../server/utils/email')['sendAppointmentCancelled']
   const sendBookingConfirmation: typeof import('../../server/utils/email')['sendBookingConfirmation']
   const sendError: typeof import('../../node_modules/h3')['sendError']
@@ -142,6 +144,12 @@ declare global {
   const verifyAuth: typeof import('../../server/utils/verify-auth')['verifyAuth']
   const writeEarlyHints: typeof import('../../node_modules/h3')['writeEarlyHints']
 }
+// for type re-export
+declare global {
+  // @ts-ignore
+  export type { Locale } from '../../server/utils/email'
+  import('../../server/utils/email')
+}
 export { useNitroApp } from 'nitropack/runtime/internal/app';
 export { useRuntimeConfig, useAppConfig } from 'nitropack/runtime/internal/config';
 export { defineNitroPlugin, nitroPlugin } from 'nitropack/runtime/internal/plugin';
@@ -158,7 +166,7 @@ export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsUR
 export { defineAppConfig } from '../../node_modules/nuxt/dist/core/runtime/nitro/config';
 export { ADMIN_EMAILS, getAdminRecipients } from '../../server/utils/admins';
 export { PRIVACY_POLICY_VERSION, consentRecord } from '../../server/utils/consent';
-export { sendNewsletterConfirm, sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
+export { normLocale, sendNewsletterConfirm, sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminReply, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
 export { getAdminAuth, getAdminDb } from '../../server/utils/firebase-admin';
 export { simplePage } from '../../server/utils/html-page';
 export { verifyAuth } from '../../server/utils/verify-auth';

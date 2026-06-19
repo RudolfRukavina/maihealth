@@ -308,7 +308,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { signInWithGoogle, isLoggedIn, getIdToken, user } = useAuth()
 
 // Step logic
@@ -463,6 +463,7 @@ const handleBook = async () => {
         type: form.type,
         reason: form.reason,
         consent: true,
+        locale: locale.value,
         guestName: '',
         guestEmail: '',
         guestPhone: '',

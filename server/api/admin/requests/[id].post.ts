@@ -26,6 +26,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const request = requestDoc.data()!
+  const loc = request.locale === 'de' ? 'de' : 'en'
 
   if (action === 'decline') {
     await db.collection('appointmentRequests').doc(id).update({ status: 'declined' })
@@ -34,6 +35,7 @@ export default defineEventHandler(async (event) => {
       await sendRequestDeclined({
         to: request.patientEmail,
         name: request.patientName || 'there',
+        locale: loc,
       })
     }
 
@@ -68,6 +70,7 @@ export default defineEventHandler(async (event) => {
     zoomMeetingId,
     zoomJoinUrl,
     notes: request.reason || '',
+    locale: loc,
     createdAt: Timestamp.now(),
   })
 
@@ -80,6 +83,7 @@ export default defineEventHandler(async (event) => {
       date: new Date(date),
       duration: duration || 60,
       zoomJoinUrl,
+      locale: loc,
     })
   }
 

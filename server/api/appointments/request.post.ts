@@ -7,7 +7,7 @@ import { Timestamp } from 'firebase-admin/firestore'
 export default defineEventHandler(async (event) => {
   const decoded = await verifyAuth(event)
   const body = await readBody(event)
-  const { preferredDateStart, preferredDateEnd, preferredTime, type, reason } = body
+  const { preferredDateStart, preferredDateEnd, preferredTime, type, reason, locale } = body
 
   if (!preferredDateStart) {
     throw createError({ statusCode: 400, statusMessage: 'Preferred date is required' })
@@ -29,6 +29,8 @@ export default defineEventHandler(async (event) => {
     // Existing patient acting within the care relationship (Art. 9(2)(h));
     // record the policy version in force for accountability.
     policyVersion: PRIVACY_POLICY_VERSION,
+    // Patient's site language — used to localise later confirmation/decline emails.
+    locale: locale === 'de' ? 'de' : 'en',
     status: 'pending',
     createdAt: Timestamp.now(),
   })
@@ -44,6 +46,7 @@ export default defineEventHandler(async (event) => {
     preferredTime: preferredTime || 'morning',
     type: type || 'initial',
     reason,
+    locale: locale === 'de' ? 'de' : 'en',
   })
 
   return { success: true }

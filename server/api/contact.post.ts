@@ -5,7 +5,7 @@ import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  const { firstName, lastName, email, phone, message, consent } = body
+  const { firstName, lastName, email, phone, message, consent, locale } = body
 
   if (!firstName || !lastName || !email || !message) {
     throw createError({ statusCode: 400, statusMessage: 'Missing required fields' })
@@ -24,11 +24,12 @@ export default defineEventHandler(async (event) => {
     phone: phone || '',
     message,
     read: false,
+    locale: locale === 'de' ? 'de' : 'en',
     consent: consentRecord(event),
     createdAt: Timestamp.now(),
   })
 
-  await sendAdminContactForm({ firstName, lastName, email, phone, message })
+  await sendAdminContactForm({ firstName, lastName, email, phone, message, locale })
 
   return { success: true }
 })

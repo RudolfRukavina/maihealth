@@ -33,11 +33,12 @@ export default defineEventHandler(async (event) => {
 
   const patientEmail = existing.patientEmail
   const patientName = existing.patientName || 'there'
+  const loc = existing.locale === 'de' ? 'de' : 'en'
 
   if (patientEmail) {
     if (body.status === 'cancelled' && existing.status !== 'cancelled') {
       const apptDate = existing.date?.toDate?.() || new Date()
-      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate })
+      await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate, locale: loc })
     }
 
     if (body.date && body.date !== existing.date?.toDate?.()?.toISOString()) {
@@ -47,6 +48,7 @@ export default defineEventHandler(async (event) => {
         date: new Date(body.date),
         duration: body.duration || existing.duration || 60,
         zoomJoinUrl: existing.zoomJoinUrl,
+        locale: loc,
       })
     }
   }

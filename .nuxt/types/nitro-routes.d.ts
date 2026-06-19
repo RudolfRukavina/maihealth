@@ -15,6 +15,9 @@ declare module "nitropack/types" {
     '/api/admin/patients/:id': {
       'patch': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/patients/[id].patch').default>>>>
     }
+    '/api/admin/reply': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/reply.post').default>>>>
+    }
     '/api/admin/requests/:id': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/requests/[id].post').default>>>>
     }

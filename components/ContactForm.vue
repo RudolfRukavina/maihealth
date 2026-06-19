@@ -153,6 +153,7 @@ const props = defineProps({
   sectionId: { type: String, default: 'contact' },
 })
 
+const { locale } = useI18n()
 const form = reactive({ firstName: '', lastName: '', email: '', phone: '', message: '' })
 const consent = ref(false)
 const submitted = ref(false)
@@ -164,7 +165,7 @@ const handleSubmit = async () => {
   submitting.value = true
   error.value = false
   try {
-    await $fetch('/api/contact', { method: 'POST', body: { ...form, consent: true } })
+    await $fetch('/api/contact', { method: 'POST', body: { ...form, consent: true, locale: locale.value } })
     submitted.value = true
     Object.assign(form, { firstName: '', lastName: '', email: '', phone: '', message: '' })
     consent.value = false

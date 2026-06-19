@@ -15,7 +15,10 @@ export default defineEventHandler(async (event) => {
   }
 
   const body = await readBody(event)
-  const { patientId, patientName, patientEmail, date, duration, type, notes } = body
+  const { patientId, patientName, patientEmail, date, duration, type, notes, locale } = body
+  // Admin-created appointment: default to German (the practice's language)
+  // unless an explicit locale is provided.
+  const loc = locale === 'en' ? 'en' : 'de'
 
   if (!patientId || !date) {
     throw createError({ statusCode: 400, statusMessage: 'Patient and date are required' })
@@ -45,6 +48,7 @@ export default defineEventHandler(async (event) => {
     zoomMeetingId,
     zoomJoinUrl,
     notes: notes || '',
+    locale: loc,
     createdAt: Timestamp.now(),
   })
 
@@ -55,6 +59,7 @@ export default defineEventHandler(async (event) => {
       date: new Date(date),
       duration: duration || 60,
       zoomJoinUrl,
+      locale: loc,
     })
   }
 
