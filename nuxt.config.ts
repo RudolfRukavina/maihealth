@@ -11,6 +11,12 @@ export default defineNuxtConfig({
         { property: "og:site_name", content: "MaiHealth" },
         { property: "og:locale", content: "de_DE" },
         { property: "og:locale:alternate", content: "en_US" },
+        { property: "og:image", content: "https://mai-health.de/mai2.png" },
+        { property: "og:image:width", content: "1486" },
+        { property: "og:image:height", content: "1784" },
+        { property: "og:image:alt", content: "MaiHealth — Mai Jimenez" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: "https://mai-health.de/mai2.png" },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
