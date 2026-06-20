@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
 import { getFirestore, Timestamp, FieldValue } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/firestore/index.js';
-import { randomUUID } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { Resend } from 'file:///Users/Rudolf/Work/mai/node_modules/resend/dist/index.mjs';
 import { getApps, initializeApp, cert } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/app/index.js';
 import { getAuth } from 'file:///Users/Rudolf/Work/mai/node_modules/firebase-admin/lib/esm/auth/index.js';
@@ -525,6 +525,8 @@ const _lazy_1t0xXZ = () => Promise.resolve().then(function () { return bootstrap
 const _lazy_Dm8u8d = () => Promise.resolve().then(function () { return config_get$1; });
 const _lazy_OQeO2T = () => Promise.resolve().then(function () { return slots_get$1; });
 const _lazy_amYChR = () => Promise.resolve().then(function () { return contact_post$1; });
+const _lazy_8pmUOU = () => Promise.resolve().then(function () { return reminders$1; });
+const _lazy_uTj6Uy = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_HH9gBA = () => Promise.resolve().then(function () { return newsletter_post$1; });
 const _lazy_gRZynU = () => Promise.resolve().then(function () { return confirm_get$1; });
 const _lazy_ievdYf = () => Promise.resolve().then(function () { return unsubscribe_get$1; });
@@ -543,6 +545,8 @@ const handlers = [
   { route: '/api/availability/config', handler: _lazy_Dm8u8d, lazy: true, middleware: false, method: "get" },
   { route: '/api/availability/slots', handler: _lazy_OQeO2T, lazy: true, middleware: false, method: "get" },
   { route: '/api/contact', handler: _lazy_amYChR, lazy: true, middleware: false, method: "post" },
+  { route: '/api/cron/reminders', handler: _lazy_8pmUOU, lazy: true, middleware: false, method: undefined },
+  { route: '/api/join/:id', handler: _lazy_uTj6Uy, lazy: true, middleware: false, method: "get" },
   { route: '/api/newsletter', handler: _lazy_HH9gBA, lazy: true, middleware: false, method: "post" },
   { route: '/api/newsletter/confirm', handler: _lazy_gRZynU, lazy: true, middleware: false, method: "get" },
   { route: '/api/newsletter/unsubscribe', handler: _lazy_ievdYf, lazy: true, middleware: false, method: "get" },
@@ -1047,6 +1051,7 @@ const _inlineRuntimeConfig = {
   "zoomAccountId": "",
   "zoomClientId": "",
   "zoomClientSecret": "",
+  "cronSecret": "",
   "contactEmail": "Mai.jimenez@gmx.de"
 };
 const envOptions = {
@@ -1545,6 +1550,36 @@ async function createZoomMeeting(topic, startTime, duration = 60) {
     joinUrl: meeting.join_url
   };
 }
+async function updateZoomMeeting(meetingId, updates) {
+  const token = await getZoomAccessToken();
+  const body = { timezone: "Europe/Berlin" };
+  if (updates.topic !== void 0) body.topic = updates.topic;
+  if (updates.startTime !== void 0) body.start_time = updates.startTime;
+  if (updates.duration !== void 0) body.duration = updates.duration;
+  const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
+    method: "PATCH",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  if (!response.ok && response.status !== 404) {
+    throw new Error(`Zoom meeting update failed: ${response.statusText}`);
+  }
+}
+async function deleteZoomMeeting(meetingId) {
+  const token = await getZoomAccessToken();
+  const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  });
+  if (!response.ok && response.status !== 404) {
+    throw new Error(`Zoom meeting deletion failed: ${response.statusText}`);
+  }
+}
 
 const ADMIN_EMAILS = ["noamaijimenez@gmail.com"];
 async function getAdminRecipients() {
@@ -1651,7 +1686,7 @@ async function sendNewsletterConfirm(opts) {
 async function sendBookingConfirmation(opts) {
   const resend = getResend();
   if (!resend) return;
-  const { to, name, date, duration, zoomJoinUrl } = opts;
+  const { to, name, date, duration, joinPageUrl, zoomJoinUrl } = opts;
   const L = normLocale(opts.locale);
   const t = {
     de: {
@@ -1665,6 +1700,8 @@ async function sendBookingConfirmation(opts) {
       minutes: "Minuten",
       video: "Videogespr\xE4ch",
       join: "Zoom-Meeting beitreten",
+      joinBtn: "Zum Videogespr\xE4ch",
+      joinNote: "\xDCber diesen Button gelangen Sie ab 15 Minuten vor Beginn direkt in Ihr Videogespr\xE4ch.",
       outro: "Sie erhalten vor Ihrem Termin eine Erinnerung. Wenn Sie den Termin verschieben m\xF6chten, melden Sie sich gerne bei uns."
     },
     en: {
@@ -1678,7 +1715,65 @@ async function sendBookingConfirmation(opts) {
       minutes: "minutes",
       video: "Video Call",
       join: "Join Zoom Meeting",
+      joinBtn: "Join your consultation",
+      joinNote: "This button takes you straight into your video call, starting 15 minutes before your appointment.",
       outro: "You'll receive a reminder before your appointment. If you need to reschedule, please get in touch."
+    }
+  }[L];
+  const cta = joinPageUrl ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>` : zoomJoinUrl ? `<p><strong>${t.video}:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">${t.join}</a></p>` : "";
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: t.subject,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.intro}</p>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>${t.lDate}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
+      </div>
+      ${cta}
+      <p>${t.outro}</p>
+    `, L)
+  });
+}
+async function sendAppointmentReminder(opts) {
+  const resend = getResend();
+  if (!resend) return false;
+  const { to, name, date, duration, joinPageUrl } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: "Erinnerung: Ihr MaiHealth-Termin in 1 Stunde",
+      heading: "Ihr Termin beginnt bald",
+      greeting: `Hallo ${name},`,
+      intro: "Ihr Videogespr\xE4ch beginnt in etwa einer Stunde:",
+      lDate: "Datum",
+      lTime: "Uhrzeit",
+      lDuration: "Dauer",
+      minutes: "Minuten",
+      joinBtn: "Zum Videogespr\xE4ch",
+      joinNote: "Der Button ist ab 15 Minuten vor Beginn aktiv.",
+      outro: "Bis gleich!"
+    },
+    en: {
+      subject: "Reminder: your MaiHealth appointment in 1 hour",
+      heading: "Your appointment is coming up",
+      greeting: `Dear ${name},`,
+      intro: "Your video consultation starts in about an hour:",
+      lDate: "Date",
+      lTime: "Time",
+      lDuration: "Duration",
+      minutes: "minutes",
+      joinBtn: "Join your consultation",
+      joinNote: "The button activates 15 minutes before the start.",
+      outro: "See you soon!"
     }
   }[L];
   await resend.emails.send({
@@ -1694,8 +1789,65 @@ async function sendBookingConfirmation(opts) {
         <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
         <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
       </div>
-      ${zoomJoinUrl ? `<p><strong>${t.video}:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">${t.join}</a></p>` : ""}
+      ${joinPageUrl ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>` : ""}
       <p>${t.outro}</p>
+    `, L)
+  });
+  return true;
+}
+async function sendAdminAppointmentScheduled(opts) {
+  const resend = getResend();
+  if (!resend) return;
+  const { patientName, date, duration, joinPageUrl } = opts;
+  const L = normLocale(opts.locale);
+  const t = {
+    de: {
+      subject: `Termin best\xE4tigt: ${patientName} \xB7 ${formatDate(date, L)}`,
+      heading: "Termin im Kalender",
+      lPatient: "Patient:in",
+      lDate: "Datum",
+      lTime: "Uhrzeit",
+      lDuration: "Dauer",
+      minutes: "Minuten",
+      joinBtn: "Videogespr\xE4ch starten",
+      joinNote: "Der Button ist ab 15 Minuten vor Beginn aktiv.",
+      cta: "Im Admin-Bereich ansehen \u2192"
+    },
+    en: {
+      subject: `Appointment confirmed: ${patientName} \xB7 ${formatDate(date, L)}`,
+      heading: "Appointment Scheduled",
+      lPatient: "Patient",
+      lDate: "Date",
+      lTime: "Time",
+      lDuration: "Duration",
+      minutes: "minutes",
+      joinBtn: "Start video call",
+      joinNote: "The button activates 15 minutes before the start.",
+      cta: "View in admin panel \u2192"
+    }
+  }[L];
+  await resend.emails.send({
+    from: FROM,
+    to: await getAdminRecipients(),
+    subject: t.subject,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>${t.lPatient}:</strong> ${patientName}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lDate}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
+      </div>
+      ${joinPageUrl ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>` : ""}
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">${t.cta}</a></p>
     `, L)
   });
 }
@@ -1963,6 +2115,13 @@ async function sendAdminPortalRequest(opts) {
   });
 }
 
+function makeJoinToken() {
+  return randomBytes(24).toString("base64url");
+}
+function buildJoinPageUrl(appointmentId, token) {
+  return `${SITE_URL}/join/${appointmentId}?t=${token}`;
+}
+
 const appointments_post = defineEventHandler(async (event) => {
   var _a;
   const decoded = await verifyAuth(event);
@@ -1989,6 +2148,7 @@ const appointments_post = defineEventHandler(async (event) => {
     zoomMeetingId = meeting.meetingId;
     zoomJoinUrl = meeting.joinUrl;
   }
+  const joinToken = makeJoinToken();
   const appointment = await db.collection("appointments").add({
     patientId,
     patientName: patientName || "",
@@ -1999,20 +2159,29 @@ const appointments_post = defineEventHandler(async (event) => {
     status: "scheduled",
     zoomMeetingId,
     zoomJoinUrl,
+    joinToken,
     notes: notes || "",
     locale: loc,
     createdAt: Timestamp.now()
   });
+  const joinPageUrl = buildJoinPageUrl(appointment.id, joinToken);
   if (patientEmail) {
     await sendBookingConfirmation({
       to: patientEmail,
       name: patientName || "there",
       date: new Date(date),
       duration: duration || 60,
-      zoomJoinUrl,
+      joinPageUrl,
       locale: loc
     });
   }
+  await sendAdminAppointmentScheduled({
+    patientName: patientName || "Patient",
+    date: new Date(date),
+    duration: duration || 60,
+    joinPageUrl,
+    locale: loc
+  });
   return { success: true, appointmentId: appointment.id, zoomJoinUrl };
 });
 
@@ -2022,8 +2191,9 @@ const appointments_post$1 = /*#__PURE__*/Object.freeze({
 });
 
 const _id__patch$2 = defineEventHandler(async (event) => {
-  var _a, _b, _c, _d, _e, _f;
+  var _a, _b, _c, _d, _e, _f, _g, _h;
   const decoded = await verifyAuth(event);
+  const config = useRuntimeConfig();
   const db = getAdminDb();
   const userDoc = await db.collection("users").doc(decoded.uid).get();
   if (!userDoc.exists || ((_a = userDoc.data()) == null ? void 0 : _a.role) !== "admin") {
@@ -2038,26 +2208,49 @@ const _id__patch$2 = defineEventHandler(async (event) => {
   const existing = apptDoc.data();
   const body = await readBody(event);
   const updates = {};
-  if (body.date) updates.date = Timestamp.fromDate(new Date(body.date));
+  if (body.date) {
+    updates.date = Timestamp.fromDate(new Date(body.date));
+    updates.reminderSent = false;
+  }
   if (body.duration) updates.duration = body.duration;
   if (body.status) updates.status = body.status;
   if (body.notes !== void 0) updates.notes = body.notes;
+  const zoomEnabled = !!(config.zoomClientId && config.zoomClientSecret);
+  const isCancelling = body.status === "cancelled" && existing.status !== "cancelled";
+  if (zoomEnabled && existing.zoomMeetingId) {
+    if (isCancelling) {
+      await deleteZoomMeeting(existing.zoomMeetingId);
+      updates.zoomMeetingId = "";
+      updates.zoomJoinUrl = "";
+    } else if (body.date || body.duration) {
+      const startTime = (body.date ? new Date(body.date) : ((_c = (_b = existing.date) == null ? void 0 : _b.toDate) == null ? void 0 : _c.call(_b)) || /* @__PURE__ */ new Date()).toISOString();
+      await updateZoomMeeting(existing.zoomMeetingId, {
+        startTime,
+        duration: body.duration || existing.duration || 60
+      });
+    }
+  }
   await db.collection("appointments").doc(id).update(updates);
   const patientEmail = existing.patientEmail;
   const patientName = existing.patientName || "there";
   const loc = existing.locale === "de" ? "de" : "en";
   if (patientEmail) {
     if (body.status === "cancelled" && existing.status !== "cancelled") {
-      const apptDate = ((_c = (_b = existing.date) == null ? void 0 : _b.toDate) == null ? void 0 : _c.call(_b)) || /* @__PURE__ */ new Date();
+      const apptDate = ((_e = (_d = existing.date) == null ? void 0 : _d.toDate) == null ? void 0 : _e.call(_d)) || /* @__PURE__ */ new Date();
       await sendAppointmentCancelled({ to: patientEmail, name: patientName, date: apptDate, locale: loc });
     }
-    if (body.date && body.date !== ((_f = (_e = (_d = existing.date) == null ? void 0 : _d.toDate) == null ? void 0 : _e.call(_d)) == null ? void 0 : _f.toISOString())) {
+    if (body.date && body.date !== ((_h = (_g = (_f = existing.date) == null ? void 0 : _f.toDate) == null ? void 0 : _g.call(_f)) == null ? void 0 : _h.toISOString())) {
+      let joinToken = existing.joinToken;
+      if (!joinToken) {
+        joinToken = makeJoinToken();
+        await db.collection("appointments").doc(id).update({ joinToken });
+      }
       await sendBookingConfirmation({
         to: patientEmail,
         name: patientName,
         date: new Date(body.date),
         duration: body.duration || existing.duration || 60,
-        zoomJoinUrl: existing.zoomJoinUrl,
+        joinPageUrl: buildJoinPageUrl(id, joinToken),
         locale: loc
       });
     }
@@ -2210,7 +2403,8 @@ const _id__post = defineEventHandler(async (event) => {
     zoomMeetingId = meeting.meetingId;
     zoomJoinUrl = meeting.joinUrl;
   }
-  await db.collection("appointments").add({
+  const joinToken = makeJoinToken();
+  const appointment = await db.collection("appointments").add({
     patientId: request.patientId,
     patientName: request.patientName || "",
     patientEmail: request.patientEmail || "",
@@ -2220,21 +2414,30 @@ const _id__post = defineEventHandler(async (event) => {
     status: "scheduled",
     zoomMeetingId,
     zoomJoinUrl,
+    joinToken,
     notes: request.reason || "",
     locale: loc,
     createdAt: Timestamp.now()
   });
   await db.collection("appointmentRequests").doc(id).update({ status: "accepted" });
+  const joinPageUrl = buildJoinPageUrl(appointment.id, joinToken);
   if (request.patientEmail) {
     await sendBookingConfirmation({
       to: request.patientEmail,
       name: request.patientName || "there",
       date: new Date(date),
       duration: duration || 60,
-      zoomJoinUrl,
+      joinPageUrl,
       locale: loc
     });
   }
+  await sendAdminAppointmentScheduled({
+    patientName: request.patientName || "Patient",
+    date: new Date(date),
+    duration: duration || 60,
+    joinPageUrl,
+    locale: loc
+  });
   return { success: true, zoomJoinUrl };
 });
 
@@ -2330,6 +2533,7 @@ const book_post = defineEventHandler(async (event) => {
       zoomMeetingId = meeting.meetingId;
       zoomJoinUrl = meeting.joinUrl;
     }
+    const joinToken = makeJoinToken();
     const apptRef = await db.collection("appointments").add({
       patientId: decoded.uid,
       patientName,
@@ -2341,23 +2545,33 @@ const book_post = defineEventHandler(async (event) => {
       status: "scheduled",
       zoomMeetingId,
       zoomJoinUrl,
+      joinToken,
       notes: reason || "",
       consent: consent_,
       locale: loc,
       createdAt: Timestamp.now()
     });
+    const joinPageUrl = buildJoinPageUrl(apptRef.id, joinToken);
     await sendBookingConfirmation({
       to: patientEmail,
       name: patientName,
       date: slotDate,
       duration: slotDuration,
-      zoomJoinUrl,
+      joinPageUrl,
+      locale: loc
+    });
+    await sendAdminAppointmentScheduled({
+      patientName,
+      date: slotDate,
+      duration: slotDuration,
+      joinPageUrl,
       locale: loc
     });
     return {
       type: "booked",
       appointmentId: apptRef.id,
       zoomJoinUrl,
+      joinPageUrl,
       date: slotDate.toISOString(),
       duration: slotDuration
     };
@@ -2606,6 +2820,108 @@ const contact_post = defineEventHandler(async (event) => {
 const contact_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: contact_post
+});
+
+const reminders = defineEventHandler(async (event) => {
+  var _a;
+  const config = useRuntimeConfig();
+  if (!config.cronSecret) {
+    throw createError({ statusCode: 503, statusMessage: "Cron is not configured" });
+  }
+  const bearer = (_a = getHeader(event, "authorization")) == null ? void 0 : _a.replace(/^Bearer\s+/i, "");
+  const provided = bearer || getQuery$1(event).secret;
+  if (provided !== config.cronSecret) {
+    throw createError({ statusCode: 401, statusMessage: "Unauthorized" });
+  }
+  const db = getAdminDb();
+  const now = /* @__PURE__ */ new Date();
+  const inOneHour = new Date(now.getTime() + 60 * 60 * 1e3);
+  const snap = await db.collection("appointments").where("status", "==", "scheduled").where("date", ">", Timestamp.fromDate(now)).where("date", "<=", Timestamp.fromDate(inOneHour)).get();
+  let sent = 0;
+  let skipped = 0;
+  let failed = 0;
+  for (const doc of snap.docs) {
+    const a = doc.data();
+    if (a.reminderSent) {
+      skipped++;
+      continue;
+    }
+    if (!a.patientEmail) {
+      await doc.ref.update({ reminderSent: true });
+      skipped++;
+      continue;
+    }
+    try {
+      let joinToken = a.joinToken;
+      if (!joinToken) {
+        joinToken = makeJoinToken();
+        await doc.ref.update({ joinToken });
+      }
+      const ok = await sendAppointmentReminder({
+        to: a.patientEmail,
+        name: a.patientName || "there",
+        date: a.date.toDate(),
+        duration: a.duration || 60,
+        joinPageUrl: buildJoinPageUrl(doc.id, joinToken),
+        locale: a.locale === "de" ? "de" : "en"
+      });
+      if (ok) {
+        await doc.ref.update({ reminderSent: true, reminderSentAt: Timestamp.now() });
+        sent++;
+      } else {
+        skipped++;
+      }
+    } catch (err) {
+      console.error(`Reminder failed for appointment ${doc.id}:`, err);
+      failed++;
+    }
+  }
+  return { ok: true, checked: snap.size, sent, skipped, failed };
+});
+
+const reminders$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: reminders
+});
+
+const _id__get = defineEventHandler(async (event) => {
+  var _a, _b, _c, _d, _e;
+  const id = getRouterParam(event, "id");
+  const token = getQuery$1(event).t;
+  if (!id || typeof token !== "string" || !token) {
+    throw createError({ statusCode: 400, statusMessage: "Missing appointment id or token" });
+  }
+  const db = getAdminDb();
+  const doc = await db.collection("appointments").doc(id).get();
+  if (!doc.exists) {
+    throw createError({ statusCode: 404, statusMessage: "Appointment not found" });
+  }
+  const a = doc.data();
+  if (!a.joinToken || a.joinToken !== token) {
+    throw createError({ statusCode: 403, statusMessage: "Invalid join link" });
+  }
+  const start = (_e = (_d = (_c = (_b = (_a = a.date) == null ? void 0 : _a.toDate) == null ? void 0 : _b.call(_a)) == null ? void 0 : _c.getTime) == null ? void 0 : _d.call(_c)) != null ? _e : 0;
+  const duration = a.duration || 60;
+  const now = Date.now();
+  const opensAt = start - 15 * 60 * 1e3;
+  const closesAt = start + duration * 60 * 1e3 + 30 * 60 * 1e3;
+  const joinable = a.status === "scheduled" && now >= opensAt && now <= closesAt;
+  return {
+    status: a.status || "scheduled",
+    patientName: a.patientName || "",
+    date: start ? new Date(start).toISOString() : null,
+    duration,
+    locale: a.locale === "de" ? "de" : "en",
+    opensAt: start ? new Date(opensAt).toISOString() : null,
+    joinable,
+    // Only reveal the Zoom link inside the join window.
+    joinUrl: joinable ? a.zoomJoinUrl || "" : ""
+  };
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__get
 });
 
 const newsletter_post = defineEventHandler(async (event) => {

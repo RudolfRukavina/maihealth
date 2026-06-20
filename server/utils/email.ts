@@ -11,7 +11,7 @@ function getResend(): Resend | null {
 }
 
 const FROM = 'MaiHealth <noreply@mai-health.de>'
-const SITE_URL = 'https://mai-health.de'
+export const SITE_URL = 'https://mai-health.de'
 
 export type Locale = 'de' | 'en'
 
@@ -124,12 +124,13 @@ export async function sendBookingConfirmation(opts: {
   name: string
   date: Date
   duration: number
+  joinPageUrl?: string
   zoomJoinUrl?: string
   locale?: string
 }) {
   const resend = getResend()
   if (!resend) return
-  const { to, name, date, duration, zoomJoinUrl } = opts
+  const { to, name, date, duration, joinPageUrl, zoomJoinUrl } = opts
   const L = normLocale(opts.locale)
 
   const t = {
@@ -140,6 +141,8 @@ export async function sendBookingConfirmation(opts: {
       intro: 'Ihr Termin wurde gebucht:',
       lDate: 'Datum', lTime: 'Uhrzeit', lDuration: 'Dauer', minutes: 'Minuten',
       video: 'Videogespräch', join: 'Zoom-Meeting beitreten',
+      joinBtn: 'Zum Videogespräch',
+      joinNote: 'Über diesen Button gelangen Sie ab 15 Minuten vor Beginn direkt in Ihr Videogespräch.',
       outro: 'Sie erhalten vor Ihrem Termin eine Erinnerung. Wenn Sie den Termin verschieben möchten, melden Sie sich gerne bei uns.',
     },
     en: {
@@ -149,7 +152,79 @@ export async function sendBookingConfirmation(opts: {
       intro: 'Your appointment has been booked:',
       lDate: 'Date', lTime: 'Time', lDuration: 'Duration', minutes: 'minutes',
       video: 'Video Call', join: 'Join Zoom Meeting',
+      joinBtn: 'Join your consultation',
+      joinNote: 'This button takes you straight into your video call, starting 15 minutes before your appointment.',
       outro: "You'll receive a reminder before your appointment. If you need to reschedule, please get in touch.",
+    },
+  }[L]
+
+  // Prefer the website join page (works without login, reveals the Zoom link at
+  // call time). Fall back to the raw Zoom link only if no join page is given.
+  const cta = joinPageUrl
+    ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>`
+    : zoomJoinUrl
+      ? `<p><strong>${t.video}:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">${t.join}</a></p>`
+      : ''
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: t.subject,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <p>${t.greeting}</p>
+      <p>${t.intro}</p>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>${t.lDate}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
+      </div>
+      ${cta}
+      <p>${t.outro}</p>
+    `, L),
+  })
+}
+
+// Sent ~1 hour before the appointment by the cron job. Returns true only if an
+// email was actually dispatched (false when Resend isn't configured), so the
+// cron only marks the appointment as reminded when the send really happened.
+export async function sendAppointmentReminder(opts: {
+  to: string
+  name: string
+  date: Date
+  duration: number
+  joinPageUrl?: string
+  locale?: string
+}): Promise<boolean> {
+  const resend = getResend()
+  if (!resend) return false
+  const { to, name, date, duration, joinPageUrl } = opts
+  const L = normLocale(opts.locale)
+
+  const t = {
+    de: {
+      subject: 'Erinnerung: Ihr MaiHealth-Termin in 1 Stunde',
+      heading: 'Ihr Termin beginnt bald',
+      greeting: `Hallo ${name},`,
+      intro: 'Ihr Videogespräch beginnt in etwa einer Stunde:',
+      lDate: 'Datum', lTime: 'Uhrzeit', lDuration: 'Dauer', minutes: 'Minuten',
+      joinBtn: 'Zum Videogespräch',
+      joinNote: 'Der Button ist ab 15 Minuten vor Beginn aktiv.',
+      outro: 'Bis gleich!',
+    },
+    en: {
+      subject: 'Reminder: your MaiHealth appointment in 1 hour',
+      heading: 'Your appointment is coming up',
+      greeting: `Dear ${name},`,
+      intro: 'Your video consultation starts in about an hour:',
+      lDate: 'Date', lTime: 'Time', lDuration: 'Duration', minutes: 'minutes',
+      joinBtn: 'Join your consultation',
+      joinNote: 'The button activates 15 minutes before the start.',
+      outro: 'See you soon!',
     },
   }[L]
 
@@ -166,8 +241,69 @@ export async function sendBookingConfirmation(opts: {
         <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
         <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
       </div>
-      ${zoomJoinUrl ? `<p><strong>${t.video}:</strong> <a href="${zoomJoinUrl}" style="color: #8B9A6B;">${t.join}</a></p>` : ''}
+      ${joinPageUrl ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>` : ''}
       <p>${t.outro}</p>
+    `, L),
+  })
+
+  return true
+}
+
+// Notifies the practice (Dr. Mai) that a consultation is on the calendar, with
+// the same website join link the patient gets so she can host from there.
+export async function sendAdminAppointmentScheduled(opts: {
+  patientName: string
+  date: Date
+  duration: number
+  joinPageUrl?: string
+  locale?: string
+}) {
+  const resend = getResend()
+  if (!resend) return
+  const { patientName, date, duration, joinPageUrl } = opts
+  const L = normLocale(opts.locale)
+
+  const t = {
+    de: {
+      subject: `Termin bestätigt: ${patientName} · ${formatDate(date, L)}`,
+      heading: 'Termin im Kalender',
+      lPatient: 'Patient:in', lDate: 'Datum', lTime: 'Uhrzeit', lDuration: 'Dauer', minutes: 'Minuten',
+      joinBtn: 'Videogespräch starten',
+      joinNote: 'Der Button ist ab 15 Minuten vor Beginn aktiv.',
+      cta: 'Im Admin-Bereich ansehen →',
+    },
+    en: {
+      subject: `Appointment confirmed: ${patientName} · ${formatDate(date, L)}`,
+      heading: 'Appointment Scheduled',
+      lPatient: 'Patient', lDate: 'Date', lTime: 'Time', lDuration: 'Duration', minutes: 'minutes',
+      joinBtn: 'Start video call',
+      joinNote: 'The button activates 15 minutes before the start.',
+      cta: 'View in admin panel →',
+    },
+  }[L]
+
+  await resend.emails.send({
+    from: FROM,
+    to: await getAdminRecipients(),
+    subject: t.subject,
+    html: layout(`
+      <h2 style="font-size: 20px; margin: 0 0 16px;">${t.heading}</h2>
+      <div style="background: #F5F1EC; border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <p style="margin: 0 0 4px;"><strong>${t.lPatient}:</strong> ${patientName}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lDate}:</strong> ${formatDate(date, L)}</p>
+        <p style="margin: 0 0 4px;"><strong>${t.lTime}:</strong> ${formatTime(date, L)}</p>
+        <p style="margin: 0;"><strong>${t.lDuration}:</strong> ${duration} ${t.minutes}</p>
+      </div>
+      ${joinPageUrl ? `
+      <div style="margin: 24px 0;">
+        <a href="${joinPageUrl}" style="display: inline-block; background: #8B9A6B; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 999px; font-weight: 600;">${t.joinBtn}</a>
+      </div>
+      <p style="font-size: 13px; color: #777;">${t.joinNote}</p>` : ''}
+      <p><a href="${SITE_URL}/portal/admin/appointments" style="color: #8B9A6B;">${t.cta}</a></p>
     `, L),
   })
 }

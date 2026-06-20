@@ -39,6 +39,12 @@ declare module "nitropack/types" {
     '/api/contact': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/contact.post').default>>>>
     }
+    '/api/cron/reminders': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/cron/reminders').default>>>>
+    }
+    '/api/join/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/join/[id].get').default>>>>
+    }
     '/api/newsletter': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/newsletter.post').default>>>>
     }

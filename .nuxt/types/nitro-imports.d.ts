@@ -2,6 +2,7 @@ declare global {
   const ADMIN_EMAILS: typeof import('../../server/utils/admins')['ADMIN_EMAILS']
   const LOGO_BASE64: typeof import('../../server/utils/email-logo')['LOGO_BASE64']
   const PRIVACY_POLICY_VERSION: typeof import('../../server/utils/consent')['PRIVACY_POLICY_VERSION']
+  const SITE_URL: typeof import('../../server/utils/email')['SITE_URL']
   const __buildAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['buildAssetsURL']
   const __publicAssetsURL: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/paths')['publicAssetsURL']
   const appendCorsHeaders: typeof import('../../node_modules/h3')['appendCorsHeaders']
@@ -11,6 +12,7 @@ declare global {
   const appendResponseHeader: typeof import('../../node_modules/h3')['appendResponseHeader']
   const appendResponseHeaders: typeof import('../../node_modules/h3')['appendResponseHeaders']
   const assertMethod: typeof import('../../node_modules/h3')['assertMethod']
+  const buildJoinPageUrl: typeof import('../../server/utils/appointments')['buildJoinPageUrl']
   const cachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache')['cachedEventHandler']
   const cachedFunction: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache')['cachedFunction']
   const callNodeListener: typeof import('../../node_modules/h3')['callNodeListener']
@@ -42,6 +44,7 @@ declare global {
   const defineWebSocket: typeof import('../../node_modules/h3')['defineWebSocket']
   const defineWebSocketHandler: typeof import('../../node_modules/h3')['defineWebSocketHandler']
   const deleteCookie: typeof import('../../node_modules/h3')['deleteCookie']
+  const deleteZoomMeeting: typeof import('../../server/utils/zoom')['deleteZoomMeeting']
   const dynamicEventHandler: typeof import('../../node_modules/h3')['dynamicEventHandler']
   const eventHandler: typeof import('../../node_modules/h3')['eventHandler']
   const fetchWithEvent: typeof import('../../node_modules/h3')['fetchWithEvent']
@@ -87,6 +90,7 @@ declare global {
   const isStream: typeof import('../../node_modules/h3')['isStream']
   const isWebResponse: typeof import('../../node_modules/h3')['isWebResponse']
   const lazyEventHandler: typeof import('../../node_modules/h3')['lazyEventHandler']
+  const makeJoinToken: typeof import('../../server/utils/appointments')['makeJoinToken']
   const nitroPlugin: typeof import('../../node_modules/nitropack/dist/runtime/internal/plugin')['nitroPlugin']
   const normLocale: typeof import('../../server/utils/email')['normLocale']
   const parseCookies: typeof import('../../node_modules/h3')['parseCookies']
@@ -103,11 +107,13 @@ declare global {
   const sanitizeStatusMessage: typeof import('../../node_modules/h3')['sanitizeStatusMessage']
   const sealSession: typeof import('../../node_modules/h3')['sealSession']
   const send: typeof import('../../node_modules/h3')['send']
+  const sendAdminAppointmentScheduled: typeof import('../../server/utils/email')['sendAdminAppointmentScheduled']
   const sendAdminContactForm: typeof import('../../server/utils/email')['sendAdminContactForm']
   const sendAdminNewRequest: typeof import('../../server/utils/email')['sendAdminNewRequest']
   const sendAdminPortalRequest: typeof import('../../server/utils/email')['sendAdminPortalRequest']
   const sendAdminReply: typeof import('../../server/utils/email')['sendAdminReply']
   const sendAppointmentCancelled: typeof import('../../server/utils/email')['sendAppointmentCancelled']
+  const sendAppointmentReminder: typeof import('../../server/utils/email')['sendAppointmentReminder']
   const sendBookingConfirmation: typeof import('../../server/utils/email')['sendBookingConfirmation']
   const sendError: typeof import('../../node_modules/h3')['sendError']
   const sendIterable: typeof import('../../node_modules/h3')['sendIterable']
@@ -135,6 +141,7 @@ declare global {
   const toWebRequest: typeof import('../../node_modules/h3')['toWebRequest']
   const unsealSession: typeof import('../../node_modules/h3')['unsealSession']
   const updateSession: typeof import('../../node_modules/h3')['updateSession']
+  const updateZoomMeeting: typeof import('../../server/utils/zoom')['updateZoomMeeting']
   const useAppConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config')['useAppConfig']
   const useBase: typeof import('../../node_modules/h3')['useBase']
   const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context')['useEvent']
@@ -166,10 +173,11 @@ export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHead
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '../../node_modules/nuxt/dist/core/runtime/nitro/paths';
 export { defineAppConfig } from '../../node_modules/nuxt/dist/core/runtime/nitro/config';
 export { ADMIN_EMAILS, getAdminRecipients } from '../../server/utils/admins';
+export { makeJoinToken, buildJoinPageUrl } from '../../server/utils/appointments';
 export { PRIVACY_POLICY_VERSION, consentRecord } from '../../server/utils/consent';
 export { LOGO_BASE64 } from '../../server/utils/email-logo';
-export { normLocale, sendNewsletterConfirm, sendBookingConfirmation, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminReply, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
+export { SITE_URL, normLocale, sendNewsletterConfirm, sendBookingConfirmation, sendAppointmentReminder, sendAdminAppointmentScheduled, sendRequestReceived, sendRequestDeclined, sendAppointmentCancelled, sendAdminReply, sendAdminNewRequest, sendAdminContactForm, sendAdminPortalRequest } from '../../server/utils/email';
 export { getAdminAuth, getAdminDb } from '../../server/utils/firebase-admin';
 export { simplePage } from '../../server/utils/html-page';
 export { verifyAuth } from '../../server/utils/verify-auth';
-export { createZoomMeeting } from '../../server/utils/zoom';
+export { createZoomMeeting, updateZoomMeeting, deleteZoomMeeting } from '../../server/utils/zoom';

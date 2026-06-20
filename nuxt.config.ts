@@ -78,6 +78,7 @@ export default defineNuxtConfig({
     zoomAccountId: '',
     zoomClientId: '',
     zoomClientSecret: '',
+    cronSecret: '',
     contactEmail: 'Mai.jimenez@gmx.de',
     public: {
       firebaseApiKey: '',

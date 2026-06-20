@@ -265,8 +265,8 @@
             <p class="text-sm font-semibold text-charcoal">{{ formatDisplayDate(confirmedDate!) }}</p>
             <p class="text-sm text-body/60 mt-0.5">{{ confirmedTime }} · {{ bookResult?.duration || slotDuration }} min</p>
             <a
-              v-if="bookResult?.zoomJoinUrl"
-              :href="bookResult.zoomJoinUrl"
+              v-if="bookResult?.joinPageUrl"
+              :href="bookResult.joinPageUrl"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-1.5 text-sm text-sage font-medium mt-3 hover:underline"
@@ -485,7 +485,7 @@ const googleCalendarLink = computed(() => {
   const start = new Date(selectedSlot.value)
   const end = new Date(start.getTime() + (bookResult.value?.duration ?? slotDuration.value) * 60_000)
   const fmt = (d: Date) => d.toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z'
-  const details = bookResult.value?.zoomJoinUrl ?? ''
+  const details = bookResult.value?.joinPageUrl ?? ''
   return (
     `https://calendar.google.com/calendar/render?action=TEMPLATE` +
     `&text=${encodeURIComponent('MaiHealth Consultation')}` +

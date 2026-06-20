@@ -1,6 +1,7 @@
 import { getAdminDb, getAdminAuth } from '../../utils/firebase-admin'
 import { createZoomMeeting } from '../../utils/zoom'
-import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest, normLocale } from '../../utils/email'
+import { sendBookingConfirmation, sendRequestReceived, sendAdminNewRequest, sendAdminAppointmentScheduled, normLocale } from '../../utils/email'
+import { makeJoinToken, buildJoinPageUrl } from '../../utils/appointments'
 import { consentRecord } from '../../utils/consent'
 import { Timestamp } from 'firebase-admin/firestore'
 
@@ -111,6 +112,8 @@ export default defineEventHandler(async (event) => {
       zoomJoinUrl = meeting.joinUrl
     }
 
+    const joinToken = makeJoinToken()
+
     const apptRef = await db.collection('appointments').add({
       patientId: decoded!.uid,
       patientName,
@@ -122,18 +125,29 @@ export default defineEventHandler(async (event) => {
       status: 'scheduled',
       zoomMeetingId,
       zoomJoinUrl,
+      joinToken,
       notes: reason || '',
       consent: consent_,
       locale: loc,
       createdAt: Timestamp.now(),
     })
 
+    const joinPageUrl = buildJoinPageUrl(apptRef.id, joinToken)
+
     await sendBookingConfirmation({
       to: patientEmail,
       name: patientName,
       date: slotDate,
       duration: slotDuration,
-      zoomJoinUrl,
+      joinPageUrl,
+      locale: loc,
+    })
+
+    await sendAdminAppointmentScheduled({
+      patientName,
+      date: slotDate,
+      duration: slotDuration,
+      joinPageUrl,
       locale: loc,
     })
 
@@ -141,6 +155,7 @@ export default defineEventHandler(async (event) => {
       type: 'booked',
       appointmentId: apptRef.id,
       zoomJoinUrl,
+      joinPageUrl,
       date: slotDate.toISOString(),
       duration: slotDuration,
     }

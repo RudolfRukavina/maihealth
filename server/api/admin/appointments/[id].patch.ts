@@ -1,10 +1,13 @@
 import { getAdminDb } from '../../../utils/firebase-admin'
 import { verifyAuth } from '../../../utils/verify-auth'
 import { sendAppointmentCancelled, sendBookingConfirmation } from '../../../utils/email'
+import { updateZoomMeeting, deleteZoomMeeting } from '../../../utils/zoom'
+import { makeJoinToken, buildJoinPageUrl } from '../../../utils/appointments'
 import { Timestamp } from 'firebase-admin/firestore'
 
 export default defineEventHandler(async (event) => {
   const decoded = await verifyAuth(event)
+  const config = useRuntimeConfig()
   const db = getAdminDb()
 
   const userDoc = await db.collection('users').doc(decoded.uid).get()
@@ -24,10 +27,32 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const updates: Record<string, any> = {}
 
-  if (body.date) updates.date = Timestamp.fromDate(new Date(body.date))
+  if (body.date) {
+    updates.date = Timestamp.fromDate(new Date(body.date))
+    // New time → allow the 1h-before reminder to fire again.
+    updates.reminderSent = false
+  }
   if (body.duration) updates.duration = body.duration
   if (body.status) updates.status = body.status
   if (body.notes !== undefined) updates.notes = body.notes
+
+  // Keep the actual Zoom meeting in sync before persisting the change.
+  const zoomEnabled = !!(config.zoomClientId && config.zoomClientSecret)
+  const isCancelling = body.status === 'cancelled' && existing.status !== 'cancelled'
+
+  if (zoomEnabled && existing.zoomMeetingId) {
+    if (isCancelling) {
+      await deleteZoomMeeting(existing.zoomMeetingId)
+      updates.zoomMeetingId = ''
+      updates.zoomJoinUrl = ''
+    } else if (body.date || body.duration) {
+      const startTime = (body.date ? new Date(body.date) : existing.date?.toDate?.() || new Date()).toISOString()
+      await updateZoomMeeting(existing.zoomMeetingId, {
+        startTime,
+        duration: body.duration || existing.duration || 60,
+      })
+    }
+  }
 
   await db.collection('appointments').doc(id).update(updates)
 
@@ -42,12 +67,19 @@ export default defineEventHandler(async (event) => {
     }
 
     if (body.date && body.date !== existing.date?.toDate?.()?.toISOString()) {
+      // Reuse the appointment's join token (backfilling one for older docs).
+      let joinToken = existing.joinToken
+      if (!joinToken) {
+        joinToken = makeJoinToken()
+        await db.collection('appointments').doc(id).update({ joinToken })
+      }
+
       await sendBookingConfirmation({
         to: patientEmail,
         name: patientName,
         date: new Date(body.date),
         duration: body.duration || existing.duration || 60,
-        zoomJoinUrl: existing.zoomJoinUrl,
+        joinPageUrl: buildJoinPageUrl(id, joinToken),
         locale: loc,
       })
     }

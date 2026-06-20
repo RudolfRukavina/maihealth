@@ -66,3 +66,45 @@ export async function createZoomMeeting(topic: string, startTime: string, durati
     joinUrl: meeting.join_url,
   }
 }
+
+export async function updateZoomMeeting(
+  meetingId: string,
+  updates: { topic?: string; startTime?: string; duration?: number }
+) {
+  const token = await getZoomAccessToken()
+
+  const body: Record<string, any> = { timezone: 'Europe/Berlin' }
+  if (updates.topic !== undefined) body.topic = updates.topic
+  if (updates.startTime !== undefined) body.start_time = updates.startTime
+  if (updates.duration !== undefined) body.duration = updates.duration
+
+  const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  })
+
+  // 404 means the meeting no longer exists on Zoom — nothing to update.
+  if (!response.ok && response.status !== 404) {
+    throw new Error(`Zoom meeting update failed: ${response.statusText}`)
+  }
+}
+
+export async function deleteZoomMeeting(meetingId: string) {
+  const token = await getZoomAccessToken()
+
+  const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+
+  // 404 means the meeting is already gone — treat as success.
+  if (!response.ok && response.status !== 404) {
+    throw new Error(`Zoom meeting deletion failed: ${response.statusText}`)
+  }
+}

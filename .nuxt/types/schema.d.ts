@@ -145,6 +145,8 @@ declare module 'nuxt/schema' {
 
    zoomClientSecret: string,
 
+   cronSecret: string,
+
    contactEmail: string,
 
    nitro: {
